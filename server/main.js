@@ -4,8 +4,85 @@ Meteor.startup(() => {
 
 	console.log("\n\tServer Started.\n");
 
+	/*
+
+	Master User Record: Meteor.users
+	It contains Login access tokens, and 1 object for every event registration.
+
+	User s = Meteor.users.find().fetch()[0]
+
+	s = { _id: 'ID_0',
+	    createdAt: 2018-11-09T10:02:40.554Z,
+	    services: { google: [Object], resume: [Object] },
+	    
+	    profile: { 
+	       code: 'CA5V7I0003',
+	       isAdmin: false,
+	       name: 'Web Team',
+	       phoneNumber: '1234567890',
+	       referals: 0,
+	       score: 15 
+	    },
+
+	    event_ca: { id: 'ID_1' } //Refers to Id in the event specific Table
+	    event_cryptex: { id: 'ID_xxxx' }
+	}
+
+	//CA Table
+	CAs = new Mongo.Collection('CA')
+
+	ca = {
+		 _id: 'ID_1',
+	    createdAt: 2018-11-09T10:02:40.554Z,
+	    	//Refers to id in Master User Table
+	    parent: 'ID_0',
+	    	//CA (Event related Info)
+	    name: 'Web Team',
+	    isAdmin: false,
+	    score: 15,
+	    phoneNumber: '1234567890',
+	    referals: 0,
+	    code: 'CA5V7I0003',
+	    city: 'wiofhk',
+	    collegeName: 'oweMFH' 
+	}
+
+	//Cryptex Table
+	Cryptex = new Mongo.Collection('Cryptex')
+
+	c = {
+		 _id: 'ID_xxxx',
+	    createdAt: 2018-11-09T10:02:40.554Z,
+	    	//Refers to id in Master User Table
+	    parent: 'ID_0',
+	    	//Cryptex (Event related Info)
+	    level: 3
+	}
+
+	TODO:
+	0)* Use Global Strings to refer to various events instead of local string constants
+	1)* Make a generic isRegisteredForEvent(), register() Meteor Method
+	2) Make a generic "RegisterForThisEventButton" Template
+	3) Change the backend to work with new frontend
+		a)* Change Meteor Startup
+		b) Go through all CA Meteor functions
+		c) Test Rigorously
+		d) Discuss any security issues they might later become imp. for Cryptex
+	4)* Migrate DB to new Schema and Tables
+
+	in frontend template:
+		{{ #if isLoggedIn }}
+			{{ #if isRegisteredForEvent }}
+				{{ > Template For Event }}
+			{{ else }}
+				{{ > RegisterForThisEventButton }}
+			{{ /if }}
+		{{ else }}
+			{{ >loginButtons }}
+		{{ /if }}
+	*/
+
 	// Meteor.users.remove({});
-	Posts = new Mongo.Collection('posts');
 
 	console.log('DB constains ' + Meteor.users.find({}).count() + ' documents.');
 	console.log('DB constains ' + Meteor.users.find({isAdmin: true}).count() + ' Admins.');
@@ -26,31 +103,111 @@ Meteor.startup(() => {
 	Accounts.onCreateUser((options, user) => {
 		if (!('profile' in options)) { options.profile = {}; }
 		if (!('providers' in options.profile)) { options.profile.providers = {}; }
-
-		var i = Meteor.users.find({}).count() + 1;
-			
-		user.name = user.services.google.name;
-		user.isAdmin = false;
-		user.score = 0;
-		user.phoneNumber = "";
-		user.referals = 0;
-		user.code = 'CA' + user._id.substring(0, 4).toUpperCase() + '0000'.substring(0, 4 - String(i).length) + i;
 		return user;
 	});
 
 	Accounts.onLogin((loginDetails) => {
-		var t = Meteor.users.findOne({_id: loginDetails.user._id});
+		var masterUser = Meteor.users.findOne({_id: loginDetails.user._id});
 
-		Meteor.users.update({_id: loginDetails.user._id}, {$set:{
-			'profile.name' : t.name,
-			'profile.isAdmin' : t.isAdmin,
-			'profile.score' : t.score,
-			'profile.phoneNumber' : t.phoneNumber,
-			'profile.code' : t.code,
-			'profile.referals' : t.referals
-		}});
+		var t = {};
+
+		for(var i = 0; i < Tables.length; i++){
+			var eventName = Events[i]; 
+			if(!masterUser[eventName]) continue; //User hasn't registered for ith Event
+			var eventUser = Tables[i].findOne({ _id: masterUser[eventName].id });
+			if(eventUser.parent) delete eventUser.parent;
+			t[eventName] = eventUser; //Copy over all event Specific Info except parentID
+		}
+		t.phoneNumber = masterUser.phoneNumber;
+		t.city = masterUser.city;
+		t.collegeName = masterUser.collegeName;
+
+		Meteor.users.update({_id: masterUser._id}, {$set:{profile: t}});
 	});
+	
+	//Migration Code
+	// Meteor.users.find().fetch().forEach( user => {
+	// 	Meteor.call('registerForEvent', user._id, 'event_ca', (err, val) => {
+	// 		var res = '';
+	// 		res += ('Register For Event: ' + val);
+	// 		// if(val !== 'Success') return;
+	// 		var masterUser = Meteor.users.findOne({ _id: user._id });
+	// 		var eventUser = Tables[0].findOne({_id: masterUser.event_ca.id});
+	// 		res += ('\n EventUser Found: ' + (eventUser !== undefined));
+	// 		eventUser.name = masterUser.name;
+	// 		eventUser.isAdmin = masterUser.isAdmin;
+	// 		eventUser.score = masterUser.score;
+	// 		eventUser.phoneNumber = masterUser.phoneNumber;
+	// 		eventUser.referals = masterUser.referals;
+	// 		eventUser.code = masterUser.code;
+	// 		eventUser.collegeName = masterUser.collegeName;
+	// 		eventUser.city = masterUser.city;
+	// 		Tables[0].update({_id: eventUser._id}, {$set:eventUser});
+	// 		Meteor.users.update({_id: user._id }, {$unset:{
+	// 			name: eventUser.name,
+	// 			isAdmin: eventUser.isAdmin,
+	// 			score: eventUser.score,
+	// 			//phoneNumber: eventUser.phoneNumber,
+	// 			referals: eventUser.referals,
+	// 			code: eventUser.code,
+	// 			//collegeName: 'something',
+	// 			//city: 'something',
+	// 			profile: eventUser.profile
+	// 		}});
+	// 		if(err) console.log(err);
+	// 		console.log(res);
+	// 	});
+	// });
+	
 });
+
+/*
+
+Steps to add an event:
+1) add a unique entry to the Events Array
+2) add a unique Collection to Tables Array
+3) add a unique function with the standard signature to the Contructors Array
+4) Add Routing Information to Client JS
+5) Write Your loggedOut and LoggedIn Templates
+6) Write Your helpers
+ 
+*/
+
+Events = ['event_ca', 'event_cryptex'];
+Tables = [new Mongo.Collection('ca'), new Mongo.Collection('cryptex')];
+Posts = new Mongo.Collection('posts'); //CA Specific Collection
+Constructors = [
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			isAdmin: false,
+			score: 0,
+			phoneNumber: "",
+			referals: 0,
+			code: 'CA' + masterUser._id.substring(0, 4).toUpperCase() + 
+				'0000'.substring(0, 4 - String(eventIndex).length) + eventIndex,
+			hasAskedForRefCode: false
+		};
+	},
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			pseudoName: "",
+			level: 0,
+		}
+	}
+]
+
+isValidEventName = (name) => {
+	//This checks if given name is a valid name. Checking is important as event
+	//names are subfields in the Master User Table, and are the only record for
+	//telling is a user is registered for that event or not.
+	//@param 'name': Name of the event to be checked
+	//@return boolean: true if Events array has an element equal to 'name'
+	return Events.find((s) => s === name) !== undefined;
+}
 
 makeDocument = (content, time, expiry, score, adminName) => {
 	return {
@@ -62,15 +219,56 @@ makeDocument = (content, time, expiry, score, adminName) => {
 	};
 }
 
-updateScore = (id, newScore) => {
-	Meteor.users.update({_id: id}, {$set:{
-		'score' : newScore
-	}});
-}
-
 Meteor.methods({
-	submitContent: (content, time, expiry, score, id) => {
+
+	isRegisteredForEvent: (master_id, eventName) => {
+		//This checks if a user is registered for a particular event
+		//@param 'master_id': Id of the user in the Master User Table
+		//@param 'eventName': Event name as described by Events Global
+		//@return boolean: true if user has a field 'eventName' under the Master User Table
+
+		var user = Meteor.users.findOne({ _id: master_id });
+		if(!user) return false;
+		else return user[eventName] !== undefined; 
+	},
+	registerForEvent: (master_id, eventName) => {
+		//This registers a user for a particular event
+		//@param 'master_id': Id of the user in the Master User Table
+		//@param 'eventName': Event name as described by Events Global
+		//@return String: Result of the Operation
+		var user = Meteor.users.findOne({ _id: master_id });
+		if(!user) return 'User Not Found';
+		if(!isValidEventName(eventName)) return 'Invalid Event name';
+		if(user[eventName] !== undefined) return 'User already registered for ' + eventName;
+		var idx = Events.indexOf(eventName),
+			table = Tables[idx];
+		if(!table) return 'Internal DB Error';
+		var eventID = table.insert({ parent: user._id }),
+			t = {};
+		table.update({ _id: eventID }, { $set: 
+			Constructors[idx](user, table.find().count()) 
+		});
+		t[eventName] = { id: eventID };
+		Meteor.users.update({ _id: master_id }, {$set: t})
+		return 'Success';
+	},
+
+	registerNumber: (id, phoneNumber, collegeName, city) => {
 		var user = Meteor.users.findOne({_id: id});
+		if(!user) return 'User not Found';
+
+		Meteor.users.update({ _id: id }, { $set: {
+			phoneNumber: phoneNumber,
+			collegeName: collegeName,
+			city: city
+		} });
+
+		return 'Number Registered successfully, please log in again to continue.';
+	},
+
+	//CA Specific functions, here id is EventUser id
+	submitContent: (content, time, expiry, score, id) => {
+		var user = Tables[0].findOne({_id: id});
 
 		if(!user.isAdmin) return 'Access Denied';
 		if(isNaN(parseFloat(score))) score = 1;
@@ -81,8 +279,8 @@ Meteor.methods({
 	},
 
 	removePost: (adminId, postId) => {
-		var user = Meteor.users.findOne({_id: adminId});
-		if(!user.isAdmin) return 'Access Denied';
+		var user = Tables[0].findOne({_id: adminId});
+		if(!user || !user.isAdmin) return 'Access Denied';
 		return Posts.remove({ _id: postId});
 	},
 
@@ -103,14 +301,14 @@ Meteor.methods({
 	},
 
 	getCAs: (id) => {
-		var user = Meteor.users.findOne({_id: id});
+		var user = Tables[0].findOne({_id: id});
 		if(!user.isAdmin) return 'Access Denied';
 
-		return Meteor.users.find({}, {
+		return Tables[0].find({}, {
 			fields: {
 			score: 1, 
 			name: 1, 
-			'services.google.email': 1, 
+			email: 1, 
 			phoneNumber: 1,
 			collegeName: 1,
 			city: 1,
@@ -121,12 +319,12 @@ Meteor.methods({
 	},
 
 	fetchLeaderBoards: () => {
-		return Meteor.users.find({ isAdmin: false }, 
+		return Tables[0].find({ isAdmin: false }, 
 		{ 
 			fields: {
 				name: 1, 
 				score: 1, 
-				'services.google.email': 1
+				email: 1
 			},
 			sort: { score: -1 }, 
 			limit: 20 
@@ -137,23 +335,26 @@ Meteor.methods({
 		if(!Email) return 'Invalid Email';
 		if(isNaN(score) || !score) return 'Invalid Score';
 
-		var user = Meteor.users.findOne({ 'services.google.email' : Email });
+		var user = Tables[0].findOne({ email : Email });
 
 		if(!user) return 'User Not Found';
-		else updateScore(user._id, parseFloat(user.score) + parseFloat(score));
-
+		else{
+			Tables[0].update({_id: user._id}, {$set:{
+				'score' : (parseFloat(user.score) + parseFloat(score))
+			}});
+		}
 		return 'Score successfully updated';
 	},
 
-	registerNumber: (id, phoneNumber, collegeName, city, refCode) => {
-		var user = Meteor.users.findOne({_id: id});
+	applyRefCode: (CAid, refCode) => {
+		var user = Tables[0].findOne({_id: CAid});
 		if(!user) return 'User not Found';
 
 		var del = 0;
 		if(refCode !== ''){
-			var refer = Meteor.users.find({ code: refCode }).fetch();
+			var refer = Tables[0].find({ code: refCode }).fetch();
 			for (var i = refer.length - 1; i >= 0; i--) {
-				Meteor.users.update({ _id: refer[i]._id }, { $set: {referals:parseFloat(refer[i].referals) + 1} });
+				Tables[0].update({ _id: refer[i]._id }, { $set: {referals:parseFloat(refer[i].referals) + 1} });
 			}
 			if(refer.length > 0)
 				del += 5;
@@ -161,24 +362,23 @@ Meteor.methods({
 
 		if(refCode === 'WACELAN') del += 15;
 
-		Meteor.users.update({ _id: id }, { $set: {
-			phoneNumber: phoneNumber,
-			collegeName: collegeName,
-			city: city,
-			score: del
+		Tables[0].update({ _id: CAid }, { $set: {
+			score: del,
+			hasAskedForRefCode: true
 		} });
 
-		return 'Number Registered successfully, please log in again to continue.';
+		return 'Code Applied successfully.';
 	},
+
 	superSecretCommand: (id, command, obj1, obj2) => {
-		var user = Meteor.users.findOne({_id: id});
+		var user = Tables[0].findOne({_id: id});
 		if(!user.isAdmin) return 'Access Denied';
 
 		if(command === 'find'){
-			return Meteor.users.find(obj1, obj2).fetch();
+			return Tables[0].find(obj1, obj2).fetch();
 		}
 		else if(command === 'update'){
-			return Meteor.users.update(obj1, obj2).fetch();
+			return Tables[0].update(obj1, obj2).fetch();
 		}
 	},
 
@@ -186,7 +386,7 @@ Meteor.methods({
 		var serviceAcc = ServiceConfiguration.configurations.find().fetch();
 		if(!serviceAcc || serviceAcc[0] === undefined) return 'Service Account config invalid.';
 		if(!spreadsheetName) return 'Spreadsheet Name invalid';
-		var admin = Meteor.users.findOne({_id: adminID});
+		var admin = Tables[0].findOne({_id: adminID});
 		if(!admin.isAdmin) return 'Access Denied';
 
 		console.log('Admin ' + admin.name + ' (id:' + admin._id + ')has started data export...');
@@ -194,14 +394,14 @@ Meteor.methods({
 
 		var obj = { 1: {} };
 		var colPropNames = ['name', 'isAdmin', 'city', 'collegeName',
-			'services.google.email', 'score', 'phoneNumber', 'code', 'referals'];
+			'email', 'score', 'phoneNumber', 'code', 'referals'];
 
 		for (var i = 1; i <= colPropNames.length; i++) {
 			obj[1][i] = colPropNames[i-1];
 		}
 
 		var row = 2;
-		Meteor.users.find().fetch().forEach((user) => {
+		Tables[0].find().fetch().forEach((user) => {
 			obj[row] = {};
 			var col = 1;
 			colPropNames.forEach((propName) => {
@@ -228,7 +428,7 @@ Meteor.methods({
 	},
 
 	getServiceAccount: (adminID) => {
-		var admin = Meteor.users.findOne({_id: adminID});
+		var admin = Tables[0].findOne({_id: adminID});
 		if(!admin.isAdmin) return 'Access Denied';
 
 		var serviceAcc = ServiceConfiguration.configurations.find().fetch();
@@ -237,18 +437,29 @@ Meteor.methods({
 		return serviceAcc[0].serviceEmail;
 	},
 	sendNotifications: (adminID, title, text) => {
-		var admin = Meteor.users.findOne({_id: adminID});
+		var admin = Tables[0].findOne({_id: adminID});
 		if(!admin.isAdmin) return 'Access Denied';
 
 		console.log(title);
 
-		var users = Meteor.users.find().fetch();
+		var users = Tables[0].find({}, {fields:{phoneNumber: 1, parent:1}}).fetch();
 		console.log('Preparing to Send Notification to ' + users.length + ' CAs.');
 
 
 		users.forEach((user) => {
 			if(user.phoneNumber === '') return;
-			Meteor.ClientCall.apply(user._id, 'notify', [title, text]);
+			Meteor.ClientCall.apply(user.parent, 'notify', [title, text]);
 		});
 	},
+
+	//Cryptex Specific Code
+	requestPseudoName: (id, name) => {
+		if(!id || !name) return 'Invalid Arguments';
+		var usr = Tables[1].findOne({_id: id});
+		if(!usr) return 'Invalid User Id';
+		var other = Tables[1].findOne({pseudoName: name});
+		if(other) return 'Pseudo name already used.';
+		Tables[1].update({_id: id}, {$set:{'pseudoName': name}});
+		return 'success';
+	}
 });

@@ -3,7 +3,29 @@ import { ReactiveVar } from 'meteor/reactive-var';
 
 import './main.html';
 
-FlowRouter.route('/ca', {});
+FlowRouter.route('/ca', {
+	action: () => {
+		document.title = "CA Portal";
+		BlazeLayout.render('top', {
+			actual: 'caportal', 
+			loggedOut: 'home',
+			eventName: 'event_ca',
+			name: 'the Campus Ambassador Program'
+		});
+	}
+});
+
+FlowRouter.route('/cryptex', {
+	action: () => {
+		document.title = "Cryptex 2019";
+		BlazeLayout.render('top', {
+			actual: 'cryptexMain', 
+			loggedOut: 'cryptexHome',
+			eventName: 'event_cryptex',
+			name: 'Cryptex 2019'
+		});
+	}
+});
 
 FlowRouter.route('/*', {
 	action: () => {
@@ -21,14 +43,56 @@ Accounts.onLogout((param) => {
 });
 
 Template.top.helpers({
-  	isPhoneRegistered() {
+  	isRegisteredForEvent(eventName) {
   		if(Meteor.user()){
-  			return !(Meteor.user().profile.phoneNumber === "");
+  			return Meteor.user().profile[eventName];
   		}
-  	}
+  	},
 });
 
-Template.info.helpers({
+Template.top.events({
+	'click #Register': () => {
+		Meteor.call('registerForEvent', Meteor.user()._id, 
+			Template.instance().data.eventName(), (err, val) => {
+				console.log(val);
+				window.Reload._reload();
+			})
+	}
+});
+
+
+Template.registerNumber.events({
+	'click #addNumber': () => {
+		var t = document.getElementById('actualNumber').value;
+		var n = document.getElementById('collegeName').value;
+		var c = document.getElementById('city').value;
+
+		var heading = document.getElementById('ThisNeedsToBeSomething');
+
+		if(t.toString().length !== 10 || isNaN(parseFloat(t))){
+			heading.innerHTML = "Please Enter your Correct 10 digit Phone Number";
+			return;
+		}
+		if(!n){
+			heading.innerHTML = "Please Enter Your College Name";
+			return;
+		}
+		if(!c){
+			heading.innerHTML = "Please Enter Your City of Residence";
+			return;
+		}
+
+		Meteor.call('registerNumber', Meteor.user()._id, t, n, c,
+			(err, val) => { 
+				heading.innerHTML = val;
+				window.Reload._reload();
+			}
+		);
+	}
+});
+
+
+Template.caportal.helpers({
   	entries() {
   		Meteor.call('getPosts', 0, 100,
   		(err, val) => { 
@@ -45,14 +109,14 @@ Template.info.helpers({
   				row.appendChild(content);
   				row.appendChild(expiry);
   				row.appendChild(admin);
-  				if(Meteor.user() && Meteor.user().profile.isAdmin){
+  				if(Meteor.user() && Meteor.user().profile.event_ca.isAdmin){
   					var rmBtn = document.createElement('button');
 					rmBtn.innerHTML = 'Remove';
 					rmBtn.style.color = 'Black';
 					rmBtn.removeID = val[i]._id;
 					rmBtn.row = row;
 					rmBtn.addEventListener('click', (e) => {
-						Meteor.call('removePost', Meteor.user()._id, e.target.removeID);
+						Meteor.call('removePost', Meteor.user().profile.event_ca._id, e.target.removeID);
 						table.removeChild(e.target.row);
 					});
   					row.appendChild(rmBtn);
@@ -72,7 +136,7 @@ Template.info.helpers({
   				rank.innerHTML = i + 1;
   				name.innerHTML = val[i].name;
   				score.innerHTML = val[i].score;
-  				email.innerHTML = val[i].services.google.email;
+  				email.innerHTML = val[i].email;
   				var row = document.createElement('tr');
 				row.appendChild(rank);
 				row.appendChild(name);
@@ -81,12 +145,9 @@ Template.info.helpers({
   				list.appendChild(row);
   			};
   		});
-  	}
-});
-
-Template.adminPanel.helpers({
+  	},
 	caentries() {
-  		Meteor.call('getCAs', Meteor.userId(),
+  		Meteor.call('getCAs', Meteor.user().profile.event_ca._id,
   		(err, val) => { 
   			if(val === 'Access Denied') {
   				document.getElementById('listLegend').innerHTML = val;
@@ -111,7 +172,7 @@ Template.adminPanel.helpers({
   					city = document.createElement('td');
   				name.innerHTML = val[i].name;
   				score.innerHTML = val[i].score;
-  				email.innerHTML = val[i].services.google.email;
+  				email.innerHTML = val[i].email;
   				number.innerHTML = val[i].phoneNumber;
   				colgName.innerHTML = val[i].collegeName;
   				city.innerHTML = val[i].city;
@@ -129,46 +190,18 @@ Template.adminPanel.helpers({
 		});
   	},
   	getServiceAccount(){
-  		if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.isAdmin){	
-	  		Meteor.call('getServiceAccount', Meteor.user()._id, (err, val) => {
+  		if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.event_ca.isAdmin){	
+	  		Meteor.call('getServiceAccount', Meteor.user().profile.event_ca._id, (err, val) => {
 	  			document.getElementById('servAccName').innerHTML = val;
 	  		});
 	  	}
-  	}
+  	},
+  	hasAskedForRefCode(){
+  		return Meteor.user().profile.event_ca.hasAskedForRefCode;
+  	},
 });
 
-Template.registerNumber.events({
-	'click #addNumber': () => {
-		var t = document.getElementById('actualNumber').value;
-		var n = document.getElementById('collegeName').value;
-		var c = document.getElementById('city').value;
-		var code = document.getElementById('code').value;
-
-		var heading = document.getElementById('ThisNeedsToBeSomething');
-
-		if(t.toString().length !== 10 || isNaN(parseFloat(t))){
-			heading.innerHTML = "Please Enter your Correct 10 digit Phone Number";
-			return;
-		}
-		if(!n){
-			heading.innerHTML = "Please Enter Your College Name";
-			return;
-		}
-		if(!c){
-			heading.innerHTML = "Please Enter Your City of Residence";
-			return;
-		}
-
-		Meteor.call('registerNumber', Meteor.user()._id, t, n, c, code,
-			(err, val) => { 
-				heading.innerHTML = val;
-				window.Reload._reload();
-			}
-		);
-	}
-});
-
-Template.adminPanel.events({
+Template.caportal.events({
 	'click .submit' : () => {
 		if(!Meteor.user()) return;
 		var content = document.getElementById('content').value;
@@ -181,7 +214,7 @@ Template.adminPanel.events({
 			i = 'Request Submitted.';
 			Meteor.call('submitContent',
 			 	content, new Date(), new Date(expiry), score,
-			 	Meteor.user()._id,
+			 	Meteor.user().profile.event_ca._id,
 			 	(err, val) => { 
 					if(err) bel.innerHTML = err;
 					else bel.innerHTML = val;
@@ -204,7 +237,7 @@ Template.adminPanel.events({
 			Meteor.call('updateScore',
 			 	score, 
 			 	email,
-			 	Meteor.user()._id,
+			 	Meteor.user().profile.event_ca._id,
 			 	(err, val) => { 
 					if(err) bel.innerHTML = err;
 					else bel.innerHTML = val;
@@ -214,14 +247,14 @@ Template.adminPanel.events({
 		bel.innerHTML = i;
 	},
 	'click .export' : () => {
-  		if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.isAdmin){
+  		if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.event_ca.isAdmin){
 			var name = document.getElementById('nameOfSHeet').value;
 			var i = 'Request Submitted.';
 			if(!name)
 				i = 'Invalid Name';
 			else{
 				Meteor.call('writeSpreadSheet',
-				 	Meteor.user()._id, 
+				 	Meteor.user().profile.event_ca._id, 
 				 	name
 				);
 			}
@@ -237,13 +270,46 @@ Template.adminPanel.events({
 			i = 'Invalid entry';
 		else {
 			Meteor.call('sendNotifications',
-				Meteor.userId(),
+				Meteor.user().profile.event_ca._id,
 				title, 
 				text
 			);
 		}
 		bel.innerHTML = i;
+	},
+	'click .RefCodeSubmit' : () => {
+		var code = document.getElementById('ReferralCode').value;
+		Meteor.call('applyRefCode', Meteor.user().profile.event_ca._id, code);
+		window.Reload._reload();
+	},
+	'click .RefCodeNah' : () => {
+		Meteor.call('applyRefCode', Meteor.user().profile.event_ca._id, '');
+		window.Reload._reload();
 	}
+});
+
+Template.cryptexMain.events({
+	'click .submit_crypt_name': () => {
+		var name = document.getElementById('crypt_name').value;
+		var label = document.getElementById('crypt_label');
+		if(!name || name === '') {
+			label.innerHTML = "Enter a Valid Name";
+			return;
+		}
+		Meteor.call('requestPseudoName',  Meteor.user().profile.event_cryptex._id, name,
+			(err, val) => {
+				if(val === 'success') window.Reload._reload();
+				else label.innerHTML = val;
+			}
+		);
+	}
+});
+
+Template.cryptexMain.helpers({
+	hasPseudoName(){
+		return (Meteor.user() && Meteor.user().profile.event_cryptex && 
+			Meteor.user().profile.event_cryptex.pseudoName != "");
+	},
 });
 
 Meteor.ClientCall.methods({

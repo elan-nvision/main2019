@@ -1,16 +1,26 @@
 <head>
-	<title>CA Portal</title>
+	<title>{{ title }}</title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab" rel="stylesheet">
 	<script type="text/javascript" src="/web-notification.js"></script>
 </head>
 
-<body>
-	<div class="bg-image">
-		{{ > top }}
-	</div>
-</body>
-
 <template name="top">
+	{{# if currentUser }}
+		{{# if currentUser.profile.phoneNumber }}
+			{{ # if isRegisteredForEvent eventName }}
+				{{ > Template.dynamic template=actual }}
+			{{ else }}
+				{{ > notRegistered }}
+			{{ /if }}
+		{{ else }}
+			{{ > registerNumber }}
+		{{ /if }}
+	{{ else }}
+		{{ > Template.dynamic template=loggedOut }}
+	{{ /if }}
+</template>
+
+<template name="notRegistered">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
 		<a href="Home.html">
 			<span>
@@ -19,27 +29,19 @@
 		</a>
 		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
 	</nav>
-	{{#if currentUser }}
-		{{ #if isPhoneRegistered }}
-			{{ > info }}
-			{{#if currentUser.profile.isAdmin }}
-				{{ > adminPanel }}
-			{{ /if }}
-		{{ else }}
-			{{ > registerNumber }}
-		{{ /if }}
-	{{else}}
-		{{ > home }}
-	{{ /if }}
+	<div style="text-align: center;">
+		<h2>
+			You have not registered for {{name}}. Press the button to register Now!
+		</h2>
+		<input type="button" value="Register" id="Register">
+		<input type="button" value="Take me Home!" onclick="window.location.href='/Home.html';">
+	</div>
 </template>
 
 <template name="registerNumber">
 	<div class="container" style="margin: auto auto">
 		<div class="row" style="margin-top: 20vh">
 			<h2 id="ThisNeedsToBeSomething" class="heading" style="margin-bottom: 20px"> Please Enter your details: </h2>
-			<h3 class="heading" style="margin-bottom: 20px;">
-				<small> (You can Leave the Ref Code field blank) </small>
-			</h3>
 			<div class="col-lg-4" style="font-size: 1.4em; text-align: center">
 				WhatsApp Number:<br> 
 				<input type="number" id="actualNumber" style="color: black !important">
@@ -52,130 +54,154 @@
 				City:<br> 
 				<input type="text" id="city" style="color: black !important">
 			</div>
-			<div class="col-lg-4" style="font-size: 1.4em; text-align: center">
-				RefCode:<br> 
-				<input type="text" id="code" style="color: black !important">
-			</div>
 		</div>
 		<div style="text-align: center; margin-top: 10px"> <input type="button" value="Register" id="addNumber" style="color: black !important">
 		</div>
 	</div>
 </template>
 
-<template name="info">
-	<h1 class="heading"> 
-		Welcome, {{ currentUser.profile.name }}! <br>
-		Your Referral Code is {{ currentUser.profile.code }}. <br>
-		{{ currentUser.profile.referals }} people have used your Referral Code.
-	</h1>
-	<div class="container">
-		<h2>Latest Tasks | Your Score: <span id="score">{{ currentUser.profile.score }} </span> </h2>
-		<fieldset>
-			<table id='table'>
-				<tr>
-					{{ #if currentUser.profile.isAdmin }}
-						<th class="col-lg-5"> Content </th>
-						<th class="col-lg-3"> Complete By </th>
-						<th class="col-lg-2"> Score </th>
-						<th class="col-lg-2"> Admin </th>
-					{{ else }}
-						<th class="col-lg-7"> Content </th>
-						<th class="col-lg-3"> Complete By </th>
-						<th class="col-lg-2"> Score </th>
-					{{ /if }}
-				</tr>
-				{{ entries }}
-			</table>
-		</fieldset>
-		<h2>Important Details</h2>
-		<ul class="impinfo">
-			<li><b> Our team members will contact you very soon with more information about the program. </b></li>
-			<li>Your referrals are counted at the top. Their score will be added soon.</li>
-			<li>You will receive tasks here on a frequent basis. Every task will have a score associated with it. </li>
-			<li>Once you finish a task, make sure to contact your Managers and submit proof, and receive your points!</li>
-			<li>Contact <a class="orange-link" href="dhruv.g@elan.org.in">dhruv.g@elan.org.in</a> for any queries.</li>
-		</ul>
-		<fieldset>
-			<legend> Leaderboards </legend>
-			<table id='leaderboards'>
-				<tr>
-					<td class="adminEntries col-lg-1"> Rank </td>
-					<td class="adminEntries"> Name </td>
-					<td class="adminEntries col-lg-1"> Score </td>
-					<td class="adminEntries"> Email </td>
-				</tr>
-				{{ displayLeaderBoards }}
-			</table>
-		</fieldset>
-	</div>
-</template>
-
-<template name="adminPanel">
-	<div class="container">
-		<h2>Administrator Controls</h2>
-		<fieldset>
-			<legend id='legend'> Add Post to CA Feed </legend>
-			<form>
-				<table>
+<template name="caportal">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span>
+				<img src="images/TextLogo.png" style="height: 25%; width: 20%;">
+			</span>
+		</a>
+		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+	</nav>
+	{{ #if hasAskedForRefCode }}
+		<h1 class="heading"> 
+			Welcome, {{ currentUser.profile.event_ca.name }}! <br>
+			Your Referral Code is {{ currentUser.profile.event_ca.code }}. <br>
+			{{ currentUser.profile.event_ca.referals }} people have used your Referral Code.
+		</h1>
+		<div class="container">
+			<h2>Latest Tasks | Your Score: <span id="score">{{ currentUser.profile.score }} </span> </h2>
+			<fieldset>
+				<table id='table'>
 					<tr>
-						<th class="col-lg-4"> Content </th>
-						<th class="col-lg-4"> Add Score </th>
-						<th class="col-lg-4"> Send Notifications </th>
+						{{ #if currentUser.profile.event_ca.isAdmin }}
+							<th class="col-lg-5"> Content </th>
+							<th class="col-lg-3"> Complete By </th>
+							<th class="col-lg-2"> Score </th>
+							<th class="col-lg-2"> Admin </th>
+						{{ else }}
+							<th class="col-lg-7"> Content </th>
+							<th class="col-lg-3"> Complete By </th>
+							<th class="col-lg-2"> Score </th>
+						{{ /if }}
 					</tr>
-					<tr>
-						<td>
-							Content: <br><input type="text" id="content"><br>
-							Score: <br><input type="number" id="postScore"><br>
-							Task Expiry: <br><input type="date" id="postExpiry"><br>
-						</td>
-						<td> 
-							Score: <br><input type="number" id="delScore"><br>
-							Email of CA: <br><input type="email" id="idOfCA"><br>
-						</td>
-						<td> 
-							Title: <br><input type="text" id="notifTitle"><br>
-							Text: <br><input type="text" id="notifContent"><br>
-						</td>
-					</tr>
-					<tr>
-						<td><input type="button" class="submit" value="Submit Post"></td>
-						<td><input type="button" class="update" value="Add Score"></td>
-						<td><input type="button" class="notify" value="Send Notification"></td>
-					</tr>
+					{{ entries }}
 				</table>
-			</form>
-		</fieldset>
-		<fieldset>
-			<legend id='sheetsNotice'>Google Spreadsheets Control</legend>
-			<ul>
-				<li>Create your Ggoogle sheet and share it with: 
-					<p id='servAccName'>{{ getServiceAccount }}</p></li>
-				<li>Make sure you give write Access.</li>
-				<li>Fill in the name of the spreadsheet EXACTLY </li>
-				<li>Press the button </li>
+			</fieldset>
+			<h2>Important Details</h2>
+			<ul class="impinfo">
+				<li><b> Our team members will contact you very soon with more information about the program. </b></li>
+				<li>Your referrals are counted at the top. Their score will be added soon.</li>
+				<li>You will receive tasks here on a frequent basis. Every task will have a score associated with it. </li>
+				<li>Once you finish a task, make sure to contact your Managers and submit proof, and receive your points!</li>
+				<li>Contact <a class="orange-link" href="dhruv.g@elan.org.in">dhruv.g@elan.org.in</a> for any queries.</li>
 			</ul>
-			<input type="text" id="nameOfSHeet" value="Name of Spreadsheet">
-			<input type="button" class="export" value="Export CA Data">
-			<hr>
-		</fieldset>
-		<fieldset>
-			<legend id='listLegend'> CAs Registered </legend>
-			<table id='catable'>
-				<tr>
-					<td class="adminEntries"> Name </td>
-					<td class="adminEntries"> Score </td>
-					<td class="adminEntries"> Email </td>
-					<td class="adminEntries"> Number </td>
-					<td class="adminEntries"> College </td>
-					<td class="adminEntries"> City </td>
-				</tr>
-				{{ caentries }}
-			</table>
-		</fieldset>
+			<fieldset>
+				<legend> Leaderboards </legend>
+				<table id='leaderboards'>
+					<tr>
+						<td class="adminEntries col-lg-1"> Rank </td>
+						<td class="adminEntries"> Name </td>
+						<td class="adminEntries col-lg-1"> Score </td>
+						<td class="adminEntries"> Email </td>
+					</tr>
+					{{ displayLeaderBoards }}
+				</table>
+			</fieldset>
+		</div>
+
+		{{#if currentUser.profile.event_ca.isAdmin }}
+			<div class="container">
+				<h2>Administrator Controls</h2>
+				<fieldset>
+					<legend id='legend'> Add Post to CA Feed </legend>
+					<form>
+						<table>
+							<tr>
+								<th class="col-lg-4"> Content </th>
+								<th class="col-lg-4"> Add Score </th>
+								<th class="col-lg-4"> Send Notifications </th>
+							</tr>
+							<tr>
+								<td>
+									Content: <br><input type="text" id="content"><br>
+									Score: <br><input type="number" id="postScore"><br>
+									Task Expiry: <br><input type="date" id="postExpiry"><br>
+								</td>
+								<td> 
+									Score: <br><input type="number" id="delScore"><br>
+									Email of CA: <br><input type="email" id="idOfCA"><br>
+								</td>
+								<td> 
+									Title: <br><input type="text" id="notifTitle"><br>
+									Text: <br><input type="text" id="notifContent"><br>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="button" class="submit" value="Submit Post"></td>
+								<td><input type="button" class="update" value="Add Score"></td>
+								<td><input type="button" class="notify" value="Send Notification"></td>
+							</tr>
+						</table>
+					</form>
+				</fieldset>
+				<fieldset>
+					<legend id='sheetsNotice'>Google Spreadsheets Control</legend>
+					<ul>
+						<li>Create your Ggoogle sheet and share it with: 
+							<p id='servAccName'>{{ getServiceAccount }}</p></li>
+						<li>Make sure you give write Access.</li>
+						<li>Fill in the name of the spreadsheet EXACTLY </li>
+						<li>Press the button </li>
+					</ul>
+					<input type="text" id="nameOfSHeet" value="Name of Spreadsheet">
+					<input type="button" class="export" value="Export CA Data">
+					<hr>
+				</fieldset>
+				<fieldset>
+					<legend id='listLegend'> CAs Registered </legend>
+					<table id='catable'>
+						<tr>
+							<td class="adminEntries"> Name </td>
+							<td class="adminEntries"> Score </td>
+							<td class="adminEntries"> Email </td>
+							<td class="adminEntries"> Number </td>
+							<td class="adminEntries"> College </td>
+							<td class="adminEntries"> City </td>
+						</tr>
+						{{ caentries }}
+					</table>
+				</fieldset>
+			</div>
+		{{ /if }}
+	{{ else }}
+	<div style="text-align: center;">
+		<h3>
+			Enter Your referral Code. Leave it blank if you are not using one.
+		</h3>
+		<input type="text" id="ReferralCode" style="color: black !important">
+		<br><br>
+		<input type="button" class="RefCodeSubmit" value="Apply Refferal Code">
+		<input type="button" class="RefCodeNah" value="Nahh">
 	</div>
+	{{ /if }}
 </template>
 
 <template name="home">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+			<a href="Home.html">
+				<span>
+					<img src="images/TextLogo.png" style="height: 25%; width: 20%;">
+				</span>
+			</a>
+			<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+		</nav>
 	<main role="main" class="container">
 		<div style="margin: 40px 0 20px; padding-bottom: 9px">
 			<h1 class="heading"> CAMPUS AMBASSADOR PROGRAMME </h1>
@@ -212,4 +238,40 @@
 			<div class="logout" style="margin: auto auto; font-size:20px; cursor:pointer"> {{ >loginButtons }} </div>
 		</div>
 	</main>
+</template>
+
+<template name="cryptexMain">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span>
+				<img src="images/TextLogo.png" style="height: 25%; width: 20%;">
+			</span>
+		</a>
+		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+	</nav>
+	{{ #if hasPseudoName }}
+		Welcome {{ currentUser.profile.event_cryptex.pseudoName }}. <br>
+		You have sucessfully Registered. Stay Tuned.
+	{{ else }}
+		<h3 id="crypt_label"> Enter a Pseudo Name </h3>
+		<input type="text" id="crypt_name" style="color: black !important">
+		<input type="button" class="submit_crypt_name" value="Choose Name" >
+	{{ /if }}
+</template>
+
+<template name="cryptexHome">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span>
+				<img src="images/TextLogo.png" style="height: 25%; width: 20%;">
+			</span>
+		</a>
+		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+	</nav>
+	<div style="text-align: center;">
+		<h2> Cryptex 2019 </h2>
+		<img src="images/cryptex.jpg" style="width: inherit;">
+		<h3> Every puzzle has it's pieces.</h3>
+		<p> Please login to continue. </p>
+	</div>
 </template>
