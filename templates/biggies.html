@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width"/>
+	<title>Biggies | Elan & &eta;vision'19</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Elan & ηVision is the techno-cultural fest of IIT Hyderabad.">
+	<meta name="copyright" content="ELAN & ηvision 2019">
+	<meta name="author" content="ELAN & ηvision 2019  ">
+	<meta name="keyword" content="workshops, iith, techy workshops, robotics, android, elan,nvision,elan & nvision,vision,techno,tech,management,technical,iit hyderabad, iit,fest, competitions,events,event,hyderabad,iith,students,robots,sponsors,games,workshops,kludge,infero,cephid,ecell,e-cell,robotics,equilibria,torque,electronica">
+	<meta name="theme-color" content="#283389">
+	<meta property="og:site_name" content="ELAN & ηvision 2019">
+	<meta property="og:title" content="ELAN & ηvision 2019">
+	<meta property="og:type" content="website">
+	<!-- <meta property="og:image" content="https://nvision.org.in/img/logo.png"> -->
+	<meta property="og:description" content="ELAN & ηvision 2019: Techno-cultural Fest of IIT Hyderabad">
+	<link rel="stylesheet" href="about.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Faster+One|Merienda" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Unlock" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+	<style type="text/css">
+		@media screen and (max-width: 992px) {
+			h1 {
+				font-size:8.5vw;
+			}
+			.card {
+				margin: 0 auto; /* Added */
+				float: none; /* Added */
+				margin-bottom: 20px;
+				width:180px;
+				height: 120px;
+			}
+		}
+		@media screen and (min-width: 992px) {
+			h1 {
+				font-size:7vw;
+			}
+			.card {
+				margin: 0 auto; /* Added */
+				float: none; /* Added */
+				margin-bottom: 20px;
+				width:250px; /* Added */
+				height: 180px;
+			}
+		}
+		body {
+			color: white;
+			font-family: 'Josefin-Sans',sans-serif;
+			background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
+			linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
+			linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+		}
+		a {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden; 
+
+		}
+		a:hover, a:visited, a:link, a:active {
+			text-decoration: none;
+		}
+		.text-center::before{
+			content:"";
+			margin-left:calc(100% - 75%);
+		} 
+		.card {
+			margin: 0 auto; /* Added */
+			float: none; /* Added */
+			margin-bottom: 20px; /* Added */
+		}
+
+		.card{
+			transition: all 0.2s ease;
+			-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+			filter: grayscale(100%);
+			-webkit-transition: filter 2s;
+			-moz-transition:    filter 2s;
+			-ms-transition:     filter 2s;
+			-o-transition:      filter 2s;
+			transition:         filter 2s;
+		}
+
+		.card:hover{
+			transform: scale(1.2,1.2);
+			z-index: 3;
+			border-right: 1px solid transparent;
+			border-bottom: 1px solid transparent;
+			cursor: pointer;
+			-webkit-box-shadow: 0px 0px 40px 1px rgba(218,252,255,0.77);
+			-moz-box-shadow: 0px 0px 40px 1px rgba(218,252,255,0.77);
+			box-shadow: 0px 0px 40px 1px rgba(218,252,255,0.77);
+			-webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+			filter: grayscale(0%);
+
+		}
+		.tab-pane {
+			margin-top: 20px;
+		}
+
+
+		*{
+			-webkit-user-drag: none;
+			-khtml-user-drag: none;
+			-moz-user-drag: none;
+			-o-user-drag: none;
+			user-drag: none;
+		}
+
+		img{
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-o-user-select: none;
+			user-select: none;
+		}
+		
+		.overlay {
+			height: 0%;
+			width: 100%;
+			position: fixed;
+			z-index: 4;
+			top: 0;
+			left: 0;
+			background: linear-gradient(120deg, #fff810  30%, rgba(0,0,0,0) 30%), linear-gradient(140deg, #63e89e 60%, #ff7ee3 60%);
+			background-color: rgba(0,0,0, 0.9);
+			overflow-y: auto;
+			overflow-x:hidden;
+			transition: 0.5s;
+		}
+
+		.overlay-content {
+			position: relative;
+			width: 100%;
+			text-align: center;
+			margin-top: 30px;
+		}
+
+		.overlay a {
+			padding: 8px;
+			text-decoration: none;
+			font-size: 36px;
+			color: #818181;
+			display: block;
+			transition: 0.3s;
+		}
+
+		.overlay a:hover, .overlay a:focus {
+			color: #f1f1f1;
+		}
+
+		.overlay .closebtn {
+			z-index: 4;
+			position: absolute;
+			top: 20px;
+			right: 45px;
+			font-size: 60px;
+		}
+
+		@media screen and (max-height: 450px) {
+			.overlay {overflow-y: auto;}
+			.overlay a {font-size: 20px}
+			.overlay .closebtn {
+				font-size: 40px;
+				top: 15px;
+				right: 35px;
+			}
+		}	
+		.fa {
+			height: 7px;
+			width: 7px;
+			background-color: #bbb;
+			border-radius: 50%;
+			display: inline-block;
+		}
+		.order {
+			position: absolute;
+			top: 50px;
+			right: 95px;
+			width: 75px;
+			line-height: 75px;
+			text-align:center;
+			opacity: 1;
+			background: green;
+			color:#fff;
+			border-radius:50%;
+			-webkit-animation: bounce .3s infinite alternate;
+			-moz-animation: bounce .3s infinite alternate;
+			animation: bounce .3s infinite alternate;
+			-webkit-animation-iteration-count: 8;
+			-moz-animation-iteration-count: 8;
+			animation-iteration-count: 8;
+		}
+		@-webkit-keyframes bounce {
+			to { -webkit-transform: scale(1.2); }
+		}
+		@-moz-keyframes bounce {
+			to { -moz-transform: scale(1.2); }
+		}
+		@keyframes bounce {
+			to { transform: scale(1.2); }
+		}
+
+
+	</style>
+	<script>
+		function openNav() {
+			document.getElementById("myNav").style.height = "100%";
+		}
+
+		function closeNav() {
+			document.getElementById("myNav").style.height = "0%";
+		}
+		function openNav1() {
+			document.getElementById("myNav1").style.height = "100%";
+		}
+
+		function closeNav1() {
+			document.getElementById("myNav1").style.height = "0%";
+		}
+		function openNav2() {
+			document.getElementById("myNav2").style.height = "100%";
+		}
+
+		function closeNav2() {
+			document.getElementById("myNav2").style.height = "0%";
+		}
+		
+	</script>
+	
+</head>
+<body>
+
+	<div style="padding:16px;"><a href="..\nav/index.html"><span style="font-size:60px;cursor:pointer ;color:black;" onclick="openNav()">&#9776; </span></a></div>
+
+	
+
+	<h1 style ="text-align: center; margin-bottom: 30px;">BIGGIES</h1>
+
+	<h2 style ="text-align: center; margin-bottom: 30px;">Event Schedule</h2>
+	<hr>
+
+	<div style="" class="row justify-content-center no-gutters" data-aos="fade-up">
+
+		<div class="col-lg-3 col-sm-6 text-center">
+
+			<div  onclick="openNav()" class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/portfolio_pic2.jpg" alt="Card image" style="width:100%;  height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Manthan</h4>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div onclick="openNav1()" class="col-lg-3  col-sm-6 text-center" data-aos="fade-up">
+			
+			<div  class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/portfolio_pic3.jpg" alt="Card image" style="width:100%; height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">FBB Campus Princess</h4>
+				</div>
+			</div>
+
+		</div>
+
+		
+		<div onclick="openNav2()" class="col-lg-3 col-sm-6 text-center" data-aos="fade-up">
+			<div class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/portfolio_pic1.jpg" alt="Card image" style="width:100%; height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Elan-E-Jung</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="myNav1" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>FBB Campus Princess</h2>
+    <hr>
+<!-- Nav tabs -->
+
+
+
+        
+        
+        <i class='fa fa-circle' style='font-size:8px;'></i> Nationality: Indian Passport Holder<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> The applicant should be between 18 - 25 years of age as of December 31, 2018. The applicant will be required to produce their age proof (Passport, birth certificate, school leaving certificate, driver's license, etc).<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Relationship Status: The applicant should be unmarried.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Height: 5'5" and above(without heels)<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Unmarried/ single/ not engaged<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Student of any recognized educational institution.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> If selected, the applicant will have to follow the dress code of a Black Cocktail Dress and Stilettos while walking the ramp<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> For any queries Contact Kabir Sharda: 9867327421 or email at kabir@elan.org.in<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> The applicant must agree to abide by all rules, as changed from time to time by the Organisers.</p>
+         
+   
+
+  </div>
+</div>
+</div>
+
+
+	<div id="myNav2" class="overlay" style="background: linear-gradient(130deg, #E67E22   30%, rgba(0,0,0,0) 30%), linear-gradient(100deg, #34495E  60%, #27AE60   60%);">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Elan-E-Jung</h2>
+    <hr>
+<!-- Nav tabs -->
+
+
+
+        
+        
+        <p>
+        Travel on a double bass and riff through the jungle which has creatures who are calm like a bomb. Elan is back with its signature Event, the metal battle. Get ready to put the stage on Wildfire.<br>
+        'For those about to rock, we salute you!'' - AC/DC<br>
+        <h4>Event Format</h4> <p><i class='fa fa-circle' style='font-size:8px;'></i> This event will consist of 2 rounds</p>  <h4>Prelims:</h4> <p><i class='fa fa-circle' style='font-size:8px;'></i> Each band interested in participating should upload their demos/videos to google drive  and share the link with <a href='mailto:kabir@elan.org.in' style='font-size:15px;'>kabir@elan.org.in</a>
+        <br>and fill out this <a style='font-size:15px;' href="https://goo.gl/forms/hSrqpXdRgnQ8Bv8K2">form</a><br>(Do not upload more than 2 videos in the drive link.)</p><i class='fa fa-circle' style='font-size:8px;'></i>  Out of this 5 bands will be shortlisted, and will be performing at Elan-e-Jung prelims, Elan 2018.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Each band will be given 20 minutes to perform including sound check.</p>
+        <h4>Finals:</h4>
+        <p><i class='fa fa-circle' style='font-size:8px;'></i> Winners of the prelims will go through the finals.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Each band will be given 20 mins to perform on stage including sound check (subjected to changes).<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The winner and the first runner up will be given prizes. (Not yet decided).</p>
+        <h4>Rules and Regulations:</h4>
+        <p><i class='fa fa-circle' style='font-size:8px;'></i> Language of songs is not a criterion. The band can be fully instrumental as well. The genre of the band should be any variation of metal. <br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> No band can have more than 7 members. Also, no person can play for more than 2 different bands.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The bands cannot share the same frontman.<br> <i class='fa fa-circle' style='font-size:8px;'></i> IIT Hyderabad reserves the right to shift any band's slot timings at any point of time before the prelims.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> In case of any damage to the provided equipment, the band will be fined for the damage and may be disqualified.<br> <i class='fa fa-circle' style='font-size:8px;'></i> The decision is dependent on the nature of the damage and the judges' discretion. <br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> IIT Hyderabad reserves the right to cancel the event in case of some unforeseen circumstances.<br> In case of any dispute the decision of the organizers will be final and binding.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Consumption of Alcohol and Drugs is strictly prohibited on Campus.</p>
+        <h4>Contact Person:</h4><p>
+        Kabir Sharda<br>
+        kabir@elan.org.in<br>
+        9867327421</p>
+      
+   
+
+  </div>
+</div>
+</div>
+
+	<div id="myNav" class="overlay" style="background: linear-gradient(220deg, #F1C40F    30%, rgba(0,0,0,0) 30%), linear-gradient(220deg, #3498DB   60%, #E74C3C   60%);">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Manthan</h2>
+    <hr>
+<!-- Nav tabs -->
+
+
+
+        
+        
+        <h4>Event Format</h4> <p><i class='fa fa-circle' style='font-size:8px;'></i> This event will consist of 2 rounds</p>  <h4>Prelims:</h4> <p><i class='fa fa-circle' style='font-size:8px;'></i> Each band interested in participating should upload their videos on a google drive and share the link with <a style="font-size:15px;" href='mailto:kabir@elan.org.in'>kabir@elan.org.in</a> Fill out this <a style="font-size:15px;" href='https://goo.gl/forms/PBGzR7Zo0DTLIoEQ2'>form</a> as well.<br><i class='fa fa-circle' style='font-size:8px;'></i> Don't upload more than 2 videos in the drive link.<br> <i class='fa fa-circle' style='font-size:8px;'></i>  Out of this 5 bands will be shortlisted, and will be performing at Manthan prelims, Elan 2018.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Each band will be given 20 minutes to perform including sound check.<br>
+        <h4>RULES AND REGULATIONS</h4>
+        <p><i class='fa fa-circle' style='font-size:8px;'></i> Any non-professional band is allowed to register. You need not be a college band to participate in this event.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Language is no criterion. We are looking for bands that play fusion music (anything except metal) and in any language.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Registering team should send/upload one demo in the process of registration. The demo need not be a studio recording.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Incorrect information will result in disqualification, whether discovered prior to, during or after the finals and the Candidate shall be liable to the Organizers for such misrepresentation.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Candidates must conduct themselves in a proper manner and portray high moral standards. Candidates will not consume any alcoholic beverages, use illegal drugs or public smoking or use foul language or should not misconduct in any way during the course of the entire event.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The Judges' decision shall be final and binding for all.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The decision of the organizers with respect to line-up is final and abiding.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The Elan 2018 team holds the right to change the rules at any moment of time.</p>
+        <h4>JUDGING CRITERIA</h4><p>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The winners of the prelims will go through to the finals.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The winners will be announced by the judges immediately after the event. Judge’s decision is considered final and should be abided by everyone.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> All the finalists will be given the participation certificates.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The Prize will be distributed only among the top 2 contestants.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The crowd‘s response is considered important.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The following will be looked in the contestants/bands performance:<br><br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-circle' style='font-size:8px;'></i> Entertainment<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-circle' style='font-size:8px;'></i> Public involvement<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-circle' style='font-size:8px;'></i> Energy<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-circle' style='font-size:8px;'></i> Attitude<br><br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The winner and the first runner up will be given prizes. (Not yet decided).</p>          <h4>Rules and Regulations:</h4><p>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Language of songs is not a criterion. The band can be fully instrumental as well. The genre of the band should be any variation of metal. <br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> No band can have more than 7 members. Also, no person can play for more than 2 different bands.<br><i class='fa fa-circle' style='font-size:8px;'></i>  The bands cannot share the same frontman.<br> IIT Hyderabad reserves the right to shift any band's slot timings at any point of time before the prelims.<br> <i class='fa fa-circle' style='font-size:8px;'></i> In case of any damage to the provided equipment, the band will be fined for the damage and may be disqualified.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The decision is dependent on the nature of the damage and the judges' discretion. <br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> IIT Hyderabad reserves the right to cancel the event in case of some unforeseen circumstances.<br> <i class='fa fa-circle' style='font-size:8px;'></i> In case of any dispute the decision of the organizers will be final and binding.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Consumption of Alcohol and Drugs is strictly prohibited on Campus.</p>      <h4>Contact Person:</h4>
+        <p>Kabir Sharda<br>
+        kabir@elan.org.in<br>
+        9867327421</p>
+      
+   
+
+  </div>
+</div>
+</div>
+
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js'></script>
+
+</body>
+</html>

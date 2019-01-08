@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width"/>
+	<title>Infi | Elan & &eta;vision'19</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Elan & ηVision is the techno-cultural fest of IIT Hyderabad.">
+	<meta name="copyright" content="ELAN & ηvision 2019">
+	<meta name="author" content="ELAN & ηvision 2019  ">
+	<meta name="keyword" content="workshops, iith, techy workshops, robotics, android, elan,nvision,elan & nvision,vision,techno,tech,management,technical,iit hyderabad, iit,fest, competitions,events,event,hyderabad,iith,students,robots,sponsors,games,workshops,kludge,infero,cephid,ecell,e-cell,robotics,equilibria,torque,electronica">
+	<meta name="theme-color" content="#283389">
+	<meta property="og:site_name" content="ELAN & ηvision 2019">
+	<meta property="og:title" content="ELAN & ηvision 2019">
+	<meta property="og:type" content="website">
+	<!-- <meta property="og:image" content="https://nvision.org.in/img/logo.png"> -->
+	<meta property="og:description" content="ELAN & ηvision 2019: Techno-cultural Fest of IIT Hyderabad">
+	<link rel="stylesheet" href="about.css">
+
+	<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Faster+One|Merienda" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Unlock" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+	<style type="text/css">
+		@media screen and (max-width: 992px) {
+			h1 {
+				font-size:8.5vw;
+			}
+			.card {
+				margin: 0 auto; /* Added */
+				float: none; /* Added */
+				margin-bottom: 20px;
+				width:180px;
+				height: 120px;
+			}
+		}
+		@media screen and (min-width: 992px) {
+			h1 {
+				font-size:7vw;
+			}
+			.card {
+				margin: 0 auto; /* Added */
+				float: none; /* Added */
+				margin-bottom: 20px;
+				width:250px; /* Added */
+				height: 180px;
+			}
+		}
+		body {
+			color: white;
+			font-family: 'Josefin-Sans',sans-serif;
+			background: #0d0d0d;
+		}
+		a {
+			text-overflow: ellipsis;
+			white-space: nowrap;
+			overflow: hidden; 
+
+		}
+		a:hover, a:visited, a:link, a:active {
+			text-decoration: none;
+		}
+		.text-center::before{
+			content:"";
+			margin-left:calc(100% - 75%);
+		} 
+		.card {
+			margin: 0 auto; /* Added */
+			float: none; /* Added */
+			margin-bottom: 20px; /* Added */
+		}
+
+		.card{
+			transition: all 0.2s ease;
+			-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+			filter: grayscale(100%);
+			-webkit-transition: filter 2s;
+			-moz-transition:    filter 2s;
+			-ms-transition:     filter 2s;
+			-o-transition:      filter 2s;
+			transition:         filter 2s;
+		}
+
+		.card:hover{
+			transform: scale(1.2,1.2);
+			z-index: 3;
+			border-right: 1px solid transparent;
+			border-bottom: 1px solid transparent;
+			cursor: pointer;
+			-webkit-box-shadow: 0px 0px 40px 1px rgba(218,252,255,0.77);
+			-moz-box-shadow: 0px 0px 40px 1px rgba(218,252,255,0.77);
+			box-shadow: 0px 0px 40px 1px rgba(218,252,255,0.77);
+			-webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+			filter: grayscale(0%);
+
+		}
+		.tab-pane {
+			margin-top: 20px;
+		}
+
+
+		*{
+			-webkit-user-drag: none;
+			-khtml-user-drag: none;
+			-moz-user-drag: none;
+			-o-user-drag: none;
+			user-drag: none;
+		}
+
+		img{
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-o-user-select: none;
+			user-select: none;
+		}
+		
+		.overlay {
+			height: 0%;
+			width: 100%;
+			position: fixed;
+			z-index: 4;
+			top: 0;
+			left: 0;
+			 background: linear-gradient(10deg, #ff6464 20%, #5ac8fa 60%);
+			background-color: rgba(0,0,0, 0.9);
+			overflow-y: auto;
+			overflow-x:hidden;
+			transition: 0.5s;
+		}
+
+		.overlay-content {
+			position: relative;
+			width: 100%;
+			text-align: center;
+			margin-top: 30px;
+		}
+
+		.overlay a {
+			padding: 8px;
+			text-decoration: none;
+			font-size: 36px;
+			color: #818181;
+			display: block;
+			transition: 0.3s;
+		}
+
+		.overlay a:hover, .overlay a:focus {
+			color: #f1f1f1;
+		}
+
+		.overlay .closebtn {
+			z-index: 4;
+			position: absolute;
+			top: 20px;
+			right: 45px;
+			font-size: 60px;
+		}
+
+		@media screen and (max-height: 450px) {
+			.overlay {overflow-y: auto;}
+			.overlay a {font-size: 20px}
+			.overlay .closebtn {
+				font-size: 40px;
+				top: 15px;
+				right: 35px;
+			}
+		}	
+		.fa {
+			height: 7px;
+			width: 7px;
+			background-color: #bbb;
+			border-radius: 50%;
+			display: inline-block;
+		}
+		.order {
+			position: absolute;
+			top: 50px;
+			right: 95px;
+			width: 75px;
+			line-height: 75px;
+			text-align:center;
+			opacity: 1;
+			background: green;
+			color:#fff;
+			border-radius:50%;
+			-webkit-animation: bounce .3s infinite alternate;
+			-moz-animation: bounce .3s infinite alternate;
+			animation: bounce .3s infinite alternate;
+			-webkit-animation-iteration-count: 8;
+			-moz-animation-iteration-count: 8;
+			animation-iteration-count: 8;
+		}
+		@-webkit-keyframes bounce {
+			to { -webkit-transform: scale(1.2); }
+		}
+		@-moz-keyframes bounce {
+			to { -moz-transform: scale(1.2); }
+		}
+		@keyframes bounce {
+			to { transform: scale(1.2); }
+		}
+
+
+	</style>
+	<script>
+		function openNav() {
+			document.getElementById("myNav").style.height = "100%";
+		}
+
+		function closeNav() {
+			document.getElementById("myNav").style.height = "0%";
+		}
+		function openNav1() {
+			document.getElementById("myNav1").style.height = "100%";
+		}
+
+		function closeNav1() {
+			document.getElementById("myNav1").style.height = "0%";
+		}
+		function openNav2() {
+			document.getElementById("myNav2").style.height = "100%";
+		}
+
+		function closeNav2() {
+			document.getElementById("myNav2").style.height = "0%";
+		}
+		function openNav3() {
+			document.getElementById("myNav3").style.height = "100%";
+		}
+
+		function closeNav3() {
+			document.getElementById("myNav3").style.height = "0%";
+		}
+		function openNav4() {
+			document.getElementById("myNav4").style.height = "100%";
+		}
+
+		function closeNav4() {
+			document.getElementById("myNav4").style.height = "0%";
+		}
+		function openNav5() {
+			document.getElementById("myNav5").style.height = "100%";
+		}
+
+		function closeNav5() {
+			document.getElementById("myNav5").style.height = "0%";
+		}
+		function openNav6() {
+			document.getElementById("myNav6").style.height = "100%";
+		}
+
+		function closeNav6() {
+			document.getElementById("myNav6").style.height = "0%";
+		}
+		function openNav7() {
+			document.getElementById("myNav7").style.height = "100%";
+		}
+
+		function closeNav7() {
+			document.getElementById("myNav7").style.height = "0%";
+		}
+		function openNav8() {
+			document.getElementById("myNav8").style.height = "100%";
+		}
+
+		function closeNav8() {
+			document.getElementById("myNav8").style.height = "0%";
+		}
+		function openNav9() {
+			document.getElementById("myNav9").style.height = "100%";
+		}
+
+		function closeNav9() {
+			document.getElementById("myNav9").style.height = "0%";
+		}
+		function openNav10() {
+			document.getElementById("myNav10").style.height = "100%";
+		}
+
+		function closeNav10() {
+			document.getElementById("myNav10").style.height = "0%";
+		}
+		function openNav11() {
+			document.getElementById("myNav11").style.height = "100%";
+		}
+
+		function closeNav11() {
+			document.getElementById("myNav11").style.height = "0%";
+		}
+		function openNav12() {
+			document.getElementById("myNav12").style.height = "100%";
+		}
+
+		function closeNav12() {
+			document.getElementById("myNav12").style.height = "0%";
+		}
+		function openNav13() {
+			document.getElementById("myNav13").style.height = "100%";
+		}
+
+		function closeNav13() {
+			document.getElementById("myNav13").style.height = "0%";
+		}
+		function openNav14() {
+			document.getElementById("myNav14").style.height = "100%";
+		}
+
+		function closeNav14() {
+			document.getElementById("myNav14").style.height = "0%";
+		}
+		function openNav15() {
+			document.getElementById("myNav15").style.height = "100%";
+		}
+
+		function closeNav15() {
+			document.getElementById("myNav15").style.height = "0%";
+		}
+		
+	</script>
+	
+</head>
+<body>
+	<div style="padding:16px;"><a href="..\nav/index.html"><span style="font-size:60px;cursor:pointer ;color:black;" onclick="openNav()">&#9776; </span></a></div>
+
+	
+
+	<h1 style ="text-align: center; margin-bottom: 30px;">INFI EVENTS</h1>
+
+	<h2 style ="text-align: center; margin-bottom: 30px;">Events Schedule</h2>
+	<hr>
+
+
+
+	<div style="" class="row justify-content-center no-gutters" data-aos="fade-up">
+
+		<div class="col-lg-3 col-sm-6 text-center">
+
+			<div  onclick="openNav()" class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/portfolio_pic15.jpg" alt="Card image" style="width:100%;  height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Lan Gaming</h4>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div onclick="openNav1()" class="col-lg-3  col-sm-6 text-center" data-aos="fade-up">
+			
+			<div  class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/portfolio_pic16.jpg" alt="Card image" style="width:100%; height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Final Destination</h4>
+				</div>
+			</div>
+
+		</div>
+
+		
+		<div onclick="openNav2()" class="col-lg-3 col-sm-6 text-center" data-aos="fade-up">
+			<div class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/food.jpg" alt="Card image" style="width:100%; height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Foodathon</h4>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+	
+	<div style="" class="row justify-content-center no-gutters" data-aos="fade-up">
+
+		<div class="col-lg-3 col-sm-6 text-center">
+
+			<div  onclick="openNav3()" class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/casino.jpg" alt="Card image" style="width:100%;  height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Casino</h4>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div onclick="openNav4()" class="col-lg-3  col-sm-6 text-center" data-aos="fade-up">
+			
+			<div  class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/portfolio_pic14.jpg" alt="Card image" style="width:100%; height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Minute To Win It</h4>
+				</div>
+			</div>
+
+		</div>
+
+		
+		<div onclick="openNav5()" class="col-lg-3 col-sm-6 text-center" data-aos="fade-up">
+			<div class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/portfolio_pic17.jpg" alt="Card image" style="width:100%; height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Mad Ads</h4>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+	<div style="" class="row justify-content-center no-gutters" data-aos="fade-up">
+
+		<div class="col-lg-3 col-sm-6 text-center">
+
+			<div  onclick="openNav6()" class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/portfolio_pic13.jpg" alt="Card image" style="width:100%;  height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Walk The Ramp</h4>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div onclick="openNav7()" class="col-lg-3  col-sm-6 text-center" data-aos="fade-up">
+			
+			<div  class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/social.png" alt="Card image" style="width:100%; height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Social Experiment</h4>
+				</div>
+			</div>
+
+		</div>
+
+		
+		<div onclick="openNav8	()" class="col-lg-3 col-sm-6 text-center" data-aos="fade-up">
+			<div class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/wheel-of-fortune.jpg" alt="Card image" style="width:100%; height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Wheel-of-Fortune</h4>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div style="" class="row justify-content-center no-gutters" data-aos="fade-up">
+
+		<div class="col-lg-3 col-sm-6 text-center">
+
+			<div  onclick="openNav9()" class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/paperplane.jpg" alt="Card image" style="width:100%;  height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Paper Plane</h4>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div onclick="openNav10()" class="col-lg-3  col-sm-6 text-center" data-aos="fade-up">
+			
+			<div  class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/portfolio_pic18.jpg" alt="Card image" style="width:100%; height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Coffee Conversation</h4>
+				</div>
+			</div>
+
+		</div>
+
+		
+		<div onclick="openNav11()" class="col-lg-3 col-sm-6 text-center" data-aos="fade-up">
+			<div class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/socialnet.jpg" alt="Card image" style="width:100%; height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Speed Networking</h4>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div style="" class="row justify-content-center no-gutters" data-aos="fade-up">
+
+
+			<div  onclick="openNav12()" class="card" >
+				<img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/socialnet.jpg" alt="Card image" style="width:100%;  height:250px;">
+				<div class="card-body">
+					<h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Harlem Shake</h4>
+				</div>
+			</div>
+			
+		</div>
+
+
+	<div id="myNav12" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav12()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Harlem Shake</h2>
+    <hr>
+
+
+      <h4>ABOUT</h4>
+        <p>Know about the Harlem Shake ? If not Youtube it! else you will be missing out on something really fun!<br>
+        Student Networking Festival brings Harlem Shake challenge to Elan & Nvision 2018 where we see how crazy and creative you can get!<br>
+        <h4>CONTACT</h4>
+        <p><i class='fa fa-circle' style='font-size:8px;'></i> Tejas <br></p>
+  </div>
+</div>
+</div>
+
+	<div id="myNav11" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav11()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Speed Networking</h2>
+    <hr>
+
+
+      <h4>ABOUT</h4>
+        <p>Meet and connect with students in a fun way to build a new network.<br>
+        You only get 4 minutes with each student to maximize the number of students you meet<br>
+        <h4>RULES</h4>
+        <p><i class='fa fa-circle' style='font-size:8px;'></i> You'll be given 4 minutes to talk and socialize with the student sitting with you.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Make the best use of those 4 minutes with new people and build your network. <br></p>
+
+  </div>
+</div>
+</div>
+
+<div id="myNav10" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav10()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Coffee Conversation</h2>
+    <hr>
+
+
+      <h4>ABOUT</h4>
+        <p>A hot cuppa to share with a friend may be some people’s idea of heaven.<br>
+        They have it made for them in Conversation coffee, where participants<br>
+        get to talk with a complete stranger for a stipulated time,<br>
+        and have to answer questions about the person  they were teamed up with.<br>
+        The team that answers most questions correctly wins, but everyone goes home   having made a new friend. Cheers!</p>
+        <h4>RULES</h4>
+        <p><i class='fa fa-circle' style='font-size:8px;'></i> Partners will be assigned by random chits.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Participants will be given 10 minutes with their partners.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The most correct answers will win.</p>
+        <h4>Organizers</h4><p>Sakshi-9619268986<br>Vignatha-9121386955<br>Alekya-9121002980</p>
+
+  </div>
+</div>
+</div>
+
+<div id="myNav9" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav9()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Paper Plane</h2>
+    <hr>
+
+
+      <h4>ABOUT</h4><p>
+        Get ready to give life to the piece of paper to fly higher with the help of your creative and engineering skills.<p>
+        <h4>RULES</h4>
+        <p><i class='fa fa-circle' style='font-size:8px;'></i> Onspot registration.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Organiser’s will describe the rules.</p>
+        <h4>Organizers</h4><p>Bhavya-9540443692<br>Aayush-7382201104</p>
+        
+
+  </div>
+</div>
+</div>
+
+	<div id="myNav8" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav8()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Wheel-Of-Fortune</h2>
+    <hr>
+
+
+      <h4>ABOUT</h4><p>
+        Like to quiz? Here’s a chance to put those grey cells to work.<br>
+        But don’t forget to get your lucky charms because the stakes are high!<br>
+        May the odds always be in your favour…</p>
+        <h4>RULES</h4><p>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Participation in teams of 2.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Organiser’s decision final and binding to all.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Online and On-spot registration with limited number of entries.</p>
+        <h4>Organizers</h4><p>Karthik-8790713920<br>Raagini-9739390045</p>
+        
+
+  </div>
+</div>
+</div>
+
+<div id="myNav7" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav7()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Social Experiment</h2>
+    <hr>
+
+
+      <h4>ABOUT</h4> <p>Have you were been PRANKED before ?<br>
+        Have you were been asked random general questions ?<br>
+        If NO is your answer to these, get ready to experience them soon:P</p>
+        <h4>Organizers</h4><p>Sandy-9495783470<br>Stavan-9974017449</p>
+        
+
+  </div>
+</div>
+</div>
+
+<div id="myNav6" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav6()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Walk The Ramp</h2>
+    <hr>
+
+<h4>ABOUT</h4>
+        <p>You got the confidence to set the ramp on fire?<br>
+        Think you have the presence of mind to impress the judges?<br>
+        Then walk the plank, i mean, the ramp.<br>
+        A ramp walk, followed by a Q&A session with the judges.<br>
+        Winners take home the titles of Mr and Ms Elan.</p>
+        <h4>RULES</h4><p>
+        Online as well as on-spot registration.<br> Judges decision is final.</p>
+        <h4>Organizers</h4><p>Parvath-9618556557<br>Charu-9049609529</p>
+        
+
+  </div>
+</div>
+</div>
+
+
+	<div id="myNav4" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav4()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Minute To Win It</h2>
+    <hr>
+
+
+      <h4>ABOUT</h4><p>
+        Fun and Goodies, what a great combination!
+        Isn’t it? <br>ELAN presents you all the traditional games with a little twist.<br>
+        Get ready to grab some goodies!</p>  <h4>RULES</h4><p>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The events can be performed single or in a group depending on the event.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> No malpractices.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The decision of the organizers is final.</p>
+        <h4>Organizers</h4><p>Sanchana-8639410082<br>Anupam 8966819081</p>
+        
+
+  </div>
+</div>
+</div>
+
+<div id="myNav5" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav5()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Mad Ads</h2>
+    <hr>
+
+
+       <h4>ABOUT</h4><p>
+        Mad Ads is all about having fun, it’s about laughing and having a good time.<br>
+        Entertain the audience with some hilarious and innovative ads!<br>
+        Well you may get something in return, but only if you are hilarious enough!</p>
+        <h4>RULES</h4><p>
+        <i class='fa fa-circle' style='font-size:8px;'></i> This is a group event-group of 4-5.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Every member of the group should participate.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The Product will be given by the organizers and in no case it can be exchanged.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The group will be given 30 minutes for preparing the AD.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The ad should be 3 minutes in length.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> No vulgarity allowed and sportsmanship to be followed.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Organiser’s decision final and binding to all.</p>
+        <h4>Organizers</h4><p>Raktim 8255061193</p>
+        
+
+  </div>
+</div>
+</div>
+
+	<div id="myNav3" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav3()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Casino</h2>
+    <hr>
+
+
+       <h4>ABOUT</h4><p>
+        Got the perfect poker face? Think you’re luckier than the rest?<br>
+        Put it to the test at the Casino!<br><br>
+        For those who have aces up their sleeves, to those who just want to have some fun,the excitement of gambling never dies.<br>
+        Whether it’s the spin of the roulette wheel that catches your eye,<br>
+        or the shouts of ‘hit’ and ‘stay’ from the blackjack table that draw you in, the<br>
+        casino just won’t let you leave. May the odds be ever in your favour!</p>
+        <h4>Organizers</h4><p>Dharmagya-857040404<br>Chandrasekhar-9772791814</p>
+        
+
+  </div>
+</div>
+</div>
+
+
+	<div id="myNav2" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Foodathon</h2>
+    <hr>
+
+
+        <h4>ABOUT</h4>
+        <p>Haters will hate but 'Food is not a word, It’s a religion'.<br>
+        ELAN invites all the foodies for a real competition.<br>
+        Let’s see who is the biggest foodie. But wait, is it so simple?<br>
+        We don’t think so.</p>
+        <h4>RULES</h4><p>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Individual participation.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Onspot registration with limited number of entries.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Organiser’s decision final and binding to all.</p>
+        <h4>Organizers</h4><p>Joel-9121635775<br>Raniya-9030222710</p>
+        
+
+  </div>
+</div>
+</div>
+
+	<div id="myNav1" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Final Destiantion</h2>
+    <hr>
+<!-- Nav tabs -->
+
+
+
+        
+        <h4>ABOUT</h4><p>
+        Ever dreamt of finding Blackbeard’s Treasure? 
+        If yes then you are just in the right place.<br>
+        ELAN brings to you a real treasure, if you can find it!!</p> <h4>RULES</h4><p>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Teams should consist of 4 members.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The teams should assemble 30 min before the start of the game.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> There will be different clues to be solved at the different checkpoints.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The first team coming at each checkpoint will get the opportunity to perform the task first.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Without solving one clue you can't move to the next.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The first two teams to complete every task and bag maximum points will be rewarded.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Malpractice will lead to disqualification.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Organiser’s decision final and binding to all.</p>
+        <h4>Organizers</h4><p>Aarushi-9205321270<br>Saurabh-8889466682</p>
+   
+   
+      
+   
+
+  </div>
+</div>
+</div>
+
+	<div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Lan Gaming</h2>
+    <hr>
+<!-- Nav tabs -->
+
+
+
+        
+        
+          <p>'Fire in the hole'.  If you know what I mean,<br>
+        Come join us for a fun filled day of gaming.<br>
+        Let’s find out, who is the pro!</p> <h4>GAMES</h4><p>
+        <i class='fa fa-circle' style='font-size:8px;'></i> DoTA 2<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> CS:GO<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Call of Duty: Modern Warfare 3</p> <h4>RULES</h4><p>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The teams for DoTA 2, CS:GO need to consist of five members each.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The games will be held in a tournament style format.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> In case of malpractice the concerned team will be disqualified.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Organiser’s decision final and binding to all</p>
+        <h4>Organizers</h4><p>Binaya-9583312374<br>Apoorve-9413207660</p>
+   
+
+  </div>
+</div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script>
+		AOS.init();
+	</script>
+
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+	<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js'></script>
+</body>
+</html>

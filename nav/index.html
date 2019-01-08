@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Circular Navigation Menu Selector</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,400" rel="stylesheet">
+
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+
+</head>
+
+<body>
+    <div style="padding:16px;"><a href="..\nav/index.html"><span style="font-size:60px;cursor:pointer ;color:black;" onclick="openNav()">&#9776; </span></a></div>
+
+    
+  <div class="main">
+    <div class="navigation-circle">
+        <div class="navigation-circle__inner"><svg class="navigation-circle-svg navigation-circle-svg--opaque" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewbox="0 0 320 320" style="enable-background:new 0 0 320 320;"><circle cx="160" cy="160" r="158" fill="none" stroke-width="1" stroke="#aaaaaa" stroke-linecap="round" stroke-miterlimit="10" style="stroke-dashoffset:0;stroke-dasharray:none;"></circle></svg>
+            <svg
+                class="navigation-circle-svg navigation-circle-svg--mask" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewbox="0 0 320 320" style="enable-background:new 0 0 320 320;">
+                <circle id="mask-circle" cx="160" cy="160" r="158" fill="none" stroke-width="2" stroke="#ffffff" stroke-linecap="round" stroke-miterlimit="10" style="stroke-dasharray:1005.3088px;"></circle>
+                </svg>
+                <ul class="navigation-circle__list">
+                    <li class="navigation-circle-list-item red_circle">
+                        <a class="navigation-circle-list-item__point red_circle" href="culti.html" onclick="onClick(1)" onmouseenter="calculateOffset(1)" onMouseLeave="onMouseLeave()">
+                            <div class="navigation-circle-list-item__meta">
+                                <h3 class="navigation-circle-list-item__title">Culti</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="navigation-circle-list-item blue_circle">
+                        <a class="navigation-circle-list-item__point blue_circle" onclick="onClick(2)" onmouseenter="calculateOffset(2)" onMouseLeave="onMouseLeave()">
+                            <div class="navigation-circle-list-item__meta">
+                                <h3 class="navigation-circle-list-item__title" >Techy</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="navigation-circle-list-item green_circle">
+                        <a class="navigation-circle-list-item__point green_circle" onclick="onClick(3)" onmouseenter="calculateOffset(3)" onMouseLeave="onMouseLeave()">
+                            <div class="navigation-circle-list-item__meta">
+                                <h3 class="navigation-circle-list-item__title">Pronites</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="navigation-circle-list-item orange_circle">
+                        <a class="navigation-circle-list-item__point orange_circle" onclick="onClick(4)" onmouseenter="calculateOffset(4)" onMouseLeave="onMouseLeave()">
+                            <div class="navigation-circle-list-item__meta">
+                                <h3 class="navigation-circle-list-item__title">Team</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="navigation-circle-list-item purple_circle">
+                        <a class="navigation-circle-list-item__point purple_circle" onclick="onClick(5)" onmouseenter="calculateOffset(5)" onMouseLeave="onMouseLeave()">
+                            <div class="navigation-circle-list-item__meta">
+                                <h3 class="navigation-circle-list-item__title">Sponsors</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="navigation-circle-list-item yellow_circle">
+                        <a class="navigation-circle-list-item__point yellow_circle" onclick="onClick(6)" onmouseenter="calculateOffset(6)" onMouseLeave="onMouseLeave()">
+                            <div class="navigation-circle-list-item__meta">
+                                <h3 class="navigation-circle-list-item__title">Account</h3>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="navigation-circle-list-item white_circle">
+                        <a class="navigation-circle-list-item__point white_circle" onclick="onClick(7)" onmouseenter="calculateOffset(7)" onMouseLeave="onMouseLeave()">
+                            <div class="navigation-circle-list-item__meta">
+                                <h3 class="navigation-circle-list-item__title">Home</h3>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+        </div>
+    </div>
+</div>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

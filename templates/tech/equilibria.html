@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width"/>
+     <title>techy | Elan & &eta;vision'19</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="Elan & ηVision is the techno-cultural fest of IIT Hyderabad.">
+     <meta name="copyright" content="ELAN & ηvision 2019">
+     <meta name="author" content="ELAN & ηvision 2019  ">
+     <meta name="keyword" content="workshops, iith, techy workshops, robotics, android, elan,nvision,elan & nvision,vision,techno,tech,management,technical,iit hyderabad, iit,fest, competitions,events,event,hyderabad,iith,students,robots,sponsors,games,workshops,kludge,infero,cephid,ecell,e-cell,robotics,equilibria,torque,electronica">
+     <meta name="theme-color" content="#283389">
+     <meta property="og:site_name" content="ELAN & ηvision 2019">
+     <meta property="og:title" content="ELAN & ηvision 2019">
+     <meta property="og:type" content="website">
+     <!-- <meta property="og:image" content="https://nvision.org.in/img/logo.png"> -->
+     <meta property="og:description" content="ELAN & ηvision 2019: Techno-cultural Fest of IIT Hyderabad">
+     <link rel="stylesheet" href="about.css">
+
+     <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet"> 
+     <link href="https://fonts.googleapis.com/css?family=Faster+One|Merienda" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css?family=Unlock" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+     <style type="text/css">
+          @media screen and (max-width: 992px) {
+               h1 {
+                    font-size:8.5vw;
+               }
+               .card {
+                    margin: 0 auto; /* Added */
+                    float: none; /* Added */
+                    margin-bottom: 20px;
+                    width:180px;
+                    height: 120px;
+               }
+          }
+          @media screen and (min-width: 992px) {
+               h1 {
+                    font-size:7vw;
+               }
+               .card {
+                    margin: 0 auto; /* Added */
+                    float: none; /* Added */
+                    margin-bottom: 20px;
+                    width:250px; /* Added */
+                    height: 180px;
+               }
+          }
+          body {
+               color: white;
+               font-family: 'Josefin-Sans',sans-serif;
+               background: #0d0d0d;
+          }
+          a {
+               text-overflow: ellipsis;
+               white-space: nowrap;
+               overflow: hidden; 
+
+          }
+          a:hover, a:visited, a:link, a:active {
+               text-decoration: none;
+          }
+          .text-center::before{
+               content:"";
+               margin-left:calc(100% - 75%);
+          } 
+          .card {
+               margin: 0 auto; /* Added */
+               float: none; /* Added */
+               margin-bottom: 20px; /* Added */
+          }
+
+          .card{
+               transition: all 0.2s ease;
+               -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+               filter: grayscale(100%);
+               -webkit-transition: filter 2s;
+               -moz-transition:    filter 2s;
+               -ms-transition:     filter 2s;
+               -o-transition:      filter 2s;
+               transition:         filter 2s;
+          }
+
+          .card:hover{
+               transform: scale(1.2,1.2);
+               z-index: 3;
+               border-right: 1px solid transparent;
+               border-bottom: 1px solid transparent;
+               cursor: pointer;
+               -webkit-box-shadow: 0px 0px 40px 1px rgba(218,252,255,0.77);
+               -moz-box-shadow: 0px 0px 40px 1px rgba(218,252,255,0.77);
+               box-shadow: 0px 0px 40px 1px rgba(218,252,255,0.77);
+               -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+               filter: grayscale(0%);
+
+          }
+          .tab-pane {
+               margin-top: 20px;
+          }
+
+
+          *{
+               -webkit-user-drag: none;
+               -khtml-user-drag: none;
+               -moz-user-drag: none;
+               -o-user-drag: none;
+               user-drag: none;
+          }
+
+          img{
+               -webkit-user-select: none;
+               -khtml-user-select: none;
+               -moz-user-select: none;
+               -o-user-select: none;
+               user-select: none;
+          }
+          
+          .overlay {
+               height: 0%;
+               width: 100%;
+               position: fixed;
+               z-index: 4;
+               top: 0;
+               left: 0;
+               background-color: rgb(0,0,0);
+               background-color: rgba(0,0,0, 0.9);
+               overflow-y: auto;
+               overflow-x:hidden;
+               transition: 0.5s;
+          }
+
+          .overlay-content {
+               position: relative;
+               width: 100%;
+               text-align: center;
+               margin-top: 30px;
+          }
+
+          .overlay a {
+               padding: 8px;
+               text-decoration: none;
+               font-size: 36px;
+               color: #818181;
+               display: block;
+               transition: 0.3s;
+          }
+
+          .overlay a:hover, .overlay a:focus {
+               color: #f1f1f1;
+          }
+
+          .overlay .closebtn {
+               z-index: 4;
+               position: absolute;
+               top: 20px;
+               right: 45px;
+               font-size: 60px;
+          }
+
+          @media screen and (max-height: 450px) {
+               .overlay {overflow-y: auto;}
+               .overlay a {font-size: 20px}
+               .overlay .closebtn {
+                    font-size: 40px;
+                    top: 15px;
+                    right: 35px;
+               }
+          }    
+          .fa {
+               height: 7px;
+               width: 7px;
+               background-color: #bbb;
+               border-radius: 50%;
+               display: inline-block;
+          }
+          .order {
+               position: absolute;
+               top: 50px;
+               right: 95px;
+               width: 75px;
+               line-height: 75px;
+               text-align:center;
+               opacity: 1;
+               background: green;
+               color:#fff;
+               border-radius:50%;
+               -webkit-animation: bounce .3s infinite alternate;
+               -moz-animation: bounce .3s infinite alternate;
+               animation: bounce .3s infinite alternate;
+               -webkit-animation-iteration-count: 8;
+               -moz-animation-iteration-count: 8;
+               animation-iteration-count: 8;
+          }
+          @-webkit-keyframes bounce {
+               to { -webkit-transform: scale(1.2); }
+          }
+          @-moz-keyframes bounce {
+               to { -moz-transform: scale(1.2); }
+          }
+          @keyframes bounce {
+               to { transform: scale(1.2); }
+          }
+          .scrollmenu {
+             background-color: #333;
+             overflow: auto;
+             white-space: nowrap;
+        }
+
+        .scrollmenu a {
+             display: inline-block;
+             color: white;
+             text-align: center;
+             padding: 14px;
+             text-decoration: none;
+        }
+
+        div.scrollmenu a:hover {
+             background-color: #777;
+        }
+
+
+   </style>
+   <script>
+     function openNav() {
+          document.getElementById("myNav").style.height = "100%";
+     }
+
+     function closeNav() {
+          document.getElementById("myNav").style.height = "0%";
+     }
+     function openNav1() {
+          document.getElementById("myNav1").style.height = "100%";
+     }
+
+     function closeNav1() {
+          document.getElementById("myNav1").style.height = "0%";
+     }
+     
+
+</script>
+
+</head>
+<body>
+     <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+          <a class="navbar-brand"><img src="images/logo-2.png" width="60px" height="52.95px"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+               <ul id="panel" class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                         <a style="color:white;" class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                         <a style="color:white;" class="nav-link" href="details.html">Details</a>
+                    </li>
+                    <li class="nav-item">
+                         <a style="color:white;" class="nav-link" href="events.html">Events</a>
+                    </li>
+                    <li class="nav-item">
+                         <a style="color:white;" class="nav-link" href="sponsers.html">Sponsers</a>
+                    </li>
+                    <li class="nav-item">
+                         <a style="color:white;" class="nav-link" href="team.html">Team</a>
+                    </li>
+               </ul>
+          </div>
+     </nav>
+     <div class="container">
+          <div class="scrollmenu">
+             <a href="techy.html">&nbsp;ELEKTRONIKA</a>
+             <a href="equilibria.html">&nbsp;EQUILIBRIA</a>
+             <a href="ecell.html">&nbsp;E-CELL</a>
+             <a href="torque.html">&nbsp;TORQUE</a>
+             <a href="robotics.html">&nbsp;ROBOTIX</a>
+             <a href="cepheid.html">&nbsp;CEPHEID</a>
+             <a href="kludge.html">&nbsp;KLUDGE</a>  
+             <a href="infero.html">&nbsp;INFERO</a>
+             <a href="quizzes.html">&nbsp;QUIZZES</a>
+             <a href="online.html">&nbsp;ONLINE</a>
+             <a href="quadcopter.html">&nbsp;QUADCOPTER</a>
+             <a href="pp.html">&nbsp;PAPER PRESENTATION</a>
+
+        </div>
+        <h2 style="margin-top:20px; text-align: center;">EQUILIBRIA</h2>
+        <div id class="row justify-content-center no-gutters" data-aos="fade-up">
+
+          <div class=" col-sm-6 text-center">
+
+               <div  onclick="openNav1()" class="card" >
+                    <img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/junkyardwars.jpg" alt="Card image" style="width:100%;  height:250px;">
+                    <div class="card-body">
+                         <h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Junkyard Wars</h4>
+                    </div>
+               </div>
+               
+          </div>
+          
+          <div onclick="openNav()" class="  col-sm-6 text-center" data-aos="fade-up">
+
+               <div  class="card" >
+                    <img style=" " class="img-thumbnail img-fluid card-img-top" src="images/events/bridgebuilders.jpg" alt="Card image" style="width:100%; height:250px;">
+                    <div class="card-body">
+                         <h4 style="color:brown; font-size: 20px; margin:0;padding:0; " class="card-title">Bridge Builder</h4>
+                    </div>
+               </div>
+
+          </div>
+
+          
+          
+          
+     </div>
+
+     
+
+
+     <div id="myNav1" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Junkyard Wars</h2>
+<!-- Nav tabs -->
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a2" role="tab"  aria-selected="true">&nbsp;Introduction</a>
+  </li>
+  <li class="nav-item">
+    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b2" role="tab"  aria-selected="false">&nbsp;Problem Statement</a>
+  </li>
+  <li class="nav-item">
+    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c2" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
+  </li>
+  <li class="nav-item">
+    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d2" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
+  </li>
+</ul>
+
+        
+        
+       <div class='tab-content'>
+        <div class='tab-pane active' id='a2' role="tabpanel">
+        <h4>Introduction</h4>
+        <p>'Engineers like to solve problems .If there are no problems handily available, they will create their own problems'-Scott Adams.</p>
+        <p>It’s time for your team to dive into innovation and creativity, find a good solution and emerge as jugaads. So, pile up your enthusiasm to win the battle.</p>
+        <p>Event will be on 10th or 11th Febuary 2018</p>
+        </div>
+        <div class='tab-pane' id='b2'>
+        <h4>Event Format:</h4><p>
+        1. This is a on the spot event where participants will asked to make model using the given components.<br>
+        2. There are two rounds to this event.<br>
+           a. First Round:<br>
+              i. Teams have to present their design in two hours.<br>ii. Teams will be allowed to use the internet facilities available in forming ideas.<br>
+              iii. Five teams will be shortlisted for next round.<br>
+           b. Second Round:<br>
+              i. The shortlisted teams will have to manufacture their product (on the design provided by them) using only the materials from a pile of junk within a certain time limit.<br>
+        </div>
+        <div class='tab-pane' id='c2'>
+        <h4>Judging criteria:</h4><p>
+        1. Originality of the design<br>
+        2. Its simplicity<br>
+        3. The science involved<br>
+        4. The efficiency of the machine<br>
+        <h4>Event Rules</h4><p>
+        1. The teams must have at least 3 members and a maximum of 5 members.<br>
+        2. Every member on the team must register for the event on the website<br>
+        3. The decision made by the judges will be final and binding.<br>
+        4. The organisers reserve the right to make changes to the event as/when necessary.<br>
+        </div>
+        <div class='tab-pane' id='d2'>
+        <h4>Prize</h4>
+        <p>Prizes Worth INR 5,000*/-</p>
+        <p>Prizes will be given after April 2nd 2018</p>
+        <h4>Organisers:</h4>
+        <p>Venkat-9490552078<br>
+        Sagar Balla-+91 90108 60164<br>
+        B.Dhanush-9121491040<br>
+        Aparna Ambarapu-9182254470</p>
+        <h4>Contact:</h4>
+        <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
+        </p>
+        </p>
+        </p>
+        </p>
+        </div>
+        </div>
+        </div>
+  </div>
+</div>
+</div>
+
+
+     <div id="myNav" class="overlay">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container">
+    <h2 style='text-align:center'>Bridge Builder</h2>
+<!-- Nav tabs -->
+
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a1" role="tab"  aria-selected="true">&nbsp;Introduction</a>
+  </li>
+  <li class="nav-item">
+    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b1" role="tab"  aria-selected="false">&nbsp;Problem Statement</a>
+  </li>
+  <li class="nav-item">
+    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c1" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
+  </li>
+  <li class="nav-item">
+    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d1" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
+  </li>
+</ul>
+
+        
+        
+       <div class='tab-content'>
+        <div class='tab-pane active' id='a1' role="tabpanel">
+        <h4>Introduction</h4>
+        <p>Civil Engineering is an art; a profession of creative ability and logic. Architect provides an opportunity for participants to unleash their innovation in designing an object of significance and splendour .This event aims to harness practical design and constructional abilities of the participants.</p>
+        <p>Event will be on 10th or 11th Febuary 2018</p>
+        </div>
+        <div class='tab-pane' id='b1'>
+        <h4>Problem statement</h4>
+        <p>Participants have to design a Bridge using Popsicle sticks (icecream sticks) satisfying the given constraints.<br>
+        <br><a  href='/static/pdf/bridge.pdf'><button class='btn2'>Problem statement PDF</button></a><br>
+        <h4>Event Format:</h4><br>
+        1.There will be only one round in which bridges will be tested.<br>2.Participants have to come with their bridges.
+        </div>
+        <div class='tab-pane' id=c1>
+        <h4>General Rules</h4>
+        <p>1.  Team size could be of 3-5 members<br>
+        2.  All members of the team should be enrolled as students in an  educational institute.<br>
+        3.  No person can be a part of more than one team.<br>
+        4.  Decision of Judges will be final and binding.</p>
+        </div>
+        <div class='tab-pane' id='d1'>
+        <h4>Prize</h4>
+        <p>Prizes Worth INR 20,000*/-</p>
+        <p>Prizes will be given after April 2nd 2018</p>
+        <h4>Organisers:</h4>
+        <p>Sreekanth-+91 94920 01624<br>
+        Sushanth-+91 95507 90976<br>
+        Joel Prakash-9121635775<br>
+        Chandra Kiran-8330925099</p>
+        <h4>Contact:</h4>
+        <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
+        </div>
+        </div>
+        </div>
+  </div>
+</div>
+</div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+     AOS.init();
+</script>
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js'></script>
+</body>
+</html>

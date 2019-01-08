@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width"/>
+	<title>Team | Elan & &eta;vision'19</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Elan & ηVision is the techno-cultural fest of IIT Hyderabad.">
+	<meta name="copyright" content="ELAN & ηvision 2019">
+	<meta name="author" content="ELAN & ηvision 2019  ">
+	<meta name="keyword" content="workshops, iith, techy workshops, robotics, android, elan,nvision,elan & nvision,vision,techno,tech,management,technical,iit hyderabad, iit,fest, competitions,events,event,hyderabad,iith,students,robots,sponsors,games,workshops,kludge,infero,cephid,ecell,e-cell,robotics,equilibria,torque,electronica">
+	<meta name="theme-color" content="#283389">
+	<meta property="og:site_name" content="ELAN & ηvision 2019">
+	<meta property="og:title" content="ELAN & ηvision 2019">
+	<meta property="og:type" content="website">
+	<!-- <meta property="og:image" content="https://nvision.org.in/img/logo.png"> -->
+	<meta property="og:description" content="ELAN & ηvision 2019: Techno-cultural Fest of IIT Hyderabad">
+	<link rel="stylesheet" href="about.css">
+	<link href="https://fonts.googleapis.com/css?family=Old+Standard+TT" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Faster+One|Merienda" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Unlock" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#menu").click(function(){
+				$("#div1").fadeToggle(500);
+				$("#div2").fadeToggle(500);
+				$("#div3").fadeToggle(500);
+				$("#div4").fadeToggle(500);
+				$("#div5").fadeToggle(500);
+			});
+		});
+		$(document).ready(function(){
+			$("#menuIcon").click(function(){
+				$("#menuIcon").fadeOut("fast");
+			});
+		});
+		$(document).ready(function(){
+			$("#close").click(function(){
+				$("#menuIcon").fadeIn("fast");
+			});
+		});
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "300px";
+		}
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+		}
+		
+	</script>
+	<style type="text/css">
+		@media screen and (max-width: 992px) {
+			h1 {
+				font-size:8.5vw;
+			}
+		}
+		@media screen and (min-width: 992px) {
+			h1 {
+				font-size:7vw;
+			}
+		}
+		body {
+			color: white;
+			background-color:#a6a6a6;
+			object-fit: fill;
+		}
+		.flip-card, .flip-card1 {
+			margin:0 auto;
+			background-color: transparent;
+			width: 150px;
+			height: 150px;
+			perspective: 1000px;
+		}
+		.flip-card1 {
+			width: 50px;
+			height: 50px;
+		}
+
+		.flip-card-inner {
+			position: relative;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			transition: transform 0.6s;
+			transform-style: preserve-3d;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+		}
+
+		.flip-card:hover .flip-card-inner {
+			transform: rotateY(180deg);
+		}
+
+		.flip-card-front, .flip-card-back {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			backface-visibility: hidden;
+		}
+
+		.flip-card-front {
+			background-color: pink;
+			color: black;
+			z-index: 2;
+		}
+
+		.flip-card-back {
+			background-color: black;
+			color: white;
+			transform: rotateY(180deg);
+			z-index: 3;
+		}
+		.card {
+			position: fixed;
+			margin-left:12%;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			transition: 0.3s;
+			width: 10%;
+			width: 220px;
+			height:220px;
+			border-radius: 5px;
+			z-index: 10;
+			background-color:#999999;
+		}
+
+		.card:hover {
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+		.card,.card1, .card2, .card3{
+			position: fixed;
+			margin-top:9%;
+			margin-left:9%;
+			margin-right: 5%;
+			box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+			transition: 0.3s;
+			width: 220px;
+			height:220px;
+			border-radius: 5px;
+			z-index: 10;
+			background-color:#999999;
+		}
+		.card {
+			margin-right: 2%;
+			margin-top:6%;
+			margin-left:12%;
+			z-index: 10;
+		}
+		.card2 {
+			margin-top:12%;
+			margin-left:6%;
+			margin-right: 8%;
+			z-index: 10;	
+		}
+		.card3 {
+			margin-top:15%;
+			margin-left:3%;
+			margin-right: 11%;
+			z-index: 10;	
+		}
+
+		.card1:hover {
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+		.card2:hover {
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+		.card3:hover {
+			box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+		}
+
+		img {
+			border-radius: 5px 5px 0 0;
+		}
+
+		.container {
+			padding: 2px 15px;
+		}
+	</style>
+	
+</head>
+<body>
+	<div>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+			<a class="navbar-brand"><img src="images/logo-2.png" width="60px" height="52.95px"></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul id="panel" class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a style="color:white;" class="nav-link" href="index.html">Home</a>
+					</li>
+					<li class="nav-item">
+						<a style="color:white;" class="nav-link" href="details.html">Details</a>
+					</li>
+					<li class="nav-item">
+						<a style="color:white;" class="nav-link" href="events.html">Events</a>
+					</li>
+					<li class="nav-item">
+						<a style="color:white;" class="nav-link" href="sponsers.html">Sponsers</a>
+					</li>
+					<li class="nav-item">
+						<a style="color:white;" class="nav-link" href="team.html">Team</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+	<div class="container">
+	<div class="row no-gutters">
+		<div class="col-sm-4 bg-transparent" style="margin-top:2%;">
+		<p class="text-center" style="text-align:center;margin-left: 12%;font-size:30px;font-family: 'Unlock', cursive; position:fixed;">CORES</p>
+			<div class="card">
+				
+				<div class="container">
+					<h4 style="color: white;"><a href="#top" style="font-size:14px;color: white;"><b>Production/Pronites/Security</b></a></h4>
+				</div>
+			</div>
+			<div class="card1">
+
+				<div class="container">
+					<h4 style="color: white;"><a href="#top" style="font-size:14px;color: white;"><b>Culti/Litr/EML/SocialCause</b></a></h4>
+				</div>
+			</div>
+			<div class="card2">
+
+				<div class="container">
+					<h4 style="color: white;"><a href="#top" style="font-size:14px;color: white;"><b>Marketing</b></a></h4>
+
+				</div>
+			</div>
+			<div class="card3">
+
+				<div class="container">
+					<h4 style="color: white;"><a href="#top" style="font-size:14px;color: white;"><b>Hospitality/CampusPublicity</b></a></h4>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-4 bg-transparent" style="margin-top:5%;">
+			<p class="text-center" style="font-size:30px;font-family: 'Unlock', cursive;">OVERALL CO-ORDINATOR</p>
+			
+			<div class="flip-card">	
+				<div class="flip-card-inner">
+					<div class="flip-card-front">
+						<img src="images/a.jpeg" alt="Avatar" style="width:150px;height:150px;">
+					</div>
+					<div class="flip-card-back">
+					<div style="padding: 80px 16px; margin:auto auto;">
+						<h3 style="padding-bottom: 4px; ">Shashank Varanasi</h3>
+
+						<p>+91-9642621323</p>
+
+						<p>chirayu@elan.org.in</p>
+
+					</div>
+				</div>
+			</div>
+			</div>
+
+
+		</div>
+		<div class="col-sm-4 bg-transparent" style=" margin-top:2%;">
+		<p class="text-center" style="text-align:center;margin-left: 12%;font-size:30px;font-family: 'Unlock', cursive; position:fixed;">CORES</p>
+			<div class="card">
+
+				<div class="container">
+					<h4 style="color: white;"><a href="#top" style="font-size:14px;color: white;"><b>OP/Transport/Infi/Web</b></a></h4>
+
+				</div>
+			</div>
+			<div class="card1">
+
+				<div class="container">
+					<h4 style="color: white;"><a href="#top" style="font-size:14px;color: white;"><b>Finance/Infra</b></a></h4>
+
+				</div>
+			</div>
+			<div class="card2">
+
+				<div class="container">
+					<h4 style="color: white;"><a href="#top" style="font-size:14px;color: white;"><b>Techy/Workshops</b></a></h4>
+				</div>
+			</div>
+			<div class="card3">
+
+				<div class="container">
+					<h4 style="color: white;"><a href="#top" style="font-size:14px;color: white;"><b>Creatives/Multimedia</b></a></h4>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+
+	<!--<div class="container-fluid">
+		<div class="row no-gutters">
+			<div style="" class="col-1">
+				<div class="p-1"><a target="_blank" href="https://twitter.com/elan_iith"><img id="side1" class="footerimg" src="images/twitter.png"></a></div>
+				<div class="p-1"><a target="_blank" href="https://www.facebook.com/elan.iithyderabad/"><img id="side2" class="footerimg" src="images/fb.png"></a></div>
+				<div class="p-1"><a target="_blank" href="https://www.instagram.com/elan_and_nvision/"><img id="side3" class="footerimg" src="images/insta.png"></a></div>
+				<div class="p-1"><a target="_blank" href="https://www.youtube.com/user/ElanIITHyderabad"><img id="side4" class="footerimg" src="images/yt.png"></a></div>
+			</div>
+
+		</div>
+	</div>-->
+	</div>
+</body>
+</html>
+
