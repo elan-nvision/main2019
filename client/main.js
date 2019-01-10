@@ -22,7 +22,7 @@ FlowRouter.route('/ca', {
 
 FlowRouter.route('/cryptgame', {
 	action: () => {
-		document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
+		// document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
 		document.title = "Cryptex 2019";
 		Meteor.call('getQuestion', Meteor.userId(), (err, val) => {
 			BlazeLayout.render('top', {
@@ -39,7 +39,7 @@ FlowRouter.route('/cryptgame', {
 
 FlowRouter.route('/cryptex-leaderboards', {
 	action: () => {
-		document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
+		// document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
 		document.title = 'Cryptex Leaderboards';
 		BlazeLayout.render('cryptexLeaderboards');	
 	}
@@ -47,7 +47,7 @@ FlowRouter.route('/cryptex-leaderboards', {
 
 FlowRouter.route('/cryptex', {
 	action: () => {
-		document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
+		// document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
 		document.title = "Cryptex 2019";
 		BlazeLayout.render('top', {
 			actual: 'cryptexMain', 
@@ -166,6 +166,12 @@ Template.cryptexLeaderboards.helpers({
 			}
 		});
 	}
+});
+
+Template.cryptexLeaderboards.events({
+	'click #crypt_rules': () => { window.location.href = '/cryptex'; },
+	'click #crypt_forum': () => { window.location = 'http://www.fb.com'; },	
+	'click #crypt_play': () => { window.location.href = '/cryptgame'; },
 });
 
 Template.user.events({
@@ -438,6 +444,7 @@ Template.cryptexMain.events({
 	},
 	'click #crypt_play': () => { window.location.href = '/cryptgame'; },
 	'click #crypt_forum': () => { window.location = 'http://www.fb.com'; },
+	'click #crypt_leaders':() => { window.location.href = '/cryptex-leaderboards'; },
 });
 
 Template.cryptexMain.helpers({
@@ -468,7 +475,8 @@ var f = () => {
 
 Template.cryptexQuestions.events({
 	'click #crypt_rules': () => { window.location.href = '/cryptex'; },
-	'click #crypt_forum': () => { window.location = 'http://www.fb.com'; },
+	'click #crypt_forum': () => { window.location = 'http://www.fb.com'; },	
+	'click #crypt_leaders':() => { window.location.href = '/cryptex-leaderboards'; },
 	'click #submit_crypt_ans': () => {f();},
 	'keyup #crypt_ans': (event) => {
 		if(event.keyCode !== 13) return;
