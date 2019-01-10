@@ -4,7 +4,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
 Events = {
-	'event_ca': 'Campus Ambassador Program',
+	'event_ca': 'Campus Program',
 	'event_cryptex': 'Cryptex 2019'
 }
 
@@ -22,23 +22,32 @@ FlowRouter.route('/ca', {
 
 FlowRouter.route('/cryptgame', {
 	action: () => {
-		FlowRouter.go('/cryptex');
-		// document.title = "Cryptex 2019";
-		// Meteor.call('getQuestion', Meteor.userId(), (err, val) => {
-		// 	BlazeLayout.render('top', {
-		// 		actual: 'cryptexQuestions', 
-		// 		loggedOut: 'cryptexHome',
-		// 		eventName: 'event_cryptex',
-		// 		name: 'Cryptex 2019',
-		// 		image: val.image,
-		// 		question: val.question,
-		// 	});
-		// });
+		document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
+		document.title = "Cryptex 2019";
+		Meteor.call('getQuestion', Meteor.userId(), (err, val) => {
+			BlazeLayout.render('top', {
+				actual: 'cryptexQuestions', 
+				loggedOut: 'cryptexHome',
+				eventName: 'event_cryptex',
+				name: 'Cryptex 2019',
+				image: val.image,
+				question: val.question,
+			});
+		});
+	}
+});
+
+FlowRouter.route('/cryptex-leaderboards', {
+	action: () => {
+		document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
+		document.title = 'Cryptex Leaderboards';
+		BlazeLayout.render('cryptexLeaderboards');	
 	}
 });
 
 FlowRouter.route('/cryptex', {
 	action: () => {
+		document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
 		document.title = "Cryptex 2019";
 		BlazeLayout.render('top', {
 			actual: 'cryptexMain', 
@@ -135,6 +144,27 @@ Template.user.helpers({
 				document.getElementById('lol').appendChild(table);
 			});
 		}	
+	}
+});
+
+Template.cryptexLeaderboards.helpers({
+	data: () => {
+		Meteor.call('getCryptexLeaderboard', (err, val) => {
+			var table = document.getElementById('crypt-leader-table')
+			for(var leader in val) {
+				var row = document.createElement('tr');
+				var s = document.createElement('td');
+				var n = document.createElement('td');
+				var l = document.createElement('td');
+				s.innerHTML = parseInt(leader)+1;
+				n.innerHTML = val[leader].pseudoName;
+				l.innerHTML = val[leader].level;
+				row.appendChild(s);
+				row.appendChild(n);
+				row.appendChild(l);
+				table.appendChild(row);
+			}
+		});
 	}
 });
 
@@ -406,9 +436,8 @@ Template.cryptexMain.events({
 			}
 		);
 	},
-	'click #crypt_play': () => {
-		window.location.href = '/cryptgame';
-	}
+	'click #crypt_play': () => { window.location.href = '/cryptgame'; },
+	'click #crypt_forum': () => { window.location = 'http://www.fb.com'; },
 });
 
 Template.cryptexMain.helpers({
@@ -418,34 +447,32 @@ Template.cryptexMain.helpers({
 	},
 });
 
+var f = () => {
+	var guess = document.getElementById('crypt_ans').value;
+	var l = document.getElementById('crypt_feedback');
+	if(!guess || guess === '' || guess.indexOf(' ') > -1)
+		l.innerHTML = 'Invalid or Empty Answer';
+	else {
+		Meteor.call('guessAnswer', Meteor.userId(), guess, (err, val) => {
+			if(val === 'Good Answer'){
+				window.Reload._reload();
+			} else if(val === 'Wrong Answer') l.innerHTML = val;
+			else {
+				document.getElementById('crypt_panel').insertAdjacentHTML('beforeend',
+					"<p> qefie </p>" + 
+					"");
+			}
+		});
+	};
+}
+
 Template.cryptexQuestions.events({
 	'click #crypt_rules': () => { window.location.href = '/cryptex'; },
-	'click #submit_crypt_ans': () => {
-		var guess = document.getElementById('crypt_ans').value;
-		var l = document.getElementById('crypt_feedback');
-		if(!guess || guess === '' || guess.indexOf(' ') > -1)
-			l.innerHTML = 'Invalid or Empty Answer';
-		else {
-			Meteor.call('guessAnswer', Meteor.userId(), guess, (err, val) => {
-				if(val === 'Good Answer'){
-					window.Reload._reload();
-				} else l.innerHTML = val;
-			});
-		};
-	},
+	'click #crypt_forum': () => { window.location = 'http://www.fb.com'; },
+	'click #submit_crypt_ans': () => {f();},
 	'keyup #crypt_ans': (event) => {
 		if(event.keyCode !== 13) return;
-		var guess = document.getElementById('crypt_ans').value;
-		var l = document.getElementById('crypt_feedback');
-		if(!guess || guess === '' || guess.indexOf(' ') > -1)
-			l.innerHTML = 'Invalid or Empty Answer';
-		else {
-			Meteor.call('guessAnswer', Meteor.userId(), guess, (err, val) => {
-				if(val === 'Good Answer'){
-					window.Reload._reload();
-				} else l.innerHTML = val;
-			});
-		};
+		f();
 	}
 });
 

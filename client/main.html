@@ -319,8 +319,8 @@
 			 	<li>The questions might involve simple cryptography, wordplay, steganography, conventional puzzles or maybe simple connect questions. However each of them is designed to be solved in a reasonable amount of time with access to just internet and pen+paper.</li>
 			 </ol>
 		</div>
-		<div>
-			<input type="button" id="crypt_play" value="Play">
+		<div><div id="crypt_play" style="background: #403040; cursor: pointer; font-size: 2vw;" class="col-lg-2">Play</div>
+		<div id="crypt_forum" style="background: #203240; cursor: pointer; font-size: 2vw;" class="col-lg-2">Forum</div>
 		</div>
 	{{ else }}
 			<h3 id="crypt_label"> Enter a Pseudo Name </h3>
@@ -342,13 +342,41 @@
 	<div style="text-align: center;">
 		<div class="col-lg-2"></div>
 		<div class="col-lg-8"><img src="{{ image }}">
-		<h3>{{question}}</h3></div>
-	</div>
+		<h3>{{{question}}}</h3></div>
+		<div id="crypt_rules" style="background: #323240; cursor: pointer; font-size: 2vw;" class="col-lg-2">Rules</div>
+		<div id="crypt_forum" style="background: #324032; cursor: pointer; font-size: 2vw;" class="col-lg-2">Forum</div>
+	</div><br>
+	<div class="col-lg-5"></div>
+	<div style="text-align: center;" id="crypt_panel" class="col-lg-2">
+		<fieldset>
+			<legend></legend>
+			<label id="crypt_feedback">Try Your Answer:</label>
+			<input type="text" id="crypt_ans" style="color: black !important">
+			<input type="button" id="submit_crypt_ans" value="Answer" >
+		</fieldset>
+		</div>
+</template>
+
+<template name='cryptexLeaderboards'>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span>
+				<img src="images/TextLogo.png" style="height: 25%; width: 20%;">
+			</span>
+		</a>
+		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+	</nav>
 	<div style="text-align: center;">
-		<label id="crypt_feedback">Try Your Answer:</label>
-		<input type="text" id="crypt_ans" style="color: black !important">
-		<input type="button" id="submit_crypt_ans" value="Guess" >
-		<input type="button" id="crypt_rules" value="Rules" >
+		<h1 style="font-size: 5vw">Cryptex 2019 Leaderboards</h1>
+		<div class="col-lg-2"></div>
+		<table id='crypt-leader-table' class="col-lg-8">
+			<tr>
+				<th class="col-lg-2">Rank</th>
+				<th class="col-lg-6">Name</th>
+				<th class="col-lg-2">Level</th>
+			</tr>
+			{{ data }}
+		</table>
 	</div>
 </template>
 

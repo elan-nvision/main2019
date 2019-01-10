@@ -5,7 +5,6 @@ Meteor.startup(() => {
 	console.log("\n\tServer Started.\n");
 
 	/*
-
 	Master User Record: Meteor.users
 	It contains Login access tokens, and 1 object for every event registration.
 
@@ -160,6 +159,16 @@ Meteor.startup(() => {
 	// 		console.log(res);
 	// 	});
 	// });
+	if(!FS.existsSync('/cryptex')){
+		FS.mkdirSync('/cryptex');
+		console.log("Issue!");
+	} 
+
+	for(var i = 0; i < 50; i++){ 
+		Streams[i] = FS.createWriteStream('/cryptex/' + i + '.txt', {flags:'a'});
+		Streams[i].write(new Date().toISOString() + "\n");
+	}
+
 	
 });
 
@@ -174,7 +183,8 @@ Steps to add an event:
 6) Write Your helpers
  
 */
-
+FS = require('fs');
+Streams = [];
 Events = ['event_ca', 'event_cryptex'];
 Tables = [new Mongo.Collection('ca'), new Mongo.Collection('cryptex')];
 Posts = new Mongo.Collection('posts'); //CA Specific Collection
@@ -214,7 +224,7 @@ Questions = [
 	},
 	{
 		image: 'http://i.imgur.com/FQ1eIA6.png',
-		question: 'What does the fox say?'
+		question: '<!--owhfei--><h2>What does the fox say?</h2><p>This is subtextouefhiofjkdsjosdivops</p>'
 	}
 ];
 Answers = [
@@ -541,6 +551,8 @@ Meteor.methods({
 	guessAnswer: (id, answer) => {
 		var user = Tables[1].findOne({parent: id});
 		if(!user) return 'Invalid ID';
+		var string = user.pseudoName + "@"+ user.level +"-> " + answer + "\n";
+		Streams[user.level].write(string);
 		if(Answers[user.level] === answer){
 			if(user.level === Questions.length - 1){
 				console.log('Cryptex is won by ', user);
@@ -553,7 +565,10 @@ Meteor.methods({
 				return 'Good Answer';
 			}
 		}
-		else return 'Chutiya Answer';
+		else return 'Wrong Answer';
+	},
+	getCryptexLeaderboard: () => {
+		return Tables[1].find({}, {fields:{pseudoName: 1, level: 1}}).fetch();
 	}
 
 });
