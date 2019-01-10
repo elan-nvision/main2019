@@ -24,16 +24,17 @@ FlowRouter.route('/cryptgame', {
 	action: () => {
 		// document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
 		document.title = "Cryptex 2019";
-		Meteor.call('getQuestion', Meteor.userId(), (err, val) => {
-			BlazeLayout.render('top', {
-				actual: 'cryptexQuestions', 
-				loggedOut: 'cryptexHome',
-				eventName: 'event_cryptex',
-				name: 'Cryptex 2019',
-				image: val.image,
-				question: val.question,
-			});
-		});
+		window.location.href = '/cryptex';
+		// Meteor.call('getQuestion', Meteor.userId(), (err, val) => {
+		// 	BlazeLayout.render('top', {
+		// 		actual: 'cryptexQuestions', 
+		// 		loggedOut: 'cryptexHome',
+		// 		eventName: 'event_cryptex',
+		// 		name: 'Cryptex 2019',
+		// 		image: val.image,
+		// 		question: val.question,
+		// 	});
+		// });
 	}
 });
 
@@ -463,7 +464,10 @@ var f = () => {
 		Meteor.call('guessAnswer', Meteor.userId(), guess, (err, val) => {
 			if(val === 'Good Answer'){
 				window.Reload._reload();
-			} else if(val === 'Wrong Answer') l.innerHTML = val;
+			} else if(val === 'Wrong Answer') {
+				l.innerHTML = val;
+				setTimeout(() => { l.innerHTML = ''; }, 1000);
+			}
 			else {
 				document.getElementById('crypt_panel').insertAdjacentHTML('beforeend',
 					"<p> qefie </p>" + 

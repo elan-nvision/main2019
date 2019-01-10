@@ -224,7 +224,9 @@ Questions = [
 	},
 	{
 		image: 'http://i.imgur.com/FQ1eIA6.png',
-		question: '<!--owhfei--><h2>What does the fox say?</h2><p>This is subtextouefhiofjkdsjosdivops</p>'
+		question: '<!--owhfei--><h2>What does the fox say?</h2>'+
+			'<p>This is subtextouefhiofjkdsjosdivops</p>'+
+			"<audio controls src='/a.mp3'></audio>"
 	}
 ];
 Answers = [
@@ -551,7 +553,7 @@ Meteor.methods({
 	guessAnswer: (id, answer) => {
 		var user = Tables[1].findOne({parent: id});
 		if(!user) return 'Invalid ID';
-		var string = user.pseudoName + "@"+ user.level +"-> " + answer + "\n";
+		var string = user.pseudoName + "->"+ user.level +"->"+String(new Date().toISOString())+'->'+answer + "\n";
 		Streams[user.level].write(string);
 		if(Answers[user.level] === answer){
 			if(user.level === Questions.length - 1){
