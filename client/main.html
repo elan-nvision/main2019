@@ -4,6 +4,44 @@
 	<script type="text/javascript" src="/web-notification.js"></script>
 </head>
 
+<template name="user">
+
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span>
+				<img src="images/TextLogo.png" style="height: 25%; width: 20%;">
+			</span>
+		</a>
+		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+	</nav>
+	<div style="text-align: center;">
+		{{ #if currentUser }}
+			<h3> Welcome {{ currentUser.profile.name }}! </h3>
+			<h4 >You have registered for the following events: </h4>
+			{{ #each event in getEvents }}
+				<p>{{ event }}</p>
+			{{ /each }}
+
+			{{ #if currentUser.profile.isAdmin }}
+				<h2> Admin Section </h2>
+				Choose Table to operate on: 
+				<select id='db_list' style="color: black;" value="0">{{ getDBList }}</select>
+				<br>
+				Export Sheet: <input type="text" id="admin_sheet" value='Spreadsheet Name'>
+				<input type="button" value="Export" class="export"><br>
+				<label id='admin_output'> </label>
+				<div id="lol">
+					{{ eventData }}
+				</div>
+
+			{{ /if }}
+		{{ else }}
+			<h3> You are not logged in.</h3>
+		{{ /if }}
+	</div>
+
+</template>
+
 <template name="top">
 	{{# if currentUser }}
 		{{# if currentUser.profile.phoneNumber }}
@@ -75,7 +113,7 @@
 			Welcome, {{ currentUser.profile.event_ca.name }}! <br>
 			Your Referral Code is {{ currentUser.profile.event_ca.code }}. <br>
 			{{ currentUser.profile.event_ca.referals }} people have used your Referral Code.
-		</h1>
+		</h1>	
 		<div class="container">
 			<h2>Latest Tasks | Your Score: <span id="score">{{ currentUser.profile.score }} </span> </h2>
 			<fieldset>
@@ -253,11 +291,11 @@
 	<div style="text-align: center;">
 	{{ #if hasPseudoName }}
 		<h2>Welcome {{ currentUser.profile.event_cryptex.pseudoName }}. <br>
-		 You have sucessfully Registered. Stay Tuned. </h2>
-		 <div class="col-lg-2"></div>
-		 <div style="text-align: left; font-size: 16px" class="col-lg-8">
-			 <h2>Rules</h2>
-			 <ol>
+		You have sucessfully Registered. Stay Tuned. </h2>
+		<div class="col-lg-1"></div>
+		<div style="text-align: left; font-size: 16px" class="col-lg-8">
+			<h2>Rules</h2>
+			<ol>
 			 	<li>Cryptex 2019 consists of 25-30 levels of increasing difficulty. You will receive successive questions upon solving and entering the answer of each level and/or completing the task involved.</li>
 			 	<li>The winner will be the first person to complete all levels. In case that no one is able to complete Cryptex before the 2359 hrs 13th Jan 2019, the person who occupies the first position on the leaderboard will be declared winner.</li>
 			 	<li>The competition is open to everyone, anywhere on the globe.</li>
@@ -266,8 +304,8 @@
 			 	<li>The questions may also involve interacting with the page itself, following hyperlinks etc.</li>
 			 	<li>Any attempt to access levels you have not yet reached or any form of attack on the servers will result in disqualification.</li>
 			 	<li>The organizer’s decision is final in any case.</li>
-			 </ol>
-			 <p>TL;DR : Have fun. Enter answers only in lowercase alphabet without spaces except in certain special cases. </p> <p> If you’re new to Cryptex, we have some more guidelines following.
+			</ol>
+			<p>TL;DR : Have fun. Enter answers only in lowercase alphabet without spaces except in certain special cases. </p> <p> If you’re new to Cryptex, we have some more guidelines following.
 			</p>
 			<h2>Guidelines</h2>
 			 <ol>
@@ -281,11 +319,36 @@
 			 	<li>The questions might involve simple cryptography, wordplay, steganography, conventional puzzles or maybe simple connect questions. However each of them is designed to be solved in a reasonable amount of time with access to just internet and pen+paper.</li>
 			 </ol>
 		</div>
+		<div>
+			<input type="button" id="crypt_play" value="Play">
+		</div>
 	{{ else }}
 			<h3 id="crypt_label"> Enter a Pseudo Name </h3>
 			<input type="text" id="crypt_name" style="color: black !important">
 			<input type="button" class="submit_crypt_name" value="Choose Name" >
 	{{ /if }}
+	</div>
+</template>
+
+<template name='cryptexQuestions'>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span>
+				<img src="images/TextLogo.png" style="height: 25%; width: 20%;">
+			</span>
+		</a>
+		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+	</nav>
+	<div style="text-align: center;">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-8"><img src="{{ image }}">
+		<h3>{{question}}</h3></div>
+	</div>
+	<div style="text-align: center;">
+		<label id="crypt_feedback">Try Your Answer:</label>
+		<input type="text" id="crypt_ans" style="color: black !important">
+		<input type="button" id="submit_crypt_ans" value="Guess" >
+		<input type="button" id="crypt_rules" value="Rules" >
 	</div>
 </template>
 

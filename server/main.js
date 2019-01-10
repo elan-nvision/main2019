@@ -121,6 +121,8 @@ Meteor.startup(() => {
 		t.phoneNumber = masterUser.phoneNumber;
 		t.city = masterUser.city;
 		t.collegeName = masterUser.collegeName;
+		t.name = masterUser.services.google.name;
+		t.isAdmin = masterUser.isAdmin;
 
 		Meteor.users.update({_id: masterUser._id}, {$set:{profile: t}});
 	});
@@ -183,7 +185,9 @@ Constructors = [
 			email: masterUser.services.google.email,
 			isAdmin: false,
 			score: 0,
-			phoneNumber: "",
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
 			referals: 0,
 			code: 'CA' + masterUser._id.substring(0, 4).toUpperCase() + 
 				'0000'.substring(0, 4 - String(eventIndex).length) + eventIndex,
@@ -198,6 +202,23 @@ Constructors = [
 			level: 0,
 		}
 	}
+];
+Questions = [
+	{ //Level 0
+		image: 'https://i.imgur.com/SZqlpY8.jpg',
+		question: 'Why did yo Mama slap my butt?'
+	},
+	{
+		image: 'http://i.imgur.com/SBORpBH.png',
+		question: 'This is another question'
+	},
+	{
+		image: 'http://i.imgur.com/FQ1eIA6.png',
+		question: 'What does the fox say?'
+	}
+];
+Answers = [
+	'lol', 'lolz', 'answer'
 ]
 
 isValidEventName = (name) => {
@@ -219,7 +240,82 @@ makeDocument = (content, time, expiry, score, adminName) => {
 	};
 }
 
+exportTable = (table, colPropNames, spreadsheetName) => {
+	var serviceAcc = ServiceConfiguration.configurations.find().fetch();
+	if(!serviceAcc || serviceAcc[0] === undefined) return 'Service Account config invalid.';
+	if(!spreadsheetName) return 'Spreadsheet Name invalid';
+
+	console.log('Exporting Table '+table._name+' to Spreadsheet: \'' + spreadsheetName + '\'');
+
+	var obj = { 1: {} };
+
+	for (var i = 1; i <= colPropNames.length; i++) {
+		obj[1][i] = colPropNames[i-1];
+	}
+
+	var row = 2;
+	table.find().fetch().forEach((user) => {
+		obj[row] = {};
+		var col = 1;
+		colPropNames.forEach((propName) => {
+			var props = propName.split(".");
+			var pCol = user;
+			for(var i = 0; i < props.length; i++){
+				var t = (props[i]).toString();
+				pCol = pCol[t];
+			}
+			if (pCol) obj[row][col] = pCol.toString();
+			else obj[row][col] = '';
+			col++;
+		});
+		row++;
+	});
+
+	console.log('Data Compiling Complete, uploading...');
+	Meteor.call("spreadsheet/update", spreadsheetName, "1", obj, 
+		{email: serviceAcc[0].serviceEmail}, 
+		(err, val) => {
+			if(val) console.log('Upload Successful.');
+			else console.log('Some Error occoured, please check server logs.');
+		});
+}
+
 Meteor.methods({
+	exportTableToSheet: (adminID, spreadsheetName, table) => {
+		var admin = Meteor.users.findOne({_id: adminID});
+		if(!admin.isAdmin) return 'Access Denied';
+
+		console.log('Admin ' + admin.name + ' (id:' + admin._id + ') has started export...');
+
+		var t = parseInt(table);console.log(t);
+		var colPropNames = [];
+		if(isNaN(t) || t < 0 || t >= Tables.length){
+			t = Meteor.users;
+			colPropNames = [ 'phoneNumber', 'city', 'collegeName', 'services.google.name', 'isAdmin']
+				.concat(Events);
+		} 
+		else {
+			colPropNames = Object.keys(Constructors[t](admin, 0));
+			t = Tables[t];
+		}
+
+		return exportTable(t, colPropNames, spreadsheetName);
+	},
+
+	getEventData: (adminId, idx) => {
+		var admin = Meteor.users.findOne({_id: adminId});
+		if(!admin.isAdmin) return 'Access Denied';
+
+		if(idx < 0 || idx > Tables.length -1) return [];
+		return Tables[idx].find({}, {fields:{parent: 0}}).fetch();
+	},
+
+	getDBNameList: (id) => {
+		var user = Meteor.users.findOne({_id: id});
+		if(user && user.isAdmin)
+			return ['Users'].concat(Events.map((s) => s.toUpperCase()));
+		else return null;
+	},
 
 	isRegisteredForEvent: (master_id, eventName) => {
 		//This checks if a user is registered for a particular event
@@ -370,61 +466,36 @@ Meteor.methods({
 		return 'Code Applied successfully.';
 	},
 
-	superSecretCommand: (id, command, obj1, obj2) => {
-		var user = Tables[0].findOne({_id: id});
+	superSecretCommand: (id, table, command, obj1, obj2) => {
+		var user = Meteor.users.findOne({_id: id});
 		if(!user.isAdmin) return 'Access Denied';
 
+		var t = Meteor.users;
+		if(parseInt(table) !== NaN){
+			var idx = parseInt(table);
+			if(idx > -1 && idx < Tables.length) t = Tables[idx];
+		}
+
 		if(command === 'find'){
-			return Tables[0].find(obj1, obj2).fetch();
+			return t.find(obj1, obj2).fetch();
 		}
 		else if(command === 'update'){
-			return Tables[0].update(obj1, obj2).fetch();
+			return t.update(obj1, obj2).fetch();
+		}
+		else if(command === 'remove'){
+			return t.remove(obj1);
 		}
 	},
 
 	writeSpreadSheet: (adminID, spreadsheetName) => {
-		var serviceAcc = ServiceConfiguration.configurations.find().fetch();
-		if(!serviceAcc || serviceAcc[0] === undefined) return 'Service Account config invalid.';
-		if(!spreadsheetName) return 'Spreadsheet Name invalid';
 		var admin = Tables[0].findOne({_id: adminID});
 		if(!admin.isAdmin) return 'Access Denied';
 
 		console.log('Admin ' + admin.name + ' (id:' + admin._id + ')has started data export...');
-		console.log('Exporting to Spreadsheet: \'' + spreadsheetName + '\'');
 
-		var obj = { 1: {} };
 		var colPropNames = ['name', 'isAdmin', 'city', 'collegeName',
 			'email', 'score', 'phoneNumber', 'code', 'referals'];
-
-		for (var i = 1; i <= colPropNames.length; i++) {
-			obj[1][i] = colPropNames[i-1];
-		}
-
-		var row = 2;
-		Tables[0].find().fetch().forEach((user) => {
-			obj[row] = {};
-			var col = 1;
-			colPropNames.forEach((propName) => {
-				var props = propName.split(".");
-				var pCol = user;
-				for(var i = 0; i < props.length; i++){
-					var t = (props[i]).toString();
-					pCol = pCol[t];
-				}
-				if (pCol) obj[row][col] = pCol.toString();
-				else obj[row][col] = '';
-				col++;
-			});
-			row++;
-		});
-
-		console.log('Data Compiling Complete, uploading...');
-		Meteor.call("spreadsheet/update", spreadsheetName, "1", obj, 
-			{email: serviceAcc[0].serviceEmail}, 
-			(err, val) => {
-				if(val) console.log('Upload Successful.');
-				else console.log('Some Error occoured, please check server logs.');
-			});
+		return exportTable(Tables[0], colPropNames, spreadsheetName);
 	},
 
 	getServiceAccount: (adminID) => {
@@ -461,5 +532,28 @@ Meteor.methods({
 		if(other) return 'Pseudo name already used.';
 		Tables[1].update({_id: id}, {$set:{'pseudoName': name}});
 		return 'success';
+	},
+	getQuestion: (id) => {
+		var user = Tables[1].findOne({parent: id});
+		if(!user) return 'Invalid ID';
+		return Questions[user.level];
+	},
+	guessAnswer: (id, answer) => {
+		var user = Tables[1].findOne({parent: id});
+		if(!user) return 'Invalid ID';
+		if(Answers[user.level] === answer){
+			if(user.level === Questions.length - 1){
+				console.log('Cryptex is won by ', user);
+				return 'Life has no Meaning, You just won.'+
+					' Now stay on this page forever because'+
+					' I was too lazy to make a victory page.';
+			}
+			else {
+				Tables[1].update({parent: id}, {$set:{level: user.level+1}});
+				return 'Good Answer';
+			}
+		}
+		else return 'Chutiya Answer';
 	}
+
 });
