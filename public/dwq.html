@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+  </head>
+  <body>
+    <div id="question">FITTI</div>
+    "<button onClick="incFB()">Facebook</button>
+    <button onClick="incIG()">Instagram</button>
+    <button onClick = "incTwt()">Twitter</button>
+    <script>
+      var questionDiv = document.getElementById('question');
+      var answerString = questionDiv.innerText.toLowerCase();
+      var userString = '';
+      function incFB() {
+        userString += 'f';
+        checkString();
+        console.log(userString);
+      }
+      function incIG() {
+        userString += 'i';
+        checkString();
+        console.log(userString);
+      }
+      function incTwt() {
+        userString += 't';
+        checkString();
+        console.log(userString);
+      }
+      function checkString() {
+        let clicks = userString.length;
+        if(!(answerString.substring(0, clicks) === userString)) {
+          userString = '';
+          alert('You fucked up');
+        } else if(clicks === answerString.length && answerString === userString) {
+          alert("Congratulations, You Win!");
+        }
+      }
+    </script>"
+  </body>
+</html>

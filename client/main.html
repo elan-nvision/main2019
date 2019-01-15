@@ -5,7 +5,6 @@
 </head>
 
 <template name="user">
-
 	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
 		<a href="Home.html">
 			<span>
@@ -26,10 +25,16 @@
 				<h2> Admin Section </h2>
 				Choose Table to operate on: 
 				<select id='db_list' style="color: black;" value="0">{{ getDBList }}</select>
-				<br>
-				Export Sheet: <input type="text" id="admin_sheet" value='Spreadsheet Name'>
+				<lablel></lablel><br>
+				Export selected Table: <input type="text" id="admin_sheet" value='Spreadsheet Name'>
 				<input type="button" value="Export" class="export"><br>
+				<br>
+				Send Notification to selected Table: 
+				<input type="text" id="admin_notif_title" value='Title'>
+				<input type="text" id="admin_notif_text" value='Content'>
+				<input type="button" value="Notify" class="notify"><br>
 				<label id='admin_output'> </label>
+				
 				<div id="lol">
 					{{ eventData }}
 				</div>
@@ -315,6 +320,7 @@
 			 	<li>The questions are open-ended, may have red herrings, cheeky hints and may lead you on wild goose chases. If you are getting nowhere with a certain approach, do consider that you might be on the wrong train of thought.</li>
 			 	<li>On the other hand, it could be that the answer is ‘colour’ when you have been trying ‘color’. Check for alternate spelling, names and other such variations.</li>
 			 	<li>Clues might be hidden (especially in the first few questions) to reduce wrong trains of attack. Their absence, however, does not indicate anything.</li>
+			 	<li>Using Google Chrome is advised as some questions require features which are not supported in Safari.</li>
 			 	<li>Hints to the questions will be released on the forum based on certain factors. The hints and even the titles of the question may not have any apparent meaning until you figure of the answer and/or receive another part of the clue.</li>
 			 	<li>The forum is the quickest way to reach the moderators of Cryptex. You may ask for hints on the forum. </li>
 			 	<li>The questions might involve simple cryptography, wordplay, steganography, conventional puzzles or maybe simple connect questions. However each of them is designed to be solved in a reasonable amount of time with access to just internet and pen+paper.</li>
@@ -324,6 +330,8 @@
 			<div id="crypt_play" class="col-lg-2 btn c1">Play</div>
 			<div id="crypt_forum" class="col-lg-2 btn c2">Forum</div>
 			<div id="crypt_leaders" class="col-lg-2 btn c3">Leaderboards</div>
+			<div id="crypt_cert" class="col-lg-2 btn c2">E-Certificates</div>
+			<div id="crypt_feedb" class="col-lg-2 btn c1">Feedback</div>
 		</div>
 	{{ else }}
 			<h3 id="crypt_label"> Enter a Pseudo Name </h3>
@@ -334,32 +342,73 @@
 </template>
 
 <template name='cryptexQuestions'>	
-	<link rel="stylesheet" type="text/css" href="/cryptex.css">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="Home.html">
-			<span>
-				<img src="images/TextLogo.png" style="height: 25%; width: 20%;">
-			</span>
-		</a>
-		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
-	</nav>
-	<div style="text-align: center;">
-		<div class="col-lg-1"></div>
-		<div class="col-lg-8"><img src="{{ image }}">
-		<h3>{{{question}}}</h3></div>
-		<div id="crypt_rules" class="col-lg-2 btn c1">Rules</div>
-		<div id="crypt_forum" class="col-lg-2 btn c2">Forum</div>
-		<div id="crypt_leaders" class="col-lg-2 btn c3">Leaderboards</div>
-	</div><br>
-	<div class="col-lg-4"></div>
-	<div style="text-align: center;" id="crypt_panel" class="col-lg-2">
-		<fieldset>
-			<legend></legend>
-			<label id="crypt_feedback">Try Your Answer:</label>
-			<input type="text" id="crypt_ans" style="color: black !important">
-			<input type="button" id="submit_crypt_ans" value="Answer" >
-		</fieldset>
+	{{ #if hasPseudoName }}
+		<link rel="stylesheet" type="text/css" href="/cryptex.css">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+			<a href="Home.html">
+				<span>
+					<img src="images/TextLogo.png" style="height: 25%; width: 20%;">
+				</span>
+			</a>
+			<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+		</nav>
+		<div style="text-align: center;">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-8 img-contain">
+			<h1>Q{{currentUser.profile.event_cryptex.level}}.</h1>
+				{{ #if image }}
+					<div><img src="{{ image }}"> </div> 
+				{{ else }}
+					<div style="width: 1px; height: 1px" ></div>
+				{{ /if }}
+			<h3>{{{question}}}</h3></div>
+			<div id="crypt_rules" class="col-lg-2 btn c1">Rules</div>
+			<div id="crypt_forum" class="col-lg-2 btn c2">Forum</div>
+			<div id="crypt_leaders" class="col-lg-2 btn c3">Leaderboards</div>
+			<div id="crypt_cert" class="col-lg-2 btn c2">E-Certificates</div>
+			<div id="crypt_feedb" class="col-lg-2 btn c1">Feedback</div>
+		</div><br>
+		<div class="col-lg-4"></div>
+		<div style="text-align: center;" id="crypt_panel" class="col-lg-2">
+			<fieldset>
+				<legend></legend>
+				<label id="crypt_feedback">Try Your Answer:</label>
+				<input type="text" id="789456123" style="color: black !important">
+				<input type="button" id="415263789" value="Answer">
+			</fieldset>
 		</div>
+	{{ else }}
+		<h3 id="crypt_label"> Enter a Pseudo Name </h3>
+		<input type="text" id="crypt_name" style="color: black !important">
+		<input type="button" class="submit_crypt_name" value="Choose Name" >
+	{{ /if }}
+	<br> 
+	{{ #if isLastLevel }}
+	<div style="text-align: center; width: 100%;" id="credit_panel">
+		<h1 class="col-lg-12" id="congo_text"> <hr>Great Work. You are almost there. </h1> 
+		<h3 class="col-lg-12"> Please allow me to introduce, The Gaurdians of the Crypt, arguably the finest: </h3>
+		<br>
+		<div class="col-lg-4"></div>
+		<div class="col-lg-4">
+			<h5><span style="float: left;">Abhishek Agarwal</span><span style="float: right;">Chief Developer</span></h5> <br>
+			<h5><span style="float: left;">Adyasa Mohany</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Dhruv Gupta</span><span style="float: right;">Administrator</span></h5> <br>
+			<h5><span style="float: left;">Maanvitha Kalicheti</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Nikhil Pallamreddy</span><span style="float: right;">Overall Coordinator</span></h5> <br>
+			<h5><span style="float: left;">Rajnish Gupta</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Riddhi Shah</span><span style="float: right;">Question Architect</span></h5><br>
+			<h5><span style="float: left;">Rishika Rao</span><span style="float: right;">Administrator</span></h5>  <br>
+			<h5><span style="float: left;">Sandeep Kumar</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Saurav Madusudanan</span><span style="float: right;">Administrator</span></h5> <br>
+			<h5><span style="float: left;">Shreyas Hawaldar</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Srinikitha Bhagwati</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Tanishq Bakliwal</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Tanmay RenuHura</span><span style="float: right;">Overall Life Saver</span></h5><br>
+			<h5><span style="float: left;">Vishnu VS</span><span style="float: right;">Admin & Question Architect</span></h5><br>
+			<fieldset></fieldset>
+		</div>
+	</div>
+	{{ /if }}
 </template>
 
 <template name='cryptexLeaderboards'>
@@ -373,7 +422,10 @@
 		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
 	</nav>
 	<div style="text-align: center;">
-		<h1>Cryptex 2019 Leaderboards</h1>
+		<div class="col-lg-12">
+			<h1 class="col-lg-10">Cryptex 2019 Leaderboards</h1>
+			<div class="col-lg-2"></div>
+		</div>
 		<div class="col-lg-1"></div>
 		<table id='crypt-leader-table' class="col-lg-8">
 			<tr>
@@ -389,6 +441,10 @@
 		<div id="crypt_forum" class="col-lg-2 btn c2">Forum</div>
 		<div class="col-lg-1"></div>
 		<div id="crypt_play" class="col-lg-2 btn c3">Play</div>
+		<div class="col-lg-1"></div>
+		<div id="crypt_cert" class="col-lg-2 btn c2">E-Certificates</div>
+		<div class="col-lg-1"></div>
+		<div id="crypt_feedb" class="col-lg-2 btn c1">Feedback</div>
 	</div>
 </template>
 

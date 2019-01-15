@@ -215,23 +215,164 @@ Constructors = [
 ];
 Questions = [
 	{ //Level 0
-		image: 'https://i.imgur.com/SZqlpY8.jpg',
-		question: 'Why did yo Mama slap my butt?'
+		image: 'https://res.cloudinary.com/dmridruee/image/upload/c_scale,h_1310/v1547187213/cwCttzzf79MdWSqi.png',
+		question: ''
 	},
 	{
-		image: 'http://i.imgur.com/SBORpBH.png',
-		question: 'This is another question'
+		image: 'https://res.cloudinary.com/dmridruee/image/upload/v1547188610/4dZS6uWGKZAUcqkYZyxb.png',
+		question: ''
 	},
 	{
-		image: 'http://i.imgur.com/FQ1eIA6.png',
-		question: '<!--owhfei--><h2>What does the fox say?</h2>'+
-			'<p>This is subtextouefhiofjkdsjosdivops</p>'+
-			"<audio controls src='/a.mp3'></audio>"
+		image: 'https://i.imgur.com/7yGkZwW.png',
+		question: "<audio controls autoplay loop src='https://drive.google.com/uc?export=download&id=1cid_nv9aIt5Ne2HxAQme7UZbbfj_z8Zn'></audio>"
+	},
+	{
+		image: '',
+		question: "169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E\n"+
+			"169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E\n" + 
+			"169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E\n" + 
+			"169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E\n" + 
+			"169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E\n" + 
+			"169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E\n" + 
+			"169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E\n" + 
+			"169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E\n" + 
+			"169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E\n" + 
+			"169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E\n" + 
+			"169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E\n" + 
+			"169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E\n" + 
+			"169B62169B62169B62FFFFFFFFFFFFFFFFFFFF883EFF883EFF883E"
+	}, //Level 4
+	{
+		image: 'https://res.cloudinary.com/dmridruee/image/upload/v1547190457/Y6hSJj4Qst9YNB0TJhyz/UJjTF6OnrjaWQ0LB13fv.jpg',
+		question: ''
+	},
+	{
+		image: 'https://res.cloudinary.com/dmridruee/image/upload/v1547192728/fpF6juWJPP7D2S9BJWcc/LQtD12ldlFRZ4OT90cDj.png',
+		question: ''
+	},
+	{   //Level 6
+		image: '',
+		question: '<h1><a href="/YMpJUMmy.midi">Right click and choose "Save Link As" option.</a></h1>',
+	},
+	{
+		image: 'https://res.cloudinary.com/dmridruee/image/upload/v1547210805/3Si5jlEWEcJtUI55Syic.jpg',
+		question: ''
+	},
+	{	//Level 8
+		image: 'https://res.cloudinary.com/dmridruee/image/upload/v1547235495/F95FQ2pJkgF5U4HssEfq/qxUk4r63hpR77xvyb5ys.png',
+		question: ''
+	},
+	{
+		image: '',
+		question: 'You took this long to get to the ninth question?<br>\n'+
+			'HAAHHAHA HAAAAHHH HAAHHHAA HAAHHAHA HAAHAAHH HAAAHHAA HAAHAHHA HAAHAAAA\n'+
+			'HAAAHHAH HHAHAAHH HHAHHHHH HAAHAHHH HAAHHAHA HHAHHHHH HAAHHAHA HAAAAHHH\n'+
+			'HAAHHHAA HAAHAAHH HAAHHHHA HAAHAHHA HAAHAAHA HAAHHAHA HAAHHAHH HHHHAHAH\n'+
+			'HAHHAHHH HAAHAHHA HAAAHHAA HHAHHHHH HAAHAAHH HAAHAHHA HAAHHAAH HAAHHAHA\n'+
+			'HHAHHHHH HAAHHHHA HAAHAAAH HAAHHAHH HHAHHHHH HAAAHHAA HAAAHAHH HAAHAAAA\n'+
+			'HAAAHHAH HAAHAHHA HAAHHAHA HAAAHHAA HHAHAAHH HHAHHHHH HAAHHHAA HAAHAAAA\n'+
+			'HAAHAAHA HAAHAHHA HAAHAAAH HAAHHAAA HHAHHHHH HAAAHAHH HAAHAAAA HHAHHHHH\n'+
+			'HAAHHHHA HHAHHHHH HAAHAHHH HAAHHHHA HAAHAAHH HAAAHAHH HHHHAHAH<br>\n'+
+			'You two-dimensional, depth lacking loser!'
+	},
+	{
+		image: 'https://res.cloudinary.com/dmridruee/image/upload/v1547211291/0PNQNGAOck2NQwyb6hQV.png',
+		question: ''
+	},
+	{
+		image: 'https://i.imgur.com/wUJtRX2.png',
+		question: ''
+	},
+	{	//Level 12
+		image: 'https://res.cloudinary.com/drgddftct/image/upload/v1547292346/QPADBgJd8EkeBut6.png',
+		question: ''
+	},
+	{	// Level 13
+		image: 'https://res.cloudinary.com/dmridruee/image/upload/v1547199869/hU0oMwizsTIOL1CxZ2p3/FHYQ0MaRHYdHybVkBbml.png',
+		question: ''
+	},
+	{	// Level 14
+		image:'https://res.cloudinary.com/dmridruee/image/upload/v1547253798/PJwj2xQAhSgqL6RjAW7W/UzsC9bfQ4xwv5NUQsB7E.png',
+		question: ''
+	},
+	{ //Level 15
+		image:'',
+		question:'<h1>Antonin to Sholes</h1>Urgp ycm.o y.oy.ew dryy.p ydab irne<br>'+
+			'Orm. nct. m. xrne orm. nct. m. jrnew<br>'+
+			'Ann bcidy frgp o.bo.o C x.drne<br>'+
+			'Jd.jt frgp ;.prow n.y cy x. yrne<br>'+
+			'Mafx. ocq ycm.ow rp mafx. y.burne<br>'+
+			'Oafcbi cy yd. oam. ,afw yday co yrr rnev'
+	},
+	{	// Level 16
+		image: '',
+		question: 	["<div onClick='document.u += String(0);' class='kbtn'>U+2191</div>",
+    				"<div onClick='document.u += String(1);' class='kbtn'>U+2193</div>",
+    				"<div onClick='document.u += String(2);' class='kbtn'>U+2190</div>",
+    				"<div onClick='document.u += String(3);' class='kbtn'>U+2192</div>",
+    				"<div onClick='document.u += String(4);' class='kbtn'>U+0061</div>",
+    				"<div onClick='document.u += String(5);' class='kbtn'>U+0062</div>",
+    				"<div onClick='let t=document.u;",
+    				"document.getElementById(String(789456123)).value=t;document.getElementById(String(415263789)).click();",
+    				"document.getElementById(String(789456123)).value=String();document.u=undefined;console.log(t);' class='kbtn'>start</div>"].join('')
+	},
+	{
+		image: '',
+		question: "<!--https://gist.github.com/thenarcissist/81fad46d4bf8d10c3d1029a66fa5e17e-->"
+
+	},
+	{
+		image: '',
+		question: "<h1><a href='/xrdtfygbhhjkmnbkhfutr6789y875edrycgvhbjnk.txt'>iarcjphpio </a></h1>"
+	},
+	{
+		image: 'https://res.cloudinary.com/dmridruee/image/upload/v1547295044/qsQK5bRhRvgXjh378d5J/7yXw9wkWaTMXafsC7USs.png',
+		question: ''
+	},
+	{ //Level 20
+		image: '',
+		question: '<h1><a href="cfghuipk678ijnhted.docx"> Download this File </a> <br> This is a story question, mostly the pictures are relevant.</h1>'
+	},
+	{
+		image: 'https://res.cloudinary.com/drgddftct/image/upload/v1547314202/ft78ikjfde4567ujfrt678ikmnvft678.png',
+		question: ''
+	},
+	{
+		image: 'https://res.cloudinary.com/dmridruee/image/upload/v1547324694/7hXrD85VnHtn9tHm/rdbJbyt6wc7LkTUVm4wb/uPuARfCUPnUe6zTrMUJz.png',
+		question: ''
+	},
+	{ //Level23
+		image: 'https://res.cloudinary.com/drgddftct/image/upload/v1547388253/sdtyuio.png',
+		question: ''
+	},
+	{
+		image: 'https://res.cloudinary.com/dmridruee/image/upload/v1547330705/b5JFUyjjR7c9HjkxrXxr/ek3ZW2wReBG6UVYtUXfF.png',
+		question: ''
+	},
+	{
+		image: '',
+		question: '000000011101001011000100000002011111010101<br>'+'100000011101111102010001011111001101100101000<br>'+'1020100010100010101101011010001020100010<br>'+'1101111111000110100010201111101001001101011010111110200000001010101010<br>'+'101010000000211111111100011000111011111111<br>'+'200000100001011100010101010101200111010110100010000000001110210101001110110001111000111111<br>'+'211110111011100101111111010101200001001100101011001111110011200010<br>'+'1100011111100000001011102111000001100011000111100100112010001110110110011<br>'+'101000011012000000000010111110110110100112010010100011000101100100010102011011<br>'+'00110110000011001011011201101010010100111110010001101201010100000101000011000001000211111111010111110001011100000200000001<br>'+'01100110001001010001120111110110001100111001110110120100010101101111101100000101120100010<br>'+'1000100010000111010000201000101001110000101110000001201111101001100111101011010101200000001010101000010101000011'
+	},
+	{
+		image: 'https://res.cloudinary.com/drgddftct/image/upload/v1547371349/5g92e2eRNxtjrDLg/XbWkuXbv8tCpRwwK.gif',
+		question: ''
+	},
+	{ //Level 27
+		image: 'https://res.cloudinary.com/drgddftct/image/upload/v1547335402/5s7dYxNsNbq9eetq.png',
+		question: ''
 	}
+
 ];
 Answers = [
-	'lol', 'lolz', 'answer'
+	'cryptex', 'marieantoinette', 'dontpanic', 'ireland', 'groot', 'fcuk', 'beatles',
+	'bananaequivalentdose', 'alzheimersgroup', 'stanlee', 'pabloescobar', 'absolut',
+	'triskaidekaphobia', 'philipshue', 'motugi', '12648430', 'undefined0011232354',
+	'quadratumlatinum', 'dancingmen', 'nerdfameagain', 'buckinghampalace', 'fortytwo', 'markhamill', 'ladystardust', 'oaktoys', 'imaginativeness', '502286', 'ursaminor'
 ]
+
+LeaderBoards = Tables[1].find({}, {fields:{pseudoName: 1, level: 1}, 
+				sort: {level: -1, lastCorrectAnswer: 1}
+			}).fetch().filter((s) => s.pseudoName !== "");
 
 isValidEventName = (name) => {
 	//This checks if given name is a valid name. Checking is important as event
@@ -293,6 +434,18 @@ exportTable = (table, colPropNames, spreadsheetName) => {
 }
 
 Meteor.methods({
+	notify: (adminID, filter, title, text) => {
+		var admin = Meteor.users.findOne({_id: adminID});
+		if(!admin.isAdmin) return 'Access Denied';
+
+		var users = Meteor.users.find(filter, {fields:{phoneNumber: 1}}).fetch();
+		console.log('Preparing to Send Notification to ' + users.length + ' Users.');
+
+		users.forEach((user) => {
+			if(user.phoneNumber === '') return;
+			Meteor.ClientCall.apply(user._id, 'notify', [title, text]);
+		});
+	},
 	exportTableToSheet: (adminID, spreadsheetName, table) => {
 		var admin = Meteor.users.findOne({_id: adminID});
 		if(!admin.isAdmin) return 'Access Denied';
@@ -538,6 +691,7 @@ Meteor.methods({
 	//Cryptex Specific Code
 	requestPseudoName: (id, name) => {
 		if(!id || !name) return 'Invalid Arguments';
+		if(name === '') return 'Invalid Arguments';
 		var usr = Tables[1].findOne({_id: id});
 		if(!usr) return 'Invalid User Id';
 		var other = Tables[1].findOne({pseudoName: name});
@@ -553,24 +707,28 @@ Meteor.methods({
 	guessAnswer: (id, answer) => {
 		var user = Tables[1].findOne({parent: id});
 		if(!user) return 'Invalid ID';
-		var string = user.pseudoName + "->"+ user.level +"->"+String(new Date().toISOString())+'->'+answer + "\n";
+		var string = user.pseudoName + "->"+ user.level +"->"+user.lastCorrectAnswer+'->'+answer + "\n";
 		Streams[user.level].write(string);
 		if(Answers[user.level] === answer){
-			if(user.level === Questions.length - 1){
+			user.lastCorrectAnswer = String(new Date().toISOString());
+			if(user.level >= Questions.length - 1){
 				console.log('Cryptex is won by ', user);
 				return 'Life has no Meaning, You just won.'+
 					' Now stay on this page forever because'+
 					' I was too lazy to make a victory page.';
 			}
 			else {
-				Tables[1].update({parent: id}, {$set:{level: user.level+1}});
+				Tables[1].update({parent: id}, {$set:{
+					level: user.level+1,
+					lastCorrectAnswer: user.lastCorrectAnswer
+				}});
 				return 'Good Answer';
 			}
 		}
 		else return 'Wrong Answer';
 	},
 	getCryptexLeaderboard: () => {
-		return Tables[1].find({}, {fields:{pseudoName: 1, level: 1}}).fetch();
+		return LeaderBoards;
 	}
 
 });

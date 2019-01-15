@@ -1,13 +1,12 @@
-body {
-	width: 100wh;
+body, html, .bg-img-null {
+	height: 90vh;
 	color: #fff;
-	background: linear-gradient(-45deg, #000000, #000030, #001515, #001500);
+	background: linear-gradient(-45deg, #200000, #082222, #312b00, #000005);
 	background-size: 400% 400%;
 	-webkit-animation: Gradient 15s ease infinite;
 	-moz-animation: Gradient 15s ease infinite;
 	animation: Gradient 15s ease infinite;
 }
-
 .btn {
 	cursor: pointer;
 	font-size: 2vw;
@@ -24,6 +23,30 @@ body {
 }
 .c3{
 	background: #204040;
+}
+h1 {
+	font-size: 60px;
+	margin-bottom: 50px;
+	text-align: center;
+	top: 45%;
+	right: 0;
+	left: 0;
+}
+table {
+	overflow-y: scroll;
+}
+img {
+	width: 60%;
+}
+.kbtn {
+	display: inline-flex;
+	background: #444;
+	border-radius: 10px;
+	border: 12px;
+	border-style: solid;
+	border-color: #444;
+	margin: 15px;
+	cursor: pointer;
 }
 
 @-webkit-keyframes Gradient {
@@ -61,11 +84,9 @@ body {
 		background-position: 0% 50%
 	}
 }
-
-h1 {
-	font-size: 80px;
-	text-align: center;
-	top: 45%;
-	right: 0;
-	left: 0;
+fieldset {
+	margin-bottom: 40px;
+}
+#crypt_ans{
+	margin-bottom: 10px;
 }

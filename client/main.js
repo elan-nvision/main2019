@@ -24,23 +24,25 @@ FlowRouter.route('/cryptgame', {
 	action: () => {
 		// document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
 		document.title = "Cryptex 2019";
-		window.location.href = '/cryptex';
-		// Meteor.call('getQuestion', Meteor.userId(), (err, val) => {
-		// 	BlazeLayout.render('top', {
-		// 		actual: 'cryptexQuestions', 
-		// 		loggedOut: 'cryptexHome',
-		// 		eventName: 'event_cryptex',
-		// 		name: 'Cryptex 2019',
-		// 		image: val.image,
-		// 		question: val.question,
-		// 	});
-		// });
+		// if(!Meteor.user()) window.location.href = '/cryptex';
+		// window.location.href = '/cryptex';
+		Meteor.call('getQuestion', Meteor.userId(), (err, val) => {
+			BlazeLayout.render('top', {
+				actual: 'cryptexQuestions', 
+				loggedOut: 'cryptexHome',
+				eventName: 'event_cryptex',
+				name: 'Cryptex 2019',
+				image: val.image,
+				question: val.question,
+			});
+		});
 	}
 });
 
 FlowRouter.route('/cryptex-leaderboards', {
 	action: () => {
-		// document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
+		// FlowRouter.go('/cryptex-leaderboards.html');
+// 		// document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
 		document.title = 'Cryptex Leaderboards';
 		BlazeLayout.render('cryptexLeaderboards');	
 	}
@@ -58,6 +60,10 @@ FlowRouter.route('/cryptex', {
 		});
 	}
 });
+
+FlowRouter.route('/YMpJUMmy.midi', {
+	action: () => { window.location.href = '/cryptgame'; }
+})
 
 FlowRouter.route('/me', {
 	action: () => {
@@ -79,6 +85,7 @@ Accounts.onLogin((loginDetails) => {
 
 Accounts.onLogout((param) => {
 	Meteor.ClientCall.setClientId(undefined);
+	window.Reload._reload();
 });
 
 Template.top.helpers({
@@ -171,8 +178,10 @@ Template.cryptexLeaderboards.helpers({
 
 Template.cryptexLeaderboards.events({
 	'click #crypt_rules': () => { window.location.href = '/cryptex'; },
-	'click #crypt_forum': () => { window.location = 'http://www.fb.com'; },	
+	'click #crypt_forum': () => { window.location = 'http://forum.elan.org.in'; },	
 	'click #crypt_play': () => { window.location.href = '/cryptgame'; },
+	'click #crypt_feedb':() => { window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSdlw152JdFBBFtvoG4_ouyH7KcXKcx9y4qCN0VdqEswE-fj_g/viewform?usp=sf_link'; },
+	'click #crypt_cert':() => { window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScznaXPKAdk-tCpQHY8MPR9-6yizXEG5hvMuZuUhkkheBzYJg/viewform?usp=sf_link'; },
 });
 
 Template.user.events({
@@ -181,12 +190,44 @@ Template.user.events({
 		var label = document.getElementById('admin_output');
 		var list = document.getElementById('db_list');
 
-		if(!sheet) label.innerHTML = 'Enter the Sheet Pair Correctly';
+		if(!sheet) {
+			label.innerHTML = 'Enter the Sheet Pair Correctly';
+			return;
+		}
 		var table = list.selectedIndex -1;
 
 		Meteor.call('exportTableToSheet', Meteor.userId(), sheet, table, (err, val) => {
 				label.innerHTML = val;
 		});
+	},
+	'click .notify':() => {
+		var title = document.getElementById('admin_notif_title').value;
+		var content = document.getElementById('admin_notif_text').value;
+		var label = document.getElementById('admin_output');
+
+		if(!title || title === '') {
+			label.innerHTML = 'Invalid Notification Title';
+			return;
+		}
+		if(!content || content === '') {
+			label.innerHTML = 'Invalid Notification Content';
+			return;
+		}
+
+		var list = document.getElementById('db_list');
+
+		var table = list.options[list.selectedIndex].value;
+		if(table === "Users") table = {};
+		else {
+			var t = {};
+			t[table.toLowerCase()] = {$exists:true};
+			table = t;
+		}
+
+		Meteor.call('notify', Meteor.userId(), table, title, content, (err, val) => {
+			label.innerHTML = val;
+		});
+
 	}
 });
 
@@ -444,8 +485,10 @@ Template.cryptexMain.events({
 		);
 	},
 	'click #crypt_play': () => { window.location.href = '/cryptgame'; },
-	'click #crypt_forum': () => { window.location = 'http://www.fb.com'; },
+	'click #crypt_forum': () => { window.location = 'http://forum.elan.org.in'; },
 	'click #crypt_leaders':() => { window.location.href = '/cryptex-leaderboards'; },
+	'click #crypt_feedb':() => { window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSdlw152JdFBBFtvoG4_ouyH7KcXKcx9y4qCN0VdqEswE-fj_g/viewform?usp=sf_link'; },
+	'click #crypt_cert':() => { window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScznaXPKAdk-tCpQHY8MPR9-6yizXEG5hvMuZuUhkkheBzYJg/viewform?usp=sf_link'; },
 });
 
 Template.cryptexMain.helpers({
@@ -455,8 +498,19 @@ Template.cryptexMain.helpers({
 	},
 });
 
+Template.cryptexQuestions.helpers({
+	hasPseudoName(){
+		return (Meteor.user() && Meteor.user().profile.event_cryptex && 
+			Meteor.user().profile.event_cryptex.pseudoName != "");
+	},
+	isLastLevel() {
+		if(!Meteor.user() || !Meteor.user().profile.event_cryptex) return false;
+		return Meteor.user().profile.event_cryptex.level === 27;
+	}
+});
+
 var f = () => {
-	var guess = document.getElementById('crypt_ans').value;
+	var guess = document.getElementById('789456123').value;
 	var l = document.getElementById('crypt_feedback');
 	if(!guess || guess === '' || guess.indexOf(' ') > -1)
 		l.innerHTML = 'Invalid or Empty Answer';
@@ -469,9 +523,7 @@ var f = () => {
 				setTimeout(() => { l.innerHTML = ''; }, 1000);
 			}
 			else {
-				document.getElementById('crypt_panel').insertAdjacentHTML('beforeend',
-					"<p> qefie </p>" + 
-					"");
+				document.getElementById('congo_text').innerHTML = 'Congrats. You have won. Change the passoword, keep the account.';
 			}
 		});
 	};
@@ -479,13 +531,29 @@ var f = () => {
 
 Template.cryptexQuestions.events({
 	'click #crypt_rules': () => { window.location.href = '/cryptex'; },
-	'click #crypt_forum': () => { window.location = 'http://www.fb.com'; },	
+	'click #crypt_forum': () => { window.location = 'http://forum.elan.org.in'; },	
 	'click #crypt_leaders':() => { window.location.href = '/cryptex-leaderboards'; },
-	'click #submit_crypt_ans': () => {f();},
-	'keyup #crypt_ans': (event) => {
+	'click #415263789': () => {f();},
+	'keyup #789456123': (event) => {
 		if(event.keyCode !== 13) return;
 		f();
-	}
+	},
+	'click .submit_crypt_name': () => {
+		var name = document.getElementById('crypt_name').value;
+		var label = document.getElementById('crypt_label');
+		if(!name || name === '') {
+			label.innerHTML = "Enter a Valid Name";
+			return;
+		}
+		Meteor.call('requestPseudoName',  Meteor.user().profile.event_cryptex._id, name,
+			(err, val) => {
+				if(val === 'success') window.Reload._reload();
+				else label.innerHTML = val;
+			}
+		);
+	},
+	'click #crypt_feedb':() => { window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSdlw152JdFBBFtvoG4_ouyH7KcXKcx9y4qCN0VdqEswE-fj_g/viewform?usp=sf_link'; },
+	'click #crypt_cert':() => { window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScznaXPKAdk-tCpQHY8MPR9-6yizXEG5hvMuZuUhkkheBzYJg/viewform?usp=sf_link'; },
 });
 
 Meteor.ClientCall.methods({
