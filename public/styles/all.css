@@ -55,7 +55,7 @@ a {
 			border-radius: 6px;
 
 		}
-		.overlaynav {
+		/*.overlaynav {
 			height: 100%;
 			width: 0;
 			position: fixed;
@@ -102,11 +102,11 @@ a {
 			position: absolute;
 			top: 50px;
 			left: 45px;
-		}
+		}*/
 
 
 		@media screen and (max-height: 450px) {
-			.overlay {overflow-y: auto;}
+			/*.overlay {overflow-y: auto;}
 			.overlay a {font-size: 20px}
 			.overlay .closebtn {
 				font-size: 40px;
@@ -124,7 +124,7 @@ a {
 				font-size: 40px;
 				top: 15px;
 				right: 35px;
-			}
+			}*/
 		}	
 		.fa {
 			height: 7px;
@@ -134,7 +134,7 @@ a {
 			display: inline-block;
 		}
 		
-		.overlaynav {
+		/*.overlaynav {
 			height: 100%;
 			width: 0;
 			position: fixed;
@@ -177,7 +177,7 @@ a {
 		.overlaynav .register {
 
 
-		}
+		}*/
 
 
 		@media screen and (max-height: 450px) {
