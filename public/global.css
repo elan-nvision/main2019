@@ -5,6 +5,7 @@ body {
 	background: #121212;
 }
 canvas {
+	top: 0;
 	z-index: -2;
 	position: fixed; 
 	width: 100vw;
