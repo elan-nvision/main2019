@@ -84,6 +84,12 @@ FlowRouter.route('/techy', {
 		window.location.href='/views/tech/techy.html';
 	}
 });
+FlowRouter.route('/privacypolicy', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/privacypolicy.html';
+	}
+});
 FlowRouter.route('/litr', {
 	action: () => {
 		window.history.replaceState('','',document.referrer);
@@ -362,6 +368,15 @@ Template.registerNumber.events({
 				window.Reload._reload();
 			}
 		);
+	},
+	'click #testNotification': () => {
+		if(!webNotification) return;
+		webNotification.showNotification('Welcome to Elan & Nvision!', {
+			body: 'Congrats! You have enabled Notifications, you will never miss any of our updates again!',
+			icon: '/img/symbolOnly.png',
+			onClick: () => {},
+			autoClose: 8000
+		}, function onShow(error, hide) {});
 	}
 });
 

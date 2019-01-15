@@ -247,24 +247,28 @@
         document.getElementById("myNavr").style.width = "0%";
       }
 	</script>
-	<div class="container" style="margin: auto auto;">
-		<div class="row" style="margin-top: 20vh">
+	<div class="container" >
+		<div class="row" style="display: block;">
 			<h2 id="ThisNeedsToBeSomething" class="heading" style="margin-bottom: 20px"> Please Enter your details. </h2>
-			<h2> We promise not to spam you or share your details with any third party. Read the <a onclick="window.location.href='privacypolicy.html'" style="cursor: pointer;"> privacy policy </a> here. </h2>
-			<div class="col-lg-4" style="font-size: 1.4em; text-align: center">
-				WhatsApp Number:<br> 
-				<input type="number" id="actualNumber" style="color: black !important">
-			</div>
-			<div class="col-lg-4" style="font-size: 1.4em; text-align: center">
-				College Name:<br> 
-				<input type="text" id="collegeName" style="color: black !important">
-			</div>
-			<div class="col-lg-4" style="font-size: 1.4em; text-align: center">
-				City:<br> 
-				<input type="text" id="city" style="color: black !important">
+			<h2> We promise not to spam you or share your details with any third party. Read the <a onclick="window.location.href='privacypolicy'" style="cursor: pointer; text-decoration: underline; color: orange;"> privacy policy</a> here. </h2>
+			<div style="margin-top: 5vh;">
+				<div class="col-lg-4">
+					<h3>WhatsApp Number:</h3> 
+					<input type="number" id="actualNumber" >
+				</div>
+				<div class="col-lg-4">
+					<h3>College Name:</h3> 
+					<input type="text" id="collegeName">
+				</div>
+				<div class="col-lg-4">
+					<h3>City:</h3> 
+					<input type="text" id="city">
+				</div>
 			</div>
 		</div>
-		<div style="text-align: center; margin-top: 10px"> <input type="button" value="Register" id="addNumber" style="color: black !important">
+		<div style="margin-top: 5vh;"> 
+			<input type="button" value="Register" id="addNumber">
+			<input type="button" value="Notify Me" id="testNotification">
 		</div>
 	</div>
 </template>
