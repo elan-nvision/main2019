@@ -3,48 +3,127 @@
 	<link rel="icon" type="image/ico" href="img/symbolOnly.png" />
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab" rel="stylesheet">
 	<script type="text/javascript" src="/web-notification.js"></script>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 
 <template name="user">
     <canvas id="test"></canvas>
 	<script type="text/javascript" src="/js/canva.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/global.css">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="Home.html">
-			<span>
-				<img src="img/TextLogo.png" class="main-nav-logo">
-			</span>
-		</a>	
-		<span id="menuIcon" class="nav-logout"> {{ >loginButtons }} </span>
-	</nav>
-	<div style="text-align: center;">
-		{{ #if currentUser }}
-			<h3> Welcome {{ currentUser.profile.name }}! </h3>
-			<h4> You have registered for the following events: </h4>
-			{{ #each event in getEvents }}
-				<p>{{ event }}</p>
-			{{ /each }}
+	<link rel="stylesheet" type="text/css" href="/styles/nav.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-			<h4> To Register for events, go to their page and hit register. </h4>
-
-			{{ #if currentUser.profile.isAdmin }}
-				<h2> Admin Section </h2>
-				Choose Table to operate on: 
-				<select id='db_list' style="color: black;" value="0">{{ getDBList }}</select>
-				<lablel></lablel><br>
-				Export selected Table: <input type="text" id="admin_sheet" value='Spreadsheet Name'>
-				<input type="button" value="Export" class="export"><br>
-				<br>
-				Send Notification to selected Table: 
-				<input type="text" id="admin_notif_title" value='Title'>
-				<input type="text" id="admin_notif_text" value='Content'>
-				<input type="button" value="Notify" class="notify"><br>
-				<label id='admin_output'> </label>
-				
-				<div id="lol">
-					{{ eventData }}
+	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.3em;">
+		<button type="button" class="btn register">Sign In</button>
+		<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
+		<div class="overlaynav-content" >
+			<div class="row justify-content-center no-gutters">
+				<div  style="margin-top:9%;" class="col-sm-6 text-center">
+					<a href="/">Home</a>
+					<a href="/sponsors">Sponsors</a>
+					<a href="/us">Contact Us</a>
 				</div>
+				<div style="margin-top:2%;" class="col-sm-6 text-center">
+					<!-- <a href="#" style="text-decoration: underline;">Events</a> -->
+					<a href="/culti">Culti</a>
+					<a href="/techy">Techy</a>
+					<a href="/litr">Litr</a>
+					<a href="/biggies">Biggies</a>
+					<a href="/infi">Infi</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="navbar" class="sticky">
+		<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
+		<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
+		</span>
+	</div>
 
+	<script type="text/javascript">
+      function openrNav() {
+        document.getElementById("myNavr").style.width = "100%";
+      }
+
+      function closerNav() {
+        document.getElementById("myNavr").style.width = "0%";
+      }
+	</script>
+
+	<div style="text-align: center; margin-top: 35vh; margin-bottom: 25vh;">
+		{{ #if currentUser }}
+			{{ #if currentUser.profile.phoneNumber }}
+				<h3> Welcome {{ currentUser.profile.name }}! </h3>
+				<h4> You have registered for the following events: </h4>
+				Number: {{ currentUser.profile.phoneNumber }} 
+				College: {{ currentUser.profile.collegeName }}
+				City: {{ currentUser.profile.city }}
+					{{ #each event in getEvents }}
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+						<p>{{ event }}</p>
+					{{ /each }}
+				<h4> To Register for events, go to their page and hit register. </h4>
+
+				{{ #if currentUser.profile.isAdmin }}
+					<h2> Admin Section </h2>
+					Choose Table to operate on: 
+					<select id='db_list' style="color: black;" value="0">{{ getDBList }}</select>
+					<lablel></lablel><br>
+					Export selected Table: <input type="text" id="admin_sheet" value='Spreadsheet Name'>
+					<input type="button" value="Export" class="export"><br>
+					<br>
+					Send Notification to selected Table: 
+					<input type="text" id="admin_notif_title" value='Title'>
+					<input type="text" id="admin_notif_text" value='Content'>
+					<input type="button" value="Notify" class="notify"><br>
+					<label id='admin_output'> </label>
+					
+					<div id="lol">
+						{{ eventData }}
+					</div>
+
+				{{ /if }}
+			{{ else }}
+				{{ > registerNumber }}
 			{{ /if }}
 		{{ else }}
 			<h3> You are not logged in.</h3>
@@ -74,13 +153,47 @@
 <template name="notRegistered">
     <canvas id="test"></canvas>
 	<script type="text/javascript" src="/js/canva.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/global.css">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="Home.html">
-			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
-		</a>	
-		<span id="menuIcon" class="nav-logout"> {{ >loginButtons }} </span>
-	</nav>
+	<link rel="stylesheet" type="text/css" href="/styles/nav.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.3em;">
+		<button type="button" class="btn register">Sign In</button>
+		<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
+		<div class="overlaynav-content" >
+			<div class="row justify-content-center no-gutters">
+				<div  style="margin-top:9%;" class="col-sm-6 text-center">
+					<a href="/">Home</a>
+					<a href="/sponsors">Sponsors</a>
+					<a href="/us">Contact Us</a>
+				</div>
+				<div style="margin-top:2%;" class="col-sm-6 text-center">
+					<!-- <a href="#" style="text-decoration: underline;">Events</a> -->
+					<a href="/culti">Culti</a>
+					<a href="/techy">Techy</a>
+					<a href="/litr">Litr</a>
+					<a href="/biggies">Biggies</a>
+					<a href="/infi">Infi</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="navbar" class="sticky">
+		<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
+		<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
+		</span>
+	</div>
+
+	<script type="text/javascript">
+      function openrNav() {
+        document.getElementById("myNavr").style.width = "100%";
+      }
+
+      function closerNav() {
+        document.getElementById("myNavr").style.width = "0%";
+      }
+	</script>
 	<div style="text-align: center;">
 		<h2>
 			You have not registered for {{name}}. Press the button to register Now!
@@ -93,13 +206,47 @@
 <template name="registerNumber">
     <canvas id="test"></canvas>
 	<script type="text/javascript" src="/js/canva.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="/global.css">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="Home.html">
-			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
-		</a>
-		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
-	</nav>
+	<link rel="stylesheet" type="text/css" href="/styles/nav.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.3em;">
+		<button type="button" class="btn register">Sign In</button>
+		<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
+		<div class="overlaynav-content" >
+			<div class="row justify-content-center no-gutters">
+				<div  style="margin-top:9%;" class="col-sm-6 text-center">
+					<a href="/">Home</a>
+					<a href="/sponsors">Sponsors</a>
+					<a href="/us">Contact Us</a>
+				</div>
+				<div style="margin-top:2%;" class="col-sm-6 text-center">
+					<!-- <a href="#" style="text-decoration: underline;">Events</a> -->
+					<a href="/culti">Culti</a>
+					<a href="/techy">Techy</a>
+					<a href="/litr">Litr</a>
+					<a href="/biggies">Biggies</a>
+					<a href="/infi">Infi</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="navbar" class="sticky">
+		<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
+		<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
+		</span>
+	</div>
+
+	<script type="text/javascript">
+      function openrNav() {
+        document.getElementById("myNavr").style.width = "100%";
+      }
+
+      function closerNav() {
+        document.getElementById("myNavr").style.width = "0%";
+      }
+	</script>
 	<div class="container" style="margin: auto auto;">
 		<div class="row" style="margin-top: 20vh">
 			<h2 id="ThisNeedsToBeSomething" class="heading" style="margin-bottom: 20px"> Please Enter your details. </h2>

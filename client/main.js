@@ -194,7 +194,7 @@ Template.user.helpers({
 		var user = Meteor.user();
 		if(!user) return null;
 		var arr = Object.keys(user.profile).filter((s) => s.startsWith('event_'));
-		if(arr.length === 0) return ['None at all.'];
+		if(arr.length === 0) return ['None.'];
 		else return arr.map((s) => Events[s]);
 	},
 	getDBList(){
