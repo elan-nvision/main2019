@@ -51,6 +51,7 @@
     </script>
     <script src="js/cursiveLogo.js"></script>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/nav.css">
     <link rel="stylesheet" href="styles/pagescroll.css">
     <link rel="stylesheet" href="styles/cursiveLogo.css">
     <script src="js/swipe.js"></script>
@@ -96,8 +97,9 @@
 </head>
 
 <body>
+  <!-- Nav -->
   <div id="myNavr" class="overlaynav" style="z-index=10;">
-    <button type="button" class="btn register">Sign In</button>
+    <a href="/me"><button type="button" class="btn register">Sign In</button></a>
     <a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
     <div class="overlaynav-content" >
       <div class="row justify-content-center no-gutters">
@@ -115,10 +117,10 @@
           <a href="/infi">Infi</a>
         </div>
       </div>
-
-
     </div>
   </div>
+
+
   <div id="navbar" class="sticky">
     <a href="#"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
     <span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
