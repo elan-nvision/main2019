@@ -348,7 +348,7 @@ var containers = document.querySelectorAll(".container__section");
 var points = new Points();
 var waveFrames = [
   // L1 and R1
-  new WaveFrame(points, containers[0], 1, 6, "#f9d423", 0.8),
+  new WaveFrame(points, containers[0], 1, 6, "#F39C12", 0.9),
   new WaveFrame(points, containers[1], 5, 10, "#664eea", 0.8),
 
   // Left 4 on top, right 4 below
