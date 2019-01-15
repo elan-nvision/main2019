@@ -1,0 +1,333 @@
+@import url('https://fonts.googleapis.com/css?family=Mali|Comfortaa|Julius+Sans+One|Abel');
+
+body {
+	font-family: 'Mali';
+}
+
+a {
+	color: #EDEDED;
+}
+
+.frame {
+    overflow: hidden !important;
+    position: relative;
+}
+
+.prismatic {
+	top: 35vh !important;
+}
+
+.mainLogo {
+	max-width: 800px;
+	margin: 0 auto;
+	top: 5vh;
+}
+
+.hero {
+	color: #EDEDED;
+	font-family: 'Mali' !important;
+	margin-bottom: 1.4vh;
+	/*text-align: center;*/
+	font-size: 1.2em;
+}
+
+.heroText {
+	font-family: 'Comfortaa', cursive;
+	text-align: center;
+	font-size: 2em;
+	color: #EDEDED;
+	padding-right: 2vw;
+	top: 9vh;
+}
+
+.heroAnnouncement {
+	font-family: 'Mali';
+	position: absolute;
+	right: 5%;
+	bottom: 5%;
+	color: #EDEDED;
+	font-size: 1.5em;
+}
+
+.downArrow {
+	/*font-family: 'Mali';*/
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	/*right: 5%;*/
+	bottom: 3%;
+	color: #EDEDED;
+	font-size: 1.5em;
+}
+
+.colTitleLight {
+	color: #EDEDED;
+	position: relative;
+	text-align: center;
+	font-size: 3em;
+	font-family: 'Julius Sans One';
+	/*margin-top: 5vh;*/
+}
+.colTitleDark {
+	color: #121212;
+	position: relative;
+	text-align: center;
+	font-size: 3em;
+	font-family: 'Julius Sans One';
+	/*margin-top: 5vh;*/
+}
+
+.colTextLeft {
+	position: absolute;
+	top: 80px;
+}
+
+.colTextRight {
+	position: absolute;
+	text-align: right;
+	bottom: 5vh;
+}
+
+.textRight {
+	top: 40vh;
+	text-align: right;
+	padding-right: 2vw;
+	z-index: 1;
+}
+
+.textLeft {
+	top: 50vh;
+	text-align: left;
+	margin-left: 2vw;
+	z-index: 1;
+}
+
+.colTextLight {
+	color: #EDEDED;
+	/*position: relative;*/
+	z-index: 1;
+	/*text-align: center;*/
+	font-size: 1.6em;
+	font-family: 'Abel';
+	/*margin-top: 5vh;*/
+	padding: 2vw;
+}
+
+.colTextDark {
+	color: #121212;
+	/*position: relative;*/
+	z-index: 1;
+	/*text-align: center;*/
+	font-size: 1.6em;
+	font-family: 'Abel';
+	/*margin-top: 5vh;*/
+	padding: 2vw;
+}
+
+canvas {
+	position: absolute;
+	bottom: 0;
+	z-index: 0;
+}
+
+.about {
+	/*background-image: linear-gradient(135deg, #664eea 0%, #764ba2 100%);*/
+	background: #121212;
+	border-right: 7px solid;
+}
+
+.theme {
+	/*background-image: linear-gradient(to right, #E67E22 0%, #f9d423 100%);*/
+	background: #121212;
+	border-left: 7px solid;
+}
+
+.pronites {
+	background: linear-gradient(to right, rgba(15, 32, 39, 0.3), rgba(32, 58, 67, 0.6), rgba(44, 83, 100, 1)), url('../img/pronites_home.JPG');
+	background-size: cover;
+	font-size: 1.2em;
+}
+
+.culti {
+	background-image: linear-gradient(-60deg, rgba(250, 112, 154, 0.65) 0%, rgba(46, 191, 145, 0.9) 100%), url('../img/culti_bg.jpg');
+	/*background-image: linear-gradient(to right, rgb(250, 112, 154) 0%, rgb(254, 225, 64) 100%);*/
+	/*color: rgb(46, 191, 145);*/
+	background-size: cover;
+	background-position: center;
+	border-right: 6px solid;
+}
+
+.litr {
+	background-image: linear-gradient(120deg, #f6d365 0%, #fd7685 100%); border-right: 6px solid;
+}
+
+.socialCause {
+	background: linear-gradient(to right, #ff505c, #b13366);
+	border-left: 6px solid
+}
+
+.techy {
+	background: linear-gradient(to right, rgba(55, 59, 68, 0.5), rgba(66, 134, 244, 0.8)), url('../img/techy_bg.jpg');
+	background-size: cover;
+	/*background-position: right center;*/
+	border-left: 6px solid;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 5;
+}
+
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.sitemap {
+	font-family: 'Abel';
+	margin-left: 10%;
+	color: #EDEDED;
+	font-size: 1.6em;
+}
+
+.sitemap .heading {
+	display: inline-block;
+	font-family: 'Julius Sans One';
+	font-size: 1.4em;
+	border-bottom: 1px solid white;
+	margin-bottom: 2vh;
+}
+
+.mapWrapper {
+	position: absolute;
+	top: 26vh;
+	right: 4vw;
+	max-width: 600px;
+	max-height: 600px;
+	width: 75%;
+	height: 75%;
+	float: right;
+}
+
+@media screen and (max-width: 767px) {
+
+	.mainLogo {
+		max-width: 800px;
+		margin: 0 auto;
+		top: 10vh;
+	}
+
+	.hero {
+		color: #EDEDED;
+		font-family: 'Mali' !important;
+		margin-bottom: 1.4vh;
+		/*text-align: center;*/
+		font-size: 1.4em;
+	}
+
+	.heroText {
+		font-family: 'Comfortaa', cursive;
+		text-align: center;
+		font-size: 1.2em;
+		color: #EDEDED;
+		padding-right: 2vw;
+		top: 11vh;
+	}
+
+	.heroAnnouncement {
+		width: 100%;
+		font-family: 'Mali';
+		position: relative;
+		right: 0;
+		bottom: 0;
+		top: 20vh;
+		text-align: center;
+		color: #EDEDED;
+		font-size: 1.4em;
+	}
+
+	.prismatic {
+		top: 10vh !important;
+	}
+
+	.textRight {
+		top: 10vh;
+		text-align: right;
+		padding-right: 2vw;
+		z-index: 1;
+	}
+
+	.textLeft {
+		text-align: left;
+		margin-left: 2vw;
+		z-index: 1;
+	}
+
+	.colTextLight {
+		color: #EDEDED;
+		position: relative;
+		z-index: 1;
+		/*text-align: center;*/
+		font-size: 1em;
+		/*margin-top: 5vh;*/
+		padding: 2vw;
+	}
+
+	.colTextDark {
+		color: #121212;
+		position: relative;
+		z-index: 1;
+		/*text-align: center;*/
+		font-size: 1em;
+		/*margin-top: 5vh;*/
+		padding: 2vw;
+	}
+
+	.colTitleLight {
+		color: #EDEDED;
+		position: relative;
+		font-size: 2.4em;
+		/*margin-top: 5vh;*/
+	}
+	.colTitleDark {
+		color: #121212;
+		position: relative;
+		font-size: 2.4em;
+		/*margin-top: 5vh;*/
+	}
+
+	.colTextLeft {
+		top: 80px;
+	}
+
+	.colTextRight {
+		text-align: right;
+		top: 18vh;
+	}
+
+	.sitemap {
+		visibility: hidden;
+	}
+
+	.mapWrapper {
+		margin-top: 30%;
+		margin-right: 10%;
+		margin-left: 10%;
+		width: 80%;
+		height: 75%;
+		float: right;
+	}
+  
+}
