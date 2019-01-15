@@ -31,166 +31,49 @@
 	
 <script type="text/javascript">
     window.history.replaceState("", "", '/infi');
-</script>
-	<script>
-		/*function openNav() {
-			document.getElementById("myNav").style.height = "100%";
-		}
-
-		function closeNav() {
-			document.getElementById("myNav").style.height = "0%";
-		}
-		function openNav1() {
-			document.getElementById("myNav1").style.height = "100%";
-		}
-
-		function closeNav1() {
-			document.getElementById("myNav1").style.height = "0%";
-		}
-		function openNav2() {
-			document.getElementById("myNav2").style.height = "100%";
-		}
-
-		function closeNav2() {
-			document.getElementById("myNav2").style.height = "0%";
-		}
-		function openNav3() {
-			document.getElementById("myNav3").style.height = "100%";
-		}
-
-		function closeNav3() {
-			document.getElementById("myNav3").style.height = "0%";
-		}
-		function openNav4() {
-			document.getElementById("myNav4").style.height = "100%";
-		}
-
-		function closeNav4() {
-			document.getElementById("myNav4").style.height = "0%";
-		}
-		function openNav5() {
-			document.getElementById("myNav5").style.height = "100%";
-		}
-
-		function closeNav5() {
-			document.getElementById("myNav5").style.height = "0%";
-		}
-		function openNav6() {
-			document.getElementById("myNav6").style.height = "100%";
-		}
-
-		function closeNav6() {
-			document.getElementById("myNav6").style.height = "0%";
-		}
-		function openNav7() {
-			document.getElementById("myNav7").style.height = "100%";
-		}
-
-		function closeNav7() {
-			document.getElementById("myNav7").style.height = "0%";
-		}
-		function openNav8() {
-			document.getElementById("myNav8").style.height = "100%";
-		}
-
-		function closeNav8() {
-			document.getElementById("myNav8").style.height = "0%";
-		}
-		function openNav9() {
-			document.getElementById("myNav9").style.height = "100%";
-		}
-
-		function closeNav9() {
-			document.getElementById("myNav9").style.height = "0%";
-		}
-		function openNav10() {
-			document.getElementById("myNav10").style.height = "100%";
-		}
-
-		function closeNav10() {
-			document.getElementById("myNav10").style.height = "0%";
-		}
-		function openNav11() {
-			document.getElementById("myNav11").style.height = "100%";
-		}
-
-		function closeNav11() {
-			document.getElementById("myNav11").style.height = "0%";
-		}
-		function openNav12() {
-			document.getElementById("myNav12").style.height = "100%";
-		}
-
-		function closeNav12() {
-			document.getElementById("myNav12").style.height = "0%";
-		}
-		function openNav13() {
-			document.getElementById("myNav13").style.height = "100%";
-		}
-
-		function closeNav13() {
-			document.getElementById("myNav13").style.height = "0%";
-		}
-		function openNav14() {
-			document.getElementById("myNav14").style.height = "100%";
-		}
-
-		function closeNav14() {
-			document.getElementById("myNav14").style.height = "0%";
-		}
-		function openNav15() {
-			document.getElementById("myNav15").style.height = "100%";
-		}
-
-		function closeNav15() {
-			document.getElementById("myNav15").style.height = "0%";
-		}*/
-		function openrNav() {
-			document.getElementById("myNavr").style.width = "100%";
-		}
-
-		function closerNav() {
-			document.getElementById("myNavr").style.width = "0%";
-		}
-		
-	</script>
-	
+</script>	
 </head>
 <body>
-	<canvas id="test" style="z-index: -100;position: fixed; width: 100%;height: 100%;overflow-x: hidden;" ></canvas>
-	<div id="myNavr" class="overlaynav">
-		<button type="button" class="btn register">Register</button>
+	<canvas id="test" style="top: 0;z-index: -100;position: fixed; width: 100%;height: 100%;overflow-x: hidden;" ></canvas>
+	<link rel="stylesheet" type="text/css" href="/styles/nav.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.3em;">
+    <a href="/me"><button id="signInBtn" type="button" class="btn register" >Sign In</button></a>
 		<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
 		<div class="overlaynav-content" >
 			<div class="row justify-content-center no-gutters">
 				<div  style="margin-top:9%;" class="col-sm-6 text-center">
-					<a href="/home.html">Home</a>
-          <a href="/sponsors.html">Sponsors</a>
-          <a href="/team.html">Contact Us</a>
-        </div>
-        <div  class="col-sm-6 text-center">
-          <a href="#" style="text-decoration: underline;">Events</a>
-          <a href="/culti.html">Culti</a>
-          <a href="/techy.html">Techy</a>
-          <a href="/litr.html">Litr</a>
-          <a href="/pronites.html">Pronites</a>
-          <a href="/infi.html">Infi</a>
-
-
-          <a href="#">SocialCause</a>
+					<a href="/">Home</a>
+					<a href="/sponsors">Sponsors</a>
+					<a href="/us">Contact Us</a>
+				</div>
+				<div style="margin-top:2%;" class="col-sm-6 text-center">
+					<!-- <a href="#" style="text-decoration: underline;">Events</a> -->
+					<a href="/culti">Culti</a>
+					<a href="/techy">Techy</a>
+					<a href="/litr">Litr</a>
+					<a href="/biggies">Biggies</a>
+					<a href="/infi">Infi</a>
 				</div>
 			</div>
-
-
 		</div>
 	</div>
-
-	<nav class="navbar navbar-light bg-transparent">
-		<a class="navbar-brand" href="#"><img style="background:transparent;width:70px; height:58px;" src="/img/symbolOnly.png" ></a>
-		<span style="font-size:50px;cursor:pointer ;color:white; margin-right:10px;" onclick="openrNav()">&#9776; </span></div></div>
-	</nav>
+	<div id="navbar" class="sticky">
+		<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
+		<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
+		</span>
+	</div>
+	<script type="text/javascript">
+		if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
+		function openrNav() {
+			document.getElementById("myNavr").style.width = "100%";
+		}
+		function closerNav() {
+			document.getElementById("myNavr").style.width = "0%";
+		}
+	</script>
 	
-	<div class="container">
+	<div class="container" style="margin-top: 10%;">
 		<h1 style ="text-align: center; margin-bottom: 30px;font-family: 'Julius Sans One', sans-serif;">INFI EVENTS</h1>
 
 		<h2 style ="text-align: center; margin-bottom: 30px;">Events Schedule</h2>

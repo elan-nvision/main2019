@@ -99,7 +99,7 @@
 <body>
   <!-- Nav -->
   <div id="myNavr" class="overlaynav" style="z-index=10;">
-    <a href="/me"><button type="button" class="btn register">Sign In</button></a>
+    <a href="/me"><button id="signInBtn" type="button" class="btn register" >Sign In</button></a>
     <a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
     <div class="overlaynav-content" >
       <div class="row justify-content-center no-gutters">
@@ -463,6 +463,8 @@
           navbar.classList.remove("sticky");
         }
       }
+
+      if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
 
       function openrNav() {
         document.getElementById("myNavr").style.width = "100%";

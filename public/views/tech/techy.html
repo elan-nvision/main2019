@@ -30,80 +30,47 @@
 <script type="text/javascript">
     window.history.replaceState("", "", '/techy');
 </script>
-   <script>
-     /*function openNav() {
-          document.getElementById("myNav").style.height = "100%";
-     }
-
-     function closeNav() {
-          document.getElementById("myNav").style.height = "0%";
-     }
-     function openNav1() {
-          document.getElementById("myNav1").style.height = "100%";
-     }
-
-     function closeNav1() {
-          document.getElementById("myNav1").style.height = "0%";
-     }
-     function openNav2() {
-          document.getElementById("myNav2").style.height = "100%";
-     }
-
-     function closeNav2() {
-          document.getElementById("myNav2").style.height = "0%";
-     }
-     function openNav3() {
-          document.getElementById("myNav3").style.height = "100%";
-     }
-
-     function closeNav3() {
-          document.getElementById("myNav3").style.height = "0%";
-     }*/
-      function openrNav() {
-      document.getElementById("myNavr").style.width = "100%";
-    }
-
-    function closerNav() {
-      document.getElementById("myNavr").style.width = "0%";
-    }
-
-</script>
-
 </head>
 <body>
-     <canvas id="test" style="z-index: -100;position: fixed; width: 100%;height: 100%;overflow-x: hidden;" ></canvas>
-  <div id="myNavr" class="overlaynav">
-    <button type="button" class="btn register">Register</button>
+  <canvas id="test" style="top: 0;z-index: -100;position: fixed; width: 100%;height: 100%;overflow-x: hidden;" ></canvas>
+  <link rel="stylesheet" type="text/css" href="/styles/nav.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.3em;">
+    <a href="/me"><button id="signInBtn" type="button" class="btn register" >Sign In</button></a>
     <a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
     <div class="overlaynav-content" >
       <div class="row justify-content-center no-gutters">
         <div  style="margin-top:9%;" class="col-sm-6 text-center">
           <a href="/">Home</a>
           <a href="/sponsors">Sponsors</a>
-          <a href="/team">Contact Us</a>
+          <a href="/us">Contact Us</a>
         </div>
-        <div  class="col-sm-6 text-center">
-          <a href="#" style="text-decoration: underline;">Events</a>
+        <div style="margin-top:2%;" class="col-sm-6 text-center">
+          <!-- <a href="#" style="text-decoration: underline;">Events</a> -->
           <a href="/culti">Culti</a>
           <a href="/techy">Techy</a>
           <a href="/litr">Litr</a>
-          <a href="/pronites">Pronites</a>
+          <a href="/biggies">Biggies</a>
           <a href="/infi">Infi</a>
-
-
-          <a href="#">SocialCause</a>
         </div>
       </div>
-
-
     </div>
   </div>
-
-  <nav class="navbar navbar-light bg-transparent">
-    <a class="navbar-brand" href="#"><img style="background:transparent;width:70px; height:58px;" src="/img/symbolOnly.png" ></a>
-    <span style="font-size:50px;cursor:pointer ;color:white; margin-right:10px;" onclick="openrNav()">&#9776; </span></div></div>
-  </nav>
-     <div class="container">
+  <div id="navbar" class="sticky">
+    <a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
+    <span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
+    </span>
+  </div>
+  <script type="text/javascript">
+    if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
+    function openrNav() {
+      document.getElementById("myNavr").style.width = "100%";
+    }
+    function closerNav() {
+      document.getElementById("myNavr").style.width = "0%";
+    }
+  </script>
+     <div class="container" style="margin-top: 10%">
           <div class="scrollmenu">
              <a href="/techy">&nbsp;ELEKTRONIKA</a>
              <!--<a href="/equilibria">&nbsp;EQUILIBRIA</a>

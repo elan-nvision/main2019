@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Mali|Comfortaa|Julius+Sans+One|Abel');
 
+.sticky img {
+	width: 60px;
+	height: auto;
+}
+
 .overlaynav {
 	height: 100%;
 	width: 0;
