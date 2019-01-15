@@ -1,0 +1,464 @@
+<head>
+	<title>{{ title }}</title>
+	<link rel="icon" type="image/ico" href="img/symbolOnly.png" />
+	<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab" rel="stylesheet">
+	<script type="text/javascript" src="/web-notification.js"></script>
+</head>
+
+<template name="user">
+	<link rel="stylesheet" type="text/css" href="/global.css">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span>
+				<img src="img/TextLogo.png" class="main-nav-logo">
+			</span>
+		</a>	
+		<span id="menuIcon" class="nav-logout"> {{ >loginButtons }} </span>
+	</nav>
+	<div style="text-align: center;">
+		{{ #if currentUser }}
+			<h3> Welcome {{ currentUser.profile.name }}! </h3>
+			<h4 >You have registered for the following events: </h4>
+			{{ #each event in getEvents }}
+				<p>{{ event }}</p>
+			{{ /each }}
+
+			{{ #if currentUser.profile.isAdmin }}
+				<h2> Admin Section </h2>
+				Choose Table to operate on: 
+				<select id='db_list' style="color: black;" value="0">{{ getDBList }}</select>
+				<lablel></lablel><br>
+				Export selected Table: <input type="text" id="admin_sheet" value='Spreadsheet Name'>
+				<input type="button" value="Export" class="export"><br>
+				<br>
+				Send Notification to selected Table: 
+				<input type="text" id="admin_notif_title" value='Title'>
+				<input type="text" id="admin_notif_text" value='Content'>
+				<input type="button" value="Notify" class="notify"><br>
+				<label id='admin_output'> </label>
+				
+				<div id="lol">
+					{{ eventData }}
+				</div>
+
+			{{ /if }}
+		{{ else }}
+			<h3> You are not logged in.</h3>
+		{{ /if }}
+	</div>
+</template>
+
+<template name="top">
+	{{# if currentUser }}
+		{{# if currentUser.profile.phoneNumber }}
+			{{ # if isRegisteredForEvent eventName }}
+				{{ > Template.dynamic template=actual }}
+			{{ else }}
+				{{ > notRegistered }}
+			{{ /if }}
+		{{ else }}
+			{{ > registerNumber }}
+		{{ /if }}
+	{{ else }}
+		{{ > Template.dynamic template=loggedOut }}
+	{{ /if }}
+</template>
+
+<template name="notRegistered">
+	<link rel="stylesheet" type="text/css" href="/global.css">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
+		</a>	
+		<span id="menuIcon" class="nav-logout"> {{ >loginButtons }} </span>
+	</nav>
+	<div style="text-align: center;">
+		<h2>
+			You have not registered for {{name}}. Press the button to register Now!
+		</h2>
+		<input type="button" value="Register" id="Register">
+		<input type="button" value="Take me Home!" onclick="window.location.href='/Home.html';">
+	</div>
+</template>
+
+<template name="registerNumber">
+	<link rel="stylesheet" type="text/css" href="/global.css">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
+		</a>
+		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+	</nav>
+	<div class="container" style="margin: auto auto;">
+		<div class="row" style="margin-top: 20vh">
+			<h2 id="ThisNeedsToBeSomething" class="heading" style="margin-bottom: 20px"> Please Enter your details. </h2>
+			<h2> We promise not to spam you or share your details with any third party. Read the <a onclick="window.location.href='privacypolicy.html'" style="cursor: pointer;"> privacy policy </a> here. </h2>
+			<div class="col-lg-4" style="font-size: 1.4em; text-align: center">
+				WhatsApp Number:<br> 
+				<input type="number" id="actualNumber" style="color: black !important">
+			</div>
+			<div class="col-lg-4" style="font-size: 1.4em; text-align: center">
+				College Name:<br> 
+				<input type="text" id="collegeName" style="color: black !important">
+			</div>
+			<div class="col-lg-4" style="font-size: 1.4em; text-align: center">
+				City:<br> 
+				<input type="text" id="city" style="color: black !important">
+			</div>
+		</div>
+		<div style="text-align: center; margin-top: 10px"> <input type="button" value="Register" id="addNumber" style="color: black !important">
+		</div>
+	</div>
+</template>
+
+<template name="caportal">
+	<link rel="stylesheet" type="text/css" href="/ca.css">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
+		</a>
+		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+	</nav>
+	{{ #if hasAskedForRefCode }}
+		<h1 class="heading"> 
+			Welcome, {{ currentUser.profile.event_ca.name }}! <br>
+			Your Referral Code is {{ currentUser.profile.event_ca.code }}. <br>
+			{{ currentUser.profile.event_ca.referals }} people have used your Referral Code.
+		</h1>	
+		<div class="container">
+			<h2>Latest Tasks | Your Score: <span id="score">{{ currentUser.profile.score }} </span> </h2>
+			<fieldset>
+				<table id='table'>
+					<tr>
+						{{ #if currentUser.profile.event_ca.isAdmin }}
+							<th class="col-lg-5"> Content </th>
+							<th class="col-lg-3"> Complete By </th>
+							<th class="col-lg-2"> Score </th>
+							<th class="col-lg-2"> Admin </th>
+						{{ else }}
+							<th class="col-lg-7"> Content </th>
+							<th class="col-lg-3"> Complete By </th>
+							<th class="col-lg-2"> Score </th>
+						{{ /if }}
+					</tr>
+					{{ entries }}
+				</table>
+			</fieldset>
+			<h2>Important Details</h2>
+			<ul class="impinfo">
+				<li><b> Our team members will contact you very soon with more information about the program. </b></li>
+				<li>Your referrals are counted at the top. Their score will be added soon.</li>
+				<li>You will receive tasks here on a frequent basis. Every task will have a score associated with it. </li>
+				<li>Once you finish a task, make sure to contact your Managers and submit proof, and receive your points!</li>
+				<li>Contact <a class="orange-link" href="dhruv.g@elan.org.in">dhruv.g@elan.org.in</a> for any queries.</li>
+			</ul>
+			<fieldset>
+				<legend> Leaderboards </legend>
+				<table id='leaderboards'>
+					<tr>
+						<td class="adminEntries col-lg-1"> Rank </td>
+						<td class="adminEntries"> Name </td>
+						<td class="adminEntries col-lg-1"> Score </td>
+						<td class="adminEntries"> Email </td>
+					</tr>
+					{{ displayLeaderBoards }}
+				</table>
+			</fieldset>
+		</div>
+
+		{{#if currentUser.profile.event_ca.isAdmin }}
+			<div class="container">
+				<h2>Administrator Controls</h2>
+				<fieldset>
+					<legend id='legend'> Add Post to CA Feed </legend>
+					<form>
+						<table>
+							<tr>
+								<th class="col-lg-4"> Content </th>
+								<th class="col-lg-4"> Add Score </th>
+								<th class="col-lg-4"> Send Notifications </th>
+							</tr>
+							<tr>
+								<td>
+									Content: <br><input type="text" id="content"><br>
+									Score: <br><input type="number" id="postScore"><br>
+									Task Expiry: <br><input type="date" id="postExpiry"><br>
+								</td>
+								<td> 
+									Score: <br><input type="number" id="delScore"><br>
+									Email of CA: <br><input type="email" id="idOfCA"><br>
+								</td>
+								<td> 
+									Title: <br><input type="text" id="notifTitle"><br>
+									Text: <br><input type="text" id="notifContent"><br>
+								</td>
+							</tr>
+							<tr>
+								<td><input type="button" class="submit" value="Submit Post"></td>
+								<td><input type="button" class="update" value="Add Score"></td>
+								<td><input type="button" class="notify" value="Send Notification"></td>
+							</tr>
+						</table>
+					</form>
+				</fieldset>
+				<fieldset>
+					<legend id='sheetsNotice'>Google Spreadsheets Control</legend>
+					<ul>
+						<li>Create your Ggoogle sheet and share it with: 
+							<p id='servAccName'>{{ getServiceAccount }}</p></li>
+						<li>Make sure you give write Access.</li>
+						<li>Fill in the name of the spreadsheet EXACTLY </li>
+						<li>Press the button </li>
+					</ul>
+					<input type="text" id="nameOfSHeet" value="Name of Spreadsheet">
+					<input type="button" class="export" value="Export CA Data">
+					<hr>
+				</fieldset>
+				<fieldset>
+					<legend id='listLegend'> CAs Registered </legend>
+					<table id='catable'>
+						<tr>
+							<td class="adminEntries"> Name </td>
+							<td class="adminEntries"> Score </td>
+							<td class="adminEntries"> Email </td>
+							<td class="adminEntries"> Number </td>
+							<td class="adminEntries"> College </td>
+							<td class="adminEntries"> City </td>
+						</tr>
+						{{ caentries }}
+					</table>
+				</fieldset>
+			</div>
+		{{ /if }}
+	{{ else }}
+	<div style="text-align: center;">
+		<h3>
+			Enter Your referral Code. Leave it blank if you are not using one.
+		</h3>
+		<input type="text" id="ReferralCode" style="color: black !important">
+		<br><br>
+		<input type="button" class="RefCodeSubmit" value="Apply Refferal Code">
+		<input type="button" class="RefCodeNah" value="Nahh">
+	</div>
+	{{ /if }}
+</template>
+
+<template name="home">
+	<link rel="stylesheet" type="text/css" href="/ca.css">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+			<a href="Home.html">
+				<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
+			</a>
+			<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+		</nav>
+	<main role="main" class="container">
+		<div style="margin: 40px 0 20px; padding-bottom: 9px">
+			<h1 class="heading"> CAMPUS AMBASSADOR PROGRAMME </h1>
+		</div>
+		<div class="container" style="text-align: center">
+			<img src="img/banner.jpg" style="width: 80%; margin: auto auto" />
+		</div>
+		<div class="starter-template" >
+			<p class="lead"> 
+			This is a call for college students across the city to become 
+			Campus Ambassadors for <strong>ELAN & ηvision 2019</strong>, 
+			the techno-cultural fest of IIT Hyderabad. ELAN and ​η​vision is Hyderabad’s 
+			largest techno-cultural fest, with a footfall of <strong>over 9,000</strong>. With thousands of participants and the likes 
+			of <strong>Nikhil Chinappa, Benny Dayal and Kailash Kher</strong>, the fest has previously 
+			partnered with <strong>Cyient, KTM, MTv Beats</strong> among others.
+			</p>
+			<p class="lead">
+				The Campus Ambassador Programme is a chance for you to be a part of this fest 
+				as more than just a participant. Note that students from all colleges and institutes can
+				be a part of The Campus Ambassador Programme. <strong>The registrations are open to all.</strong>
+				You will be a point of contact for ELAN & ηvision 2019 and your college. 
+				The primary goal you will be expected to accomplish will be to promote 
+				our events in your college and especially connect us with your clubs.
+			</p>
+			<br>
+			<h1>Perks</h1>
+			<p class="lead">
+				Internship Opportunities <br>
+				VIP Passes for Concert <br>
+				Free Merchandise <br>
+				Perks and discounts for all major events <br>
+			</p>
+			<br>
+			<div class="logout" style="margin: auto auto; font-size:20px; cursor:pointer"> {{ >loginButtons }} </div>
+		</div>
+	</main>
+</template>
+
+<template name="cryptexMain">
+	<link rel="stylesheet" type="text/css" href="/cryptex.css">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
+		</a>
+		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+	</nav>
+	<div style="text-align: center;">
+	{{ #if hasPseudoName }}
+		<h2>Welcome {{ currentUser.profile.event_cryptex.pseudoName }}. <br>
+		You have sucessfully Registered. Stay Tuned. </h2>
+		<div class="col-lg-1"></div>
+		<div style="text-align: left; font-size: 16px" class="col-lg-8">
+			<h2>Rules</h2>
+			<ol>
+			 	<li>Cryptex 2019 consists of 25-30 levels of increasing difficulty. You will receive successive questions upon solving and entering the answer of each level and/or completing the task involved.</li>
+			 	<li>The winner will be the first person to complete all levels. In case that no one is able to complete Cryptex before the 2359 hrs 13th Jan 2019, the person who occupies the first position on the leaderboard will be declared winner.</li>
+			 	<li>The competition is open to everyone, anywhere on the globe.</li>
+			 	<li>The questions, answers or any discussion related to them must not be posted anywhere. Doing so will result in disqualification. We will provide a platform to communicate with the moderators and ask for hints.</li>
+			 	<li>If a question involves typing answers in an answer box, the answers should be typed completely in lowercase, without any spaces, punctuation, special characters or numerals. The only exception to this is when the answer is the numeral greater than 1000 or when the answer is a special character.</li>
+			 	<li>The questions may also involve interacting with the page itself, following hyperlinks etc.</li>
+			 	<li>Any attempt to access levels you have not yet reached or any form of attack on the servers will result in disqualification.</li>
+			 	<li>The organizer’s decision is final in any case.</li>
+			</ol>
+			<p>TL;DR : Have fun. Enter answers only in lowercase alphabet without spaces except in certain special cases. </p> <p> If you’re new to Cryptex, we have some more guidelines following.
+			</p>
+			<h2>Guidelines</h2>
+			 <ol>
+			 	<li>Google is your friend. Usually. You’re expected to use Google and other online tools in your quest to crack Cryptex 2019. Do keep in mind that Google may give you erroneous results in certain cases.</li>
+			 	<li>Reverse searching images might help you in certain cases.</li>
+			 	<li>The questions are open-ended, may have red herrings, cheeky hints and may lead you on wild goose chases. If you are getting nowhere with a certain approach, do consider that you might be on the wrong train of thought.</li>
+			 	<li>On the other hand, it could be that the answer is ‘colour’ when you have been trying ‘color’. Check for alternate spelling, names and other such variations.</li>
+			 	<li>Clues might be hidden (especially in the first few questions) to reduce wrong trains of attack. Their absence, however, does not indicate anything.</li>
+			 	<li>Using Google Chrome is advised as some questions require features which are not supported in Safari.</li>
+			 	<li>Hints to the questions will be released on the forum based on certain factors. The hints and even the titles of the question may not have any apparent meaning until you figure of the answer and/or receive another part of the clue.</li>
+			 	<li>The forum is the quickest way to reach the moderators of Cryptex. You may ask for hints on the forum. </li>
+			 	<li>The questions might involve simple cryptography, wordplay, steganography, conventional puzzles or maybe simple connect questions. However each of them is designed to be solved in a reasonable amount of time with access to just internet and pen+paper.</li>
+			 </ol>
+		</div>
+		<div>
+			<div id="crypt_play" class="col-lg-2 btn c1">Play</div>
+			<div id="crypt_forum" class="col-lg-2 btn c2">Forum</div>
+			<div id="crypt_leaders" class="col-lg-2 btn c3">Leaderboards</div>
+			<div id="crypt_cert" class="col-lg-2 btn c2">E-Certificates</div>
+			<div id="crypt_feedb" class="col-lg-2 btn c1">Feedback</div>
+		</div>
+	{{ else }}
+			<h3 id="crypt_label"> Enter a Pseudo Name </h3>
+			<input type="text" id="crypt_name" style="color: black !important">
+			<input type="button" class="submit_crypt_name" value="Choose Name" >
+	{{ /if }}
+	</div>
+</template>
+
+<template name='cryptexQuestions'>	
+	{{ #if hasPseudoName }}
+		<link rel="stylesheet" type="text/css" href="/cryptex.css">
+		<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+			<a href="Home.html">
+				<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
+			</a>
+			<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+		</nav>
+		<div style="text-align: center;">
+			<div class="col-lg-1"></div>
+			<div class="col-lg-8 img-contain">
+			<h1>Q{{currentUser.profile.event_cryptex.level}}.</h1>
+				{{ #if image }}
+					<div><img src="{{ image }}"> </div> 
+				{{ else }}
+					<div style="width: 1px; height: 1px" ></div>
+				{{ /if }}
+			<h3>{{{question}}}</h3></div>
+			<div id="crypt_rules" class="col-lg-2 btn c1">Rules</div>
+			<div id="crypt_forum" class="col-lg-2 btn c2">Forum</div>
+			<div id="crypt_leaders" class="col-lg-2 btn c3">Leaderboards</div>
+			<div id="crypt_cert" class="col-lg-2 btn c2">E-Certificates</div>
+			<div id="crypt_feedb" class="col-lg-2 btn c1">Feedback</div>
+		</div><br>
+		<div class="col-lg-4"></div>
+		<div style="text-align: center;" id="crypt_panel" class="col-lg-2">
+			<fieldset>
+				<legend></legend>
+				<label id="crypt_feedback">Try Your Answer:</label>
+				<input type="text" id="789456123" style="color: black !important">
+				<input type="button" id="415263789" value="Answer">
+			</fieldset>
+		</div>
+	{{ else }}
+		<h3 id="crypt_label"> Enter a Pseudo Name </h3>
+		<input type="text" id="crypt_name" style="color: black !important">
+		<input type="button" class="submit_crypt_name" value="Choose Name" >
+	{{ /if }}
+	<br> 
+	{{ #if isLastLevel }}
+	<div style="text-align: center; width: 100%;" id="credit_panel">
+		<h1 class="col-lg-12" id="congo_text"> <hr>Great Work. You are almost there. </h1> 
+		<h3 class="col-lg-12"> Please allow me to introduce, The Gaurdians of the Crypt, arguably the finest: </h3>
+		<br>
+		<div class="col-lg-4"></div>
+		<div class="col-lg-4">
+			<h5><span style="float: left;">Abhishek Agarwal</span><span style="float: right;">Chief Developer</span></h5> <br>
+			<h5><span style="float: left;">Adyasa Mohany</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Dhruv Gupta</span><span style="float: right;">Administrator</span></h5> <br>
+			<h5><span style="float: left;">Maanvitha Kalicheti</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Nikhil Pallamreddy</span><span style="float: right;">Overall Coordinator</span></h5> <br>
+			<h5><span style="float: left;">Rajnish Gupta</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Riddhi Shah</span><span style="float: right;">Question Architect</span></h5><br>
+			<h5><span style="float: left;">Rishika Rao</span><span style="float: right;">Administrator</span></h5>  <br>
+			<h5><span style="float: left;">Sandeep Kumar</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Saurav Madusudanan</span><span style="float: right;">Administrator</span></h5> <br>
+			<h5><span style="float: left;">Shreyas Hawaldar</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Srinikitha Bhagwati</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Tanishq Bakliwal</span><span style="float: right;">Question Architect</span></h5> <br>
+			<h5><span style="float: left;">Tanmay RenuHura</span><span style="float: right;">Overall Life Saver</span></h5><br>
+			<h5><span style="float: left;">Vishnu VS</span><span style="float: right;">Admin & Question Architect</span></h5><br>
+			<fieldset></fieldset>
+		</div>
+	</div>
+	{{ /if }}
+</template>
+
+<template name='cryptexLeaderboards'>
+	<link rel="stylesheet" type="text/css" href="/cryptex.css">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
+		</a>
+		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+	</nav>
+	<div style="text-align: center;">
+		<div class="col-lg-12">
+			<h1 class="col-lg-10">Cryptex 2019 Leaderboards</h1>
+			<div class="col-lg-2"></div>
+		</div>
+		<div class="col-lg-1"></div>
+		<table id='crypt-leader-table' class="col-lg-8">
+			<tr>
+				<th class="col-lg-1">Rank</th>
+				<th class="col-lg-6">Name</th>
+				<th class="col-lg-1">Level</th>
+			</tr>
+			{{ data }}
+		</table>
+		<div class="col-lg-1"></div>
+		<div id="crypt_rules" class="col-lg-2 btn c1">Rules</div>
+		<div class="col-lg-1"></div>
+		<div id="crypt_forum" class="col-lg-2 btn c2">Forum</div>
+		<div class="col-lg-1"></div>
+		<div id="crypt_play" class="col-lg-2 btn c3">Play</div>
+		<div class="col-lg-1"></div>
+		<div id="crypt_cert" class="col-lg-2 btn c2">E-Certificates</div>
+		<div class="col-lg-1"></div>
+		<div id="crypt_feedb" class="col-lg-2 btn c1">Feedback</div>
+	</div>
+</template>
+
+<template name="cryptexHome">
+	<link rel="stylesheet" type="text/css" href="/cryptex.css">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+		<a href="Home.html">
+			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
+		</a>
+		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
+	</nav>
+	<div style="text-align: center;">
+		<h2> Cryptex 2019 </h2>
+		<img src="img/cryptex.jpg" style="width: inherit;">
+		<h3> Every puzzle has its pieces.</h3>
+		<p> Please login to continue. </p>
+	</div>
+</template>

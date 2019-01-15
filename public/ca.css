@@ -1,0 +1,102 @@
+body {
+	background-image: url('img/back2.jpg');
+	background-position: center center;
+	background-size: stretch;
+	background-attachment: fixed;
+	color: #fff;
+}
+.main-nav-logo {
+	float: left;
+	height: 25%;
+	width: 20%;
+}
+.nav-logout {
+	float: right; 
+	margin: 5px 5px; 
+	font-size:30px; 
+	cursor:pointer;
+}
+.login-display-name {
+	display: none !important;
+}
+h1 {
+	text-align: center;
+}
+
+input {
+	color: black;
+}
+table, legend {
+	color: darkgrey;
+}
+.adminEntries { 
+	max-width: 100px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+table {
+	margin: 0 0 40px 0;
+	width: 100%;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+	display: table;
+	text-align: center;
+	table-layout: fixed;
+}
+tr {
+	color: lightgrey;
+	display: table-row;
+	background: grey;
+}
+tr:nth-child(even){
+	background: lightgrey;
+}
+td {
+	word-wrap: break-word;
+	color: #101010;
+	display: table-cell;
+	padding: 1.2rem;
+	margin: 0.5rem 0.5rem;
+	padding-bottom: 0.35rem;
+	font-size: 1.8rem;
+}
+th {
+	display: table-row;
+	font-size: 3rem;
+	padding: 1rem; 
+	text-align: center;
+}
+.orange-link {
+	color: orange;
+}
+.orange-link:hover { 
+	color: orange;
+}
+.logout {
+	text-align: center;
+	height: 3rem;
+}
+.navbar-nav .nav-item .nav-link {
+	color: white;
+}
+.dropdown-menu {
+	background-color:pink; 
+}
+.dropdown-menu a:hover {
+	background-color: #FAA570;
+}
+.dropdown-menu .dropdown-item {
+	color:black;
+}
+#div1,#div2,#div3,#div4,#div5 {
+	display: none;
+}
+.footerimg {
+	width: 40px;
+}
+.impinfo {
+	text-align: center;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.45em;
+}
+

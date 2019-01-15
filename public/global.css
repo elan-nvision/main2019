@@ -1,0 +1,20 @@
+body {
+	text-align: center;
+	color: white;
+	font-family: 'Montserrat', sans-serif;
+	background: #121212;
+}
+input {
+	color: black;
+}
+.main-nav-logo {
+	float: left;
+	height: 25%;
+	width: 20%;
+}
+.nav-logout {
+	float: right; 
+	margin: 5px 5px; 
+	font-size:30px; 
+	cursor:pointer;
+}

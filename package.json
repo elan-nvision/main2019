@@ -1,0 +1,26 @@
+{
+  "name": "NSS-Hours-App",
+  "private": true,
+  "scripts": {
+    "start": "meteor run",
+    "test": "meteor test --once --driver-package meteortesting:mocha",
+    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
+    "visualize": "meteor --production --extra-packages bundle-visualizer"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.55",
+    "bcrypt": "^2.0.1",
+    "google-spreadsheets": "^2.0.0",
+    "googleapis": "^32.0.0",
+    "meteor-node-stubs": "^0.4.1",
+    "mysql": "^2.16.0",
+    "simple-web-notification": "^1.0.31"
+  },
+  "meteor": {
+    "mainModule": {
+      "client": "client/main.js",
+      "server": "server/main.js"
+    },
+    "testModule": "tests/main.js"
+  }
+}
