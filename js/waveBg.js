@@ -355,7 +355,7 @@ var waveFrames = [
   new WaveFrame(points, containers[2], 1, 6, "#2ebf91", 0.7),
   new WaveFrame(points, containers[3], 1, 6, "#EDEDED", 0.5),
   new WaveFrame(points, containers[4], 5, 10, "#2C3E50", 0.5),
-  new WaveFrame(points, containers[5], 5, 10, '#2980B9', 0.6),
+  new WaveFrame(points, containers[5], 5, 10, '#2980B9', 0.75),
 ];
 
 var Controller = ((_temp = _class = (function() {
