@@ -207,8 +207,29 @@ canvas {
 	display: inline-block;
 	font-family: 'Julius Sans One';
 	font-size: 1.4em;
-	border-bottom: 1px solid white;
+	border-bottom: 1px solid #EDEDED;
 	margin-bottom: 2vh;
+}
+
+.sitemap a {
+	text-decoration: none;
+	transition: all 0.5s ease;
+}
+
+.sitemap a:nth-child(8n + 1):hover {
+	color: #27AE60;
+}
+
+.sitemap a:nth-child(8n + 3):hover {
+	color: #3498DB;
+}
+
+.sitemap a:nth-child(8n + 5):hover {
+	color: #9B59B6;
+}
+
+.sitemap a:nth-child(8n + 7):hover {
+	color: #E74C3C;
 }
 
 .mapWrapper {
@@ -271,6 +292,7 @@ canvas {
 	}
 
 	.textLeft {
+		top: 85vh;
 		text-align: left;
 		margin-left: 2vw;
 		z-index: 1;
@@ -278,7 +300,6 @@ canvas {
 
 	.colTextLight {
 		color: #EDEDED;
-		position: relative;
 		z-index: 1;
 		/*text-align: center;*/
 		font-size: 1em;
@@ -288,7 +309,6 @@ canvas {
 
 	.colTextDark {
 		color: #121212;
-		position: relative;
 		z-index: 1;
 		/*text-align: center;*/
 		font-size: 1em;
@@ -297,14 +317,14 @@ canvas {
 	}
 
 	.colTitleLight {
+		/*position: absolute;*/
 		color: #EDEDED;
-		position: relative;
 		font-size: 2.4em;
 		/*margin-top: 5vh;*/
 	}
 	.colTitleDark {
+		/*position: absolute;*/
 		color: #121212;
-		position: relative;
 		font-size: 2.4em;
 		/*margin-top: 5vh;*/
 	}
@@ -315,7 +335,8 @@ canvas {
 
 	.colTextRight {
 		text-align: right;
-		top: 18vh;
+		/*top: 18vh;*/
+		bottom: 2vh;
 	}
 
 	.sitemap {
@@ -323,6 +344,9 @@ canvas {
 	}
 
 	.mapWrapper {
+		position: relative;
+		top: 0;
+		right: 0;
 		margin-top: 30%;
 		margin-right: 10%;
 		margin-left: 10%;
