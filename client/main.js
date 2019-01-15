@@ -72,6 +72,41 @@ FlowRouter.route('/me', {
 	}
 })
 
+FlowRouter.route('/culti', {
+	action: () => {
+		window.location.href='/views/culti.html';
+	}
+});
+FlowRouter.route('/techy', {
+	action: () => {
+		window.location.href='/views/tech/techy.html';
+	}
+});
+FlowRouter.route('/litr', {
+	action: () => {
+		window.location.href='/views/litr.html';
+	}
+});
+FlowRouter.route('/infi', {
+	action: () => {
+		window.location.href='/views/infi.html';
+	}
+});
+FlowRouter.route('/sponsors', {
+	action: () => {
+		window.location.href='/views/sponsors.html';
+	}
+});
+FlowRouter.route('/us', {
+	action: () => {
+		window.location.href='/views/team.html';
+	}
+});
+FlowRouter.route('/biggies', {
+	action: () => {
+		window.location.href='/views/biggies.html';
+	}
+});
 FlowRouter.route('/*', {
 	action: () => {
 		window.location.href='/index.html';
