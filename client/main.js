@@ -74,51 +74,109 @@ FlowRouter.route('/me', {
 
 FlowRouter.route('/culti', {
 	action: () => {
+		window.history.replaceState('','',document.referrer);
 		window.location.href='/views/culti.html';
 	}
 });
 FlowRouter.route('/techy', {
 	action: () => {
+		window.history.replaceState('','',document.referrer);
 		window.location.href='/views/tech/techy.html';
 	}
 });
 FlowRouter.route('/litr', {
 	action: () => {
+		window.history.replaceState('','',document.referrer);
 		window.location.href='/views/litr.html';
 	}
 });
 FlowRouter.route('/infi', {
 	action: () => {
+		window.history.replaceState('','',document.referrer);
 		window.location.href='/views/infi.html';
 	}
 });
 FlowRouter.route('/sponsors', {
 	action: () => {
+		window.history.replaceState('','',document.referrer);
 		window.location.href='/views/sponsors.html';
 	}
 });
 FlowRouter.route('/us', {
 	action: () => {
+		window.history.replaceState('','',document.referrer);
 		window.location.href='/views/team.html';
 	}
 });
 FlowRouter.route('/biggies', {
 	action: () => {
+		window.history.replaceState('','',document.referrer);
 		window.location.href='/views/biggies.html';
 	}
 });
-FlowRouter.route('/*', {
+FlowRouter.route('/torque', {
 	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/tech/torque.html';
+	}
+});
+FlowRouter.route('/robotics', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/tech/robotics.html';
+	}
+});
+FlowRouter.route('/cepheid', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/tech/cepheid.html';
+	}
+});
+FlowRouter.route('/kludge', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/tech/kludge.html';
+	}
+});
+FlowRouter.route('/infero', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/tech/infero.html';
+	}
+});
+//Generic Regitser for event route: /_register?event=event_soAndso
+FlowRouter.route('/_register', {
+	action: () => {
+		var event = getQueryParam('event');
+		if(!event || !Events[event]) FlowRouter.go('nowhere');
+		else BlazeLayout.render('notRegistered', { name: Events[event] });
+	}
+});
+
+FlowRouter.notFound = {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href = '/notFound.html';
+	}
+}
+
+FlowRouter.route('/', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
 		window.location.href='/index.html';
 	}
 });
 
 Accounts.onLogin((loginDetails) => {
-	if(Meteor.userId())
+	window.name = undefined;
+	if(Meteor.userId()){
 		Meteor.ClientCall.setClientId(Meteor.userId())
+		window.name = Meteor.user().profile.name;
+	}
 });
 
 Accounts.onLogout((param) => {
+	window.name = undefined;
 	Meteor.ClientCall.setClientId(undefined);
 	window.Reload._reload();
 });
@@ -136,7 +194,7 @@ Template.user.helpers({
 		var user = Meteor.user();
 		if(!user) return null;
 		var arr = Object.keys(user.profile).filter((s) => s.startsWith('event_'));
-		if(arr.length === 0) return 'None at all.';
+		if(arr.length === 0) return ['None at all.'];
 		else return arr.map((s) => Events[s]);
 	},
 	getDBList(){

@@ -4,6 +4,14 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	background: #121212;
 }
+canvas {
+	z-index: -2;
+	position: fixed; 
+	width: 100vw;
+	height: 100vh;
+	overflow-x: hidden;
+	display: block;
+}
 input {
 	color: black;
 }

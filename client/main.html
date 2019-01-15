@@ -1,11 +1,13 @@
 <head>
-	<title>{{ title }}</title>
+	<!-- <title>{{ titlex }}</title> -->
 	<link rel="icon" type="image/ico" href="img/symbolOnly.png" />
 	<link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto+Slab" rel="stylesheet">
 	<script type="text/javascript" src="/web-notification.js"></script>
 </head>
 
 <template name="user">
+    <canvas id="test"></canvas>
+	<script type="text/javascript" src="/js/canva.js"></script>
 	<link rel="stylesheet" type="text/css" href="/global.css">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
 		<a href="Home.html">
@@ -18,10 +20,12 @@
 	<div style="text-align: center;">
 		{{ #if currentUser }}
 			<h3> Welcome {{ currentUser.profile.name }}! </h3>
-			<h4 >You have registered for the following events: </h4>
+			<h4> You have registered for the following events: </h4>
 			{{ #each event in getEvents }}
 				<p>{{ event }}</p>
 			{{ /each }}
+
+			<h4> To Register for events, go to their page and hit register. </h4>
 
 			{{ #if currentUser.profile.isAdmin }}
 				<h2> Admin Section </h2>
@@ -44,7 +48,10 @@
 			{{ /if }}
 		{{ else }}
 			<h3> You are not logged in.</h3>
-		{{ /if }}
+		{{ /if }}		
+		<div style="text-align: center; float: none;" class="nav-logout">
+			{{ > loginButtons }}
+		</div>
 	</div>
 </template>
 
@@ -65,6 +72,8 @@
 </template>
 
 <template name="notRegistered">
+    <canvas id="test"></canvas>
+	<script type="text/javascript" src="/js/canva.js"></script>
 	<link rel="stylesheet" type="text/css" href="/global.css">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
 		<a href="Home.html">
@@ -82,6 +91,8 @@
 </template>
 
 <template name="registerNumber">
+    <canvas id="test"></canvas>
+	<script type="text/javascript" src="/js/canva.js"></script>
 	<link rel="stylesheet" type="text/css" href="/global.css">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
 		<a href="Home.html">
