@@ -14,7 +14,7 @@ a {
 }
 
 .prismatic {
-	top: 35vh !important;
+	top: 32vh !important;
 }
 
 .mainLogo {
@@ -236,6 +236,119 @@ canvas {
 	float: right;
 }
 
+@media screen and (max-height: 900px) {
+
+	.mainLogo {
+		max-width: 800px;
+		margin: 0 auto;
+		top: 10vh;
+	}
+
+	.hero {
+		color: #EDEDED;
+		font-family: 'Mali' !important;
+		margin-bottom: 1.4vh;
+		/*text-align: center;*/
+		font-size: 1.4em;
+	}
+
+	.heroText {
+		font-family: 'Comfortaa', cursive;
+		text-align: center;
+		font-size: 1.2em;
+		color: #EDEDED;
+		padding-right: 2vw;
+		top: 11vh;
+	}
+
+	/*.heroAnnouncement {
+		width: 100%;
+		font-family: 'Mali';
+		position: relative;
+		right: 0;
+		bottom: 0;
+		top: 20vh;
+		text-align: center;
+		color: #EDEDED;
+		font-size: 1.4em;
+	}*/
+
+	.prismatic {
+		top: 10vh !important;
+	}
+
+	.textRight {
+		top: 10vh;
+		text-align: right;
+		padding-right: 2vw;
+		z-index: 1;
+	}
+
+	.textLeft {
+		top: 85vh;
+		text-align: left;
+		margin-left: 2vw;
+		z-index: 1;
+	}
+
+	.colTextLight {
+		color: #EDEDED;
+		z-index: 1;
+		/*text-align: center;*/
+		font-size: 1.3em;
+		/*margin-top: 5vh;*/
+		padding: 2vw;
+	}
+
+	.colTextDark {
+		color: #121212;
+		z-index: 1;
+		/*text-align: center;*/
+		font-size: 1.3em;
+		/*margin-top: 5vh;*/
+		padding: 2vw;
+	}
+
+	.colTitleLight {
+		/*position: absolute;*/
+		color: #EDEDED;
+		font-size: 2.4em;
+		/*margin-top: 5vh;*/
+	}
+	.colTitleDark {
+		/*position: absolute;*/
+		color: #121212;
+		font-size: 2.4em;
+		/*margin-top: 5vh;*/
+	}
+
+	.colTextLeft {
+		top: 80px;
+	}
+
+	.colTextRight {
+		text-align: right;
+		/*top: 18vh;*/
+		bottom: 2vh;
+	}
+
+	/*.sitemap {
+		visibility: hidden;
+	}*/
+
+	.mapWrapper {
+		position: absolute;
+		top: 15vh;
+		right: 4vw;
+		max-width: 600px;
+		max-height: 60vh;
+		width: 75vw;
+		height: 75%;
+		float: right;
+	}
+  
+}
+
 @media screen and (max-width: 767px) {
 
 	.mainLogo {
@@ -345,119 +458,6 @@ canvas {
 		margin-right: 10%;
 		margin-left: 10%;
 		width: 80%;
-		height: 75%;
-		float: right;
-	}
-  
-}
-
-@media screen and (max-height: 900px) {
-
-	.mainLogo {
-		max-width: 800px;
-		margin: 0 auto;
-		top: 10vh;
-	}
-
-	.hero {
-		color: #EDEDED;
-		font-family: 'Mali' !important;
-		margin-bottom: 1.4vh;
-		/*text-align: center;*/
-		font-size: 1.4em;
-	}
-
-	.heroText {
-		font-family: 'Comfortaa', cursive;
-		text-align: center;
-		font-size: 1.2em;
-		color: #EDEDED;
-		padding-right: 2vw;
-		top: 11vh;
-	}
-
-	/*.heroAnnouncement {
-		width: 100%;
-		font-family: 'Mali';
-		position: relative;
-		right: 0;
-		bottom: 0;
-		top: 20vh;
-		text-align: center;
-		color: #EDEDED;
-		font-size: 1.4em;
-	}*/
-
-	.prismatic {
-		top: 10vh !important;
-	}
-
-	.textRight {
-		top: 10vh;
-		text-align: right;
-		padding-right: 2vw;
-		z-index: 1;
-	}
-
-	.textLeft {
-		top: 85vh;
-		text-align: left;
-		margin-left: 2vw;
-		z-index: 1;
-	}
-
-	.colTextLight {
-		color: #EDEDED;
-		z-index: 1;
-		/*text-align: center;*/
-		font-size: 1.3em;
-		/*margin-top: 5vh;*/
-		padding: 2vw;
-	}
-
-	.colTextDark {
-		color: #121212;
-		z-index: 1;
-		/*text-align: center;*/
-		font-size: 1.3em;
-		/*margin-top: 5vh;*/
-		padding: 2vw;
-	}
-
-	.colTitleLight {
-		/*position: absolute;*/
-		color: #EDEDED;
-		font-size: 2.4em;
-		/*margin-top: 5vh;*/
-	}
-	.colTitleDark {
-		/*position: absolute;*/
-		color: #121212;
-		font-size: 2.4em;
-		/*margin-top: 5vh;*/
-	}
-
-	.colTextLeft {
-		top: 80px;
-	}
-
-	.colTextRight {
-		text-align: right;
-		/*top: 18vh;*/
-		bottom: 2vh;
-	}
-
-	/*.sitemap {
-		visibility: hidden;
-	}*/
-
-	.mapWrapper {
-		position: absolute;
-		top: 15vh;
-		right: 4vw;
-		max-width: 600px;
-		max-height: 60vh;
-		width: 75vw;
 		height: 75%;
 		float: right;
 	}
