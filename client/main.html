@@ -7,99 +7,61 @@
 </head>
 
 <template name="user">
-    <canvas id="test"></canvas>
-	<script type="text/javascript" src="/js/canva.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="/global.css">
-	<link rel="stylesheet" type="text/css" href="/styles/nav.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.3em;">
-    	<a href="/me"><button id="signInBtn" type="button" class="btn register" >Sign In</button></a>
-		<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
-		<div class="overlaynav-content" >
-			<div class="row justify-content-center no-gutters">
-				<div  style="margin-top:9%;" class="col-sm-6 text-center">
-					<a href="/">Home</a>
-					<a href="/sponsors">Sponsors</a>
-					<a href="/us">Contact Us</a>
-				</div>
-				<div style="margin-top:2%;" class="col-sm-6 text-center">
-					<!-- <a href="#" style="text-decoration: underline;">Events</a> -->
-					<a href="/culti">Culti</a>
-					<a href="/techy">Techy</a>
-					<a href="/litr">Litr</a>
-					<a href="/biggies">Biggies</a>
-					<a href="/infi">Infi</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="navbar" class="sticky">
-		<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
-		<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
-		</span>
-	</div>
-
-	<script type="text/javascript">
-		if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
-		function openrNav() {
-			document.getElementById("myNavr").style.width = "100%";
-		}
-		function closerNav() {
-			document.getElementById("myNavr").style.width = "0%";
-		}
-	</script>
-
-	<div style="text-align: center; margin-top: 35vh; margin-bottom: 25vh;">
+    <div style="text-align: center; margin-top: 35vh; margin-bottom: 25vh;">
 		{{ #if currentUser }}
 			{{ #if currentUser.profile.phoneNumber }}
+
+				<canvas id="test"></canvas>
+				<script type="text/javascript" src="/js/canva.js"></script>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+				<link rel="stylesheet" type="text/css" href="/global.css">
+				<link rel="stylesheet" type="text/css" href="/styles/nav.css">
+			    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+				<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.5em;">
+			    	<a href="/me"><button id="signInBtn" type="button" class="btn register" style="font-size: 0.6em;">Sign In</button></a>
+					<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
+					<div class="overlaynav-content" >
+						<div class="row justify-content-center no-gutters">
+							<div  style="margin-top:9%;" class="col-sm-6 text-center">
+								<a href="/">Home</a>
+								<a href="/sponsors">Sponsors</a>
+								<a href="/us">Contact Us</a>
+							</div>
+							<div style="margin-top:2%;" class="col-sm-6 text-center">
+								<!-- <a href="#" style="text-decoration: underline;">Events</a> -->
+								<a href="/culti">Culti</a>
+								<a href="/techy">Techy</a>
+								<a href="/litr">Litr</a>
+								<a href="/biggies">Biggies</a>
+								<a href="/infi">Infi</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="navbar" class="sticky" style="font-size: 1.5em">
+					<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
+					<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;"></span>
+				</div>
+
+				<script type="text/javascript">
+					if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
+					function openrNav() {
+						document.getElementById("myNavr").style.width = "100%";
+					}
+					function closerNav() {
+						document.getElementById("myNavr").style.width = "0%";
+					}
+				</script>
+
+
 				<h3> Welcome {{ currentUser.profile.name }}! </h3>
 				<h4> You have registered for the following events: </h4>
 				Number: {{ currentUser.profile.phoneNumber }} 
 				College: {{ currentUser.profile.collegeName }}
 				City: {{ currentUser.profile.city }}
 					{{ #each event in getEvents }}
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
-						<p>{{ event }}</p>
 						<p>{{ event }}</p>
 					{{ /each }}
 				<h4> To Register for events, go to their page and hit register. </h4>
@@ -160,8 +122,8 @@
 	<link rel="stylesheet" type="text/css" href="/styles/nav.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.3em;">
-    <a href="/me"><button id="signInBtn" type="button" class="btn register" >Sign In</button></a>
+	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.5em;">
+    <a href="/me"><button id="signInBtn" type="button" class="btn register"  style="font-size: 0.6em;">Sign In</button></a>
 		<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
 		<div class="overlaynav-content" >
 			<div class="row justify-content-center no-gutters">
@@ -181,7 +143,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="navbar" class="sticky">
+	<div id="navbar" class="sticky" style="font-size: 1.5em">
 		<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
 		<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
 		</span>
@@ -213,8 +175,8 @@
 	<link rel="stylesheet" type="text/css" href="/styles/nav.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
-	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.3em;">
-    <a href="/me"><button id="signInBtn" type="button" class="btn register" >Sign In</button></a>
+	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.5em;">
+    <a href="/me"><button id="signInBtn" type="button" class="btn register" style="font-size: 0.6em;">Sign In</button></a>
 		<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
 		<div class="overlaynav-content" >
 			<div class="row justify-content-center no-gutters">
@@ -234,7 +196,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="navbar" class="sticky">
+	<div id="navbar" class="sticky" style="font-size: 1.5em;">
 		<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
 		<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
 		</span>
