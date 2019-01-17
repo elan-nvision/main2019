@@ -51,6 +51,31 @@ a {
 	font-size: 1.5em;
 }
 
+.socialIcons {
+	font-family: 'Mali';
+	position: absolute;
+	left: 5%;
+	bottom: 4%;
+	color: #EDEDED;
+	font-size: 1.5em;
+}
+
+.fbIcon:hover {
+	color: #2968b9;
+}
+
+.twIcon:hover {
+	color: #55acee;
+}
+
+.ytIcon:hover {
+	color: #C0392B;
+}
+
+.instIcon:hover {
+	color: #9B59B6;
+}
+
 .downArrow {
 	/*font-family: 'Mali';*/
 	width: 100%;
@@ -399,6 +424,18 @@ canvas {
 		right: 0;
 		bottom: 0;
 		top: 20vh;
+		text-align: center;
+		color: #EDEDED;
+		font-size: 1.4em;
+	}
+
+	.socialIcons {
+		width: 100%;
+		font-family: 'Mali';
+		position: relative;
+		left: 0;
+		bottom: 0;
+		top: 25vh;
 		text-align: center;
 		color: #EDEDED;
 		font-size: 1.4em;
