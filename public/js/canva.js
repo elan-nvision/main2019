@@ -9,8 +9,8 @@ var w = window.innerWidth,
     size = 7,
     speed = 20,
     parts = new Array,
-    colors = ['red','#f57900','yellow','#ce5c00','#5c3566', '#3498DB', 
-    '#2C3E50', '#C0392B', '#95A5A6', '#7F8C8D', '#9B59B6', '#16A085'];
+    colors = ['#16A085', '#2ECC71', '#27AE60', '#3498DB','#2980B9','#9B59B6','#8E44AD','#34495E',
+      '#F1C40F','#F39C12','#E67E22','#D35400','#E74C3C','#C0392B','#ECF0F1','#BDC3C7','#95A5A6','#7F8C8D'];
 var mouse = { x: 0, y: 0 };
 
 canvas.setAttribute('width',w);
@@ -30,53 +30,43 @@ function create() {
       size: Math.random() * size
     }
   }
+  // document.addEventListener('mousemove', MouseMove, false);
+  // document.addEventListener('touchmove', TouchMove, false);
 }
 
 function particles() {
   ctx.clearRect(0,0,w,h);
-   canvas.addEventListener('mousemove', MouseMove, false);
-  for(var i = 0; i < arc; i++) {
-    var li = parts[i];
-    var distanceFactor = DistanceBetween( mouse, parts[i] );
-    var distanceFactor = Math.max( Math.min( 15 - ( distanceFactor / 10 ), 10 ), 1 );
+  parts.forEach((li) => {
+    var distanceFactor = DistanceBetween( mouse, li );
+    distanceFactor = Math.max( Math.min( 15 - ( distanceFactor / 10 ), 10 ), 1 );
+
     ctx.beginPath();
-    ctx.arc(li.x,li.y,li.size*distanceFactor,0,Math.PI*2,false);
     ctx.fillStyle = li.c;
-    ctx.strokeStyle=li.c;
-    if(i%2==0)
-      ctx.stroke();
-    else
-      ctx.fill();
-    
+    // ctx.arc(li.x,li.y,li.size*distanceFactor,0,Math.PI*2,false);
+    ctx.arc(li.x,li.y,li.size,0,Math.PI*2,false);
+    ctx.fill();
+    ctx.closePath();
+
     li.x = li.x + li.toX * (time * 0.05);
     li.y = li.y + li.toY * (time * 0.05);
-    
-    if(li.x > w){
-       li.x = 0; 
-    }
-    if(li.y > h) {
-       li.y = 0; 
-    }
-    if(li.x < 0) {
-       li.x = w; 
-    }
-    if(li.y < 0) {
-       li.y = h; 
-    }
-   
-     
-  }
+
+    if(li.x > w) li.x = 0; 
+    if(li.y > h) li.y = 0; 
+    if(li.x < 0) li.x = w; 
+    if(li.y < 0) li.y = h; 
+  });
   if(time < speed) {
-    time++;
+  time++;
   }
   setTimeout(particles,1000/rate);
 }
 function MouseMove(e) {
-   mouse.x = e.layerX;
-   mouse.y = e.layerY;
-
-   //context.fillRect(e.layerX, e.layerY, 5, 5);
-   //Draw( e.layerX, e.layerY );
+   mouse.x = e.clientX;
+   mouse.y = e.clientY;
+}
+function TouchMove(e) {
+   mouse.x = e.touches[0].clientX;
+   mouse.y = e.touches[0].clientY;
 }
 function DistanceBetween(p1,p2) {
    var dx = p2.x-p1.x;

@@ -7,10 +7,9 @@
 </head>
 
 <template name="user">
-    <div style="text-align: center; margin-top: 35vh; margin-bottom: 25vh;">
+    <div style="text-align: center; margin-top: 35vh; margin-bottom: 25vh; width: 100%">
 		{{ #if currentUser }}
 			{{ #if currentUser.profile.phoneNumber }}
-
 				<canvas id="test"></canvas>
 				<script type="text/javascript" src="/js/canva.js"></script>
 				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -44,7 +43,6 @@
 					<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
 					<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;"></span>
 				</div>
-
 				<script type="text/javascript">
 					if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
 					function openrNav() {
@@ -54,17 +52,26 @@
 						document.getElementById("myNavr").style.width = "0%";
 					}
 				</script>
-
-
-				<h3> Welcome {{ currentUser.profile.name }}! </h3>
-				<h4> You have registered for the following events: </h4>
-				Number: {{ currentUser.profile.phoneNumber }} 
-				College: {{ currentUser.profile.collegeName }}
-				City: {{ currentUser.profile.city }}
+				<h1 style="margin-bottom: 5%;"><big> Welcome {{ currentUser.profile.name }}! </big></h1>
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<h1> You have registered for the following events: </h1>
 					{{ #each event in getEvents }}
-						<p>{{ event }}</p>
+						<h3>{{ event }}</h3>
 					{{ /each }}
-				<h4> To Register for events, go to their page and hit register. </h4>
+				</div>
+				<div class="col-lg-2 col-md-2 col-sm-2" ></div>
+				<div class="col-lg-4 col-md-4 col-sm-4">
+					<h2> <span style="float: left;"> Phone Number: </span> {{ currentUser.profile.phoneNumber }} </h2> 
+					<h2> <span style="float: left;"> College Name: </span> {{ currentUser.profile.collegeName }} </h2> 
+					<h2> <span style="float: left;"> City Name: </span> {{ currentUser.profile.city }} </h2>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6"></div>
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<div style="text-align: center; float: none;" class="nav-logout">
+						{{ > loginButtons }}
+					</div>
+				</div>
+				<!-- <div class="col-lg-2 col-md-2 col-sm-2"><h4> To Register for events, go to their page and hit register. </h4></div> -->
 
 				{{ #if currentUser.profile.isAdmin }}
 					<h2> Admin Section </h2>
@@ -83,17 +90,61 @@
 					<div id="lol">
 						{{ eventData }}
 					</div>
-
 				{{ /if }}
 			{{ else }}
 				{{ > registerNumber }}
 			{{ /if }}
 		{{ else }}
+			<canvas id="test"></canvas>
+				<script type="text/javascript" src="/js/canva.js"></script>
+				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+				<link rel="stylesheet" type="text/css" href="/global.css">
+				<link rel="stylesheet" type="text/css" href="/styles/nav.css">
+			    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+				<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.5em;">
+			    	<a href="/me"><button id="signInBtn" type="button" class="btn register" style="font-size: 0.6em;">Sign In</button></a>
+					<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
+					<div class="overlaynav-content" >
+						<div class="row justify-content-center no-gutters">
+							<div  style="margin-top:9%;" class="col-sm-6 text-center">
+								<a href="/">Home</a>
+								<a href="/sponsors">Sponsors</a>
+								<a href="/us">Contact Us</a>
+							</div>
+							<div style="margin-top:2%;" class="col-sm-6 text-center">
+								<!-- <a href="#" style="text-decoration: underline;">Events</a> -->
+								<a href="/culti">Culti</a>
+								<a href="/techy">Techy</a>
+								<a href="/litr">Litr</a>
+								<a href="/biggies">Biggies</a>
+								<a href="/infi">Infi</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="navbar" class="sticky" style="font-size: 1.5em">
+					<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
+					<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;"></span>
+				</div>
+				<script type="text/javascript">
+					if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
+					function openrNav() {
+						document.getElementById("myNavr").style.width = "100%";
+					}
+					function closerNav() {
+						document.getElementById("myNavr").style.width = "0%";
+					}
+				</script>
+			<link rel="stylesheet" type="text/css" href="/global.css">
+		    <canvas id="test"></canvas>
+			<script type="text/javascript" src="/js/canva.js"></script>
 			<h3> You are not logged in.</h3>
-		{{ /if }}		
-		<div style="text-align: center; float: none;" class="nav-logout">
-			{{ > loginButtons }}
-		</div>
+			<div style="text-align: center; float: none;" class="nav-logout">
+				{{ > loginButtons }}
+			</div>
+		{{ /if }}
 	</div>
 </template>
 
@@ -157,12 +208,12 @@
 			document.getElementById("myNavr").style.width = "0%";
 		}
 	</script>
-	<div style="text-align: center;">
+	<div style="text-align: center; margin-top: 10%;">
 		<h2>
 			You have not registered for {{name}}. Press the button to register Now!
 		</h2>
 		<input type="button" value="Register" id="Register">
-		<input type="button" value="Take me Home!" onclick="window.location.href='/Home.html';">
+		<input type="button" value="Take me Home!" onclick="window.location.href='/';">
 	</div>
 </template>
 
@@ -233,11 +284,15 @@
 			<input type="button" value="Register" id="addNumber">
 			<input type="button" value="Notify Me" id="testNotification">
 		</div>
+		<div style="text-align: center; float: none;" class="nav-logout">
+			{{ > loginButtons }}
+		</div>
 	</div>
 </template>
 
 <template name="caportal">
 	<link rel="stylesheet" type="text/css" href="/ca.css">
+	<link rel="stylesheet" type="text/css" href="/global.css">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
 		<a href="Home.html">
 			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
@@ -370,6 +425,7 @@
 
 <template name="home">
 	<link rel="stylesheet" type="text/css" href="/ca.css">
+	<link rel="stylesheet" type="text/css" href="/global.css">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
 			<a href="Home.html">
 				<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
@@ -409,7 +465,6 @@
 				Perks and discounts for all major events <br>
 			</p>
 			<br>
-			<div class="logout" style="margin: auto auto; font-size:20px; cursor:pointer"> {{ >loginButtons }} </div>
 		</div>
 	</main>
 </template>

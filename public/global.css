@@ -28,3 +28,28 @@ input {
 	font-size:30px; 
 	cursor:pointer;
 }
+.login-display-name {
+	display: none !important;
+}
+.login-button {
+	font-family: 'Julius Sans One' !important;
+	color: black !important;
+	border: none !important;
+	background: #CCC !important;
+	transition: all ease-in-out 0.2s;
+	padding: 4px 8px 2px 20px !important;
+}
+.login-button:hover {
+	font-family: 'Julius Sans One' !important;
+	color: #ccc !important;
+	border: none !important;
+	background: #444 !important;
+}
+.login-image {
+	/*font-size: 15px !important;*/
+	height: 32px !important;
+	width: 32px !important;
+	/*display: inline !important;*/
+	background-size: cover !important;
+	background-image: url('/img/google-small.png') !important;
+}

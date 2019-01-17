@@ -67,38 +67,39 @@
 
             this.scrolling = true;
 
-            if ('function' == typeof options.beforeScroll) {
-                if (false === options.beforeScroll.call(this, this.currentIndex, dir)) {
-                    return;
-                }
-            }
+            // if ('function' == typeof options.beforeScroll) {
+            //     if (false === options.beforeScroll.call(this, this.currentIndex, dir)) {
+            //         return;
+            //     }
+            // }
 
             setTimeout(function () {
                 this.scrolling = false;
 
-                if ('function' == typeof options.afterScroll) {
-                    options.afterScroll.call(this, this.currentIndex, dir);
-                }
-            }.bind(this), 500);
+                // if ('function' == typeof options.afterScroll) {
+                //     options.afterScroll.call(this, this.currentIndex, dir);
+                // }
+            }.bind(this), 100);
 
-            for (var i = 0; i < frameContainer.length; ++ i) {
-                if ('function' == typeof options.beforeScrollContainer) {
-                    options.beforeScrollContainer.call(this, frameContainer[i], this.currentIndex, dir);
-                }
+            // for (var i = 0; i < frameContainer.length; ++ i) {
+            for(var i of frameContainer){
+                // if ('function' == typeof options.beforeScrollContainer) {
+                //     options.beforeScrollContainer.call(this, i, this.currentIndex, dir);
+                // }
 
-                frameContainer[i].style[edge] = - ((frameContainer[i].hasAttribute('inverse') ? this.currentCount - this.currentIndex : this.currentIndex) * 100) + '%';
+                i.style[edge] = - ((i.hasAttribute('inverse') ? this.currentCount - this.currentIndex : this.currentIndex) * 100) + '%';
 
-                if ('function' == typeof options.afterScrollContainer) {
-                    options.afterScrollContainer.call(this, frameContainer[i], this.currentIndex, dir);
-                }
+                // if ('function' == typeof options.afterScrollContainer) {
+                //     options.afterScrollContainer.call(this, i, this.currentIndex, dir);
+                // }
             }
 
             container.scrollIndex = this.currentIndex;
         }
 
-        if ('function' == typeof options.afterTrigger) {
-            options.afterTrigger.call(this, index, dir);
-        }
+        // if ('function' == typeof options.afterTrigger) {
+        //     options.afterTrigger.call(this, index, dir);
+        // }
 
     };
 
