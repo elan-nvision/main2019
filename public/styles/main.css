@@ -2,6 +2,7 @@
 
 body {
 	font-family: 'Mali';
+	height: 0;
 }
 
 a {
@@ -131,6 +132,15 @@ canvas {
 	z-index: 0;
 }
 
+.aboutContainer {
+	width: 50%;
+}
+
+.prismaticContainer {
+	width: 50%;
+	right: 0;
+}
+
 .about {
 	/*background-image: linear-gradient(135deg, #664eea 0%, #764ba2 100%);*/
 	background: #121212;
@@ -147,11 +157,12 @@ canvas {
 	background: linear-gradient(to right, rgba(15, 32, 39, 0.3), rgba(32, 58, 67, 0.6), rgba(44, 83, 100, 1)), url('../img/pronites_home.jpeg');
 	background-size: cover;
 	font-size: 1.1em;
+	will-change: transform;
 }
 
 .pronitesText {
-	margin-top: 96px;
-	max-width: 70vw;
+	margin-top: calc(85px + 2vh);
+	max-width: 50vw;
 	float: right;
 }
 
@@ -162,6 +173,7 @@ canvas {
 	background-size: cover;
 	background-position: center;
 	border-right: 6px solid;
+	will-change: transform;
 }
 
 .litr {
@@ -178,6 +190,7 @@ canvas {
 	background-size: cover;
 	/*background-position: right center;*/
 	border-left: 6px solid;
+	will-change: transform;
 }
 
 .sitemap {
@@ -272,6 +285,10 @@ canvas {
 		color: #EDEDED;
 		font-size: 1.4em;
 	}*/
+
+	.theme {
+		border-left: 0;
+	}
 
 	.prismatic {
 		top: 10vh !important;
@@ -387,8 +404,14 @@ canvas {
 		font-size: 1.4em;
 	}
 
-	.prismatic {
-		top: 10vh !important;
+	.aboutContainer {
+		width: 0%;
+		visibility: hidden;
+	}
+
+	.prismaticContainer {
+		width: 100%;
+		/*right: 0;*/
 	}
 
 	.textRight {
@@ -444,6 +467,28 @@ canvas {
 		text-align: right;
 		/*top: 18vh;*/
 		bottom: 2vh;
+	}
+
+	.prismatic {
+		top: calc(90px + 1vh) !important;
+		text-align: center;
+		padding-right: 0;
+	}
+
+	.prismaticText {
+		bottom: 4vh;
+		font-size: 1.2em;
+		text-align: center;	
+	}
+
+	.pronitesText {
+		font-size: 1.1em;
+		/*text-align: center;*/
+		/*float: none;*/
+		/*width: 100%;*/
+		max-width: 70vw;
+		/*margin: 0 auto;*/
+		/*margin-top: 96px;*/
 	}
 
 	.sitemap {
