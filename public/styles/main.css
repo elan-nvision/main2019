@@ -512,12 +512,13 @@ canvas {
   .prismatic {
     top: calc(90px + 1vh) !important;
     text-align: center;
+    font-size: 9vw;
     padding-right: 0;
   }
 
   .prismaticText {
-    bottom: 4vh;
-    font-size: 1.2em;
+    bottom: 2vh;
+    font-size: 2.5vh;
     text-align: center; 
   }
 
@@ -551,5 +552,14 @@ canvas {
     font-size: 1.4em;
     line-height: 1.4;
   }
-  
+
+  .hide {
+    visibility: hidden;
+    font-size: 0;
+  }
+
+  .hide br {
+    display: none;
+  }
+
 }
