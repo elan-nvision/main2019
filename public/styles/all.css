@@ -259,3 +259,39 @@ a {
 			transform: rotateY(180deg);
 			z-index: 3;
 		}
+
+		.culti .flip-card-back {
+			background: linear-gradient(  #2C3E50,#16A085);
+			color: white;
+			transform: rotateY(180deg);
+			z-index: 3;
+		}
+
+
+		.techy .flip-card-back {
+			background: linear-gradient(  #2C3E50,#2980B9);
+			color: white;
+			transform: rotateY(180deg);
+			z-index: 3;
+		}
+
+		.litr .flip-card-back {
+			background: linear-gradient(  #2C3E50,#8E44AD);
+			color: white;
+			transform: rotateY(180deg);
+			z-index: 3;
+		}
+
+		.biggies .flip-card-back {
+			background: linear-gradient(  #2C3E50,#C0392B);
+			color: white;
+			transform: rotateY(180deg);
+			z-index: 3;
+		}
+
+		.team .flip-card-back {
+			background: linear-gradient(  #2C3E50,#16A085);
+			color: white;
+			transform: rotateY(180deg);
+			z-index: 3;
+		}
