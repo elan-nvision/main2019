@@ -37,7 +37,23 @@
 }
 
 .overlaynav a:hover, .overlaynav a:focus {
-	color: #2ECC71;
+	color: #121212;
+}
+
+.overlaynav a:nth-child(4n + 1):hover {
+  color: #27AE60;
+}
+
+.overlaynav a:nth-child(4n + 2):hover {
+  color: #3498DB;
+}
+
+.overlaynav a:nth-child(4n + 3):hover {
+  color: #9B59B6;
+}
+
+.overlaynav a:nth-child(4n + 4):hover {
+  color: #E74C3C;
 }
 
 .overlaynav .closebtnnav {
@@ -77,16 +93,23 @@
   text-decoration: none;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 800px) {
 	.overlay {overflow-y: auto;}
 	.overlay a {font-size: 20px}
 	.overlay .closebtn {
 		font-size: 40px;
-		top: 15px;
-		right: 35px;
+		top: 0px;
+		right: 12px;
+	}
+	.overlaynav-content {
+		position: relative;
+		top: 10%;
+		width: 100%;
+		text-align: center;
+		margin-top: 30px;
 	}
 	.overlaynav .register {
-		top: 20px;
+		top: 27px;
 		left: 25px;
 	}
 	.overlaynav a {
