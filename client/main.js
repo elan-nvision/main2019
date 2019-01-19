@@ -75,7 +75,7 @@ FlowRouter.route('/me', {
 FlowRouter.route('/culti', {
 	action: () => {
 		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/culti.html';
+		window.location.href='/views/culti/culti.html';
 	}
 });
 FlowRouter.route('/techy', {
@@ -148,6 +148,42 @@ FlowRouter.route('/infero', {
 	action: () => {
 		window.history.replaceState('','',document.referrer);
 		window.location.href='/views/tech/infero.html';
+	}
+});
+FlowRouter.route('/art', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/culti/art.html';
+	}
+});
+FlowRouter.route('/dance', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/culti/dance.html';
+	}
+});
+FlowRouter.route('/drama', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/culti/drama.html';
+	}
+});
+FlowRouter.route('/moviemaking', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/culti/moviemaking.html';
+	}
+});
+FlowRouter.route('/music', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/culti/music.html';
+	}
+});
+FlowRouter.route('/photography', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/culti/photography.html';
 	}
 });
 //Generic Regitser for event route: /_register?event=event_soAndso
