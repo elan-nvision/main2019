@@ -391,7 +391,7 @@ canvas {
   
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 800px) {
 
 	.mainLogo {
 		width: 90vh !important;
