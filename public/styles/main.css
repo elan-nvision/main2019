@@ -235,6 +235,7 @@ canvas {
 }
 
 .sitemap a {
+  font-family: 'Julius Sans One';
   text-decoration: none;
   transition: all 0.5s ease;
 }
