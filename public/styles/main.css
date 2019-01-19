@@ -473,7 +473,7 @@ canvas {
     color: #EDEDED;
     z-index: 1;
     /*text-align: center;*/
-    font-size: 1em;
+    font-size: 2.3vh;
     /*margin-top: 5vh;*/
     padding: 2vw;
   }
@@ -482,7 +482,7 @@ canvas {
     color: #121212;
     z-index: 1;
     /*text-align: center;*/
-    font-size: 1em;
+    font-size: 2.3vh;
     /*margin-top: 5vh;*/
     padding: 2vw;
   }
@@ -519,12 +519,12 @@ canvas {
 
   .prismaticText {
     bottom: 2vh;
-    font-size: 2.5vh;
+    font-size: 2.4vh;
     text-align: center; 
   }
 
   .pronitesText {
-    font-size: 1.1em;
+    font-size: 2.5vh;
     /*text-align: center;*/
     /*float: none;*/
     /*width: 100%;*/
