@@ -1,0 +1,16 @@
+{
+  "name": "ELAN & nvision, 2019",
+  "short_name": "elan",
+  "description": "IIT Hyderabad's Annual Techno-Cultural Fest",
+  "lang": "en-GB",
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#121212",
+  "icons": [
+    {
+      "src": "img/symbolOnly.png",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#121212"
+}
