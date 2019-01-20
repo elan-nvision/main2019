@@ -296,7 +296,7 @@
 	<link rel="stylesheet" type="text/css" href="/ca.css">
 	<link rel="stylesheet" type="text/css" href="/global.css">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="Home.html">
+		<a href="/index.html">
 			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
 		</a>
 		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
@@ -305,7 +305,8 @@
 		<h1 class="heading"> 
 			Welcome, {{ currentUser.profile.event_ca.name }}! <br>
 			Your Referral Code is {{ currentUser.profile.event_ca.code }}. <br>
-			{{ currentUser.profile.event_ca.referals }} people have used your Referral Code.
+			{{ currentUser.profile.event_ca.referals }} people have used your Referral Code. <br>
+			Your score is {{ currentUser.profile.event_ca.score }}.
 		</h1>	
 		<div class="container">
 			<h2>Latest Tasks | Your Score: <span id="score">{{ currentUser.profile.score }} </span> </h2>
@@ -429,7 +430,7 @@
 	<link rel="stylesheet" type="text/css" href="/ca.css">
 	<link rel="stylesheet" type="text/css" href="/global.css">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-			<a href="Home.html">
+			<a href="/index.html">
 				<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
 			</a>
 			<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
@@ -471,10 +472,10 @@
 	</main>
 </template>
 
-<template name="cryptexMain">
+<!-- <template name="cryptexMain">
 	<link rel="stylesheet" type="text/css" href="/cryptex.css">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="Home.html">
+		<a href="/index.html">
 			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
 		</a>
 		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
@@ -530,7 +531,7 @@
 	{{ #if hasPseudoName }}
 		<link rel="stylesheet" type="text/css" href="/cryptex.css">
 		<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-			<a href="Home.html">
+			<a href="/index.html">
 				<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
 			</a>
 			<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
@@ -597,7 +598,7 @@
 <template name='cryptexLeaderboards'>
 	<link rel="stylesheet" type="text/css" href="/cryptex.css">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="Home.html">
+		<a href="/index.html">
 			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
 		</a>
 		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
@@ -632,7 +633,7 @@
 <template name="cryptexHome">
 	<link rel="stylesheet" type="text/css" href="/cryptex.css">
 	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="Home.html">
+		<a href="/index.html">
 			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
 		</a>
 		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
@@ -643,4 +644,4 @@
 		<h3> Every puzzle has its pieces.</h3>
 		<p> Please login to continue. </p>
 	</div>
-</template>
+</template> -->
