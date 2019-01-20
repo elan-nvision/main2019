@@ -4,7 +4,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
 Events = {
-	'event_ca': 'Campus Program',
+	'event_ca': 'Campus Ambassador Program',
 	'event_cryptex': 'Cryptex 2019'
 }
 
@@ -184,6 +184,12 @@ FlowRouter.route('/photography', {
 	action: () => {
 		window.history.replaceState('','',document.referrer);
 		window.location.href='/views/culti/photography.html';
+	}
+});
+FlowRouter.route('/workshops', {
+	action: () => {
+		window.history.replaceState('','',document.referrer);
+		window.location.href='/views/workshops/workshops.html';
 	}
 });
 //Generic Regitser for event route: /_register?event=event_soAndso

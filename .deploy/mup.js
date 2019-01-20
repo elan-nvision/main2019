@@ -26,7 +26,7 @@ module.exports = {
     env: {
       // TODO: Change to your app's url
       // If you are using ssl, it needs to start with https://
-      ROOT_URL: 'https://staging.elan.org.in',
+      ROOT_URL: 'https://elan.org.in',
       MONGO_URL: 'mongodb://mongodb/meteor',
       MONGO_OPLOG_URL: 'mongodb://mongodb/local',
     },
@@ -36,7 +36,7 @@ module.exports = {
       image: 'abernix/meteord:node-8.4.0-base',
     },
     volumes: {
-      '/home/abhishek/cryptex': '/cryptex'
+      // '/home/abhishek/cryptex': '/cryptex'
     },
 
     // Show progress bar while uploading bundle to server
@@ -56,7 +56,7 @@ module.exports = {
   // app when there are several apps
 
   proxy: {
-    domains: 'staging.elan.org.in',
+    domains: 'elan.org.in',
 
     ssl: {
       // Enable Let's Encrypt
