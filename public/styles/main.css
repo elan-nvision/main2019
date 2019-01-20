@@ -45,6 +45,7 @@ a {
 .heroAnnouncement {
   font-family: 'Mali';
   position: absolute;
+  text-align: right;
   right: 5%;
   bottom: 5%;
   color: #EDEDED;
