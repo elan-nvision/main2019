@@ -180,7 +180,7 @@ canvas {
 }
 
 .pronites {
-  background: linear-gradient(to right, rgba(15, 32, 39, 0.3), rgba(32, 58, 67, 0.6), rgba(44, 83, 100, 1)), url('../img/pronites_home.jpeg');
+  background: linear-gradient(to right, rgba(15, 32, 39, 0.3), rgba(79, 0, 106, 0.37), rgba(56, 0, 139, 1)), url('../img/pronites_home.jpeg');
   background-size: cover;
   font-size: 1.1em;
   will-change: transform;
