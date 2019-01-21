@@ -12,8 +12,10 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 
 	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.5em;">
-    	<a href="/me"><button id="signInBtn" type="button" class="btn register" style="font-size: 0.6em;">Sign In</button></a>
-		<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
+		<div>
+	    	<span style="float: left;"><a href="/me"><button id="signInBtn" type="button" class="btn register" style="font-size: 0.6em;">Sign In</button></a></span>
+			<span style="float: right;"><a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a></span>
+		</div>
 		<div class="overlaynav-content" >
 			<div class="row justify-content-center no-gutters">
 				<div  style="margin-top:9%;" class="col-sm-6 text-center">
@@ -350,4 +352,14 @@
 			<br>
 		</div>
 	</main>
+</template>
+
+<!-- Template Assumes You are logged in -->
+<template name="gameWelcome">
+	<link rel="stylesheet" type="text/css" href="/global.css">
+	{{ #if hasPseudoName }}
+		<h1> Welcome {{ currentUser.profile.event_game.pseudoName }}</h1>
+	{{ else }}
+	
+	{{ /if}}
 </template>

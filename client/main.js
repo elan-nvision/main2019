@@ -5,11 +5,12 @@ import './main.html';
 
 Events = {
 	'event_ca': 'Campus Ambassador Program',
-	'event_cryptex': 'Cryptex 2019'
+	'event_cryptex': 'Cryptex 2019',
+	'event_game': 'The Game'
 }
 
 FlowRouter.route('/ca', {
-	action: () => {
+	action: () => {	
 		document.title = "CA Portal";
 		BlazeLayout.render('top', {
 			actual: 'caportal', 
@@ -19,51 +20,17 @@ FlowRouter.route('/ca', {
 		});
 	}
 });
-
-// FlowRouter.route('/cryptgame', {
-// 	action: () => {
-// 		// document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
-// 		document.title = "Cryptex 2019";
-// 		// if(!Meteor.user()) window.location.href = '/cryptex';
-// 		// window.location.href = '/cryptex';
-// 		Meteor.call('getQuestion', Meteor.userId(), (err, val) => {
-// 			BlazeLayout.render('top', {
-// 				actual: 'cryptexQuestions', 
-// 				loggedOut: 'cryptexHome',
-// 				eventName: 'event_cryptex',
-// 				name: 'Cryptex 2019',
-// 				image: val.image,
-// 				question: val.question,
-// 			});
-// 		});
-// 	}
-// });
-
-// FlowRouter.route('/cryptex-leaderboards', {
-// 	action: () => {
-		// FlowRouter.go('/cryptex-leaderboards.html');
-// 		// document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
-		// document.title = 'Cryptex Leaderboards';
-		// BlazeLayout.render('cryptexLeaderboards');	
-// 	}
-// });
-
-// FlowRouter.route('/cryptex', {
-// 	action: () => {
-// 		// document.getElementsByTagName("BODY")[0].style.background = 'linear-gradient(to bottom, #200122, #6f0000)';
-// 		document.title = "Cryptex 2019";
-// 		BlazeLayout.render('top', {
-// 			actual: 'cryptexMain', 
-// 			loggedOut: 'cryptexHome',
-// 			eventName: 'event_cryptex',
-// 			name: 'Cryptex 2019',
-// 		});
-// 	}
-// });
-
-// FlowRouter.route('/YMpJUMmy.midi', {
-// 	action: () => { window.location.href = '/cryptgame'; }
-// })
+FlowRouter.route('/supersecretgame', {
+	action: () => {
+		document.title = "The Game";
+		BlazeLayout.render('top', {
+			actual: 'gameWelcome', 
+			loggedOut: 'user',
+			eventName: 'event_game',
+			name: 'The Game'
+		});
+	}
+});
 
 FlowRouter.route('/me', {
 	action: () => {
@@ -73,147 +40,75 @@ FlowRouter.route('/me', {
 })
 
 FlowRouter.route('/culti', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/culti/culti.html';
-	}
+	action: () => {	window.location.href='/views/culti/culti.html'; }
 });
 FlowRouter.route('/techy', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/tech/techy.html';
-	}
+	action: () => {	window.location.href='/views/tech/techy.html'; }
 });
 FlowRouter.route('/privacypolicy', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/privacypolicy.html';
-	}
+	action: () => {	window.location.href='/views/privacypolicy.html'; }
 });
 FlowRouter.route('/litr', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/litr.html';
-	}
+	action: () => {	window.location.href='/views/litr.html'; }
 });
 FlowRouter.route('/infi', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/infi.html';
-	}
+	action: () => {	window.location.href='/views/infi.html'; }
 });
 FlowRouter.route('/sponsors', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/sponsors.html';
-	}
+	action: () => {	window.location.href='/views/sponsors.html'; }
 });
 FlowRouter.route('/us', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/team.html';
-	}
+	action: () => {	window.location.href='/views/team.html'; }
+});
+FlowRouter.route('/team', {
+	action: () => {	window.location.href='/views/team.html'; }
 });
 FlowRouter.route('/biggies', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/biggies.html';
-	}
+	action: () => {	window.location.href='/views/biggies.html'; }
 });
 FlowRouter.route('/torque', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/tech/torque.html';
-	}
+	action: () => {	window.location.href='/views/tech/torque.html'; }
 });
 FlowRouter.route('/robotics', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/tech/robotics.html';
-	}
+	action: () => {	window.location.href='/views/tech/robotics.html'; }
 });
 FlowRouter.route('/cepheid', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/tech/cepheid.html';
-	}
+	action: () => {	window.location.href='/views/tech/cepheid.html'; }
 });
 FlowRouter.route('/kludge', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/tech/kludge.html';
-	}
+	action: () => {	window.location.href='/views/tech/kludge.html'; }
 });
 FlowRouter.route('/infero', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/tech/infero.html';
-	}
+	action: () => {	window.location.href='/views/tech/infero.html'; }
 });
 FlowRouter.route('/art', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/culti/art.html';
-	}
+	action: () => {	window.location.href='/views/culti/art.html'; }
 });
 FlowRouter.route('/dance', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/culti/dance.html';
-	}
+	action: () => {	window.location.href='/views/culti/dance.html'; }
 });
 FlowRouter.route('/drama', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/culti/drama.html';
-	}
+	action: () => {	window.location.href='/views/culti/drama.html'; }
 });
 FlowRouter.route('/moviemaking', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/culti/moviemaking.html';
-	}
+	action: () => {	window.location.href='/views/culti/moviemaking.html'; }
 });
 FlowRouter.route('/music', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/culti/music.html';
-	}
+	action: () => {	window.location.href='/views/culti/music.html'; }
 });
 FlowRouter.route('/photography', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/culti/photography.html';
-	}
+	action: () => {	window.location.href='/views/culti/photography.html'; }
 });
 FlowRouter.route('/workshops', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/views/workshops/workshops.html';
-	}
+	action: () => {	window.location.href='/views/workshops/workshops.html'; }
 });
-//Generic Regitser for event route: /_register?event=event_soAndso
-FlowRouter.route('/_register', {
-	action: () => {
-		var event = getQueryParam('event');
-		if(!event || !Events[event]) FlowRouter.go('nowhere');
-		else BlazeLayout.render('notRegistered', { name: Events[event] });
-	}
-});
-
-FlowRouter.notFound = {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href = '/notFound.html';
-	}
-}
-
 FlowRouter.route('/', {
-	action: () => {
-		window.history.replaceState('','',document.referrer);
-		window.location.href='/index.html';
-	}
+	action: () => { window.location.href='/index.html'; }
 });
+
+FlowRouter.notFound = { 
+	action: () => { window.location.href = '/notFound.html'; }
+}
 
 Accounts.onLogin((loginDetails) => {
 	window.name = 'Sign In';
@@ -295,35 +190,6 @@ Template.user.helpers({
 		}	
 	}
 });
-
-// Template.cryptexLeaderboards.helpers({
-// 	data: () => {
-// 		Meteor.call('getCryptexLeaderboard', (err, val) => {
-// 			var table = document.getElementById('crypt-leader-table')
-// 			for(var leader in val) {
-// 				var row = document.createElement('tr');
-// 				var s = document.createElement('td');
-// 				var n = document.createElement('td');
-// 				var l = document.createElement('td');
-// 				s.innerHTML = parseInt(leader)+1;
-// 				n.innerHTML = val[leader].pseudoName;
-// 				l.innerHTML = val[leader].level;
-// 				row.appendChild(s);
-// 				row.appendChild(n);
-// 				row.appendChild(l);
-// 				table.appendChild(row);
-// 			}
-// 		});
-// 	}
-// });
-
-// Template.cryptexLeaderboards.events({
-// 	'click #crypt_rules': () => { window.location.href = '/cryptex'; },
-// 	'click #crypt_forum': () => { window.location = 'http://forum.elan.org.in'; },	
-// 	'click #crypt_play': () => { window.location.href = '/cryptgame'; },
-// 	'click #crypt_feedb':() => { window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSdlw152JdFBBFtvoG4_ouyH7KcXKcx9y4qCN0VdqEswE-fj_g/viewform?usp=sf_link'; },
-// 	'click #crypt_cert':() => { window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScznaXPKAdk-tCpQHY8MPR9-6yizXEG5hvMuZuUhkkheBzYJg/viewform?usp=sf_link'; },
-// });
 
 Template.user.events({
 	'click .export':() => {
@@ -618,93 +484,6 @@ Template.caportal.events({
 		window.Reload._reload();
 	}
 });
-
-// Template.cryptexMain.events({
-// 	'click .submit_crypt_name': () => {
-// 		var name = document.getElementById('crypt_name').value;
-// 		var label = document.getElementById('crypt_label');
-// 		if(!name || name === '') {
-// 			label.innerHTML = "Enter a Valid Name";
-// 			return;
-// 		}
-// 		Meteor.call('requestPseudoName',  Meteor.user().profile.event_cryptex._id, name,
-// 			(err, val) => {
-// 				if(val === 'success') window.Reload._reload();
-// 				else label.innerHTML = val;
-// 			}
-// 		);
-// 	},
-// 	'click #crypt_play': () => { window.location.href = '/cryptgame'; },
-// 	'click #crypt_forum': () => { window.location = 'http://forum.elan.org.in'; },
-// 	'click #crypt_leaders':() => { window.location.href = '/cryptex-leaderboards'; },
-// 	'click #crypt_feedb':() => { window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSdlw152JdFBBFtvoG4_ouyH7KcXKcx9y4qCN0VdqEswE-fj_g/viewform?usp=sf_link'; },
-// 	'click #crypt_cert':() => { window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScznaXPKAdk-tCpQHY8MPR9-6yizXEG5hvMuZuUhkkheBzYJg/viewform?usp=sf_link'; },
-// });
-
-// Template.cryptexMain.helpers({
-// 	hasPseudoName(){
-// 		return (Meteor.user() && Meteor.user().profile.event_cryptex && 
-// 			Meteor.user().profile.event_cryptex.pseudoName != "");
-// 	},
-// });
-
-// Template.cryptexQuestions.helpers({
-// 	hasPseudoName(){
-// 		return (Meteor.user() && Meteor.user().profile.event_cryptex && 
-// 			Meteor.user().profile.event_cryptex.pseudoName != "");
-// 	},
-// 	isLastLevel() {
-// 		if(!Meteor.user() || !Meteor.user().profile.event_cryptex) return false;
-// 		return Meteor.user().profile.event_cryptex.level === 27;
-// 	}
-// });
-
-// var f = () => {
-// 	var guess = document.getElementById('789456123').value;
-// 	var l = document.getElementById('crypt_feedback');
-// 	if(!guess || guess === '' || guess.indexOf(' ') > -1)
-// 		l.innerHTML = 'Invalid or Empty Answer';
-// 	else {
-// 		Meteor.call('guessAnswer', Meteor.userId(), guess, (err, val) => {
-// 			if(val === 'Good Answer'){
-// 				window.Reload._reload();
-// 			} else if(val === 'Wrong Answer') {
-// 				l.innerHTML = val;
-// 				setTimeout(() => { l.innerHTML = ''; }, 1000);
-// 			}
-// 			else {
-// 				document.getElementById('congo_text').innerHTML = 'Congrats. You have won. Change the passoword, keep the account.';
-// 			}
-// 		});
-// 	};
-// }
-
-// Template.cryptexQuestions.events({
-// 	'click #crypt_rules': () => { window.location.href = '/cryptex'; },
-// 	'click #crypt_forum': () => { window.location = 'http://forum.elan.org.in'; },	
-// 	'click #crypt_leaders':() => { window.location.href = '/cryptex-leaderboards'; },
-// 	'click #415263789': () => {f();},
-// 	'keyup #789456123': (event) => {
-// 		if(event.keyCode !== 13) return;
-// 		f();
-// 	},
-// 	'click .submit_crypt_name': () => {
-// 		var name = document.getElementById('crypt_name').value;
-// 		var label = document.getElementById('crypt_label');
-// 		if(!name || name === '') {
-// 			label.innerHTML = "Enter a Valid Name";
-// 			return;
-// 		}
-// 		Meteor.call('requestPseudoName',  Meteor.user().profile.event_cryptex._id, name,
-// 			(err, val) => {
-// 				if(val === 'success') window.Reload._reload();
-// 				else label.innerHTML = val;
-// 			}
-// 		);
-// 	},
-// 	'click #crypt_feedb':() => { window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLSdlw152JdFBBFtvoG4_ouyH7KcXKcx9y4qCN0VdqEswE-fj_g/viewform?usp=sf_link'; },
-// 	'click #crypt_cert':() => { window.location.href = 'https://docs.google.com/forms/d/e/1FAIpQLScznaXPKAdk-tCpQHY8MPR9-6yizXEG5hvMuZuUhkkheBzYJg/viewform?usp=sf_link'; },
-// });
 
 Meteor.ClientCall.methods({
 	'notify': function(title, message) {
