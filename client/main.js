@@ -216,7 +216,7 @@ FlowRouter.route('/', {
 });
 
 Accounts.onLogin((loginDetails) => {
-	window.name = undefined;
+	window.name = 'Sign In';
 	if(Meteor.userId()){
 		Meteor.ClientCall.setClientId(Meteor.userId())
 		window.name = Meteor.user().profile.name;
@@ -224,7 +224,7 @@ Accounts.onLogin((loginDetails) => {
 });
 
 Accounts.onLogout((param) => {
-	window.name = undefined;
+	window.name = 'Sign In';
 	Meteor.ClientCall.setClientId(undefined);
 	window.Reload._reload();
 });
