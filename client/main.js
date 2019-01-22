@@ -298,14 +298,12 @@ Template.caportal.helpers({
   			for(var i = 0; i < val.length; i++){
   				var row = document.createElement('tr');
   				var content = document.createElement('td');
-  				var expiry = document.createElement('td');
-  				var admin = document.createElement('td');
-  				content.innerHTML = val[i].content;
-  				expiry.innerHTML = val[i].expiry.toDateString();
-  				admin.innerHTML = val[i].score;
+  				content.innerHTML = 
+  				'<h4><b> Deadline: '+val[i].expiry.toDateString() + '</b></h4>'+
+  				'<h4><b> Score: '+val[i].score + '</b></h4>' + val[i].content;
+  				// expiry.innerHTML = val[i].expiry.toDateString();
+  				// admin.innerHTML = val[i].score;
   				row.appendChild(content);
-  				row.appendChild(expiry);
-  				row.appendChild(admin);
   				if(Meteor.user() && Meteor.user().profile.event_ca.isAdmin){
   					var rmBtn = document.createElement('button');
 					rmBtn.innerHTML = 'Remove';

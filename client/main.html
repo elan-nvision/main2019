@@ -176,15 +176,10 @@
 
 <template name="caportal">
 	<link rel="stylesheet" type="text/css" href="/ca.css">
+	{{ >elanNav }}
 	<link rel="stylesheet" type="text/css" href="/global.css">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="/">
-			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
-		</a>
-		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
-	</nav>
 	{{ #if hasAskedForRefCode }}
-		<h1 class="heading"> 
+		<h1 class="heading" style="margin-top: 80px"> 
 			Welcome, {{ currentUser.profile.event_ca.name }}! <br>
 			Your Referral Code is {{ currentUser.profile.event_ca.code }}. <br>
 			{{ currentUser.profile.event_ca.referals }} people have used your Referral Code. <br>
@@ -196,14 +191,10 @@
 				<table id='table'>
 					<tr>
 						{{ #if currentUser.profile.event_ca.isAdmin }}
-							<th class="col-lg-5"> Content </th>
-							<th class="col-lg-3"> Complete By </th>
-							<th class="col-lg-2"> Score </th>
+							<th class="col-lg-10"> Content </th>
 							<th class="col-lg-2"> Admin </th>
 						{{ else }}
-							<th class="col-lg-7"> Content </th>
-							<th class="col-lg-3"> Complete By </th>
-							<th class="col-lg-2"> Score </th>
+							<th class="col-lg-12"> Content </th>
 						{{ /if }}
 					</tr>
 					{{ entries }}
