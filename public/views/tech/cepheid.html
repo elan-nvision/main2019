@@ -78,6 +78,20 @@
     function closerNav() {
       document.getElementById("myNavr").style.width = "0%";
     }
+     function openNav() {
+          document.getElementById("myNav").style.height = "100%";
+     }
+
+     function closeNav() {
+          document.getElementById("myNav").style.height = "0%";
+     }
+      function openNav1() {
+          document.getElementById("myNav1").style.height = "100%";
+     }
+
+     function closeNav1() {
+          document.getElementById("myNav1").style.height = "0%";
+     }
   </script>
 
   <div class="container" style="margin-top: 10%">
@@ -93,8 +107,8 @@
       <a href="/views/tech/infero.html">&nbsp;INFERO</a>
       <!--<a href="/quizzes">&nbsp;QUIZZES</a>
       <a href="/online">&nbsp;ONLINE</a>
-      <a href="/quadcopter">&nbsp;QUADCOPTER</a>
-      <a href="/pp">&nbsp;PAPER PRESENTATION</a>-->
+      <a href="/quadcopter">&nbsp;QUADCOPTER</a>-->
+      <a href="/views/tech/paper_pres.html">&nbsp;PAPER PRESENTATION</a>
     </div>
     <h2 style="margin-top:20px; text-align: center;">CEPHEID</h2>
 
@@ -102,7 +116,7 @@
 
     <div class="col-sm-6 text-center">
       <div class="img-wrapper techy">
-        <div onclick="openNav()" class="flip-card"> 
+        <div onclick="openNav1()" class="flip-card"> 
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <img src="/img/events/galileo.jpg"  alt="Avatar" >
@@ -141,7 +155,7 @@
 
 
      <div id="myNav1" class="overlay" style="background: linear-gradient(120deg, #2C3E50  33%, rgba(0, 0, 0, 0) 33%), linear-gradient(120deg, #27AE60 66%, #F39C12  66%);">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()" style="z-index: 10000;">&times;</a>
   <div style="text-align:left;" class="overlay-content">
   <div class="container">
     <h2 style='text-align:center'>Galileo Project</h2>
@@ -167,18 +181,17 @@
        <div class='tab-content'>
         <div class='tab-pane active' id='a2' role="tabpanel">
         <h4>Introduction</h4>
-        <p>'By taking the sense our sense of sight far beyond the realm of our forebear’s imagination, these wonderful instruments, the telescopes, open the way to a deeper and more perfect understanding of nature.' - Rene Descartes.<br> Make your own Optical tube. This event is based on building of a simple terrestrial telescope with given components. Also, test your talent in physics by participating in a challenging quiz.</p>
-        <p>Event will be on 10th or 11th Febuary 2018</p>
+        <p>“By taking our sense of sight far beyond the realm of our forebears imagination, these wonderful instruments, the telescopes, open the way to a deeper and more perfect understanding of nature.” - Rene Descartes.<br> What are you waiting for make your own Optical tube. Use the given components and build a terrestrial telescope by yourself! Also, test your talent in physics through a small quiz. </p>
         </div>
         <div class='tab-pane' id='b2'>
         <h4>Problem statement:</h4><p>
         The event will be consisting of three rounds.<br>
         <i class='fa fa-circle' style='font-size:8px;'></i> Round 1:<br>
-        A quiz will be conducted to screen the participants. This quiz is based mostly on optics and physics of light.<br><br>
+         A quiz will be conducted to screen the participants. This quiz is based mostly on optics and physics of light. <br><br>
         <i class='fa fa-circle' style='font-size:8px;'></i> Round 2:<br>
-        Another quiz will be conducted to screen the participants. This quiz is based on Skymap and a few stellar objects.<br><br>
+        Another quiz will be conducted to screen the participants. This quiz is based on Skymap and a few stellar objects. <br><br>
         <i class='fa fa-circle' style='font-size:8px;'></i> Round 3:<br>
-        The top ten teams from the quizzes will qualify to the third round. The teams have to make a terrestrial telescope with the components and infrastructure provided by the organizers.<br>
+        The top ten teams from the quizzes will qualify to the third round. The teams have to make a terrestrial telescope with the components and infrastructure provided by the organizers. <br>
         </p>
         </div>
         <div class='tab-pane' id='c2'>
@@ -196,12 +209,14 @@
         3. If a member is found using any other components, other than the ones provided by the organizers, the team shall be disqualified<br>
         4. The Organizers reserve all rights to change any of the mentioned rules as they deem fit.<br>
         5. Changes in the rules, if any, will be highlighted on the website.<br>
-        6. In case of any discrepancy, the decision of the organizers shall be final.
+        6. In case of any discrepancy, the decision of the organizers shall be final.<br>
+        7. Bring your college/student I-Card at the time of competition. 
+
         </p>
         </div>
         <div class='tab-pane' id='d2'>
         <h4>Prize</h4><p>
-        Prizes Worth INR 10,000*/-</p>
+        Prizes Worth INR 5,000*/-</p>
         <p>Prizes will be given after April 2nd 2018</p>
         <h4>Organisers</h4>
         <p>Will be updated soon</p>
@@ -242,30 +257,33 @@
        <div class='tab-content'>
         <div class='tab-pane active' id='a1' role="tabpanel">
         <h4>Introduction:</h4>
-        <p>Ever dreamt of building your own rocket prototype and flying it. 
-        Here’s your chance. 
-        Take your first big step to propel yourself into the world of aerodynamics.
-        In this event, participants have to build a Water rocket which is pressurised by compressed air.
+        <p>Ever dreamt of building your own rocket prototype and flying it. Here’s your chance. Take your first big step to propel yourself into the world of aerodynamics.From the water, through the air and onto the land. Boom! Launch a water rocket and see how long you can keep it in the air.In this event, participants have to build a Water rocket which is pressurised by compressed air. <br>
+
         'Be a Newton and test the Third law for yourselves'
         </p>
         <p>Event will be on 10th or 11th Febuary 2018</p>
         </div>
         <div class='tab-pane' id='b1'>
         <h4>Problem statement</h4><p>
-        The participants are required to design and build a water rocket (single stage/multi stage) that is completely powered by the thrust provided by compressed air in the bottle and using water as the fuel 
+        The participants are required to design and build a water rocket (single stage/multi stage) that is completely powered by the thrust provided by compressed air in the bottle and using water as the fuel . 
+
+        
         <br><a  href='/static/pdf/aquanaut.pdf'><button class='btn2'>Problem statement PDF</button></a>
         </div>
         <div class='tab-pane' id='c1'>
         <h4>Rules and Regulations:</h4><p>
-        1.  A maximum of three members are allowed in a team.<br>
+        1.  A maximum of four members are allowed in a team.<br>
         2.  There can be students from different institutions in a team.<br>
-        3.  Only plastic soft drink bottles are to be used as the rocket body.<br>
-        4.  The rocket can be multi-staged but the total volume of the pressure chamber should not exceed 1.5 litres.<br>
-        5.  The water rocket must only use compressed ambient atmospheric air as source of energy. Pressure compressors (foot pump) and water shall be provided.<br>
-        6.  The amount of water to be filled in the rocket is left to the choice of the team.<br>
-        7.  The pressure inside the pressure chamber should not exceed 50 psi.<br>
-        8.  Launchers will not be provided by the organizers. Each team must have their own launchers.<br>
-        9.  The rocket must be launched from a stationary position using a fixed launcher.Slingshots, trebuchets, catapults, cannons, and all other forms of launcher boost assists are forbidden. In other words, the internal pressure of the rocket must be the only source of energy for the rocket.<br><br><br>
+        3.  Only PET bottles are to be used as the rocket body.<br>
+        4.  The rocket must be built completely from scratch and not using any readymade rocketry parts. <br>
+        5.  The water rocket must only use compressed ambient atmospheric air as source of energy.<br>
+        6.  Launchers will not be provided by the organizers. Each team must have their own launchers. <br>
+        7.  The rocket must be launched from a stationary position using a fixed launcher.<br>
+        8.  Extra time shall not be given for remaking of damaged rockets. <br>
+        9.  Changes in rules, if any, will be highlighted on the website. In case of any discrepancy, the decision of the judges shall be treated as final and binding. <br>
+        10. Bring your college/student I-Card at the time of competition. <br>
+
+        <br><br>
         A team can get disqualified if:<br>
         1.  Any rocket is found to be dangerous to launch by the organizers and judges.<br>
         2.  A rocket blasts before the launch.<br>
@@ -279,12 +297,12 @@
         </div>
         <div class='tab-pane' id='d1'>
         <h4>Prize</h4><p>
-        Prizes Worth INR 20,000*/-</p>
+        Prizes Worth INR 10,000*/-</p>
         <p>Prizes will be given after April 2nd 2018</p>
         <h4>Organisers</h4>
-        <p>Raja Pradyumna-7093328322<br>Ashish-8500183293<br>Haveesh Singirikonda-7799665254</p>
+        <p>Govardhan-9121478214<br>Diwakar-9963977677<br>Aditya-9573166062</p>
         <h4>Contact:</h4>
-        <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
+        <p><a href='mailto:techy@elan.org.in' style="font-size: 18px;">techy@elan.org.in</a></p>
         </div>
         </div>
         </div>

@@ -90,8 +90,8 @@ a {
 		.overlay .closebtn {
 			z-index: 4;
 			position: absolute;
-			top: 20px;
-			right: 45px;
+			top: 45px;
+			right: 55px;
 			font-size: 60px;
 		}
 		/*.overlaynav .register {
