@@ -132,11 +132,18 @@
 	{{ >elanNav }}
 	<link rel="stylesheet" type="text/css" href="/global.css">
 	<div style="text-align: center; margin-top: 10%;">
-		<h2>
-			You have not registered for {{name}}. Press the button to register Now!
-		</h2>
-		<input type="button" value="Register" id="Register">
-		<input type="button" value="Take me Home!" onclick="window.location.href='/';">
+		<p style="font-size: 5vh"> Registration for <b> {{ name }} </b></p>
+		{{ #if googleFormURL }}
+			<h1> You have not registered for {{name}}. You are required to submit the Google Form. </h1>
+			<h1> Then Press the Register button below to go to College Fever and complete your registration. </h1>
+
+			<iframe src="{{googleFormURL}}" style="width: 80vw; height: 100vh; margin-top: 30px;"></iframe> <br>
+		{{ /if }}
+
+		<div style="margin: 100px;">
+			<input style="color: #fff; background: #36f; border: none; border-radius: 20px; font-size: 3vh; margin: 5px; padding: 10px 20px 10px 20px" type="button" value="Register" id="Register">
+			<input style="color: #fff; background: #36f; border: none; border-radius: 20px; font-size: 3vh; margin: 5px; padding: 10px 20px 10px 20px" type="button" value="Take me Home!" onclick="window.location.href='/';">	
+		</div>
 	</div>
 </template>
 
@@ -213,7 +220,7 @@
 				<table id='leaderboards'>
 					<tr>
 						<td class="adminEntries col-lg-1"> Rank </td>
-						<td class="adminEntries"> Name </td>
+						<td class="adminEntries col-lg-1"> Name </td>
 						<td class="adminEntries col-lg-1"> Score </td>
 						<td class="adminEntries"> Email </td>
 					</tr>
@@ -288,7 +295,7 @@
 		{{ /if }}
 	{{ else }}
 	<div style="text-align: center;">
-		<h3>
+		<h3 style="margin-top: 100px;">
 			Enter Your referral Code. Leave it blank if you are not using one.
 		</h3>
 		<input type="text" id="ReferralCode" style="color: black !important">
@@ -343,14 +350,4 @@
 			<br>
 		</div>
 	</main>
-</template>
-
-<!-- Template Assumes You are logged in -->
-<template name="gameWelcome">
-	<link rel="stylesheet" type="text/css" href="/global.css">
-	{{ #if hasPseudoName }}
-		<h1> Welcome {{ currentUser.profile.event_game.pseudoName }}</h1>
-	{{ else }}
-	
-	{{ /if}}
 </template>

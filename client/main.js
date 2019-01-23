@@ -4,31 +4,38 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import './main.html';
 
 Events = {
-	'event_ca': 'Campus Ambassador Program',
-	'event_cryptex': 'Cryptex 2019',
-	'event_game': 'The Game'
+	'event_ca': {
+		eventName: 'event_ca',
+		title: 'CA Portal',
+		name: 'Campus Ambassador Program',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/ca',
+		actual: 'caportal',
+		loggedOut: 'home',
+	},
+	'event_biggies': {
+		eventName: 'event_biggies',
+		title: 'Biggies',
+		name: 'Biggies',
+		cfLink: '/team',
+		googleFormURL: 'https://goo.gl/forms/ON5oP0FoEzu6OMmb2',
+		route: '/example',
+		actual: 'user',
+		loggedOut: 'notRegistered'
+	}
 }
 
 FlowRouter.route('/ca', {
 	action: () => {	
-		document.title = "CA Portal";
-		BlazeLayout.render('top', {
-			actual: 'caportal', 
-			loggedOut: 'home',
-			eventName: 'event_ca',
-			name: 'the Campus Ambassador Program'
-		});
+		document.title = 'CA Portal';
+		BlazeLayout.render('top', Events['event_ca']);
 	}
 });
-FlowRouter.route('/supersecretgame', {
-	action: () => {
-		document.title = "The Game";
-		BlazeLayout.render('top', {
-			actual: 'gameWelcome', 
-			loggedOut: 'user',
-			eventName: 'event_game',
-			name: 'The Game'
-		});
+FlowRouter.route('/example', {
+	action: () => {	
+		document.title = 'Biggies';
+		BlazeLayout.render('top', Events['event_biggies']);
 	}
 });
 
@@ -138,7 +145,7 @@ Template.user.helpers({
 		if(!user) return null;
 		var arr = Object.keys(user.profile).filter((s) => s.startsWith('event_'));
 		if(arr.length === 0) return ['None.'];
-		else return arr.map((s) => Events[s]);
+		else return arr.map((s) => Events[s].name);
 	},
 	getDBList(){
 		Meteor.call('getDBNameList', Meteor.userId(), (err, val) => {
@@ -238,13 +245,15 @@ Template.user.events({
 	}
 });
 
-Template.top.events({
-	'click #Register': () => {
+Template.notRegistered.events({
+	'click #Register': (e, template) => {
 		Meteor.call('registerForEvent', Meteor.user()._id, 
 			Template.instance().data.eventName(), (err, val) => {
 				console.log(val);
-				window.Reload._reload();
-			})
+				if(!template.data.googleFormURL())
+					window.Reload._reload();
+				else window.location.href = template.data.cfLink();
+			});
 	}
 });
 
