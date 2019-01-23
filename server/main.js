@@ -175,7 +175,7 @@ Meteor.startup(() => {
 /*
 
 Steps to add an event:
-1) add a unique entry to the Events Array
+1) add a unique entry to the Events Array (also on the Client)
 2) add a unique Collection to Tables Array
 3) add a unique function with the standard signature to the Contructors Array
 4) Add Routing Information to Client JS
@@ -185,8 +185,11 @@ Steps to add an event:
 */
 // FS = require('fs');
 // Streams = [];
-Events = ['event_ca', 'event_cryptex'];
-Tables = [new Mongo.Collection('ca'), new Mongo.Collection('cryptex')];
+Events = ['event_ca', 'event_cryptex',];
+Tables = [
+	new Mongo.Collection('ca'), 
+	new Mongo.Collection('cryptex'),
+];
 Posts = new Mongo.Collection('posts'); //CA Specific Collection
 Constructors = [
 	(masterUser, eventIndex) => {
@@ -211,7 +214,7 @@ Constructors = [
 			pseudoName: "",
 			level: 0,
 		}
-	}
+	},
 ];
 
 // Questions = [

@@ -5,6 +5,51 @@
 	<script type="text/javascript" src="/web-notification.js"></script>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
+<template name="elanNav">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/styles/nav.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.5em;">
+		<div>
+	    	<span style="float: left;"><a href="/me"><button id="signInBtn" type="button" class="btn register" style="font-size: 0.6em;">Sign In</button></a></span>
+			<span style="float: right;"><a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a></span>
+		</div>
+		<div class="overlaynav-content" >
+			<div class="row justify-content-center no-gutters">
+				<div  style="margin-top:9%;" class="col-sm-6 text-center">
+					<a href="/">Home</a>
+					<a href="/sponsors">Sponsors</a>
+					<a href="/us">Contact Us</a>
+				</div>
+				<div style="margin-top:2%;" class="col-sm-6 text-center">
+					<a href="/culti">Culti</a>
+					<a href="/techy">Techy</a>
+					<a href="/litr">Litr</a>
+					<a href="/biggies">Biggies</a>
+					<a href="/infi">Infi</a>
+					<a href="/views/workshops/workshops.html">Workshops</a>
+					<a href="/ca">Campus Ambassador</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="navbar" class="sticky">
+		<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
+		<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
+		</span>
+	</div>
+	<script type="text/javascript">
+		if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
+		function openrNav() {
+			document.getElementById("myNavr").style.width = "100%";
+		}
+		function closerNav() {
+			document.getElementById("myNavr").style.width = "0%";
+		}
+	</script>
+</template>
 
 <template name="user">
     <div style="text-align: center; margin-top: 35vh; margin-bottom: 25vh; width: 100%">
@@ -12,49 +57,8 @@
 			{{ #if currentUser.profile.phoneNumber }}
 				<canvas id="test"></canvas>
 				<script type="text/javascript" src="/js/canva.js"></script>
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+				{{ > elanNav }}
 				<link rel="stylesheet" type="text/css" href="/global.css">
-				<link rel="stylesheet" type="text/css" href="/styles/nav.css">
-			    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-				<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.5em;">
-			    	<a href="/me"><button id="signInBtn" type="button" class="btn register" style="font-size: 0.6em;">Sign In</button></a>
-					<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
-					<div class="overlaynav-content" >
-						<div class="row justify-content-center no-gutters">
-							<div  style="margin-top:9%;" class="col-sm-6 text-center">
-								<a href="/">Home</a>
-								<a href="/sponsors">Sponsors</a>
-								<a href="/us">Contact Us</a>
-							</div>
-							<div style="margin-top:2%;" class="col-sm-6 text-center">
-							<!-- <a href="#" style="text-decoration: underline;">Events</a> -->
-								<a href="/culti">Culti</a>
-								<a href="/techy">Techy</a>
-								<a href="/litr">Litr</a>
-								<a href="/biggies">Biggies</a>
-								<a href="/infi">Infi</a>
-								<a href="/views/workshops/workshops.html">Workshops</a>
-								<a href="/ca">Campus Ambassador</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id="navbar" class="sticky">
-					<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
-					<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
-					</span>
-				</div>
-				<script type="text/javascript">
-					if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
-					function openrNav() {
-						document.getElementById("myNavr").style.width = "100%";
-					}
-					function closerNav() {
-						document.getElementById("myNavr").style.width = "0%";
-					}
-				</script>
 				<h1 style="margin-bottom: 5%;"><big> Welcome {{ currentUser.profile.name }}! </big></h1>
 				<div class="col-lg-6 col-md-6 col-sm-6">
 					<h1> You have registered for the following events: </h1>
@@ -74,8 +78,6 @@
 						{{ > loginButtons }}
 					</div>
 				</div>
-				<!-- <div class="col-lg-2 col-md-2 col-sm-2"><h4> To Register for events, go to their page and hit register. </h4></div> -->
-
 				{{ #if currentUser.profile.isAdmin }}
 					<h2> Admin Section </h2>
 					Choose Table to operate on: 
@@ -90,62 +92,16 @@
 					<input type="button" value="Notify" class="notify"><br>
 					<label id='admin_output'> </label>
 					
-					<div id="lol">
-						{{ eventData }}
-					</div>
+					<div id="lol"> {{ eventData }} </div>
 				{{ /if }}
 			{{ else }}
 				{{ > registerNumber }}
 			{{ /if }}
 		{{ else }}
-			<canvas id="test"></canvas>
-				<script type="text/javascript" src="/js/canva.js"></script>
-				<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-				<link rel="stylesheet" type="text/css" href="/global.css">
-				<link rel="stylesheet" type="text/css" href="/styles/nav.css">
-			    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-				<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.5em;">
-			    	<a href="/me"><button id="signInBtn" type="button" class="btn register" style="font-size: 0.6em;">Sign In</button></a>
-					<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
-					<div class="overlaynav-content" >
-						<div class="row justify-content-center no-gutters">
-							<div  style="margin-top:9%;" class="col-sm-6 text-center">
-								<a href="/">Home</a>
-								<a href="/sponsors">Sponsors</a>
-								<a href="/us">Contact Us</a>
-							</div>
-							<div style="margin-top:2%;" class="col-sm-6 text-center">
-							<!-- <a href="#" style="text-decoration: underline;">Events</a> -->
-								<a href="/culti">Culti</a>
-								<a href="/techy">Techy</a>
-								<a href="/litr">Litr</a>
-								<a href="/biggies">Biggies</a>
-								<a href="/infi">Infi</a>
-								<a href="/views/workshops/workshops.html">Workshops</a>
-								<a href="/ca">Campus Ambassador</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div id="navbar" class="sticky">
-					<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
-					<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
-					</span>
-				</div>
-				<script type="text/javascript">
-					if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
-					function openrNav() {
-						document.getElementById("myNavr").style.width = "100%";
-					}
-					function closerNav() {
-						document.getElementById("myNavr").style.width = "0%";
-					}
-				</script>
-			<link rel="stylesheet" type="text/css" href="/global.css">
 		    <canvas id="test"></canvas>
 			<script type="text/javascript" src="/js/canva.js"></script>
+			{{ >elanNav }}
+			<link rel="stylesheet" type="text/css" href="/global.css">
 			<h3> You are not logged in.</h3>
 			<div style="text-align: center; float: none;" class="nav-logout">
 				{{ > loginButtons }}
@@ -173,104 +129,29 @@
 <template name="notRegistered">
     <canvas id="test"></canvas>
 	<script type="text/javascript" src="/js/canva.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	{{ >elanNav }}
 	<link rel="stylesheet" type="text/css" href="/global.css">
-	<link rel="stylesheet" type="text/css" href="/styles/nav.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.5em;">
-    <a href="/me"><button id="signInBtn" type="button" class="btn register"  style="font-size: 0.6em;">Sign In</button></a>
-		<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
-		<div class="overlaynav-content" >
-			<div class="row justify-content-center no-gutters">
-				<div  style="margin-top:9%;" class="col-sm-6 text-center">
-					<a href="/">Home</a>
-					<a href="/sponsors">Sponsors</a>
-					<a href="/us">Contact Us</a>
-				</div>
-				<div style="margin-top:2%;" class="col-sm-6 text-center">
-				<!-- <a href="#" style="text-decoration: underline;">Events</a> -->
-					<a href="/culti">Culti</a>
-					<a href="/techy">Techy</a>
-					<a href="/litr">Litr</a>
-					<a href="/biggies">Biggies</a>
-					<a href="/infi">Infi</a>
-					<a href="/views/workshops/workshops.html">Workshops</a>
-					<a href="/ca">Campus Ambassador</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="navbar" class="sticky">
-		<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
-		<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
-		</span>
-	</div>
-	<script type="text/javascript">
-		if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
-		function openrNav() {
-			document.getElementById("myNavr").style.width = "100%";
-		}
-		function closerNav() {
-			document.getElementById("myNavr").style.width = "0%";
-		}
-	</script>
 	<div style="text-align: center; margin-top: 10%;">
-		<h2>
-			You have not registered for {{name}}. Press the button to register Now!
-		</h2>
-		<input type="button" value="Register" id="Register">
-		<input type="button" value="Take me Home!" onclick="window.location.href='/';">
+		<p style="font-size: 5vh"> Registration for <b> {{ name }} </b></p>
+		{{ #if googleFormURL }}
+			<h1> You have not registered for {{name}}. You are required to submit the Google Form. </h1>
+			<h1> Then Press the Register button below to go to College Fever and complete your registration. </h1>
+
+			<iframe src="{{googleFormURL}}" style="width: 80vw; height: 100vh; margin-top: 30px;"></iframe> <br>
+		{{ /if }}
+
+		<div style="margin: 100px;">
+			<input style="color: #fff; background: #36f; border: none; border-radius: 20px; font-size: 3vh; margin: 5px; padding: 10px 20px 10px 20px" type="button" value="Register" id="Register">
+			<input style="color: #fff; background: #36f; border: none; border-radius: 20px; font-size: 3vh; margin: 5px; padding: 10px 20px 10px 20px" type="button" value="Take me Home!" onclick="window.location.href='/';">	
+		</div>
 	</div>
 </template>
 
 <template name="registerNumber">
     <canvas id="test"></canvas>
 	<script type="text/javascript" src="/js/canva.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	{{ >elanNav }}
 	<link rel="stylesheet" type="text/css" href="/global.css">
-	<link rel="stylesheet" type="text/css" href="/styles/nav.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-
-	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.5em;">
-    <a href="/me"><button id="signInBtn" type="button" class="btn register" style="font-size: 0.6em;">Sign In</button></a>
-		<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
-		<div class="overlaynav-content" >
-			<div class="row justify-content-center no-gutters">
-				<div  style="margin-top:9%;" class="col-sm-6 text-center">
-					<a href="/">Home</a>
-					<a href="/sponsors">Sponsors</a>
-					<a href="/us">Contact Us</a>
-				</div>
-				<div style="margin-top:2%;" class="col-sm-6 text-center">
-				<!-- <a href="#" style="text-decoration: underline;">Events</a> -->
-					<a href="/culti">Culti</a>
-					<a href="/techy">Techy</a>
-					<a href="/litr">Litr</a>
-					<a href="/biggies">Biggies</a>
-					<a href="/infi">Infi</a>
-					<a href="/views/workshops/workshops.html">Workshops</a>
-					<a href="/ca">Campus Ambassador</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div id="navbar" class="sticky">
-		<a href="/"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
-		<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
-		</span>
-	</div>
-	<script type="text/javascript">
-		if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
-		function openrNav() {
-			document.getElementById("myNavr").style.width = "100%";
-		}
-		function closerNav() {
-			document.getElementById("myNavr").style.width = "0%";
-		}
-	</script>
 	<div class="container" >
 		<div class="row" style="display: block;">
 			<h2 id="ThisNeedsToBeSomething" class="heading" style="margin-bottom: 20px"> Please Enter your details. </h2>
@@ -302,15 +183,10 @@
 
 <template name="caportal">
 	<link rel="stylesheet" type="text/css" href="/ca.css">
+	{{ >elanNav }}
 	<link rel="stylesheet" type="text/css" href="/global.css">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="/">
-			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
-		</a>
-		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
-	</nav>
 	{{ #if hasAskedForRefCode }}
-		<h1 class="heading"> 
+		<h1 class="heading" style="margin-top: 80px"> 
 			Welcome, {{ currentUser.profile.event_ca.name }}! <br>
 			Your Referral Code is {{ currentUser.profile.event_ca.code }}. <br>
 			{{ currentUser.profile.event_ca.referals }} people have used your Referral Code. <br>
@@ -322,14 +198,10 @@
 				<table id='table'>
 					<tr>
 						{{ #if currentUser.profile.event_ca.isAdmin }}
-							<th class="col-lg-5"> Content </th>
-							<th class="col-lg-3"> Complete By </th>
-							<th class="col-lg-2"> Score </th>
+							<th class="col-lg-10"> Content </th>
 							<th class="col-lg-2"> Admin </th>
 						{{ else }}
-							<th class="col-lg-7"> Content </th>
-							<th class="col-lg-3"> Complete By </th>
-							<th class="col-lg-2"> Score </th>
+							<th class="col-lg-12"> Content </th>
 						{{ /if }}
 					</tr>
 					{{ entries }}
@@ -348,7 +220,7 @@
 				<table id='leaderboards'>
 					<tr>
 						<td class="adminEntries col-lg-1"> Rank </td>
-						<td class="adminEntries"> Name </td>
+						<td class="adminEntries col-lg-1"> Name </td>
 						<td class="adminEntries col-lg-1"> Score </td>
 						<td class="adminEntries"> Email </td>
 					</tr>
@@ -423,7 +295,7 @@
 		{{ /if }}
 	{{ else }}
 	<div style="text-align: center;">
-		<h3>
+		<h3 style="margin-top: 100px;">
 			Enter Your referral Code. Leave it blank if you are not using one.
 		</h3>
 		<input type="text" id="ReferralCode" style="color: black !important">
@@ -479,177 +351,3 @@
 		</div>
 	</main>
 </template>
-
-<!-- <template name="cryptexMain">
-	<link rel="stylesheet" type="text/css" href="/cryptex.css">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="/index.html">
-			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
-		</a>
-		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
-	</nav>
-	<div style="text-align: center;">
-	{{ #if hasPseudoName }}
-		<h2>Welcome {{ currentUser.profile.event_cryptex.pseudoName }}. <br>
-		You have sucessfully Registered. Stay Tuned. </h2>
-		<div class="col-lg-1"></div>
-		<div style="text-align: left; font-size: 16px" class="col-lg-8">
-			<h2>Rules</h2>
-			<ol>
-			 	<li>Cryptex 2019 consists of 25-30 levels of increasing difficulty. You will receive successive questions upon solving and entering the answer of each level and/or completing the task involved.</li>
-			 	<li>The winner will be the first person to complete all levels. In case that no one is able to complete Cryptex before the 2359 hrs 13th Jan 2019, the person who occupies the first position on the leaderboard will be declared winner.</li>
-			 	<li>The competition is open to everyone, anywhere on the globe.</li>
-			 	<li>The questions, answers or any discussion related to them must not be posted anywhere. Doing so will result in disqualification. We will provide a platform to communicate with the moderators and ask for hints.</li>
-			 	<li>If a question involves typing answers in an answer box, the answers should be typed completely in lowercase, without any spaces, punctuation, special characters or numerals. The only exception to this is when the answer is the numeral greater than 1000 or when the answer is a special character.</li>
-			 	<li>The questions may also involve interacting with the page itself, following hyperlinks etc.</li>
-			 	<li>Any attempt to access levels you have not yet reached or any form of attack on the servers will result in disqualification.</li>
-			 	<li>The organizer’s decision is final in any case.</li>
-			</ol>
-			<p>TL;DR : Have fun. Enter answers only in lowercase alphabet without spaces except in certain special cases. </p> <p> If you’re new to Cryptex, we have some more guidelines following.
-			</p>
-			<h2>Guidelines</h2>
-			 <ol>
-			 	<li>Google is your friend. Usually. You’re expected to use Google and other online tools in your quest to crack Cryptex 2019. Do keep in mind that Google may give you erroneous results in certain cases.</li>
-			 	<li>Reverse searching images might help you in certain cases.</li>
-			 	<li>The questions are open-ended, may have red herrings, cheeky hints and may lead you on wild goose chases. If you are getting nowhere with a certain approach, do consider that you might be on the wrong train of thought.</li>
-			 	<li>On the other hand, it could be that the answer is ‘colour’ when you have been trying ‘color’. Check for alternate spelling, names and other such variations.</li>
-			 	<li>Clues might be hidden (especially in the first few questions) to reduce wrong trains of attack. Their absence, however, does not indicate anything.</li>
-			 	<li>Using Google Chrome is advised as some questions require features which are not supported in Safari.</li>
-			 	<li>Hints to the questions will be released on the forum based on certain factors. The hints and even the titles of the question may not have any apparent meaning until you figure of the answer and/or receive another part of the clue.</li>
-			 	<li>The forum is the quickest way to reach the moderators of Cryptex. You may ask for hints on the forum. </li>
-			 	<li>The questions might involve simple cryptography, wordplay, steganography, conventional puzzles or maybe simple connect questions. However each of them is designed to be solved in a reasonable amount of time with access to just internet and pen+paper.</li>
-			 </ol>
-		</div>
-		<div>
-			<div id="crypt_play" class="col-lg-2 btn c1">Play</div>
-			<div id="crypt_forum" class="col-lg-2 btn c2">Forum</div>
-			<div id="crypt_leaders" class="col-lg-2 btn c3">Leaderboards</div>
-			<div id="crypt_cert" class="col-lg-2 btn c2">E-Certificates</div>
-			<div id="crypt_feedb" class="col-lg-2 btn c1">Feedback</div>
-		</div>
-	{{ else }}
-			<h3 id="crypt_label"> Enter a Pseudo Name </h3>
-			<input type="text" id="crypt_name" style="color: black !important">
-			<input type="button" class="submit_crypt_name" value="Choose Name" >
-	{{ /if }}
-	</div>
-</template>
-
-<template name='cryptexQuestions'>	
-	{{ #if hasPseudoName }}
-		<link rel="stylesheet" type="text/css" href="/cryptex.css">
-		<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-			<a href="/index.html">
-				<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
-			</a>
-			<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
-		</nav>
-		<div style="text-align: center;">
-			<div class="col-lg-1"></div>
-			<div class="col-lg-8 img-contain">
-			<h1>Q{{currentUser.profile.event_cryptex.level}}.</h1>
-				{{ #if image }}
-					<div><img src="{{ image }}"> </div> 
-				{{ else }}
-					<div style="width: 1px; height: 1px" ></div>
-				{{ /if }}
-			<h3>{{{question}}}</h3></div>
-			<div id="crypt_rules" class="col-lg-2 btn c1">Rules</div>
-			<div id="crypt_forum" class="col-lg-2 btn c2">Forum</div>
-			<div id="crypt_leaders" class="col-lg-2 btn c3">Leaderboards</div>
-			<div id="crypt_cert" class="col-lg-2 btn c2">E-Certificates</div>
-			<div id="crypt_feedb" class="col-lg-2 btn c1">Feedback</div>
-		</div><br>
-		<div class="col-lg-4"></div>
-		<div style="text-align: center;" id="crypt_panel" class="col-lg-2">
-			<fieldset>
-				<legend></legend>
-				<label id="crypt_feedback">Try Your Answer:</label>
-				<input type="text" id="789456123" style="color: black !important">
-				<input type="button" id="415263789" value="Answer">
-			</fieldset>
-		</div>
-	{{ else }}
-		<h3 id="crypt_label"> Enter a Pseudo Name </h3>
-		<input type="text" id="crypt_name" style="color: black !important">
-		<input type="button" class="submit_crypt_name" value="Choose Name" >
-	{{ /if }}
-	<br> 
-	{{ #if isLastLevel }}
-	<div style="text-align: center; width: 100%;" id="credit_panel">
-		<h1 class="col-lg-12" id="congo_text"> <hr>Great Work. You are almost there. </h1> 
-		<h3 class="col-lg-12"> Please allow me to introduce, The Gaurdians of the Crypt, arguably the finest: </h3>
-		<br>
-		<div class="col-lg-4"></div>
-		<div class="col-lg-4">
-			<h5><span style="float: left;">Abhishek Agarwal</span><span style="float: right;">Chief Developer</span></h5> <br>
-			<h5><span style="float: left;">Adyasa Mohany</span><span style="float: right;">Question Architect</span></h5> <br>
-			<h5><span style="float: left;">Dhruv Gupta</span><span style="float: right;">Administrator</span></h5> <br>
-			<h5><span style="float: left;">Maanvitha Kalicheti</span><span style="float: right;">Question Architect</span></h5> <br>
-			<h5><span style="float: left;">Nikhil Pallamreddy</span><span style="float: right;">Overall Coordinator</span></h5> <br>
-			<h5><span style="float: left;">Rajnish Gupta</span><span style="float: right;">Question Architect</span></h5> <br>
-			<h5><span style="float: left;">Riddhi Shah</span><span style="float: right;">Question Architect</span></h5><br>
-			<h5><span style="float: left;">Rishika Rao</span><span style="float: right;">Administrator</span></h5>  <br>
-			<h5><span style="float: left;">Sandeep Kumar</span><span style="float: right;">Question Architect</span></h5> <br>
-			<h5><span style="float: left;">Saurav Madusudanan</span><span style="float: right;">Administrator</span></h5> <br>
-			<h5><span style="float: left;">Shreyas Hawaldar</span><span style="float: right;">Question Architect</span></h5> <br>
-			<h5><span style="float: left;">Srinikitha Bhagwati</span><span style="float: right;">Question Architect</span></h5> <br>
-			<h5><span style="float: left;">Tanishq Bakliwal</span><span style="float: right;">Question Architect</span></h5> <br>
-			<h5><span style="float: left;">Tanmay RenuHura</span><span style="float: right;">Overall Life Saver</span></h5><br>
-			<h5><span style="float: left;">Vishnu VS</span><span style="float: right;">Admin & Question Architect</span></h5><br>
-			<fieldset></fieldset>
-		</div>
-	</div>
-	{{ /if }}
-</template>
-
-<template name='cryptexLeaderboards'>
-	<link rel="stylesheet" type="text/css" href="/cryptex.css">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="/index.html">
-			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
-		</a>
-		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
-	</nav>
-	<div style="text-align: center;">
-		<div class="col-lg-12">
-			<h1 class="col-lg-10">Cryptex 2019 Leaderboards</h1>
-			<div class="col-lg-2"></div>
-		</div>
-		<div class="col-lg-1"></div>
-		<table id='crypt-leader-table' class="col-lg-8">
-			<tr>
-				<th class="col-lg-1">Rank</th>
-				<th class="col-lg-6">Name</th>
-				<th class="col-lg-1">Level</th>
-			</tr>
-			{{ data }}
-		</table>
-		<div class="col-lg-1"></div>
-		<div id="crypt_rules" class="col-lg-2 btn c1">Rules</div>
-		<div class="col-lg-1"></div>
-		<div id="crypt_forum" class="col-lg-2 btn c2">Forum</div>
-		<div class="col-lg-1"></div>
-		<div id="crypt_play" class="col-lg-2 btn c3">Play</div>
-		<div class="col-lg-1"></div>
-		<div id="crypt_cert" class="col-lg-2 btn c2">E-Certificates</div>
-		<div class="col-lg-1"></div>
-		<div id="crypt_feedb" class="col-lg-2 btn c1">Feedback</div>
-	</div>
-</template>
-
-<template name="cryptexHome">
-	<link rel="stylesheet" type="text/css" href="/cryptex.css">
-	<nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-		<a href="/index.html">
-			<span> <img src="img/TextLogo.png" class="main-nav-logo"> </span>
-		</a>
-		<span id="menuIcon" class="logout" style="float:right; margin: 5px 5px; font-size:30px; cursor:pointer"> {{ >loginButtons }} </span>
-	</nav>
-	<div style="text-align: center;">
-		<h2> Cryptex 2019 </h2>
-		<img src="img/cryptex.jpg" style="width: inherit;">
-		<h3> Every puzzle has its pieces.</h3>
-		<p> Please login to continue. </p>
-	</div>
-</template> -->
