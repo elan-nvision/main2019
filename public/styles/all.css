@@ -123,6 +123,7 @@ a {
 			background-color: #bbb;
 			border-radius: 50%;
 			display: inline-block;
+margin-right:4px;
 		}
 		
 		/*.overlaynav {
@@ -295,3 +296,7 @@ a {
 			transform: rotateY(180deg);
 			z-index: 3;
 		}
+/*.btn {
+background-color:transparent;
+color:white;
+}*/

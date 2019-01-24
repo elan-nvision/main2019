@@ -36,6 +36,20 @@
     <link rel="stylesheet" href="/styles/techy.css">
     <script type="text/javascript">
         window.history.replaceState("", "", '/moviemaking');
+         function openNav() {
+          document.getElementById("myNav").style.height = "100%";
+     }
+
+     function closeNav() {
+          document.getElementById("myNav").style.height = "0%";
+     }
+      function openNav1() {
+          document.getElementById("myNav1").style.height = "100%";
+     }
+
+     function closeNav1() {
+          document.getElementById("myNav1").style.height = "0%";
+     }
     </script>
 </head>
 <body>
@@ -78,6 +92,7 @@
     function closerNav() {
       document.getElementById("myNavr").style.width = "0%";
     }
+
   </script>
      <div class="container" style="margin-top: 10%">
       <div class="scrollmenu">
@@ -88,7 +103,7 @@
       <a href="/views/culti/drama.html">&nbsp;DRAMA</a>
       <a href="/views/culti/moviemaking.html">&nbsp;MOVIE-MAKING</a>
       <a href="/views/culti/art.html">&nbsp;ART</a>  
-      <a href="/views/culti/photography.html">&nbsp;PHOTOGRAPHY</a>
+      <a href="/views/culti/photography.html">&nbsp;PHOTOGRAPHY & RADIO EVENT</a>
       <!--<a href="/quizzes">&nbsp;QUIZZES</a>
       <a href="/online">&nbsp;ONLINE</a>
       <a href="/quadcopter">&nbsp;QUADCOPTER</a>
@@ -105,7 +120,8 @@
             </div>
             <div class="flip-card-back">
               <h3 style="margin-top:50px;">Film Fare Fiesta</h3>
-              <h4 style="margin-top:0px;">Coming Soon</h4>
+              <button type="button" class="btn" style="margin-top:10px;">Register</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn" onclick="" style="margin-top:10px;">Details</button>
           </div>
           </div>
         </div>
@@ -113,14 +129,15 @@
     </div>
      <div  class=" col-sm-6 text-center" >
       <div class="img-wrapper culti">
-        <div onclick="openNav1()" class="flip-card"> 
+        <div onclick="openNav()" class="flip-card"> 
           <div class="flip-card-inner">
             <div class="flip-card-front">
               <img src="/img/events/Screenwriting.jpeg"  alt="Avatar" >
             </div>
             <div class="flip-card-back">
               <h3 style="margin-top:50px;">ScreenWriting</h3>
-              <h4 style="margin-top:0px;">Coming Soon</h4>
+              <button type="button" class="btn" style="margin-top:10px;">Register</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn" onclick="" style="margin-top:10px;">Details</button>
           </div>
           </div>
         </div>
@@ -128,11 +145,89 @@
     </div>
     
 </div>
-  <div id="myNav1" class="overlay" style="background: linear-gradient(130deg, #0040ff 60%,  #668cff 60%);">
+
+<div id="myNav1" class="overlay" style="background:  linear-gradient(140deg,  #006666 33%, #663d00 63%);">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
   <div style="text-align:left;" class="overlay-content">
-  <div class="container">
-    <h2 style='text-align:center'>Pro-Quest</h2>
+    <div class="container" style="padding-top: 40px;">
+      <h2 style='text-align:center'>Film Fare Fiesta: A Short film Competition</h2>
+      <!-- Nav tabs -->
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a10" role="tab"  aria-selected="true">&nbsp;Introduction</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b10" role="tab"  aria-selected="false">&nbsp;Event format</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c10" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d10" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
+        </li>
+      </ul>
+
+
+
+
+
+      <div class='tab-content'>
+        <div class='tab-pane active' id='a10' role="tabpanel">
+          <h4>Introduction</h4>
+          <p>Do you think you can take after Steven Spielberg, Christopher Nolan and James Cameron? Make your own short film, enthral and captivate movie buffs with your creativity. The stage at Elan & ηvision 2019 is set for you. Get judged by esteemed people in film industry.</p>
+        </div>
+        <div class='tab-pane' id='b10'>
+          <h4>EVENT FORMAT:</h4><p>
+          <i class='fa fa-circle' style='font-size:8px;'></i>  All the entries are judged on the first day to shortlist 6 out of them. <br>
+          <i class='fa fa-circle' style='font-size:8px;'></i>Team Size: At most 15 in the core team(No particular limit for actors in the film)
+</p>
+        </div>
+        <div class='tab-pane' id='c10'>
+          <h4>RULES AND REGULATIONS:</h4><p>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Run time should not be more than 20 minutes<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Atleast one member from each team should be present while the judgement is taking place.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Movie should be shot at a minimum resolution of 480 pixels. Marks might be reduced due to poor video/ audio quality.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Entries must be the original work of the entrant.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Any attempt at copyright infringement can lead to immediate disqualification.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> The content of the movie should be appropriate for public screening and thus have no vulgarity. Obscenity (at the discretion of the judges) of any kind is not allowed and will lead to immediate disqualification.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Sound tracks (no max time limit) and stock footage (time limit : max of 1 min 30 seconds) can be borrowed, but with due credits.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Films in languages other than English, Hindi, and Telugu should be accompanied with subtitles.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Participants should send their videos/youtube links of the videos to laxmi.g@elan.org.in. ELAN ID of the contestant must be included in the mail.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Only those short films which are shot and released after 1st july 2017 would be accepted.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> The decision of the organizers and the judges is final and binding. <br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> The organising team has the complete right to change the prize money if the participation is less than six. <br></p>
+          <h4>JUDGING CRITERIA:</h4><p>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Acting<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Script<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Direction<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Screenplay<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Costumes<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Dialogues<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Cinematography<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Sound editing/ mixing<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Visual effects<br></p>
+        </div>
+        <div class='tab-pane' id='d10'>
+          <h4>PRIZES:</h4><p>
+          Prizes worth Rs.*/-<br>
+        </p>
+        <p>Prizes will be given after April 2nd 2019</p>
+        <h4>ORGANISERS:</h4><p>
+        Will be updated soon</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+  <div id="myNav" class="overlay" style="background:  linear-gradient(140deg,  #006666 33%, #663d00 63%);">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+  <div class="container" style="padding-top: 40px;">
+
+    <h2 style='text-align:center'>Screen Writing</h2>
 <!-- Nav tabs -->
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -150,103 +245,50 @@
   </li>
 </ul>
 
+  
         
-        
-       <div class='tab-content'>
+      <div class='tab-content'>
         <div class='tab-pane active' id='a2' role="tabpanel">
-        <h4>Introduction:</h4>
-        <p>Proquest is a competitive programming competition composed of two levels, for participants of all levels of expertise. Experience different levels of programming from pen and paper programming to a truly challenging problem statements.</p>
-        <p>Event will be on 10th or 11th Febuary 2018</p>
+          <h4>Introduction</h4>
+          <p>Do you think you can take after Steven Spielberg, Christopher Nolan and James Cameron? Make your own short film, enthral and captivate movie buffs with your creativity. The stage at Elan & ηvision 2019 is set for you. Get judged by esteemed people in film industry.</p>
         </div>
         <div class='tab-pane' id='b2'>
-        <h4>Coming Soon</h4>
+          <h4>EVENT FORMAT:</h4><p>
+          <i class='fa fa-circle' style='font-size:8px;'></i>  Each team has to submit an original screenplay of a scene (based on the theme/situation) of not more than 5 minutes of screentime. </p>
         </div>
         <div class='tab-pane' id='c2'>
-        <h4>Rules:</h4><p>  1. This is an individual event. No teams are allowed.<br> 
-        2. The organisers reserve the right to make any change to the event whenever deemed necessary.<br>
-        3. Any participants indulging in plagiarism or sharing code with others in any form will be immediately disqualified.<br>
-        4. Winners will be announced before the fest ends.<br>
-        5. All decisions made by the judges will be final and binding.<br>
-        6. It will be a 3 hour event.<br></p>
-        <h4>Judging criteria:</h4><p> 
-        1.  All programs will be judged in person and winners will be announced before the fest ends.<br>  2.  Participation certificates are given to top 15 codes <br></p> 
+          <h4>RULES AND REGULATIONS:</h4><p>
+          <i class='fa fa-circle' style='font-size:8px;'></i> ScreenplayEach team will be provided with a theme/situation by the organiser.<br>
+           <i class='fa fa-circle' style='font-size:8px;'></i> Must be well formatted. For example, one page of your screenplay should be equivalent to one minute of screentime.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Participants should submit their work in 5 hours to the organiser.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Time exceeding penalties:<br>
+          15 min after deadline - 5 marks
+          30 min after deadline- 10 marks
+          60 min after deadline- 20 marks
+          <i class='fa fa-circle' style='font-size:8px;'></i> Organisers will not accept the scripts after 1 hour of the deadline.<br>
+
+          </p>
+          <h4>JUDGING CRITERIA:</h4><p>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Content/Story<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Formatting of the screenplay
+         </p>
         </div>
         <div class='tab-pane' id='d2'>
-        <h4> Prize</h4><p> 
-        Prizes Worth INR 20,000*/-</p>
-        <p>Prizes will be given after April 2nd 2018</p>
-        <h4>Organisers</h4>
-        <p>Deepak Nathani-9177289949<br>Adarsh Bandi-9640724328<br>Varun Perumalla-7674024633</p>
-        <h4>Contact:</h4>
-        <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
-        </div>
-        </div>
-        </div>
-  </div>
-</div>
-</div>
-
-
-     <div id="myNav" class="overlay" style="background: linear-gradient(230deg, #cc00cc 60%, #ff1aff 60%);">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div style="text-align:left;" class="overlay-content">
-  <div class="container">
-    <h2 style='text-align:center'>Algorthima</h2>
-<!-- Nav tabs -->
-
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a1" role="tab"  aria-selected="true">&nbsp;Introduction</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b1" role="tab"  aria-selected="false">&nbsp;Problem Statement</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c1" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d1" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
-  </li>
-</ul>
-
-        
-        
-       <div class='tab-content'>
-        <div class='tab-pane active' id='a1' role="tabpanel">
-        <h4>Introduction:</h4><p> 
-        Algorithma is the perfect event for those who like to solve mathematical and logical puzzles as well as design algorithms, regardless of your knowledge of programming.</p>
-        <p>Event will be on 10th or 11th Febuary 2018</p>
-        </div>
-        <div class='tab-pane' id='b1'>
-        <h4>Problem statement:</h4><p> 
-        Here we will test your problem-solving ability in a series of steps. You will be given a set of puzzles and algorithmic problems. You have to write pseudocode or steps for solving a problem in words or draw a flowchart highlighting the approach for solving the problem anything which clearly describes your logic.
+          <h4>PRIZES:</h4><p>
+          Prizes worth Rs.*/-<br>
         </p>
-        </div>
-        <div class='tab-pane' id='c1'>
-        <h4>Judging criteria:</h4>
-        <p>All programs will be judged in person and winners will be announced before the fest ends.<br>
-        Participation certificates are given to top 20 Algorithms.</p> <h4>Rules and Regulations:</h4><p>
-        1. This is an individual event. No teams are allowed.<br>
-        2. The organisers reserve the right to make any change to the event whenever deemed necessary.<br>
-        3. Any participants indulging in plagiarism or sharing code with others in any form will be immediately disqualified.<br>
-        4. All programs will be judged in person and winners will be announced before the fest ends.<br>
-        5. All decisions made by the judges will be final and binding.</p>
-        </div>
-        <div class='tab-pane' id='d1'>
-        <h4> Prize: </h4><p> 
-        Prizes Worth INR 10,000*/-</p>
-        <p>Prizes will be given after April 2nd 2018</p>
-        <h4>Organisers</h4>
-        <p>Deepak Nathani-9177289949<br>Surgan jandial-9419243611<br>Rishi-9100641264</p>
-        <h4>Contact:</h4>
-        <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
-        </div>
-        </div>
-        </div>
-        </div>
+        <p>Prizes will be given after April 2nd 2019</p>
+        <h4>ORGANISERS:</h4><p>
+        Will be updated soon</p>
+      </div>
+    </div>
   </div>
 </div>
 </div>
+</div>
+
+
+  </div>
 </div>
 <script type="text/javascript" src="/js/canva-cul.js"></script>
 
