@@ -23,6 +23,16 @@ Events = {
 		route: '/register_elan_e_jung',
 		actual: 'user',
 		loggedOut: 'notRegistered'
+	},
+	'event_manthan': {
+		eventName: 'event_manthan',
+		title: 'Manthan',
+		name: 'Manthan',
+		cfLink: '/me',
+		googleFormURL: 'https://goo.gl/forms/zJC9foTO1S26c2JF3',
+		route: '/register_manthan',
+		actual: 'user',
+		loggedOut: 'notRegistered'
 	}
 }
 
@@ -36,6 +46,12 @@ FlowRouter.route('/register_elan_e_jung', {
 	action: () => {	
 		document.title = 'Elan-E-Jung';
 		BlazeLayout.render('top', Events['event_elanEJung']);
+	}
+});
+FlowRouter.route('/register_manthan', {
+	action: () => {	
+		document.title = 'Manthan';
+		BlazeLayout.render('top', Events['event_manthan']);
 	}
 });
 
