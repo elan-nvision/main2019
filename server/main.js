@@ -185,11 +185,12 @@ Steps to add an event:
 */
 // FS = require('fs');
 // Streams = [];
-Events = ['event_ca', 'event_cryptex', 'event_elanEJung'];
+Events = ['event_ca', 'event_cryptex', 'event_elanEJung', 'event_manthan'];
 Tables = [
 	new Mongo.Collection('ca'), 
 	new Mongo.Collection('cryptex'),
 	new Mongo.Collection('elan-e-jang'),
+	new Mongo.Collection('manthan'),
 ];
 Posts = new Mongo.Collection('posts'); //CA Specific Collection
 Constructors = [
@@ -207,7 +208,7 @@ Constructors = [
 				'0000'.substring(0, 4 - String(eventIndex).length) + eventIndex,
 			hasAskedForRefCode: false
 		};
-	},
+	},//CA
 	(masterUser, eventIndex) => {
 		return {
 			name: masterUser.services.google.name,
@@ -215,7 +216,7 @@ Constructors = [
 			pseudoName: "",
 			level: 0,
 		}
-	},
+	},//Cryptex
 	(masterUser, eventIndex) => {
 		return {
 			name: masterUser.services.google.name,
@@ -224,7 +225,16 @@ Constructors = [
 			collegeName: masterUser.collegeName,
 			city: masterUser.city,
 		}
-	},
+	},//elanEJung
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Manthan
 ];
 
 // Questions = [
