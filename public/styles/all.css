@@ -57,7 +57,7 @@ a {
 			height: 0%;
 			width: 100%;
 			position: fixed;
-			z-index: 4;
+			z-index: 6;
 			top: 0;
 			left: 0;
 			background: linear-gradient(10deg, #fdcd3b 60%, #ffed4b 60%);
@@ -88,7 +88,7 @@ a {
 		}
 
 		.overlay .closebtn {
-			z-index: 4;
+			z-index: 6;
 			position: absolute;
 			top: 20px;
 			right: 45px;
