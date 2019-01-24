@@ -208,7 +208,7 @@ Constructors = [
 				'0000'.substring(0, 4 - String(eventIndex).length) + eventIndex,
 			hasAskedForRefCode: false
 		};
-	},
+	},//CA
 	(masterUser, eventIndex) => {
 		return {
 			name: masterUser.services.google.name,
@@ -216,7 +216,7 @@ Constructors = [
 			pseudoName: "",
 			level: 0,
 		}
-	},
+	},//Cryptex
 	(masterUser, eventIndex) => {
 		return {
 			name: masterUser.services.google.name,
@@ -225,7 +225,7 @@ Constructors = [
 			collegeName: masterUser.collegeName,
 			city: masterUser.city,
 		}
-	},
+	},//elanEJung
 	(masterUser, eventIndex) => {
 		return {
 			name: masterUser.services.google.name,
@@ -234,7 +234,7 @@ Constructors = [
 			collegeName: masterUser.collegeName,
 			city: masterUser.city,
 		}
-	},
+	},//Manthan
 ];
 
 // Questions = [

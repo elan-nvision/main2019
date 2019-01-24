@@ -21,7 +21,7 @@ Events = {
 		cfLink: '/me',
 		googleFormURL: 'https://goo.gl/forms/ON5oP0FoEzu6OMmb2',
 		route: '/register_elan_e_jung',
-		actual: 'user',
+		actual: 'notRegistered',
 		loggedOut: 'notRegistered'
 	},
 	'event_manthan': {
@@ -31,7 +31,7 @@ Events = {
 		cfLink: '/me',
 		googleFormURL: 'https://goo.gl/forms/zJC9foTO1S26c2JF3',
 		route: '/register_manthan',
-		actual: 'user',
+		actual: 'notRegistered',
 		loggedOut: 'notRegistered'
 	}
 }

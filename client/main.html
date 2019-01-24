@@ -113,7 +113,11 @@
 <template name="top">
 	{{# if currentUser }}
 		{{# if currentUser.profile.phoneNumber }}
-			{{ > notRegistered }}
+			{{ # if isRegisteredForEvent eventName }}
+				{{ > Template.dynamic template=actual }}
+			{{ else }}
+				{{ > notRegistered }}
+			{{ /if }}
 		{{ else }}
 			{{ > registerNumber }}
 		{{ /if }}
@@ -121,9 +125,7 @@
 		{{ > Template.dynamic template=loggedOut }}
 	{{ /if }}
 </template>
-<!-- {{ # if isRegisteredForEvent eventName }}
-	{{ > Template.dynamic template=actual }}
-{{ else }} -->
+
 
 <template name="notRegistered">
     <canvas id="test"></canvas>
