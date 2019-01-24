@@ -89,6 +89,9 @@ FlowRouter.route('/team', {
 FlowRouter.route('/biggies', {
 	action: () => {	window.location.href='/views/biggies.html'; }
 });
+FlowRouter.route('/aero', {
+	action: () => {	window.location.href='/views/tech/aero.html'; }
+});
 FlowRouter.route('/torque', {
 	action: () => {	window.location.href='/views/tech/torque.html'; }
 });
