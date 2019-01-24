@@ -14,13 +14,13 @@ Events = {
 		actual: 'caportal',
 		loggedOut: 'home',
 	},
-	'event_biggies': {
-		eventName: 'event_biggies',
-		title: 'Biggies',
-		name: 'Biggies',
-		cfLink: '/team',
+	'event_elanEJung': {
+		eventName: 'event_elanEJung',
+		title: 'Elan-E-Jung',
+		name: 'Elan-E-Jung',
+		cfLink: '/me',
 		googleFormURL: 'https://goo.gl/forms/ON5oP0FoEzu6OMmb2',
-		route: '/example',
+		route: '/register_elan_e_jung',
 		actual: 'user',
 		loggedOut: 'notRegistered'
 	}
@@ -32,10 +32,10 @@ FlowRouter.route('/ca', {
 		BlazeLayout.render('top', Events['event_ca']);
 	}
 });
-FlowRouter.route('/example', {
+FlowRouter.route('/register_elan_e_jung', {
 	action: () => {	
-		document.title = 'Biggies';
-		BlazeLayout.render('top', Events['event_biggies']);
+		document.title = 'Elan-E-Jung';
+		BlazeLayout.render('top', Events['event_elanEJung']);
 	}
 });
 
