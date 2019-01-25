@@ -41,8 +41,8 @@ Events = {
 		cfLink: null,
 		googleFormURL: null,
 		route: '/register_paper_presentation',
-		actual: 'user',
-		loggedOut: 'notRegistered'
+		actual: 'notRegistered',
+		loggedOut: 'user'
 	}
 }
 
