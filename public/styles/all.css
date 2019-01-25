@@ -296,7 +296,24 @@ margin-right:4px;
 			transform: rotateY(180deg);
 			z-index: 3;
 		}
-/*.btn {
+.btn {
 background-color:transparent;
+font-size:20px;
 color:white;
+}/*
+.btn {
+  flex: 1 1 auto;
+  
+  transition: 0.5s;
+  background-size: 200% auto;
+background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
+
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+ }
+
+
+
+.btn:hover {
+  background-position: right center; 
 }*/
