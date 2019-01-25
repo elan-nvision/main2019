@@ -1,260 +1,229 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-105307113-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-105307113-2"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-    gtag('config', 'UA-105307113-2');
-  </script>
-  <title>Torque</title>
-    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width"/>
-    <title>techy | Elan & &eta;vision'19</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Elan & ηVision is the techno-cultural fest of IIT Hyderabad.">
-    <meta name="copyright" content="ELAN & ηvision 2019">
-    <meta name="author" content="ELAN & ηvision 2019  ">
-    <meta name="keyword" content="workshops, iith, techy workshops, robotics, android, elan,nvision,elan & nvision,vision,techno,tech,management,technical,iit hyderabad, iit,fest, competitions,events,event,hyderabad,iith,students,robots,sponsors,games,workshops,kludge,infero,cephid,ecell,e-cell,robotics,equilibria,torque,electronica">
-    <meta name="theme-color" content="#283389">
-    <meta property="og:site_name" content="ELAN & ηvision 2019">
-    <meta property="og:title" content="ELAN & ηvision 2019">
-    <meta property="og:type" content="website">
-    <!-- <meta property="og:image" content="https://nvision.org.in/img/logo.png"> -->
-    <meta property="og:description" content="ELAN & ηvision 2019: Techno-cultural Fest of IIT Hyderabad">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-    <link rel="stylesheet" href="/styles/canva.css">
-    <link rel="stylesheet" href="/styles/all.css">
-    <link rel="stylesheet" href="/styles/techy.css">
-    <script type="text/javascript">
-      window.history.replaceState("", "", '/torque');
-    </script>
+		gtag('config', 'UA-105307113-2');
+	</script>
+	<title>Torque</title>
+	<link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width"/>
+	<title>techy | Elan & &eta;vision'19</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Elan & ηVision is the techno-cultural fest of IIT Hyderabad.">
+	<meta name="copyright" content="ELAN & ηvision 2019">
+	<meta name="author" content="ELAN & ηvision 2019  ">
+	<meta name="keyword" content="workshops, iith, techy workshops, robotics, android, elan,nvision,elan & nvision,vision,techno,tech,management,technical,iit hyderabad, iit,fest, competitions,events,event,hyderabad,iith,students,robots,sponsors,games,workshops,kludge,infero,cephid,ecell,e-cell,robotics,equilibria,torque,electronica">
+	<meta name="theme-color" content="#283389">
+	<meta property="og:site_name" content="ELAN & ηvision 2019">
+	<meta property="og:title" content="ELAN & ηvision 2019">
+	<meta property="og:type" content="website">
+	<!-- <meta property="og:image" content="https://nvision.org.in/img/logo.png"> -->
+	<meta property="og:description" content="ELAN & ηvision 2019: Techno-cultural Fest of IIT Hyderabad">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+	<link rel="stylesheet" href="/styles/canva.css">
+	<link rel="stylesheet" href="/styles/all.css">
+	<link rel="stylesheet" href="/styles/techy.css">
+	<script type="text/javascript">
+		window.history.replaceState("", "", '/torque');
+		function openNav1() {
+			document.getElementById("myNav1").style.height = "100%";
+		}
+		function closeNav1() {
+			document.getElementById("myNav1").style.height = "0%";
+		}
+	</script>
 </head>
 <body>
-  <canvas id="test" style="top: 0;z-index: -100;position: fixed; width: 100%;height: 100%;overflow-x: hidden;" ></canvas>
-  <link rel="stylesheet" type="text/css" href="/styles/nav.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.3em;">
-    <a href="/me"><button id="signInBtn" type="button" class="btn register" >Sign In</button></a>
-    <a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
-    <div class="overlaynav-content" >
-      <div class="row justify-content-center no-gutters">
-        <div  style="margin-top:9%;" class="col-sm-6 text-center">
-          <a href="/index.html">Home</a>
-          <a href="/views/sponsors.html">Sponsors</a>
-          <a href="/views/team.html">Contact Us</a>
-        </div>
-        <div style="margin-top:2%;" class="col-sm-6 text-center">
-          <!-- <a href="#" style="text-decoration: underline;">Events</a> -->
-          <a href="/views/culti/dance.html">Culti</a>
-          <a href="/views/tech/techy.html">Techy</a>
-          <a href="/views/litr.html">Litr</a>
-          <a href="/views/biggies.html">Biggies</a>
-          <a href="/views/infi.html">Infi</a>
-          <a href="/views/workshops/workshops.html">Workshops</a>
-          <a href="/ca">Campus Ambassador</a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="navbar" class="sticky">
-    <a href="/index.html"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
-    <span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
-    </span>
-  </div>
-  <script type="text/javascript">
-    if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
-    function openrNav() {
-      document.getElementById("myNavr").style.width = "100%";
-    }
-    function closerNav() {
-      document.getElementById("myNavr").style.width = "0%";
-    }
-  </script>
-       <div class="container" style="margin-top: 10%">
-          <div class="scrollmenu">
-            <a href="/views/tech/techy.html">&nbsp;ELEKTRONIKA</a>
-            <!--<a href="/equilibria">&nbsp;EQUILIBRIA</a>
-            <a href="/ecell">&nbsp;E-CELL</a>-->
-            <a href="/views/tech/aero.html">&nbsp;AERO</a>
-            <a href="/views/tech/torque.html">&nbsp;TORQUE</a>
-            <a href="/views/tech/robotics.html">&nbsp;ROBOTIX</a>
-            <a href="/views/tech/cepheid.html">&nbsp;CEPHEID</a>
-            <a href="/views/tech/kludge.html">&nbsp;KLUDGE</a>  
-            <a href="/views/tech/infero.html">&nbsp;INFERO</a>
-            <a href="/views/tech/civil.html">&nbsp;CIVIL</a>
-            <!--<a href="/quizzes">&nbsp;QUIZZES</a>
-            <a href="/online">&nbsp;ONLINE</a>
-            <a href="/quadcopter">&nbsp;QUADCOPTER</a>-->
-            <a href="/views/tech/paper_pres.html">&nbsp;PAPER PRESENTATION</a>
-          </div>
-        <h2 style="margin-top:20px; text-align: center;">Paper Presentation</h2>
-        <div style="" class="row justify-content-center no-gutters" data-aos="zoom-in-up">
-
-   
-    <div class="col-sm-6 text-center">
-      <div class="img-wrapper techy">
-        <div onclick="openNav()" class="flip-card"> 
-          <div class="flip-card-inner">
-            <div class="flip-card-front">
-              <img src="/img/events/paperpresentation.jpg"  alt="Avatar" >
-            </div>
-            <div class="flip-card-back">
-              <h3 style="margin-top:50px;">Paper Presentation</h3>
-              <h4 style="margin-top:0px;">Coming Soon</h4>
+	<canvas id="test" style="top: 0;z-index: -100;position: fixed; width: 100%;height: 100%;overflow-x: hidden;" ></canvas>
+	<link rel="stylesheet" type="text/css" href="/styles/nav.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+	<div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.3em;">
+		<a href="/me"><button id="signInBtn" type="button" class="btn register" >Sign In</button></a>
+		<a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
+		<div class="overlaynav-content" >
+			<div class="row justify-content-center no-gutters">
+				<div  style="margin-top:9%;" class="col-sm-6 text-center">
+					<a href="/index.html">Home</a>
+					<a href="/views/sponsors.html">Sponsors</a>
+					<a href="/views/team.html">Contact Us</a>
+				</div>
+				<div style="margin-top:2%;" class="col-sm-6 text-center">
+					<!-- <a href="#" style="text-decoration: underline;">Events</a> -->
+					<a href="/views/culti/dance.html">Culti</a>
+					<a href="/views/tech/techy.html">Techy</a>
+					<a href="/views/litr.html">Litr</a>
+					<a href="/views/biggies.html">Biggies</a>
+					<a href="/views/infi.html">Infi</a>
+					<a href="/views/workshops/workshops.html">Workshops</a>
+					<a href="/ca">Campus Ambassador</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="navbar" class="sticky">
+		<a href="/index.html"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
+		<span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
+		</span>
+	</div>
+	<script type="text/javascript">
+		if(window.name) document.getElementById('signInBtn').innerHTML = window.name;
+		function openrNav() {
+			document.getElementById("myNavr").style.width = "100%";
+		}
+		function closerNav() {
+			document.getElementById("myNavr").style.width = "0%";
+		}
+	</script>
+	<div class="container" style="margin-top: 10%">
+		<div class="scrollmenu">
+			<a href="/views/tech/techy.html">&nbsp;ELEKTRONIKA</a>
+						<!--<a href="/equilibria">&nbsp;EQUILIBRIA</a>
+						<a href="/ecell">&nbsp;E-CELL</a>-->
+						<a href="/views/tech/aero.html">&nbsp;AERO</a>
+						<a href="/views/tech/torque.html">&nbsp;TORQUE</a>
+						<a href="/views/tech/robotics.html">&nbsp;ROBOTIX</a>
+						<a href="/views/tech/cepheid.html">&nbsp;CEPHEID</a>
+						<a href="/views/tech/kludge.html">&nbsp;KLUDGE</a>  
+						<a href="/views/tech/infero.html">&nbsp;INFERO</a>
+						<a href="/views/tech/civil.html">&nbsp;CIVIL</a>
+						<!--<a href="/quizzes">&nbsp;QUIZZES</a>
+						<a href="/online">&nbsp;ONLINE</a>
+						<a href="/quadcopter">&nbsp;QUADCOPTER</a>-->
+						<a href="/views/tech/paper_pres.html">&nbsp;PAPER PRESENTATION</a>
+		</div>
+					<h2 style="margin-top:20px; text-align: center;">Paper Presentation</h2>
+					<div style="" class="row justify-content-center no-gutters" data-aos="zoom-in-up">
 
 
-            </div>
-          </div>
-        </div>
-      </div>
-</div>
-    </div>
-        
-     
+						<div class="col-sm-6 text-center">
+							<div class="img-wrapper techy">
+								<div onclick="openNav1()" class="flip-card"> 
+									<div class="flip-card-inner">
+										<div class="flip-card-front">
+											<img src="/img/events/paperpresentation.jpg"  alt="Avatar" >
+										</div>
+										<div class="flip-card-back">
+											<h3 style="margin-top:50px;">Paper Presentation</h3>
+											<button type="button" class="btn" style="margin-top:10px;">Register</button>&nbsp;&nbsp;&nbsp;
+											<button type="button" class="btn" onclick="" style="margin-top:10px;">Details</button>
 
 
-     <div id="myNav1" class="overlay" style=" background: linear-gradient(10deg, #999900 63%, #006600 63%);">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
-  <div style="text-align:left;" class="overlay-content">
-  <div class="container">
-    <h2 style='text-align:center'>Drift King</h2>
-<!-- Nav tabs -->
 
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a2" role="tab"  aria-selected="true">&nbsp;Introduction</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b2" role="tab"  aria-selected="false">&nbsp;Problem Statement</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c2" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d2" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
-  </li>
-</ul>
-
-        
-        
-       <div class='tab-content'>
-        <div class='tab-pane active' id='a2' role="tabpanel">
-        <h4>Introduction:</h4>
-        <p>Want to try making an IC engine? Drift king gives you a chance to design a machine with given constraints. In this event, the contestants are expected to make to an IC engine powered machine, that can be controlled remotely using a wireless remote controller, which can race against machines of similar construct on an all-terrain track packed with a number of obstacles.</p>
-        <p>Event will be on 10th or 11th Febuary 2018</p>
-        </div>
-        <div class='tab-pane' id='b2'>
-        <h4>Problem statement:</h4>
-        <p>In this event ,the contestants are expected to make to an IC engine powered machine ,that can be controlled remotely using a wireless remote controller, which can race against machines of similar construct on an all-terrain track packed with a number of obstacles.
-        <br><br><a  href='/static/pdf/driftking.pdf'><button class='btn2'>Problem statement PDF</button></a>
-        </div>
-        <div class='tab-pane' id='c2'>
-        <h4>Rules and Regulations:</h4><p>
-        1.Team can have a max of 4 people.<br>
-        2.No person can be a part of more than one team.<br>
-        3.All students must carry a valid identity card<br>
-        4.All members of team need to register for the event<br>
-        5.Students from different educational institutes can form a team.</p>
-        <h4>Certification Policy:</h4><p>
-        1. Certificate of Merit and Prizes will be given for the top two teams.<br>
-        2. Participation Certificate will be given for those who registered online and participated in the event.<br>
-        3. Participation Certificate is not guaranteed for those who registered onspot for the event<br>
-        </p></div>
-        <div class='tab-pane' id='d2'>
-        <h4>Prize</h4>
-        <p>Prizes Worth INR 50,000*/- </p> <p>Prizes will be given after April 2nd 2018</p> <h4>Organisers</h4>
-        <p>sachin - 7207873406<br>Ayush Negi - 828003282<br>Sai Sandeep - 9177785183<br>Lokesh - 9010880613<br>Trinadh - 9666254100</p>
-        <h4>Contact:</h4>
-        <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
-        </div>
-        </div>
-  </div>
-</div>
-</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
 
-     <div id="myNav" class="overlay" style=" background: linear-gradient(100deg, #1aff1a 63%, #ffed4b 63%);">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div style="text-align:left;" class="overlay-content">
-  <div class="container">
-    <h2 style='text-align:center'>Paper Presentation</h2>
-<!-- Nav tabs -->
 
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a1" role="tab"  aria-selected="true">&nbsp;Introduction</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b1" role="tab"  aria-selected="false">&nbsp;Problem Statement</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c1" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d1" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
-  </li>
-</ul>
 
-        
-        
-       <div class='tab-content'>
-        <div class='tab-pane active' id='a1' role="tabpanel">
-        <h4>Introduction:</h4>
-        <p>CAD PRO Design Challenge will test your designing skills in 3D design software and here, you have to prove your expertise in a challenging scenario where you race against time.</p>
-        <p>Event will be on 10th or 11th Febuary 2018</p>
-        </div>
-        <div class='tab-pane' id='b1'>
-        <h4>Problem statement</h4>
-        <p><i class='fa fa-circle' style='font-size:8px;'></i> It will be an on-spot designing round. Participants will be given a problem statement at the time of event and they have to submit their design in the specified time limit.<br><i class='fa fa-circle' style='font-size:8px;'></i>  Each Question will carry some points according to the type of question and its level of difficulty.<br>
-        <i class='fa fa-circle' style='font-size:8px;'></i> Models can be prepared in any CAD software (CATIA/Pro E/AutoCad/Solidworks/Solidedge) and the final file must be prepared in IGES or STEP format. Bring your own laptops with necessary softwares installed.<br>
-        </div>
-        <div class='tab-pane' id='c1'>
-        <h4>Event rules:</h4><p>
-        1.Each team can have a maximum of two participants.<br>
-        2.There will be a prelim round in case the participation exceeds<br> 3.Decision of the organizers will be final and binding. No claim will be entertained against the announced results.<br>
-        <h4>Judging criteria:</h4>
-        1.Any sign of plagiarism from internet or from other participant will lead to direct disqualification.<br>
-        2.Participant can only submit once. In case of multiple submissions only the first entry will be considered for evaluation.<br>
-        3.The design will be evaluated on the following aspects:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A. Originality of the Design<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B. Clear and easily comprehensible design<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C. Time Taken<br><br>
-        4.Certificate of Merit and Prizes will be given for the top two teams.<br>
-        5.Participation Certificate will be given for those who registered online and participated in the event.<br>
-        6.Participation Certificate is not guaranteed for those who registered onspot for the event.<br>
-        7.Disqualified teams will not be considered for any certificates. </p>
-        </div>
-        <div class='tab-pane' id='d1'>
-        <h4>Prize</h4>
-        <p>Prizes Worth INR 15,000*/-</p>
-        <p>Prizes will be given after April 2nd 2018</p>
-        <h4>Organisers:</h4>
-        <p>Akshar kota-9440021015<br>Radhakrishna -9704179963<br>vijay-9492867842<br>Akhil George-9445299569</p>
-        <h4>Contact:</h4>
-        <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
-        </p>
-        </div>
-        </div>
-        </div>
-  </div>
-</div>
-</div>
-</div>
-<script type="text/javascript" src="/js/canva-techy.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-     AOS.init();
-</script>
+					<div id="myNav1" class="overlay" style=" background: black;">
+						<a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+						<div style="text-align:left;" class="overlay-content">
+							<div class="container">
+								<h2 style='text-align:center'>Paper Presentation</h2>
+								<!-- Nav tabs -->
 
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
-<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js'></script>
-</body>
-</html>
+								<ul class="nav nav-tabs" id="myTab" role="tablist">
+									<li class="nav-item">
+										<a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a2" role="tab"  aria-selected="true">&nbsp;Introduction</a>
+									</li>
+									<li class="nav-item">
+										<a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b2" role="tab"  aria-selected="false">&nbsp;Problem Statement</a>
+									</li>
+									<li class="nav-item">
+										<a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c2" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
+									</li>
+									<li class="nav-item">
+										<a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d2" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
+									</li>
+								</ul>
+
+
+
+								<div class='tab-content'>
+									<div class='tab-pane active' id='a2' role="tabpanel">
+										<h4>Introduction:</h4>
+										<p>Elan & Nvision,IIT Hyderabad proudly presents its exploration event "Paper Presentation". A out-and-out platform where students from all backgrounds manifest their research work by presenting their proficient papers related to various topics in the fields of science and engineering to ingenious judges.you are expected to send an abstract of your work based on which you will be qualified to present your paper during Elan & Nvision 2k19. </p>
+									</div>
+									<div class='tab-pane' id='b2'>
+										<p>JUDGING CRITERIA:- <br>
+											FOR ABSTRACT: <br>
+											1. The abstract should be simple yet clear about your topic of research.<br> 
+											2. The topic on which the research is done should strive to make the human life a 
+											better one. <br>
+											3. If the topic about which the abstract is submitted is an extension to one of the 
+											works done earlier but a better version of that.The ways in which it is a better one should be mentioned. <br>
+											FOR ROUND 2: <br>
+											1. Correctness of facts. <br>
+											2. Methods of analysis. <br>
+											3. Innovativeness of idea. <br>
+											4. Presentation of solution or ideas. <br>
+											5. Practical feasibility or implication of ideas. 
+
+												<br><br>
+										</div>
+										<div class='tab-pane' id='c2'>
+											<h4>Rules and Regulations:</h4><p>
+											1. Shortlisting will be done based on Abstracts. <br>
+											2. All relevant data and figures must be represented in the paper. <br>
+											3. The Abstract should be submitted in Size 11,BOLD,Calibri<br>
+											<!--5.The following details have to be mentioned in the Abstract <br>
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;aWorkplace and the work done there
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Supervisor /scientist under whom the work is done
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Abstract in 200-250 words 
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keywords 
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;References/ source of your study 
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Background and scope of the paper in 200-250 words -->
+											4. Teams of maximum 3 members are allowed. <br>
+											5. Organizers decision will be final and binding. <br>
+											6. All results will be announced on the website and will be mailed to the 
+											team Members.<br> 
+											7. Add your team ELAN ID and team member details (Names, ELAN ID’s, Mail ID’s) 
+											to the abstract. <br>
+											8. Last date for submission of abstracts is 9th February 2019 <br>
+											9. Any abstract that is selected and is not presented shall not qualify for any 
+											award. <br>
+
+										</p></div>
+										<div class='tab-pane' id='d2'>
+											<h4>Prize</h4>
+											<p>Prizes Worth INR 20,000*/- <br>
+												Upload your abstracts here https://drive.google.com/drive/folders/1cn1rHKgnvNMXO7n8NN5a2vb8NYv_ZjlV?usp=sharing</p> 
+												<h4>Organisers</h4>
+												<p>Venkat-9494219983<br>
+          Srihas-7093313695</p>
+												<h4>Contact:</h4>
+												<p><a href='mailto:techy@elan.org.in' style="font-size:15px;">techy@elan.org.in</a></p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+
+
+						</div>
+					</div>
+					<script type="text/javascript" src="/js/canva-techy.js"></script>
+					<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+					<script>
+						AOS.init();
+					</script>
+
+					<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+					<script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js'></script>
+				</body>
+				</html>
