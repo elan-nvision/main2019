@@ -185,12 +185,13 @@ Steps to add an event:
 */
 // FS = require('fs');
 // Streams = [];
-Events = ['event_ca', 'event_cryptex', 'event_elanEJung', 'event_manthan'];
+Events = ['event_ca', 'event_cryptex', 'event_elanEJung', 'event_manthan', 'event_pp'];
 Tables = [
 	new Mongo.Collection('ca'), 
 	new Mongo.Collection('cryptex'),
 	new Mongo.Collection('elan-e-jang'),
 	new Mongo.Collection('manthan'),
+	new Mongo.Collection('paperpres'),
 ];
 Posts = new Mongo.Collection('posts'); //CA Specific Collection
 Constructors = [
@@ -235,6 +236,15 @@ Constructors = [
 			city: masterUser.city,
 		}
 	},//Manthan
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Paper Presentation
 ];
 
 // Questions = [
