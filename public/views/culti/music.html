@@ -34,6 +34,28 @@
   <link rel="stylesheet" href="/styles/techy.css">
   <script type="text/javascript">
     window.history.replaceState("", "", '/music');
+    function openNav() {
+      document.getElementById("myNav").style.height = "100%";
+    }
+
+    function closeNav() {
+      document.getElementById("myNav").style.height = "0%";
+    }
+    function openNav1() {
+      document.getElementById("myNav1").style.height = "100%";
+    }
+
+    function closeNav1() {
+      document.getElementById("myNav1").style.height = "0%";
+    }
+    function openNav2() {
+      document.getElementById("myNav2").style.height = "100%";
+    }
+
+    function closeNav2() {
+      document.getElementById("myNav2").style.height = "0%";
+    }
+
   </script>
 </head>
 <body>
@@ -86,7 +108,7 @@
       <a href="/views/culti/drama.html">&nbsp;DRAMA</a>
       <a href="/views/culti/moviemaking.html">&nbsp;MOVIE-MAKING</a>
       <a href="/views/culti/art.html">&nbsp;ART</a>  
-      <a href="/views/culti/photography.html">&nbsp;PHOTOGRAPHY</a>
+      <a href="/views/culti/photography.html">&nbsp;PHOTOGRAPHY & RADIO EVENT</a>
       <!--<a href="/quizzes">&nbsp;QUIZZES</a>
       <a href="/online">&nbsp;ONLINE</a>
       <a href="/quadcopter">&nbsp;QUADCOPTER</a>
@@ -97,14 +119,15 @@
 
       <div class="col-sm-6 text-center">
         <div class="img-wrapper culti">
-          <div onclick="openNav()" class="flip-card"> 
+          <div onclick="openNav2()" class="flip-card"> 
             <div class="flip-card-inner">
               <div class="flip-card-front">
                 <img src="/img/events/vibrazione.jpg"  alt="Avatar" >
               </div>
               <div class="flip-card-back">
                 <h3 style="margin-top:50px;">Vibrazione</h3>
-                <h4 style="margin-top:0px;">Coming Soon</h4>
+                <button type="button" class="btn" style="margin-top:10px;">Register</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn" onclick="" style="margin-top:10px;">Details</button>
 
 
               </div>
@@ -124,7 +147,8 @@
               </div>
               <div class="flip-card-back">
                 <h3 style="margin-top:50px;">Octaves</h3>
-                <h4 style="margin-top:0px;">Coming Soon</h4>
+                <button type="button" class="btn" style="margin-top:10px;">Register</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn" onclick="" style="margin-top:10px;">Details</button>
 
 
               </div>
@@ -144,7 +168,8 @@
               </div>
               <div class="flip-card-back">
                 <h3 style="margin-top:50px;">DJ Wars</h3>
-                <h4 style="margin-top:0px;">Coming Soon</h4>
+                <button type="button" class="btn" style="margin-top:10px;">Register</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn" onclick="" style="margin-top:10px;">Details</button>
 
 
               </div>
@@ -158,61 +183,87 @@
     </div>
 
 
-    <div id="myNav3" class="overlay" style="background: linear-gradient(120deg, #cca300 40%, rgba(0,0,0,0) 40%), linear-gradient(120deg,#a31aff 60%,   #ff3399 60%);">
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav3()">&times;</a>
-      <div style="text-align:left;" class="overlay-content">
-        <div class="container">
-          <h2 style='text-align:center'>Line Robo</h2>
-          <!-- Nav tabs -->
+    <div id="myNav" class="overlay" style=" background:  linear-gradient(240deg,  #1f004d 33%, #660029 83%);">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+    <div class="container" style="padding-top: 40px;">
+      <h2 style='text-align:center'>DJ Wars:  A DJ’ying Competition</h2>
+      <!-- Nav tabs -->
 
-          <ul class="nav nav-tabs" id="myTab" role="tablist">
-            <li class="nav-item">
-              <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a4" role="tab"  aria-selected="true">&nbsp;Introduction</a>
-            </li>
-            <li class="nav-item">
-              <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b4" role="tab"  aria-selected="false">&nbsp;Problem Statement</a>
-            </li>
-            <li class="nav-item">
-              <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c4" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
-            </li>
-            <li class="nav-item">
-              <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d4" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
-            </li>
-          </ul>
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a5" role="tab"  aria-selected="true">Introduction</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b5" role="tab"  aria-selected="false">&nbsp;Event format</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c5" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d5" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
+        </li>
+        <li class="nav-item ml-auto" >
+           <a style="font-size: 35px;" class="nav-link"  >&nbsp;Register</a>
+        </li>
+      </ul>
 
 
 
-          <div class='tab-content'>
-            <div class='tab-pane active' id='a4' role="tabpanel">
-             <h4>Introduction</h4>
-             <p>Robotics events are incomplete without a line follower competition. A simple black line on a white background and your robot must follow it. The track is filled withbends and curves.The task is to build an autonomous robot which is capable of traversing a black line on a white background. </p>
-             <p>Event will be on 10th or 11th Febuary 2018</p>
-           </div>
-           <div class='tab-pane' id='b4'>
-            <h4>Problem Statement</h4>
-            <p><br><a  href='/static/pdf/linerobo.pdf'><button class='btn2'>Problem statement PDF</button></a></p>
+      <div class='tab-content'>
+        <div class='tab-pane active' id='a5' role="tabpanel">
+          <h4>Introduction</h4>
+          <p>
+            The most awaited event is back with a bang in Elan & ηvision 2019!!<br><br>
+            For all the aspiring DJ's out there!! Can you mix 'em good enough?!Then what are you waiting for?!!Spin 'em to own 'em!!<br>
+            Battle with the beats! Fight with the tunes! May the best win!This is the War of DJ's, where DJ's compete with each other, on a huge platform, like never before!</p>
           </div>
-          <div class='tab-pane' id='c4'>
-            <h4>RULES AND REGULATIONS</h4><p>
-            1.A team may consist of a maximum of 2 members.<br>
-            2.No person can be a part of more than one team.<br>
-            3.All students must carry a valid identity card<br>
-            4.All members of team need to register for the event<br>
-            5.Students from different educational institutes can form a team.<br>
-            6.Organizer’s decision shall be treated as final and binding on all.</p>
-            <h4>Certificate Policy:</h4><p>
-            1. Certificate of Merit and Prizes will be given for the top two teams.<br>
-            2. Participation Certificate will be given for those who registered online and participated in the event.<br>
-            3. Participation Certificate is not guaranteed for those who registered on spot for the event.</p>
+          <div class='tab-pane' id='b5'>
+            <h4>EVENT FORMAT:</h4><p>
+            <i class='fa fa-circle' style='font-size:8px;'></i> The event consists of two rounds-Prelims and finals.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Participants should register online for the event or even on-spot.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> On-spot registrations would be closed 1 hour before the event starts.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Five participants will be selected for the finals depending on their performance during the prelims.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Each DJ will be given a maximum time of 15 minutes to perform for both prelims and finals.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> 5 minutes would be given as a spare time for each of them before their performance to settle down.<br></p>
           </div>
-          <div class='tab-pane' id='d4'>
-            <h4>Prize</h4>
-            <p>Prizes Worth INR 15,000*/-</p>
-            <p>Prizes will be given after April 2nd 2018</p>
-            <h4>Organisers</h4>
-            <p>Baasha-9848604799<br>Khaja Redyy-7382013283<br>Sunil varma- 8317682299<br>Srihith paruchuru- 8332003346</p>
-            <h4>Contact:</h4>
-            <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
+          <div class='tab-pane' id='c5'>
+            <h4>RULES AND REGULATIONS:</h4><p>
+            <i class='fa fa-circle' style='font-size:8px;'></i> This is an individual event. No DJ duos are allowed.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> The participants should be of the age 17-25 years of age and the participants should produce age proof at the registration desk on the day of event.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Time limit should be strictly followed by the participants. Participant will be penalized by judges for not doing so.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> A minimum of three genres to be used. Language is not a barrier.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> A minimum of six songs to be played and 4 CDs to be changed.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Tags must be avoided. They can attract negative points.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Inappropriate content, religious blasphemy and vulgarity will not be tolerated.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Participants should have their own music. No music will be provided by the organizers.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Props or costumes will have to be arranged by the participants.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Obscenity in any form is strictly prohibited and would lead to disqualification.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Decision of organisers and judges will be final and abiding.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Style statement will also be rewarded.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> The organising team has the complete right to change the prize money if the participation is less than five.<br></p>
+            <h4>INFRASTRUCTURE SUPPLIED:</h4><p>
+            <i class='fa fa-circle' style='font-size:8px;'></i> A DJ console(Mark I) and mixer<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> 4 bin DJ sound system<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Effect lights[sprinklers, lasers, cans, and smoke]<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Sound Monitors<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> 2 mics<br></p>
+            <h4>JUDGING CRITERIA:</h4><p>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Mixing Techniques (Beat Matching, EQing, Use of faders/cross-faders)<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Tricks (Effects, Looping, Scratching)<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Use Of Equipment/Technology<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Track Selection<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Style statement<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Crowd engagement<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Overall Impact, uniqueness of the performance</p>
+
+          </div>
+          <div class='tab-pane' id='d5'>
+            <h4>PRIZES:</h4><p>
+            Prizes worth Rs.*/-</p>
+            <p>Prizes will be given after April 2nd 2019</p>
+            <h4>ORGANISERS:</h4>
+            <p>Will be updated soon</p>
           </div>
         </div>
       </div>
@@ -221,25 +272,106 @@
 </div>
 
 
-<div id="myNav2" class="overlay" style="background: linear-gradient(60deg, #33ff33 40%, rgba(0,0,0,0) 40%), linear-gradient(60deg ,#ff4da6 60%,  #008040 60%);">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+
+
+<div id="myNav1" class="overlay" style=" background:  linear-gradient(240deg,  #1f004d 33%, #660029 83%);">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
   <div style="text-align:left;" class="overlay-content">
-    <div class="container">
-      <h2 style='text-align:center'>Robo-Pirates</h2>
+    <div class="container" style="padding-top: 40px;">
+      <h2 style='text-align:center'>Octaves:A Solo Instrument Competition</h2>
       <!-- Nav tabs -->
 
       <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-          <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a3" role="tab"  aria-selected="true">&nbsp;Introduction</a>
+          <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a4" role="tab"  aria-selected="true">Introduction</a>
         </li>
         <li class="nav-item">
-          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b3" role="tab"  aria-selected="false">&nbsp;Problem Statement</a>
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b4" role="tab"  aria-selected="false">&nbsp;Event format</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c4" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d4" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
+        </li>
+        <li class="nav-item ml-auto" >
+           <a style="font-size: 35px;" class="nav-link"  >&nbsp;Register</a>
+        </li>
+      </ul>
+
+
+
+      <div class='tab-content'>
+        <div class='tab-pane active' id='a4' role="tabpanel">
+          <h4>Introduction</h4>
+          <p>This event pits the best against the best on the cultural stage. The name says it all and if you think you have mastered the instrument of your choice, then this is the stage for you. Not just that, this also tests your creativity and sees if you can come up with your own tune to wow us.</p>
+        </div>
+        <div class='tab-pane' id='b4'>
+          <h4>EVENT FORMAT:</h4><p>
+          <i class='fa fa-circle' style='font-size:8px;'></i> This being a solo competition allows no more than one person per team.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Registration: On the spot/Online.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> On-spot registrations would be closed 1 hour before the event.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Duration of each performance in the first round: 6 min (empty stage to empty stage).<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Duration of each performance in the second round: as long as the backing track lasts (empty stage to empty stage).<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> There will be two categories. Melody and percussion instruments.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Round 1:<br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <i class='fa fa-circle' style='font-size:8px;'></i>  Participants will be given 6 minutes to play anything they want.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-circle' style='font-size:8px;'></i> Based on the scores of the first round 2 participants from each category progresses into the second round.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-circle' style='font-size:8px;'></i> Overshooting the time limit will result in a penalty.<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Round 2:<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-circle' style='font-size:8px;'></i> The second round will be a face-off between the top two from each category. Ie, the first in melody vs the second in melody and similarly for percussion.<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-circle' style='font-size:8px;'></i> After qualification after the first round, the finalists will be given tracks to play over. Ie, the melody finalists will be given tracks with percussion to play over and vice-versa. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class='fa fa-circle' style='font-size:8px;'></i> This will be done to ensure fair judging.<br>
+        </div>
+        <div class='tab-pane' id='c4'>
+        </p><h4>RULES AND REGULATIONS:</h4><p>
+        <i class='fa fa-circle' style='font-size:8px;'></i> A participant can stick to ONLY ONE instrument for the entire competition.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Electric instruments are allowed.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Keyboards can be played only in the piano patch.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Availability of the following instruments is assured (if required) : A keyboard (in piano tune), acoustic guitar, and drums.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Decision of the event organizers and the judges will be final and abiding.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> The organising team has the complete right to change the prize money if the participation is less than five. <br></p>
+        <h4>JUDGING CRITERIA:</h4><p>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Rhythm<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Creativity<br></p>
+      </div>
+      <div class='tab-pane' id='d4'>
+        <h4>PRIZES:</h4><p>
+        Prizes worth Rs.*/-</p>
+        <p>Prizes will be given after April 2nd 2019</p>
+        <h4>ORGANISERS:</h4><p>
+        Sumadhva - 9741224098<br>
+        Varun - 9100429629
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+
+<div id="myNav2" class="overlay" style="  background:  linear-gradient(240deg,  #1f004d 33%, #660029 83%);" >
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav2()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+    <div class="container" style="padding-top: 40px;">
+      <h2 style='text-align:center'>Vibrazione: A Solo Singing Competition</h2>
+      <!-- Nav tabs -->
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a3" role="tab"  aria-selected="true">Introduction</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b3" role="tab"  aria-selected="false">&nbsp;Event format</a>
         </li>
         <li class="nav-item">
           <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c3" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
         </li>
         <li class="nav-item">
           <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d3" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
+        </li>
+        <li class="nav-item ml-auto" >
+           <a style="font-size: 35px;" class="nav-link"  >&nbsp;Register</a>
         </li>
       </ul>
 
@@ -248,164 +380,51 @@
       <div class='tab-content'>
         <div class='tab-pane active' id='a3' role="tabpanel">
           <h4>Introduction</h4>
-          <p>Too bored with ground based robot events, you have come to the right place. Pirates is a ‘one of a kind’ event where you are given the platform to create your own robot which floats and navigates on water. Starting from scratch, you get the chance to showcase your creativity and awaken the little engineer in you.</p>
-          <p>Event will be on 10th or 11th Febuary 2018</p>
-        </div>
-        <div class='tab-pane' id='b3'>
-          <h4>Problem statement</h4>
-          <p>Make a wired/wireless which can float on water and can perform pick-n-place task …Like manipulating cubes and balls…….</p>
-          <p><br><a  href='/static/pdf/pirates.pdf'><button class='btn2'>Problem statement PDF</button></a></p>
-        </div>
-        <div class='tab-pane' id='c3'>
-          <h4>General Rules</h4><p>
-          1.  The teams must adhere to the spirit of healthy competition. The teams must not damage the opponent's machine in any way. Judges reserve the right to disqualify any team indulging in misbehavior.<br>
-          2.  The mechanism used cannot be changed completely during the competition. Only parts can be replaced in case of repair.<br> 3.  Any team that is not ready at the time specified will be disqualified from the competition automatically.<br>
-          4.  The machine would be checked for its safety before the race and would be discarded if found unsafe for other teams and spectators.<br>
-          5.  Decision of the judges shall be treated as final and binding on all.<br>
-          6.  A team must consist of 3 or less participants.<br> 7.  Students from different educational institutes can form a team.<br> 8.  All students with a valid identity card of their respective educational institutes are eligible to participate in the event.<br>
-          <h4>Judging criteria</h4><p>
-          1.  The team who score maximum points in 4 minutes will be the winner of that knockout round.<br>
-          2.  If at any moment score of any team exceeds 350 then it will be the winner.<br> 3.  In case of TIE, teams will be given extra time, during which the team who scores first will be the winner of that round.<br>
-          4.  Certificate of Excellence will be awarded to all winners (only first and second).<br>
-          5.  Certificates of Participation will be given to all the teams who have qualified.<br>
-          6.  Disqualified teams will not be considered for any certificates.</p>
-        </div>
-        <div class='tab-pane' id='d3'>
-          <h4>Prize</h4>
-          <p>Prizes Worth INR 25,000*/-</p>
-          <p>Prizes will be given after April 2nd 2018</p>
-          <h4>Organisers:</h4>
-          <p>Shanmukha Rao Samanthula-9000273721<br>Maniteja -9010774589<br>Abhilash-97013 40387<br>Venkat-9494219983</p>
-          <h4>Contact:</h4>
-          <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-
-
-<div id="myNav1" class="overlay" style="background: linear-gradient(40deg, #008055 40%, rgba(0,0,0,0) 40%), linear-gradient(170deg,#a31aff 60%,   #ff3399 60%);">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
-  <div style="text-align:left;" class="overlay-content">
-    <div class="container">
-      <h2 style='text-align:center'>RoboSoccer</h2>
-      <!-- Nav tabs -->
-
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a2" role="tab"  aria-selected="true">&nbsp;Introduction</a>
-        </li>
-        <li class="nav-item">
-          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b2" role="tab"  aria-selected="false">&nbsp;Problem Statement</a>
-        </li>
-        <li class="nav-item">
-          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c2" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
-        </li>
-        <li class="nav-item">
-          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d2" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
-        </li>
-      </ul>
-
-
-
-      <div class='tab-content'>
-        <div class='tab-pane active' id='a2' role="tabpanel">
-          <h4>Introduction:</h4>
-          <p>A soccer freak as well as a Robotics Freak too? well, this event is just for you. RoboSoccer combines the universal excitement and amusement inspired by football, with the thrill and satisfaction of making a working robot from scratch. This event is a platform to showcase their robotics talents and bringing the football spirit alive. Teams are expected to build and operate a manual robot to play one-on-one soccer in a knockout tournament but just with cheering, heckling, massacres, nail-biters and a lot more!</p>
-          <p>Event will be on 10th or 11th Febuary 2018</p>
-        </div>
-        <div class='tab-pane' id='b2'>
-          <h4>Problem Statement:</h4> <p>Build two bots that can kick a table tennis ball into the opponent’s Goal Post following the rules. Use your creativity and come up with innovative kicking mechanisms to smash the ball into the goal post.</p>
-          <p><br><a  href='/static/pdf/robosoccer.pdf'><button class='btn2'>Problem statement PDF</button></a></p>
-        </div>
-        <div class='tab-pane' id='c2'>
-          <h4>Judging criteria:</h4>
-          <p>Finally, the winner is the team who scores more points at the end of the match. The winning team will be qualified to the next rounds.</p>
-          <h4>General Rules:</h4><p>
-          1.  Each team can have at max 4 members.<br>
-          2.  All students with a valid identity card of their respective educational institutes are eligible to participate.<br> 3.  Students from different educational institutes can form a team.<br>
-          4.  In case of any discrepancy, organizers’ decision is final. Arguing with organizer will lead to immediate disqualification.<br>
-        </div>
-        <div class='tab-pane' id='d2'>
-          <h4>Prize:</h4>
-          <p>Prizes Worth INR 40,000*/-</p>
-          <p>Prizes will be given after April 2nd 2018</p>
-          <h4>Organisers:</h4>
-          <p>Vagesha Vardhan-9786954979<br>Bhanu Prasad-9100292117<br>N Yashodhan Reddy - 9553999950<br>Manohar Reddy - 7382082375<br>Srihas-7093313695</p>
-          <h4>Contact:</h4>
-          <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
+          <p>Wanna put your singing skills to the test? Got a versatile voice that can mesmerize everyone? Put your heart to it and sing your way to glory!.Its a solo singing competition.
+          </div>
+          <div class='tab-pane' id='b3'>
+            <h4>EVENT FORMAT</h4><p>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Registrations can be online or on-spot during Elan & ηvision 2019.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> This competition consists of 2 rounds- prelims and finals.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Depending on the prelims performance 10 participants would be selected for the finals.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Participants can sing any song of his/her choice of genre bollywood music/film music.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Prelims Round: To participate in the Vibrazione, you must have 5 songs that you know very well and must be ready to perform any of those 5 songs for the competition. If someone else has chosen your song, or something does not work out with your first choice, you will need to be ready to sing your other choice.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Finals: For finals participant can sing any bollywood or film song of his/her own choice.<br>
+            </p>
+          </div>
+          <div class='tab-pane' id='c3'>
+            <h4>RULES AND REGULATIONS:</h4><p>
+            <i class='fa fa-circle' style='font-size:8px;'></i> On Spot Registrations closes one hour before the start of the event.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Songs containing vulgar or explicit lyrics will not be allowed. Contestants who, during their performance, use vulgar lyrics or perform in an obscene manner will be disqualified from the competition, NO RAP.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Participants can bring a karaoke track or play an accompanying instrument and are also allowed to have an instrumentalist accompanist(max 2)  ONLY for the final round and not for the prelims. <br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> For prelims round time limit is 2 minutes and for finals there is a 3 minute time limit on all songs.The participants should perform for a minimum of 90 seconds(including Mukhda and antara).<br>NO EXCEPTIONS.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> NO BACKING VOCALS ALLOWED.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Participant exceeding prescribed time limit will invite a penalty.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Decision of the organisers and the judges is final. No arguing with judges is allowed. Any contestant, their or associates who argue with a judge may be deemed to be using offensive behavior and the contestant may be disqualified from competition.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> The decision of the judges and the organizers is final and abiding.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> The organizing team has the right to change any or all the rules mentioned above.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i>The organising team has the complete right to change the prize money if the participation is less than ten.<br></p>
+            <h4>JUDGING CRITERIA:</h4>
+            <p><i class='fa fa-circle' style='font-size:8px;'></i> Vocal ability<br>
+              <i class='fa fa-circle' style='font-size:8px;'></i> Stage presence<br>
+              <i class='fa fa-circle' style='font-size:8px;'></i> Appearance<br></p>
+            </div>
+            <div class='tab-pane' id='d3'>
+              <h4>PRIZES:</h4><p>
+              Prizes worth Rs.*/-</p>
+              <p>Prizes will be given after April 2nd 2019</p>
+              <p>The winner and the first runner-up of the event will be directly selected for round 2 of ATKT.in Singing Toppers and additionally,top 5 performers will stand a chance to next round depending on the number of views to their videos.</p>
+              <h4>ORGANISERS:</h4><p>
+              Yashwanth Purli - 9381670803<br>
+                </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-</div>
-
-
-<div id="myNav" class="overlay" style="background: linear-gradient(30deg, #3366cc 40%, rgba(0,0,0,0) 40%), linear-gradient(70deg,#994d00 60%,   #408000 60%);">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div style="text-align:left;" class="overlay-content">
-    <div class="container">
-      <h2 style='text-align:center'>RoboWars</h2>
-      <!-- Nav tabs -->
-
-      <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-          <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a1" role="tab"  aria-selected="true">&nbsp;Introduction</a>
-        </li>
-        <li class="nav-item">
-          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b1" role="tab"  aria-selected="false">&nbsp;Problem Statement</a>
-        </li>
-        <li class="nav-item">
-          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c1" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
-        </li>
-        <li class="nav-item">
-          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d1" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
-        </li>
-      </ul>
 
 
 
-      <div class='tab-content'>
-        <div class='tab-pane active' id='a1' role="tabpanel">
-         <h4>Introduction:</h4><p>
-         <p>Interested in designing a bot? Want to test your robotic skills? The challenge is to create a robot (manually controlled / autonomous) whose sole purpose is to immobilize or otherwise move your opponent out of the arena within a stipulated time. This event aims to test your Robot against another in a field of combat where brute strength and cat-like reflexes hold the key to success.</p>
-         <p>Event will be on 10th or 11th Febuary 2018</p>
-       </div>
-       <div class='tab-pane' id='b1'>
-        <h4>Problem Statement:</h4><p>
-        <p><br><a  href='/static/pdf/robowars.pdf'><button class='btn2'>Problem statement PDF</button></a></p>
-      </div>
-      <div class='tab-pane' id='c1'>
-        <h4>Rules and Regulations:</h4>
-        <p>1. The maximum size of a team is 4.<br>
-          2. A robot that is unsafe, as deemed by the judges, will be disqualified immediately and the opponent robot will be declared as the winner.<br>
-          3. The bot is not allowed to leave anything behind during the run. It should not leave any mark on the arena. Any bot found damaging the arena will be immediately disqualified.<br>
-          4. If there is any kind of ambiguity in the selection of weapon systems, please clarify the same with the event organizers to avoid further confusion.<br>
-          5. The Victory if both bots remain mobile will be based on the judges at their discretion.The judge's decision will be final and the points will be kept confidential.<br>
-          6. Changes in rules, if any, will be highlighted on the website.</p>
-          <h4>Certificate Policy:</h4><p>
-          1. The top 3 teams emerging from this competition will be awarded a Certificate of Excellence.<br>
-          2. All teams who have registered online and participated in the event during fest will be awarded a Participation Certificate</p>
-        </div>
-        <div class='tab-pane' id='d1'>
-          <h4>Prize</h4>
-          <p> Prizes Worth INR 50,000*/-
-            <p>Prizes will be given after April 2nd 2018</p>
-          </p>
-          <h4>Organisers</h4>
-          <p>Abhilash Reddy-8096811565<br>Dinesh Chandra -8555930809<br>Revanth Naik-97012 09025</p>
-          <h4>Contact:</h4>
-          <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
 </div>
 </div>
 <script type="text/javascript" src="/js/canva-cul.js"></script>

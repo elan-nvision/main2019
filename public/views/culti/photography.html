@@ -35,6 +35,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
     <script type="text/javascript">
         window.history.replaceState("", "", '/photography');
+         function openNav() {
+          document.getElementById("myNav").style.height = "100%";
+     }
+
+     function closeNav() {
+          document.getElementById("myNav").style.height = "0%";
+     }
+      function openNav1() {
+          document.getElementById("myNav1").style.height = "100%";
+     }
+
+     function closeNav1() {
+          document.getElementById("myNav1").style.height = "0%";
+     }
     </script>
   </head>
 <body>
@@ -77,6 +91,7 @@
     function closerNav() {
       document.getElementById("myNavr").style.width = "0%";
     }
+
   </script>
 
   <div class="container" style="margin-top: 10%">
@@ -88,17 +103,17 @@
       <a href="/views/culti/drama.html">&nbsp;DRAMA</a>
       <a href="/views/culti/moviemaking.html">&nbsp;MOVIE-MAKING</a>
       <a href="/views/culti/art.html">&nbsp;ART</a>  
-      <a href="/views/culti/photography.html">&nbsp;PHOTOGRAPHY</a>
+      <a href="/views/culti/photography.html">&nbsp;PHOTOGRAPHY & RADIO EVENT</a>
       <!--<a href="/quizzes">&nbsp;QUIZZES</a>
       <a href="/online">&nbsp;ONLINE</a>
       <a href="/quadcopter">&nbsp;QUADCOPTER</a>
       <a href="/pp">&nbsp;PAPER PRESENTATION</a>-->
     </div>
-    <h2 style="margin-top:20px; text-align: center;">PHOTOGRAPHY</h2>
 
   <div style="" class="row justify-content-center no-gutters" data-aos="zoom-in-up">
 
     <div class="col-sm-6 text-center">
+    <h2 style="margin-top:20px; text-align: center;">PHOTOGRAPHY</h2>
       <div class="img-wrapper culti">
         <div onclick="openNav()" class="flip-card"> 
           <div class="flip-card-inner">
@@ -107,7 +122,26 @@
             </div>
             <div class="flip-card-back">
               <h3 style="margin-top:50px;">Picelectic</h3>
-              <h4 style="margin-top:0px;">Coming Soon</h4>
+              <button type="button" class="btn" style="margin-top:10px;">Register</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn" onclick="" style="margin-top:10px;">Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-sm-6 text-center">
+    <h2 style="margin-top:20px; text-align: center;">RADIO EVENT</h2>
+      <div class="img-wrapper culti">
+        <div onclick="openNav1()" class="flip-card"> 
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="/img/events/RJ hunt.jpeg"  alt="Avatar" >
+            </div>
+            <div class="flip-card-back">
+              <h3 style="margin-top:50px;">RJ Hunt</h3>
+              <button type="button" class="btn" style="margin-top:10px;">Register</button>&nbsp;&nbsp;&nbsp;
+                <button type="button" class="btn" onclick="" style="margin-top:10px;">Details</button>
             </div>
           </div>
         </div>
@@ -117,162 +151,145 @@
     </div>
 
      
+<div id="myNav" class="overlay" style="background:  linear-gradient(40deg,  #77b300 33%, #003300 63%);">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+    <div class="container" style="padding-top: 40px;">
+      <h2 style='text-align:center'>Picelectic: Competition for best pictures taken during Elan & ηvision 2019</h2>
+      <!-- Nav tabs -->
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a21" role="tab"  aria-selected="true">&nbsp;Introduction</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b21" role="tab"  aria-selected="false">&nbsp;Event format</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c21" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d21" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
+        </li>
+        <li class="nav-item ml-auto" >
+              <a style="font-size: 35px;" class="nav-link"  >&nbsp;Register</a>
+            </li>
+      </ul>
+
+
+
+      <div class='tab-content'>
+        <div class='tab-pane active' id='a21' role="tabpanel">
+          <h4>Introduction</h4>
+          <p>
+            Portray your photography skills by shooting pictures in,on and about Elan & ηvision 2019. There will be 2 winners announced each day of the 3 days the fest goes on. The pictures can be submitted any time near the counter that is allocated.</p>
+          </div>
+          <div class='tab-pane' id='b21'>
+            <h4>EVENT FORMAT:</h4><p>
+            <i class='fa fa-circle' style='font-size:8px;'></i> There are no online registrations for this event.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> There are only on-spot registrations available for this event.</p>
+          </div>
+          <div class='tab-pane' id='c21'>
+            <h4>RULES AND REGULATIONS:</h4><p>
+            <i class='fa fa-circle' style='font-size:8px;'></i> The captures must be only during the 3 days of the Elan & ηvision 2018 fest and only inside IIT Hyderabad premises.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> The pictures can be submitted any time near the counter that is allocated.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> The counter will not be available after 30 minutes after the completion of the day’s events.<br>
+
+            <i class='fa fa-circle' style='font-size:8px;'></i> The pics must be taken only using a Digi-cam or a Bluetooth enabled mobile (for transfer purpose).<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Winner is judged according to the moments captured in the best way.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Winners will be declared after the fest online.<br>
+
+            <i class='fa fa-circle' style='font-size:8px;'></i> The organising team has the complete right to change the prize money if the participation is less than ten.<br>
+          </div>
+          <div class='tab-pane' id='d21'>
+            <h4>PRIZES:</h4><p>
+            Prizes worth Rs */-</p>
+            <p>Prizes will be given after April 2nd 2019</p>
+            <h4>ORGANISERS:</h4>
+            <p>Will be updated soon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="myNav1" class="overlay" style="background:  linear-gradient(40deg,  #77b300 33%, #003300 63%);">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+  <div style="text-align:left;" class="overlay-content">
+    <div class="container" style="padding-top: 40px;">
+      <h2 style='text-align:center'>RJ Hunt</h2>
+      <!-- Nav tabs -->
+
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a11" role="tab"  aria-selected="true">&nbsp;Introduction</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b11" role="tab"  aria-selected="false">&nbsp;Event format</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c11" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
+        </li>
+        <li class="nav-item">
+          <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d11" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
+        </li>
+        <li class="nav-item ml-auto" >
+              <a style="font-size: 35px;" class="nav-link"  >&nbsp;Register</a>
+            </li>
+      </ul>
+
+
+
+      <div class='tab-content'>
+        <div class='tab-pane active' id='a11' role="tabpanel">
+          <h4>Introduction</h4>
+          <p>
+            Ever been called a chatterbox? If you are good at entertaining your friends with non-stop, animated, energetic chatter, here's the right platform to test how good you are! Entertain the crowd, and you might probably find yourself among the RJ legends! A ramp to your RJ ying future!</p>
+          </div>
+          <div class='tab-pane' id='b11'>
+            <h4>EVENT FORMAT:</h4><p>
+            <i class='fa fa-circle' style='font-size:8px;'></i> Registrations can be done online or On Spot.<br>
+            <i class='fa fa-circle' style='font-size:8px;'></i> On Spot Registrations will close 1 hour before the commencement of the event</p>
+          </div>
+          <div class='tab-pane' id='c11'>
+            <h4>RULES AND REGULATIONS:</h4><p>
+              <i class='fa fa-circle' style='font-size:8px;'></i> The event will be conducted in three rounds-on-spot,interview and finals.<br>
+              <i class='fa fa-circle' style='font-size:8px;'></i> For the on-spot round,the participants would be given a random topic to speak on for 2 minutes.<br>
+              <i class='fa fa-circle' style='font-size:8px;'></i> Based on the on-spot round,10 candidates would be selected for the interview round.<br>
+              <i class='fa fa-circle' style='font-size:8px;'></i> These 10 candidates will be interviewed by asking questions and giving them situations.<br>
+              <i class='fa fa-circle' style='font-size:8px;'></i> 5 candidates will be selected for the final round.<br>
+              <i class='fa fa-circle' style='font-size:8px;'></i> In final round, the contestant will have to host a show like an actual RJ does . The Contestants are expected to entertain the audiences by telling stories, current affairs (about Elan & ηvision 2019 ), cinema news, etc.<br> <i class='fa fa-circle' style='font-size:8px;'></i> Each contestant has to perform for maximum of 20 minutes.<br>
+              <i class='fa fa-circle' style='font-size:8px;'></i> This is an individual event.<br>
+              <i class='fa fa-circle' style='font-size:8px;'></i> Time limit should be strictly followed. Participant will be heavily penalized by judges for not doing so.<br>
+              <i class='fa fa-circle' style='font-size:8px;'></i> The Participants can speak in Telugu, Hindi or English. Other languages are not allowed.<br>
+              <i class='fa fa-circle' style='font-size:8px;'></i> Decision of judges and organisers will be final and abiding.<br>
+              <i class='fa fa-circle' style='font-size:8px;'></i> The organising team has the complete right to change the prize money if the participation is less than ten.</p>
+
+            h4>JUDGING CRITERIA:</h4><p>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Spontaneity<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Sense of humour<br>
+          <i class='fa fa-circle' style='font-size:8px;'></i> Overall Impact
+          </p>
+          </div>
+          <div class='tab-pane' id='d11'>
+            <h4>PRIZES:</h4><p>
+            Prizes worth Rs.*/-</p>
+            <p>Prizes will be given after April 2nd 2018</p>
+            <h4>ORGANISERS:</h4>
+            <p>Will be updated soon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
        
 
      
 
 
-     <div id="myNav1" class="overlay" style="background: linear-gradient(120deg, #2C3E50  33%, rgba(0, 0, 0, 0) 33%), linear-gradient(120deg, #27AE60 66%, #F39C12  66%);">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
-  <div style="text-align:left;" class="overlay-content">
-  <div class="container">
-    <h2 style='text-align:center'>Galileo Project</h2>
-<!-- Nav tabs -->
-
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a2" role="tab"  aria-selected="true">&nbsp;Introduction</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b2" role="tab"  aria-selected="false">&nbsp;Problem Statement</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c2" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d2" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
-  </li>
-</ul>
-
-        
-        
-       <div class='tab-content'>
-        <div class='tab-pane active' id='a2' role="tabpanel">
-        <h4>Introduction</h4>
-        <p>'By taking the sense our sense of sight far beyond the realm of our forebear’s imagination, these wonderful instruments, the telescopes, open the way to a deeper and more perfect understanding of nature.' - Rene Descartes.<br> Make your own Optical tube. This event is based on building of a simple terrestrial telescope with given components. Also, test your talent in physics by participating in a challenging quiz.</p>
-        <p>Event will be on 10th or 11th Febuary 2018</p>
-        </div>
-        <div class='tab-pane' id='b2'>
-        <h4>Problem statement:</h4><p>
-        The event will be consisting of three rounds.<br>
-        <i class='fa fa-circle' style='font-size:8px;'></i> Round 1:<br>
-        A quiz will be conducted to screen the participants. This quiz is based mostly on optics and physics of light.<br><br>
-        <i class='fa fa-circle' style='font-size:8px;'></i> Round 2:<br>
-        Another quiz will be conducted to screen the participants. This quiz is based on Skymap and a few stellar objects.<br><br>
-        <i class='fa fa-circle' style='font-size:8px;'></i> Round 3:<br>
-        The top ten teams from the quizzes will qualify to the third round. The teams have to make a terrestrial telescope with the components and infrastructure provided by the organizers.<br>
-        </p>
-        </div>
-        <div class='tab-pane' id='c2'>
-        <h4>Judgement Criteria:</h4><p>
-        1. Magnification<br>
-        2. Clarity of the image<br>
-        3. Overall Design<br></p>
-        <h4>Certification Policy:</h4><p>
-        1)Certificate of Merit and Prizes will be given for the top two teams.<br>
-        2)Participation Certificate will be given for those who registered online and participated in the event.<br>
-        3)Participation Certificate is not guarenteed for those who registered onspot for the event.<br>
-        </p><h4>Rules and Regulations:</h4><p>
-        1. Each team is allowed to have a maximum of three members.<br>
-        2. Members of a team can be from different colleges.<br>
-        3. If a member is found using any other components, other than the ones provided by the organizers, the team shall be disqualified<br>
-        4. The Organizers reserve all rights to change any of the mentioned rules as they deem fit.<br>
-        5. Changes in the rules, if any, will be highlighted on the website.<br>
-        6. In case of any discrepancy, the decision of the organizers shall be final.
-        </p>
-        </div>
-        <div class='tab-pane' id='d2'>
-        <h4>Prize</h4><p>
-        Prizes Worth INR 10,000*/-</p>
-        <p>Prizes will be given after April 2nd 2018</p>
-        <h4>Organisers</h4>
-        <p>Will be updated soon</p>
-        <h4>Contact:</h4>
-        <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
-        </div>
-        </div>
-        </div>
-  </div>
-</div>
-</div>
-
-
-     <div id="myNav" class="overlay" style="background: linear-gradient(220deg, #C0392B  33%, rgba(0, 0, 0, 0) 33%), linear-gradient(120deg,#2C3E50  66%, #ffc608 66%);">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <div style="text-align:left;" class="overlay-content">
-  <div class="container">
-    <h2 style='text-align:center'>Aquanaut</h2>
-<!-- Nav tabs -->
-
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link active"  data-toggle="tab" href="#a1" role="tab"  aria-selected="true">&nbsp;Introduction</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#b1" role="tab"  aria-selected="false">&nbsp;Problem Statement</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#c1" role="tab"  aria-selected="false">&nbsp;Rules & Regulations</a>
-  </li>
-  <li class="nav-item">
-    <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d1" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
-  </li>
-</ul>
-
-        
-        
-       <div class='tab-content'>
-        <div class='tab-pane active' id='a1' role="tabpanel">
-        <h4>Introduction:</h4>
-        <p>Ever dreamt of building your own rocket prototype and flying it. 
-        Here’s your chance. 
-        Take your first big step to propel yourself into the world of aerodynamics.
-        In this event, participants have to build a Water rocket which is pressurised by compressed air.
-        'Be a Newton and test the Third law for yourselves'
-        </p>
-        <p>Event will be on 10th or 11th Febuary 2018</p>
-        </div>
-        <div class='tab-pane' id='b1'>
-        <h4>Problem statement</h4><p>
-        The participants are required to design and build a water rocket (single stage/multi stage) that is completely powered by the thrust provided by compressed air in the bottle and using water as the fuel 
-        <br><a  href='/static/pdf/aquanaut.pdf'><button class='btn2'>Problem statement PDF</button></a>
-        </div>
-        <div class='tab-pane' id='c1'>
-        <h4>Rules and Regulations:</h4><p>
-        1.  A maximum of three members are allowed in a team.<br>
-        2.  There can be students from different institutions in a team.<br>
-        3.  Only plastic soft drink bottles are to be used as the rocket body.<br>
-        4.  The rocket can be multi-staged but the total volume of the pressure chamber should not exceed 1.5 litres.<br>
-        5.  The water rocket must only use compressed ambient atmospheric air as source of energy. Pressure compressors (foot pump) and water shall be provided.<br>
-        6.  The amount of water to be filled in the rocket is left to the choice of the team.<br>
-        7.  The pressure inside the pressure chamber should not exceed 50 psi.<br>
-        8.  Launchers will not be provided by the organizers. Each team must have their own launchers.<br>
-        9.  The rocket must be launched from a stationary position using a fixed launcher.Slingshots, trebuchets, catapults, cannons, and all other forms of launcher boost assists are forbidden. In other words, the internal pressure of the rocket must be the only source of energy for the rocket.<br><br><br>
-        A team can get disqualified if:<br>
-        1.  Any rocket is found to be dangerous to launch by the organizers and judges.<br>
-        2.  A rocket blasts before the launch.<br>
-        3.  A rocket launches before indicated by the organizers.<br>
-        4.  Any part of the rocket breaks off from the rocket during the flight.<br>
-        5.  Any ready-made models are used.<br>
-        6.  Any design rule is not abided by the participant.<br>
-        The organizers reserve all rights to change any of the above rules as they deem fit.<br>
-        Changes in rules, if any, will be highlighted on the website. In case of any discrepancy, the decision of the judges shall be treated as final and binding.
-        </p>
-        </div>
-        <div class='tab-pane' id='d1'>
-        <h4>Prize</h4><p>
-        Prizes Worth INR 20,000*/-</p>
-        <p>Prizes will be given after April 2nd 2018</p>
-        <h4>Organisers</h4>
-        <p>Raja Pradyumna-7093328322<br>Ashish-8500183293<br>Haveesh Singirikonda-7799665254</p>
-        <h4>Contact:</h4>
-        <p><a href='mailto:techy@elan.org.in'>techy@elan.org.in</a></p>
-        </div>
-        </div>
-        </div>
-  </div>
-</div>
-</div>
 </div>
 </div>
 
