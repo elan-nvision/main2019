@@ -139,8 +139,9 @@
 			<h1> Then Press the Register button below to go to College Fever and complete your registration. </h1>
 
 			<iframe src="{{googleFormURL}}" style="width: 80vw; height: 100vh; margin-top: 30px;"></iframe> <br>
+		{{ else }}
+			<h1> You have not registered for {{name}}. Press the Register button to complete your registration. </h1>
 		{{ /if }}
-
 		<div style="margin: 100px;">
 			<input style="color: #fff; background: #36f; border: none; border-radius: 20px; font-size: 3vh; margin: 5px; padding: 10px 20px 10px 20px" type="button" value="Register" id="Register">
 			<input style="color: #fff; background: #36f; border: none; border-radius: 20px; font-size: 3vh; margin: 5px; padding: 10px 20px 10px 20px" type="button" value="Take me Home!" onclick="window.location.href='/';">	

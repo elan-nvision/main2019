@@ -33,6 +33,16 @@ Events = {
 		route: '/register_manthan',
 		actual: 'notRegistered',
 		loggedOut: 'notRegistered'
+	},
+	'event_pp': {
+		eventName: 'event_pp',
+		title: 'Paper Presentation',
+		name: 'Paper Presentation',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_paper_presentation',
+		actual: 'user',
+		loggedOut: 'notRegistered'
 	}
 }
 
@@ -52,6 +62,12 @@ FlowRouter.route('/register_manthan', {
 	action: () => {	
 		document.title = 'Manthan';
 		BlazeLayout.render('top', Events['event_manthan']);
+	}
+});
+FlowRouter.route('/register_paper_presentation', {
+	action: () => {	
+		document.title = 'Paper Presenation';
+		BlazeLayout.render('top', Events['event_pp']);
 	}
 });
 
