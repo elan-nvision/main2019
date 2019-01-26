@@ -43,9 +43,157 @@ Events = {
 		route: '/register_paper_presentation',
 		actual: 'notRegistered',
 		loggedOut: 'user'
+	},
+	'event_battleBots': {
+		eventName: 'event_battleBots',
+		title: 'Battle Bots',
+		name: 'Battle Bots',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/1AEm0e1XpXCuURimGFSD2SSxC_cgXcRhXvzcfikj9quo',
+		route: '/register_battle_bots',
+		actual: 'notRegistered',
+		loggedOut: 'notRegistered'
+	},
+	'event_roboScoccer': {
+		eventName: 'event_roboScoccer',
+		title: 'Robo Soccer',
+		name: 'Robo Soccer',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/1MElpazvCa-q9K8WqWm-IYBS-KVyDWZua-3T1Hj0LVXU',
+		route: '/register_robo_soccer',
+		actual: 'notRegistered',
+		loggedOut: 'notRegistered'
+	},
+	'event_lineFollowBot': {
+		eventName: 'event_lineFollowBot',
+		title: 'Line Follower Bot',
+		name: 'Line Follower Bot',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/18xojeWYoamKhlWJUg8uDExbdtmHmPRn03jPt-QjDjFk',
+		route: '/register_line_bot',
+		actual: 'notRegistered',
+		loggedOut: 'notRegistered'
+	},
+	'event_quadCopter': {
+		eventName: 'event_quadCopter',
+		title: 'Quad Copter Challenge',
+		name: 'Quad Copter Challenge',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/18w5Pr2MKS9_65OgXq6qx0otU1A6Fk3KI6tFkHUFkaXE',
+		route: '/register_quad_copter',
+		actual: 'notRegistered',
+		loggedOut: 'notRegistered'
+	},
+	'event_driftKing': {
+		eventName: 'event_driftKing',
+		title: 'Drift King',
+		name: 'Drift King',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/1EP_qEy8btyo2vjUjrpAn-DnijUmMsV9P_Bs3pxpo_Ic',
+		route: '/register_drift_king',
+		actual: 'notRegistered',
+		loggedOut: 'notRegistered'
+	},
+	'event_cadPro': {
+		eventName: 'event_cadPro',
+		title: 'CAD Pro',
+		name: 'CAD Pro',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/1NREral7hpECgxROkPqmUppTndq-acEqA3QahTEC1pFQ',
+		route: '/register_cad_pro',
+		actual: 'notRegistered',
+		loggedOut: 'notRegistered'
+	},
+	'event_aquanaut': {
+		eventName: 'event_aquanaut',
+		title: 'Aquanaut',
+		name: 'Aquanaut',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/1HxY4z82XejL85RuIFk5Sq9lCE--onsaCQSGO82ab08U',
+		route: '/register_aquanaut',
+		actual: 'notRegistered',
+		loggedOut: 'notRegistered'
+	},
+	'event_galProj': {
+		eventName: 'event_galProj',
+		title: 'Galileo Project',
+		name: 'Galileo Project',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/1yfP2LwniTpkphZXbNEAuHzKcwk8UN9BiBaWMh56G6mw',
+		route: '/register_galileo',
+		actual: 'notRegistered',
+		loggedOut: 'notRegistered'
+	},
+	'event_bridgeBuilders': {
+		eventName: 'event_bridgeBuilders',
+		title: 'Bridge Builders',
+		name: 'Bridge Builders',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/1IJkyFkc-uEDFuB0gMhaYUWYsdnegbF6SNZ8GjOCylro',
+		route: '/register_bridge_builders',
+		actual: 'notRegistered',
+		loggedOut: 'notRegistered'
+	},
+	'event_getItWright': {
+		eventName: 'event_getItWright',
+		title: 'Get It Wright!',
+		name: 'Get It Wright!',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/1U7zJ_HF13HWY66z5OIHk5xbb--nIeo9_Pf03wmN6DHg',
+		route: '/register_get_it_wright',
+		actual: 'notRegistered',
+		loggedOut: 'notRegistered'
 	}
 }
 
+FlowRouter.route('/register_get_it_wright', {
+	action: () => {	
+		document.title = 'Get It Wright!';
+		BlazeLayout.render('top', Events['event_getItWright']);
+	}
+});
+FlowRouter.route('/register_bridge_builders', {
+	action: () => {	
+		document.title = 'Bridge Builders';
+		BlazeLayout.render('top', Events['event_bridgeBuilders']);
+	}
+});
+FlowRouter.route('/register_galileo', {
+	action: () => {	
+		document.title = 'Galileo Project';
+		BlazeLayout.render('top', Events['event_galProj']);
+	}
+});
+FlowRouter.route('/register_aquanaut', {
+	action: () => {	
+		document.title = 'Aquanaut';
+		BlazeLayout.render('top', Events['event_aquanaut']);
+	}
+});
+FlowRouter.route('/register_cad_pro', {
+	action: () => {	
+		document.title = 'CAD Pro';
+		BlazeLayout.render('top', Events['event_cadPro']);
+	}
+});
+FlowRouter.route('/register_drift_king', {
+	action: () => {	
+		document.title = 'Drift King';
+		BlazeLayout.render('top', Events['event_driftKing']);
+	}
+});
+FlowRouter.route('/register_quad_copter', {
+	action: () => {	
+		document.title = 'Quad Copter Challenge';
+		BlazeLayout.render('top', Events['event_quadCopter']);
+	}
+});
+FlowRouter.route('/register_line_bot', {
+	action: () => {	
+		document.title = 'Line Follower Bot';
+		BlazeLayout.render('top', Events['event_lineFollowBot']);
+	}
+});
 FlowRouter.route('/ca', {
 	action: () => {	
 		document.title = 'CA Portal';
@@ -68,6 +216,18 @@ FlowRouter.route('/register_paper_presentation', {
 	action: () => {	
 		document.title = 'Paper Presenation';
 		BlazeLayout.render('top', Events['event_pp']);
+	}
+});
+FlowRouter.route('/register_battle_bots', {
+	action: () => {	
+		document.title = 'Battle Bots';
+		BlazeLayout.render('top', Events['event_battleBots']);
+	}
+});
+FlowRouter.route('/register_robo_soccer', {
+	action: () => {	
+		document.title = 'Robo Soccer';
+		BlazeLayout.render('top', Events['event_roboScoccer']);
 	}
 });
 
