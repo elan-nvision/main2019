@@ -185,13 +185,25 @@ Steps to add an event:
 */
 // FS = require('fs');
 // Streams = [];
-Events = ['event_ca', 'event_cryptex', 'event_elanEJung', 'event_manthan', 'event_pp'];
+Events = ['event_ca', 'event_cryptex', 'event_elanEJung', 'event_manthan', 'event_pp', 'event_battleBots',
+	'event_roboScoccer', 'event_lineFollowBot', 'event_quadCopter', 'event_driftKing', 'event_cadPro',
+	'event_aquanaut', 'event_galProj', 'event_bridgeBuilders', 'event_getItWright'];
 Tables = [
 	new Mongo.Collection('ca'), 
 	new Mongo.Collection('cryptex'),
 	new Mongo.Collection('elan-e-jang'),
 	new Mongo.Collection('manthan'),
 	new Mongo.Collection('paperpres'),
+	new Mongo.Collection('battlebots'),
+	new Mongo.Collection('robosoccer'),
+	new Mongo.Collection('linefolloebot'),
+	new Mongo.Collection('quadcopter'),
+	new Mongo.Collection('driftking'),
+	new Mongo.Collection('cadpro'),
+	new Mongo.Collection('aquanaut'),
+	new Mongo.Collection('galileo'),
+	new Mongo.Collection('bridgebuild'),
+	new Mongo.Collection('getitwright'),
 ];
 Posts = new Mongo.Collection('posts'); //CA Specific Collection
 Constructors = [
@@ -245,6 +257,96 @@ Constructors = [
 			city: masterUser.city,
 		}
 	},//Paper Presentation
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Battle Bots
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Robo Soccer
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Line Follower
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Quad Copter
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Drift King
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//CAD Pro
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//AquaNaut
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Galileo Project
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Bridge Builders
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Get it wright
 ];
 
 // Questions = [
