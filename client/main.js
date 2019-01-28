@@ -312,6 +312,10 @@ FlowRouter.notFound = {
 	action: () => { window.location.href = '/notFound.html'; }
 }
 
+FlowRouter.route('/feedback', { 
+	action: () => { window.location.href = 'https://docs.google.com/forms/d/1V1REvuihZwJgy_iFF6Qr0q0qMJc-CfUCEJ_bf3RTxpI'; }
+});
+
 Accounts.onLogin((loginDetails) => {
 	window.name = 'Sign In';
 	if(Meteor.userId()){
