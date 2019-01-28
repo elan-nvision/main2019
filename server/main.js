@@ -187,7 +187,7 @@ Steps to add an event:
 // Streams = [];
 Events = ['event_ca', 'event_cryptex', 'event_elanEJung', 'event_manthan', 'event_pp', 'event_battleBots',
 	'event_roboScoccer', 'event_lineFollowBot', 'event_quadCopter', 'event_driftKing', 'event_cadPro',
-	'event_aquanaut', 'event_galProj', 'event_bridgeBuilders', 'event_getItWright'];
+	'event_aquanaut', 'event_galProj', 'event_bridgeBuilders', 'event_getItWright', 'event_campusPrincess'];
 Tables = [
 	new Mongo.Collection('ca'), 
 	new Mongo.Collection('cryptex'),
@@ -204,6 +204,7 @@ Tables = [
 	new Mongo.Collection('galileo'),
 	new Mongo.Collection('bridgebuild'),
 	new Mongo.Collection('getitwright'),
+	new Mongo.Collection('campusprince'),
 ];
 Posts = new Mongo.Collection('posts'); //CA Specific Collection
 Constructors = [
@@ -347,6 +348,15 @@ Constructors = [
 			city: masterUser.city,
 		}
 	},//Get it wright
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Campus Princess
 ];
 
 // Questions = [
