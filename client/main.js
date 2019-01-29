@@ -143,9 +143,25 @@ Events = {
 		route: '/register_get_it_wright',
 		actual: 'notRegistered',
 		loggedOut: 'notRegistered'
+	},
+	'event_campusPrincess': {
+		eventName: 'event_campusPrincess',
+		title: 'Campus Princess',
+		name: 'Campus Princess',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdVnrJWjgcmR0qg_Lxf-wmyo7fct3n7wDVG58wj467ECvYY_g/viewform',
+		route: '/register_campus_princess',
+		actual: 'notRegistered',
+		loggedOut: 'notRegistered'
 	}
 }
 
+FlowRouter.route('/register_campus_princess', {
+	action: () => {	
+		document.title = 'Campus Princess';
+		BlazeLayout.render('top', Events['event_campusPrincess']);
+	}
+});
 FlowRouter.route('/register_get_it_wright', {
 	action: () => {	
 		document.title = 'Get It Wright!';
@@ -311,6 +327,10 @@ FlowRouter.route('/', {
 FlowRouter.notFound = { 
 	action: () => { window.location.href = '/notFound.html'; }
 }
+
+FlowRouter.route('/feedback', { 
+	action: () => { window.location.href = 'https://docs.google.com/forms/d/1V1REvuihZwJgy_iFF6Qr0q0qMJc-CfUCEJ_bf3RTxpI'; }
+});
 
 Accounts.onLogin((loginDetails) => {
 	window.name = 'Sign In';
