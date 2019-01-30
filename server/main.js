@@ -187,7 +187,9 @@ Steps to add an event:
 // Streams = [];
 Events = ['event_ca', 'event_cryptex', 'event_elanEJung', 'event_manthan', 'event_pp', 'event_battleBots',
 	'event_roboScoccer', 'event_lineFollowBot', 'event_quadCopter', 'event_driftKing', 'event_cadPro',
-	'event_aquanaut', 'event_galProj', 'event_bridgeBuilders', 'event_getItWright', 'event_campusPrincess'];
+	'event_aquanaut', 'event_galProj', 'event_bridgeBuilders', 'event_getItWright', 'event_campusPrincess',
+	'event_dtmf', 'event_electabuzz', 'event_machinaDoctrina', 'event_iot', 'event_proQuest', 
+	'event_algomania', 'event_enigma'];
 Tables = [
 	new Mongo.Collection('ca'), 
 	new Mongo.Collection('cryptex'),
@@ -205,6 +207,13 @@ Tables = [
 	new Mongo.Collection('bridgebuild'),
 	new Mongo.Collection('getitwright'),
 	new Mongo.Collection('campusprince'),
+	new Mongo.Collection('dtmf'),
+	new Mongo.Collection('electabuzz'),
+	new Mongo.Collection('machinadoct'),
+	new Mongo.Collection('iot'),
+	new Mongo.Collection('proquest'),
+	new Mongo.Collection('algomania'),
+	new Mongo.Collection('enigma'),
 ];
 Posts = new Mongo.Collection('posts'); //CA Specific Collection
 Constructors = [
@@ -357,6 +366,69 @@ Constructors = [
 			city: masterUser.city,
 		}
 	},//Campus Princess
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//DTMF
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Electabuzz
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Machina Doctrina
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//IoT Challenge
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Pro Quest
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Algomania
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Enigma
 ];
 
 // Questions = [
