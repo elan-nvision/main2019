@@ -22,7 +22,7 @@ Events = {
 		googleFormURL: 'https://goo.gl/forms/ON5oP0FoEzu6OMmb2',
 		route: '/register_elan_e_jung',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
 	},
 	'event_manthan': {
 		eventName: 'event_manthan',
@@ -32,7 +32,7 @@ Events = {
 		googleFormURL: 'https://goo.gl/forms/zJC9foTO1S26c2JF3',
 		route: '/register_manthan',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
 	},
 	'event_pp': {
 		eventName: 'event_pp',
@@ -41,7 +41,7 @@ Events = {
 		cfLink: null,
 		googleFormURL: null,
 		route: '/register_paper_presentation',
-		actual: 'notRegistered',
+		actual: 'user',
 		loggedOut: 'user'
 	},
 	'event_battleBots': {
@@ -52,7 +52,7 @@ Events = {
 		googleFormURL: 'https://docs.google.com/forms/d/1AEm0e1XpXCuURimGFSD2SSxC_cgXcRhXvzcfikj9quo',
 		route: '/register_battle_bots',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
 	},
 	'event_roboScoccer': {
 		eventName: 'event_roboScoccer',
@@ -62,7 +62,7 @@ Events = {
 		googleFormURL: 'https://docs.google.com/forms/d/1MElpazvCa-q9K8WqWm-IYBS-KVyDWZua-3T1Hj0LVXU',
 		route: '/register_robo_soccer',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
 	},
 	'event_lineFollowBot': {
 		eventName: 'event_lineFollowBot',
@@ -72,7 +72,7 @@ Events = {
 		googleFormURL: 'https://docs.google.com/forms/d/18xojeWYoamKhlWJUg8uDExbdtmHmPRn03jPt-QjDjFk',
 		route: '/register_line_bot',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
 	},
 	'event_quadCopter': {
 		eventName: 'event_quadCopter',
@@ -82,7 +82,7 @@ Events = {
 		googleFormURL: 'https://docs.google.com/forms/d/18w5Pr2MKS9_65OgXq6qx0otU1A6Fk3KI6tFkHUFkaXE',
 		route: '/register_quad_copter',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
 	},
 	'event_driftKing': {
 		eventName: 'event_driftKing',
@@ -92,7 +92,7 @@ Events = {
 		googleFormURL: 'https://docs.google.com/forms/d/1EP_qEy8btyo2vjUjrpAn-DnijUmMsV9P_Bs3pxpo_Ic',
 		route: '/register_drift_king',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
 	},
 	'event_cadPro': {
 		eventName: 'event_cadPro',
@@ -102,7 +102,7 @@ Events = {
 		googleFormURL: 'https://docs.google.com/forms/d/1NREral7hpECgxROkPqmUppTndq-acEqA3QahTEC1pFQ',
 		route: '/register_cad_pro',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
 	},
 	'event_aquanaut': {
 		eventName: 'event_aquanaut',
@@ -112,7 +112,7 @@ Events = {
 		googleFormURL: 'https://docs.google.com/forms/d/1HxY4z82XejL85RuIFk5Sq9lCE--onsaCQSGO82ab08U',
 		route: '/register_aquanaut',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
 	},
 	'event_galProj': {
 		eventName: 'event_galProj',
@@ -122,7 +122,7 @@ Events = {
 		googleFormURL: 'https://docs.google.com/forms/d/1yfP2LwniTpkphZXbNEAuHzKcwk8UN9BiBaWMh56G6mw',
 		route: '/register_galileo',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
 	},
 	'event_bridgeBuilders': {
 		eventName: 'event_bridgeBuilders',
@@ -132,7 +132,7 @@ Events = {
 		googleFormURL: 'https://docs.google.com/forms/d/1IJkyFkc-uEDFuB0gMhaYUWYsdnegbF6SNZ8GjOCylro',
 		route: '/register_bridge_builders',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
 	},
 	'event_getItWright': {
 		eventName: 'event_getItWright',
@@ -142,7 +142,7 @@ Events = {
 		googleFormURL: 'https://docs.google.com/forms/d/1U7zJ_HF13HWY66z5OIHk5xbb--nIeo9_Pf03wmN6DHg',
 		route: '/register_get_it_wright',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
 	},
 	'event_campusPrincess': {
 		eventName: 'event_campusPrincess',
@@ -152,10 +152,122 @@ Events = {
 		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdVnrJWjgcmR0qg_Lxf-wmyo7fct3n7wDVG58wj467ECvYY_g/viewform',
 		route: '/register_campus_princess',
 		actual: 'notRegistered',
-		loggedOut: 'notRegistered'
+		loggedOut: 'user'
+	},
+	'event_dtmf': {
+		eventName: 'event_dtmf',
+		title: 'DTMF Race',
+		name: 'DTMF Race',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSezXs9Z2KS8ejucQFiAUGyPDH05YOAjUYmh0Nicw-xEisEbuA/viewform',
+		route: '/register_dtmf_race',
+		actual: 'notRegistered',
+		loggedOut: 'user'
+	},
+	'event_electabuzz': {
+		eventName: 'event_electabuzz',
+		title: 'ElektaBuzz',
+		name: 'ElektaBuzz',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSfJbXe0sWBfWwzbfaaSNJbDGNPBHhLBys6n3BME103BlJo4vQ/viewform?usp=sf_link',
+		route: '/register_elektabuzz',
+		actual: 'notRegistered',
+		loggedOut: 'user'
+	},
+	'event_machina_doctrina': {
+		eventName: 'event_machina_doctrina',
+		title: 'Machine Doctrina',
+		name: 'Machine Doctrina',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdkNBknycfrJhRRD0r5S2g-cGiA1Yv0_WpEURvSBo782nh8qw/viewform?usp=sf_link',
+		route: '/register_machina_doctrina',
+		actual: 'notRegistered',
+		loggedOut: 'user'
+	},
+	'event_iot': {
+		eventName: 'event_iot',
+		title: 'IoT Challenge',
+		name: 'IoT Challenge',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdGQBM9vyw44g2vrJuu8wkm5578Xv4NtmWETeqfUXNlgcTZiw/viewform?usp=sf_link',
+		route: '/register_iot_challenge',
+		actual: 'notRegistered',
+		loggedOut: 'user'
+	},
+	'event_proQuest': {
+		eventName: 'event_proQuest',
+		title: 'ProQuest',
+		name: 'ProQuest',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_pro_quest',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_algomania': {
+		eventName: 'event_algomania',
+		title: 'Algomania',
+		name: 'Algomania',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_algomania',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_enigma': {
+		eventName: 'event_enigma',
+		title: 'Enigma',
+		name: 'Enigma',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_enigma',
+		actual: 'user',
+		loggedOut: 'user'
 	}
 }
 
+FlowRouter.route('/register_enigma', {
+	action: () => {	
+		document.title = 'Enigma';
+		BlazeLayout.render('top', Events['event_enigma']);
+	}
+});
+FlowRouter.route('/register_algomania', {
+	action: () => {	
+		document.title = 'Algomania';
+		BlazeLayout.render('top', Events['event_algomania']);
+	}
+});
+FlowRouter.route('/register_pro_quest', {
+	action: () => {	
+		document.title = 'ProQuest';
+		BlazeLayout.render('top', Events['event_proQuest']);
+	}
+});
+FlowRouter.route('/register_iot_challenge', {
+	action: () => {	
+		document.title = 'IoT Challenge';
+		BlazeLayout.render('top', Events['event_iot']);
+	}
+});
+FlowRouter.route('/register_machina_doctrina', {
+	action: () => {	
+		document.title = 'Machine Doctrina';
+		BlazeLayout.render('top', Events['event_machina_doctrina']);
+	}
+});
+FlowRouter.route('/register_elektabuzz', {
+	action: () => {	
+		document.title = 'Elektabuzz';
+		BlazeLayout.render('top', Events['event_electabuzz']);
+	}
+});
+FlowRouter.route('/register_dtmf_race', {
+	action: () => {	
+		document.title = 'DTMF Race';
+		BlazeLayout.render('top', Events['event_dtmf']);
+	}
+});
 FlowRouter.route('/register_campus_princess', {
 	action: () => {	
 		document.title = 'Campus Princess';
@@ -255,9 +367,12 @@ FlowRouter.route('/me', {
 })
 
 FlowRouter.route('/culti', {
-	action: () => {	window.location.href='/views/culti/culti.html'; }
+	action: () => {	window.location.href='/views/culti/dance.html'; }
 });
 FlowRouter.route('/techy', {
+	action: () => {	window.location.href='/views/tech/techy.html'; }
+});
+FlowRouter.route('/elektronika', {
 	action: () => {	window.location.href='/views/tech/techy.html'; }
 });
 FlowRouter.route('/privacypolicy', {
