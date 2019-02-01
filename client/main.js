@@ -14,6 +14,16 @@ Events = {
 		actual: 'caportal',
 		loggedOut: 'home',
 	},
+	'event_cryptex': {
+		eventName: 'event_cryptex',
+		title: 'Cryptex',
+		name: 'Cryptex',
+		cfLink: null,
+		googleFormURL: null,
+		route: null,
+		actual: 'notRegistered',
+		loggedOut: 'user'
+	},
 	'event_elanEJung': {
 		eventName: 'event_elanEJung',
 		title: 'Elan-E-Jung',
@@ -223,9 +233,291 @@ Events = {
 		route: '/register_enigma',
 		actual: 'user',
 		loggedOut: 'user'
+	},
+	'event_breakfree': {
+		eventName: 'event_breakfree',
+		title: 'Breafree',
+		name: 'Breafree',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdA-KqyNNm2LgUNhCt4_evJ-3BsYb5my2lhJUl5WjrhZTOU6Q/viewform?usp=sf_link',
+		route: '/register_breakfree',
+		actual: 'notRegistered',
+		loggedOut: 'user'
+	},
+	'event_stepUp': {
+		eventName: 'event_stepUp',
+		title: 'Step Up',
+		name: 'Step Up',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_step_up',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_nrityanjali': {
+		eventName: 'event_nrityanjali',
+		title: 'Nrityanjali',
+		name: 'Nrityanjali',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_nrityanjlai',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_vibrazone': {
+		eventName: 'event_vibrazone',
+		title: 'Vibrazone',
+		name: 'Vibrazone',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_vibrazone',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_octaves': {
+		eventName: 'event_octaves',
+		title: 'Octaves',
+		name: 'Octaves',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_octaves',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_djWars': {
+		eventName: 'event_djWars',
+		title: 'DJ Wars',
+		name: 'DJ Wars',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_dj_wars',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_natak': {
+		eventName: 'event_natak',
+		title: 'Nukkad Natak',
+		name: 'Nukkad Natak',
+		cfLink: '/me',
+		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSfzjOy4IjXmnNvlJQm79ihonlG5Nq5Td6ijyRSjKoSptRAFiw/viewform?usp=sf_link',
+		route: '/register_natak',
+		actual: 'notRegistered',
+		loggedOut: 'user'
+	},
+	'event_mime': {
+		eventName: 'event_mime',
+		title: 'Mime',
+		name: 'Mime',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_mime',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_standup': {
+		eventName: 'event_standup',
+		title: 'Stand Up',
+		name: 'Stand Up',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_stand_up',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_filmFiesta': {
+		eventName: 'event_filmFiesta',
+		title: 'Filmfare Fiesta',
+		name: 'Filmfare Fiesta',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_filmfare',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_screenwriting': {
+		eventName: 'event_screenwriting',
+		title: 'Screen Writing',
+		name: 'Screen Writing',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_screenwriting',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_artExhib': {
+		eventName: 'event_artExhib',
+		title: 'Art Exhibiition',
+		name: 'Art Exhibiition',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_art_exhibition',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_nailArt': {
+		eventName: 'event_nailArt',
+		title: 'Nail Art',
+		name: 'Nail Art',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_nail_art',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_sprayArt': {
+		eventName: 'event_sprayArt',
+		title: 'Spray Art',
+		name: 'Spray Art',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_spray_art',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_clayModel': {
+		eventName: 'event_clayModel',
+		title: 'Clay Modelling',
+		name: 'Clay Modelling',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_clay_modelling',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_mehendi': {
+		eventName: 'event_mehendi',
+		title: 'Mehendi',
+		name: 'Mehendi',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_mehendi',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_picelectric': {
+		eventName: 'event_picelectric',
+		title: 'Picelectric',
+		name: 'Picelectric',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_picelectric',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_rjHunt': {
+		eventName: 'event_rjHunt',
+		title: 'RJ Hunt',
+		name: 'RJ Hunt',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_rj_hunt',
+		actual: 'user',
+		loggedOut: 'user'
 	}
 }
 
+FlowRouter.route('/register_rj_hunt', {
+	action: () => {	
+		document.title = 'RJ Hunt';
+		BlazeLayout.render('top', Events['event_rjHunt']);
+	}
+});
+FlowRouter.route('/register_picelectric', {
+	action: () => {	
+		document.title = 'Picelectric';
+		BlazeLayout.render('top', Events['event_picelectric']);
+	}
+});
+FlowRouter.route('/register_mehendi', {
+	action: () => {	
+		document.title = 'Mehendi';
+		BlazeLayout.render('top', Events['event_mehendi']);
+	}
+});
+FlowRouter.route('/register_clay_modelling', {
+	action: () => {	
+		document.title = 'Clay Modelling';
+		BlazeLayout.render('top', Events['event_clayModel']);
+	}
+});
+FlowRouter.route('/register_spray_art', {
+	action: () => {	
+		document.title = 'Spray Art';
+		BlazeLayout.render('top', Events['event_sprayArt']);
+	}
+});
+FlowRouter.route('/register_nail_art', {
+	action: () => {	
+		document.title = 'Nail Art';
+		BlazeLayout.render('top', Events['event_nailArt']);
+	}
+});
+FlowRouter.route('/register_art_exhibition', {
+	action: () => {	
+		document.title = 'Art Exhibiition';
+		BlazeLayout.render('top', Events['event_artExhib']);
+	}
+});
+FlowRouter.route('/register_screenwriting', {
+	action: () => {	
+		document.title = 'Screen Writing';
+		BlazeLayout.render('top', Events['event_screenwriting']);
+	}
+});
+FlowRouter.route('/register_filmfare', {
+	action: () => {	
+		document.title = 'Filmfare Fiesta';
+		BlazeLayout.render('top', Events['event_filmFiesta']);
+	}
+});
+FlowRouter.route('/register_stand_up', {
+	action: () => {	
+		document.title = 'Stand Up';
+		BlazeLayout.render('top', Events['event_standup']);
+	}
+});
+FlowRouter.route('/register_mime', {
+	action: () => {	
+		document.title = 'Mime';
+		BlazeLayout.render('top', Events['event_mime']);
+	}
+});
+FlowRouter.route('/register_natak', {
+	action: () => {	
+		document.title = 'Nukkad Natak';
+		BlazeLayout.render('top', Events['event_natak']);
+	}
+});
+FlowRouter.route('/register_dj_wars', {
+	action: () => {	
+		document.title = 'DJ Wars';
+		BlazeLayout.render('top', Events['event_djWars']);
+	}
+});
+FlowRouter.route('/register_vibrazone', {
+	action: () => {	
+		document.title = 'Vibrazone';
+		BlazeLayout.render('top', Events['event_vibrazone']);
+	}
+});
+FlowRouter.route('/register_nrityanjlai', {
+	action: () => {	
+		document.title = 'Nrityanjali';
+		BlazeLayout.render('top', Events['event_nrityanjali']);
+	}
+});
+FlowRouter.route('/register_step_up', {
+	action: () => {	
+		document.title = 'Step Up';
+		BlazeLayout.render('top', Events['event_stepUp']);
+	}
+});
+FlowRouter.route('/register_breakfree', {
+	action: () => {	
+		document.title = 'Breafree';
+		BlazeLayout.render('top', Events['event_breakfree']);
+	}
+});
 FlowRouter.route('/register_enigma', {
 	action: () => {	
 		document.title = 'Enigma';
@@ -473,9 +765,11 @@ Template.user.helpers({
 	getEvents(){
 		var user = Meteor.user();
 		if(!user) return null;
-		var arr = Object.keys(user.profile).filter((s) => s.startsWith('event_'));
-		if(arr.length === 0) return ['None.'];
-		else return arr.map((s) => Events[s].name);
+		try{
+			var arr = Object.keys(user.profile).filter((s) => s.startsWith('event_'));
+			if(arr.length === 0) return ['None.'];
+			else return arr.map((s) => Events[s].name);
+		} catch(err) { console.log(err); }
 	},
 	getDBList(){
 		Meteor.call('getDBNameList', Meteor.userId(), (err, val) => {
@@ -491,40 +785,41 @@ Template.user.helpers({
 	},
 
 	eventData: () => {
-		for(var idx = 0; idx < Object.keys(Events).length; idx++){
-			Meteor.call('getEventData', Meteor.userId(), idx, (err, val) => {
-				if(val === []) return;
+		return 'Please Use Google writeSpreadSheet function to view Database';
+		// for(var idx = 0; idx < Object.keys(Events).length; idx++){
+		// 	Meteor.call('getEventData', Meteor.userId(), idx, (err, val) => {
+		// 		if(val === []) return;
 
-				var table = document.createElement('table');
-				var head = document.createElement('tr');
-				table.style.display = 'block';
-				// table.style['overflow-x'] = 'scroll';
-				head.style.display = 'flex';
+		// 		var table = document.createElement('table');
+		// 		var head = document.createElement('tr');
+		// 		table.style.display = 'block';
+		// 		// table.style['overflow-x'] = 'scroll';
+		// 		head.style.display = 'flex';
 
-				for(var col in val[0]){
-					if(col === '_id') continue;
-					var th = document.createElement('th');
-					th.innerHTML = col;
-					th.style.width = '100%';
-					head.appendChild(th);
-				}
-				table.appendChild(head);
+		// 		for(var col in val[0]){
+		// 			if(col === '_id') continue;
+		// 			var th = document.createElement('th');
+		// 			th.innerHTML = col;
+		// 			th.style.width = '100%';
+		// 			head.appendChild(th);
+		// 		}
+		// 		table.appendChild(head);
 
-				for(var reg in val) {
-					var tr = document.createElement('tr');
-					tr.style.display = 'flex';
-					for(var entry in val[reg]){
-						if(entry === '_id') continue;
-						var td = document.createElement('td');
-						td.innerHTML = String(val[reg][entry]);
-						td.style.width = '100%';
-						tr.appendChild(td);
-					}
-					table.appendChild(tr);
-				}
-				document.getElementById('lol').appendChild(table);
-			});
-		}	
+		// 		for(var reg in val) {
+		// 			var tr = document.createElement('tr');
+		// 			tr.style.display = 'flex';
+		// 			for(var entry in val[reg]){
+		// 				if(entry === '_id') continue;
+		// 				var td = document.createElement('td');
+		// 				td.innerHTML = String(val[reg][entry]);
+		// 				td.style.width = '100%';
+		// 				tr.appendChild(td);
+		// 			}
+		// 			table.appendChild(tr);
+		// 		}
+		// 		document.getElementById('lol').appendChild(table);
+		// 	});
+		// }	
 	}
 });
 
