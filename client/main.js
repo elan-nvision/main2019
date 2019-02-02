@@ -656,7 +656,17 @@ FlowRouter.route('/me', {
 		document.title = 'My Profile';
 		BlazeLayout.render('user');
 	}
-})
+});
+FlowRouter.route('/somethingunique/:workshop', {
+	action: (params, queryParams) => {
+		// document.title = 'My Profile';
+		// console.log(params.workshop);
+		// console.log(Meteor.userID());
+		BlazeLayout.render('workshopsPlaceholder', {workshop: params.workshop});
+		// window.location.href = 
+		// 	'https://www.thecollegefever.com/college-events/city/iit%20hyderabad/elan-nvision-2019';
+	}
+});
 
 FlowRouter.route('/culti', {
 	action: () => {	window.location.href='/views/culti/dance.html'; }
@@ -736,7 +746,8 @@ FlowRouter.notFound = {
 }
 
 FlowRouter.route('/feedback', { 
-	action: () => { window.location.href = 'https://docs.google.com/forms/d/1V1REvuihZwJgy_iFF6Qr0q0qMJc-CfUCEJ_bf3RTxpI'; }
+	action: () => { window.location.href = 
+		'https://docs.google.com/forms/d/1V1REvuihZwJgy_iFF6Qr0q0qMJc-CfUCEJ_bf3RTxpI'; }
 });
 
 Accounts.onLogin((loginDetails) => {
@@ -763,8 +774,8 @@ Template.top.helpers({
 
 Template.user.helpers({
   	getServiceAccount(){
-  		if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.event_ca.isAdmin){	
-	  		Meteor.call('getServiceAccount', Meteor.user().profile.event_ca._id, (err, val) => {
+  		if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.isAdmin){	
+	  		Meteor.call('getServiceAccountOverAll', Meteor.userId(), (err, val) => {
 	  			document.getElementById('servAccName').innerHTML = val;
 	  		});
 	  	}
@@ -793,6 +804,18 @@ Template.user.helpers({
 
 	// eventData: () => {
 	// } 
+});
+
+Template.workshopsPlaceholder.onCreated(() => {
+	if(!Meteor.userId()) {
+		window.location.href = '/me';
+		return;
+	}
+	Meteor.call('visitedWorkshop', Meteor.userId(), 
+		Template.instance().data.workshop(), (err, val) => {
+			window.location.href = 
+			'https://www.thecollegefever.com/college-events/city/iit%20hyderabad/elan-nvision-2019';
+	});
 });
 
 Template.user.events({
@@ -841,11 +864,11 @@ Template.user.events({
 	},
 	'click .dump_db':() => { 
 		var idx = document.getElementById('db_list');
-		idx = idx.selectedIndex;
+		idx = idx.selectedIndex - 1;
 
 		Meteor.call('getEventData', Meteor.userId(), idx, (err, val) => {
 			if(val === []) {
-				document.getElementById('lol').innerHTML = 'Empty Table.';
+				document.getElementById('admin_output').innerHTML = 'Empty Table.';
 				return;
 			}
 
@@ -866,7 +889,7 @@ Template.user.events({
 			for(var reg in val) {
 				var tr = document.createElement('tr');
 				tr.style.display = 'flex';
-				for(var entry in val[reg]){
+				for(var entry in val[0]){
 					if(entry === '_id') continue;
 					var td = document.createElement('td');
 					td.innerHTML = String(val[reg][entry]);

@@ -29,7 +29,7 @@
 					<a href="/litr">Litr</a>
 					<a href="/biggies">Biggies</a>
 					<a href="/infi">Infi</a>
-					<a href="/views/workshops/workshops.html">Workshops</a>
+					<a href="/workshops">Workshops</a>
 					<a href="/ca">Campus Ambassador</a>
 				</div>
 			</div>
@@ -103,9 +103,7 @@
 						<input type="button" value="Notify" class="notify"><br>
 					
 					<label id='admin_output'> </label>
-					
-					<!-- <div id="lol"> {{ eventData }} </div> -->
-					<div id="lol">  </div>
+					<div id="lol" style="font-size: 2em;">  </div>
 				{{ /if }}
 			{{ else }}
 				{{ > registerNumber }}
@@ -157,7 +155,7 @@
 		{{ /if }}
 		<div style="margin: 100px;">
 			<input style="color: #fff; background: #36f; border: none; border-radius: 20px; font-size: 3vh; margin: 5px; padding: 10px 20px 10px 20px" type="button" value="Register" id="Register">
-			<input style="color: #fff; background: #36f; border: none; border-radius: 20px; font-size: 3vh; margin: 5px; padding: 10px 20px 10px 20px" type="button" value="Take me Home!" onclick="window.location.href='/';">	
+			<!-- <input style="color: #fff; background: #36f; border: none; border-radius: 20px; font-size: 3vh; margin: 5px; padding: 10px 20px 10px 20px" type="button" value="Take me Home!" onclick="window.location.href='/';">	 -->
 		</div>
 	</div>
 </template>
@@ -365,4 +363,9 @@
 			<br>
 		</div>
 	</main>
+</template>
+
+<template name='workshopsPlaceholder'>
+	<link rel="stylesheet" type="text/css" href="/global.css">
+	<h1 style="margin-top: 50vh">Loading...</h1>
 </template>

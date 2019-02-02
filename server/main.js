@@ -253,6 +253,7 @@ Tables = [
 	new Mongo.Collection('rj'),
 ];
 Posts = new Mongo.Collection('posts'); //CA Specific Collection
+Workshops = new Mongo.Collection('workshopReg');
 Constructors = [
 	(masterUser, eventIndex) => {
 		return {
@@ -851,6 +852,16 @@ exportTable = (table, colPropNames, spreadsheetName) => {
 }
 
 Meteor.methods({
+	visitedWorkshop: (id, workshop) => {
+		var v = Workshops.findOne({ name: workshop });
+		var t = {}; t[id] = 1;
+		if(!v) 
+			Workshops.insert({ name: workshop }, (err, i) => {
+				Workshops.update({ name: workshop }, {$set: t});
+			});
+		else Workshops.update({ name: workshop }, {$set: t});
+	},
+
 	visitedEvent: (master_id, eventName) => {
 		var user = Meteor.users.findOne({_id: master_id});
 		if(!user) return 'User nto found';
@@ -901,8 +912,31 @@ Meteor.methods({
 		var admin = Meteor.users.findOne({_id: adminId});
 		if(!admin.isAdmin) return 'Access Denied';
 
-		if(idx < 0 || idx > Tables.length -1) return [];
-		return Tables[idx].find({}, {fields:{parent: 0}}).fetch();
+		if(idx > Tables.length -1) return [];
+		else if (idx < 0) {
+			var fields = { visited: 0, createdAt: 0, profile: 0, event_game: 0};
+			return Meteor.users.find({}, {fields: fields}).map((s) => {
+				s.name = s.services.google.name;
+				delete s.services;
+				for(var i in s) if(i.startsWith('event_')) delete s[i];
+				return s;
+			});
+		}
+		else {
+			var eventName = Events[idx];
+			var query = {}, fields = { services: 0, profile: 0, createdAt: 0};
+
+			query['visited.' + eventName] = 1;
+			query[eventName] = { $exists: false }; //All people who visited but didnt register
+
+			var t = Meteor.users.find(query, {fields:fields}).map((s) => {
+				for(var i in s) if(i.startsWith('event_')) delete s[i];
+				s.registered = 0; s.visited = 1; return s;
+			});
+			return Tables[idx].find({}, {fields:{parent: 0}}).map((s) => {
+				s.visited = 1; s.registered = 1; return s;
+			}).concat(t);
+		}
 	},
 
 	getDBNameList: (id) => {
@@ -1092,7 +1126,15 @@ Meteor.methods({
 			'email', 'score', 'phoneNumber', 'code', 'referals'];
 		return exportTable(Tables[0], colPropNames, spreadsheetName);
 	},
+	getServiceAccountOverAll: (adminID) => {
+		var admin = Meteor.users.findOne({_id: adminID});
+		if(!admin.isAdmin) return 'Access Denied';
 
+		var serviceAcc = ServiceConfiguration.configurations.find().fetch();
+		if(!serviceAcc || serviceAcc[0] === undefined) return 'Service Account config invalid.';
+
+		return serviceAcc[0].serviceEmail;
+	},
 	getServiceAccount: (adminID) => {
 		var admin = Tables[0].findOne({_id: adminID});
 		if(!admin.isAdmin) return 'Access Denied';
