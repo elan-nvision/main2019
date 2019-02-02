@@ -296,10 +296,9 @@ margin-right:4px;
 			transform: rotateY(180deg);
 			z-index: 3;
 		}
-/*.btn {
-background-color:transparent;
-font-size:20px;
-color:white;
+.btn {
+background-color:rgb(91, 192, 222);
+
 }*/
 .btn:hover {
 background-color:white;
