@@ -1,25 +1,19 @@
 var w = window.innerWidth,
     h = window.innerHeight,
     canvas = document.getElementById('test'),
-    ctx = canvas.getContext('2d'),
-    rate = 60,
     arc = 100,
-    time,
-    count,
     size = 7,
-    speed = 10 + 0.01*window.innerWidth,
+    speed = (10 + 0.01*window.innerWidth)/20,
     parts = new Array,
     colors = ['#16A085', '#2ECC71', '#27AE60', '#3498DB','#2980B9','#9B59B6','#8E44AD','#34495E',
       '#F1C40F','#F39C12','#E67E22','#D35400','#E74C3C','#C0392B','#ECF0F1','#BDC3C7','#95A5A6','#7F8C8D'];
-var mouse = { x: 0, y: 0 };
 
-canvas.setAttribute('width',w);
-canvas.setAttribute('height',h);
+canvas.width = w;
+canvas.height = h;
+
+ctx = canvas.getContext('2d', { alpha: false });
 
 function create() {
-  time = 0;
-  count = 0;
-
   for(var i = 0; i < arc; i++) {
     parts[i] = {
       x: Math.ceil(Math.random() * w),
@@ -30,48 +24,37 @@ function create() {
       size: Math.random() * size
     }
   }
-  // document.addEventListener('mousemove', MouseMove, false);
-  // document.addEventListener('touchmove', TouchMove, false);
+  parts.sort((a, b) => {if(a.c > b.c) return 1; else return -1; })
 }
 
 function particles() {
   ctx.clearRect(0,0,w,h);
-  parts.forEach((li) => {
-    var distanceFactor = DistanceBetween( mouse, li );
-    distanceFactor = Math.max( Math.min( 15 - ( distanceFactor / 10 ), 10 ), 1 );
+  var lastColor = parts[0].c;
+
+  for(var li of parts) {
 
     ctx.beginPath();
-    ctx.fillStyle = li.c;
-    // ctx.arc(li.x,li.y,li.size*distanceFactor,0,Math.PI*2,false);
+    if(li.c !== lastColor){
+      ctx.fillStyle = li.c;
+      lastColor = li.c;
+    }
     ctx.arc(li.x,li.y,li.size,0,Math.PI*2,false);
+    // ctx.fillRect(li.x, li.y, li.size, li.size);
     ctx.fill();
     ctx.closePath();
 
-    li.x = li.x + li.toX * (time * 0.05);
-    li.y = li.y + li.toY * (time * 0.05);
+    li.x += li.toX * speed;
+    li.y += li.toY * speed;
 
     if(li.x > w) li.x = 0; 
-    if(li.y > h) li.y = 0; 
-    if(li.x < 0) li.x = w; 
-    if(li.y < 0) li.y = h; 
-  });
-  if(time < speed) {
-  time++;
+    else if(li.x < 0) li.x = w; 
+
+    if(li.y > h) li.y = 0;     
+    else if(li.y < 0) li.y = h;
   }
-  setTimeout(particles,1000/rate);
+
+  requestAnimationFrame(particles);
 }
-function MouseMove(e) {
-   mouse.x = e.clientX;
-   mouse.y = e.clientY;
-}
-function TouchMove(e) {
-   mouse.x = e.touches[0].clientX;
-   mouse.y = e.touches[0].clientY;
-}
-function DistanceBetween(p1,p2) {
-   var dx = p2.x-p1.x;
-   var dy = p2.y-p1.y;
-   return Math.sqrt(dx*dx + dy*dy);
-}
+
 create();
 particles();

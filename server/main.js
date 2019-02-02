@@ -110,11 +110,22 @@ Meteor.startup(() => {
 
 		var t = {};
 
+		if(!masterUser.elanID){
+			var numElanIDs = IDS.findOne().num;
+			var str = numElanIDs.toString(36);
+			while(str.length < 4) str = '0' + str;
+			str = 'EL' + str + Math.random().toString(36).substring(2, 4);
+			IDS.update({}, {$set: {num: (numElanIDs + 1)}});
+			Meteor.users.update({_id: masterUser._id}, {$set:{elanID: str}});
+			masterUser.elanID = str;
+		}
+
+
 		for(var i = 0; i < Tables.length; i++){
 			var eventName = Events[i]; 
 			if(!masterUser[eventName]) continue; //User hasn't registered for ith Event
 			var eventUser = Tables[i].findOne({ _id: masterUser[eventName].id });
-			if(eventUser.parent) delete eventUser.parent;
+			if(eventUser.parent) delete eventUser.parent; //Dont send the parent ID to profile on Client
 			t[eventName] = eventUser; //Copy over all event Specific Info except parentID
 		}
 		t.phoneNumber = masterUser.phoneNumber;
@@ -122,6 +133,7 @@ Meteor.startup(() => {
 		t.collegeName = masterUser.collegeName;
 		t.name = masterUser.services.google.name;
 		t.isAdmin = masterUser.isAdmin;
+		t.elanID = masterUser.elanID;
 
 		Meteor.users.update({_id: masterUser._id}, {$set:{profile: t}});
 	});
@@ -172,6 +184,10 @@ Meteor.startup(() => {
 	
 });
 
+IDS = new Mongo.Collection('elanIDs');
+if(IDS.find().count() < 1)
+	IDS.insert({num: 0});
+
 /*
 
 Steps to add an event:
@@ -189,7 +205,10 @@ Events = ['event_ca', 'event_cryptex', 'event_elanEJung', 'event_manthan', 'even
 	'event_roboScoccer', 'event_lineFollowBot', 'event_quadCopter', 'event_driftKing', 'event_cadPro',
 	'event_aquanaut', 'event_galProj', 'event_bridgeBuilders', 'event_getItWright', 'event_campusPrincess',
 	'event_dtmf', 'event_electabuzz', 'event_machinaDoctrina', 'event_iot', 'event_proQuest', 
-	'event_algomania', 'event_enigma'];
+	'event_algomania', 'event_enigma', 'event_breakfree', 'event_stepUp', 'event_nrityanjali',
+	'event_vibrazone', 'event_octaves', 'event_djWars', 'event_natak', 'event_mime', 'event_standup',
+	'event_filmFiesta', 'event_screenwriting', 'event_artExhib', 'event_nailArt', 'event_sprayArt',
+	'event_clayModel', 'event_mehendi', 'event_picelectric', 'event_rjHunt'];
 Tables = [
 	new Mongo.Collection('ca'), 
 	new Mongo.Collection('cryptex'),
@@ -214,6 +233,24 @@ Tables = [
 	new Mongo.Collection('proquest'),
 	new Mongo.Collection('algomania'),
 	new Mongo.Collection('enigma'),
+	new Mongo.Collection('breakfree'),
+	new Mongo.Collection('stepup'),
+	new Mongo.Collection('nrityanjali'),
+	new Mongo.Collection('vibrazone'),
+	new Mongo.Collection('octaves'),
+	new Mongo.Collection('dj'),
+	new Mongo.Collection('natak'),
+	new Mongo.Collection('mime'),
+	new Mongo.Collection('standup'),
+	new Mongo.Collection('filmfare'),
+	new Mongo.Collection('screenwriting'),
+	new Mongo.Collection('artexhib'),
+	new Mongo.Collection('nailart'),
+	new Mongo.Collection('sprayart'),
+	new Mongo.Collection('clay'),
+	new Mongo.Collection('mehendi'),
+	new Mongo.Collection('picelectric'),
+	new Mongo.Collection('rj'),
 ];
 Posts = new Mongo.Collection('posts'); //CA Specific Collection
 Constructors = [
@@ -429,6 +466,168 @@ Constructors = [
 			city: masterUser.city,
 		}
 	},//Enigma
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Breakfree
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Step Up
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Nrityanjali
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Vibrazone
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Octaves
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//DJWars
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Nukkad Natak
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Mime
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Stand Up
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//FilmFare Fiesta
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Screen Writing
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Art Exhibition
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Nail Art
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Spray Art
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Clay Modelling
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Mehendi
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Picelectric
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//RJ Hunt
 ];
 
 // Questions = [
@@ -652,6 +851,19 @@ exportTable = (table, colPropNames, spreadsheetName) => {
 }
 
 Meteor.methods({
+	visitedEvent: (master_id, eventName) => {
+		var user = Meteor.users.findOne({_id: master_id});
+		if(!user) return 'User nto found';
+		if(!isValidEventName(eventName)) return 'Invalid Event name';
+		
+		//User might have or might not have registered for the event
+		var t = user.visited;
+		if(!t) t = {};
+		t[eventName] = 1;
+
+		Meteor.users.update({_id: master_id}, { $set: {visited: t} });
+		return 'success;'
+	},
 	notify: (adminID, filter, title, text) => {
 		var admin = Meteor.users.findOne({_id: adminID});
 		if(!admin.isAdmin) return 'Access Denied';
