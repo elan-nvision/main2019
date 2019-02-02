@@ -885,6 +885,13 @@ Template.user.events({
 	},
 });
 
+Template.notRegistered.onRendered(() => {
+	var eventName = Template.instance().data.eventName();
+	Meteor.call('visitedEvent', Meteor.user()._id, eventName, (err, val) => {
+		console.log(val);
+	})
+});
+
 Template.notRegistered.events({
 	'click #Register': (e, template) => {
 		Meteor.call('registerForEvent', Meteor.user()._id, 

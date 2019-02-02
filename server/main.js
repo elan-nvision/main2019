@@ -862,6 +862,7 @@ Meteor.methods({
 		t[eventName] = 1;
 
 		Meteor.users.update({_id: master_id}, { $set: {visited: t} });
+		return 'success;'
 	},
 	notify: (adminID, filter, title, text) => {
 		var admin = Meteor.users.findOne({_id: adminID});
