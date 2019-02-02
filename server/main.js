@@ -125,7 +125,7 @@ Meteor.startup(() => {
 			var eventName = Events[i]; 
 			if(!masterUser[eventName]) continue; //User hasn't registered for ith Event
 			var eventUser = Tables[i].findOne({ _id: masterUser[eventName].id });
-			if(eventUser.parent) delete eventUser.parent;
+			if(eventUser.parent) delete eventUser.parent; //Dont send the parent ID to profile on Client
 			t[eventName] = eventUser; //Copy over all event Specific Info except parentID
 		}
 		t.phoneNumber = masterUser.phoneNumber;
@@ -851,6 +851,18 @@ exportTable = (table, colPropNames, spreadsheetName) => {
 }
 
 Meteor.methods({
+	visitedEvent: (master_id, eventName) => {
+		var user = Meteor.users.findOne({_id: master_id});
+		if(!user) return 'User nto found';
+		if(!isValidEventName(eventName)) return 'Invalid Event name';
+		
+		//User might have or might not have registered for the event
+		var t = user.visited;
+		if(!t) t = {};
+		t[eventName] = 1;
+
+		Meteor.users.update({_id: master_id}, { $set: {visited: t} });
+	},
 	notify: (adminID, filter, title, text) => {
 		var admin = Meteor.users.findOne({_id: adminID});
 		if(!admin.isAdmin) return 'Access Denied';

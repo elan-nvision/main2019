@@ -762,6 +762,13 @@ Template.top.helpers({
 });
 
 Template.user.helpers({
+  	getServiceAccount(){
+  		if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.event_ca.isAdmin){	
+	  		Meteor.call('getServiceAccount', Meteor.user().profile.event_ca._id, (err, val) => {
+	  			document.getElementById('servAccName').innerHTML = val;
+	  		});
+	  	}
+  	},
 	getEvents(){
 		var user = Meteor.user();
 		if(!user) return null;
@@ -784,43 +791,8 @@ Template.user.helpers({
 		});
 	},
 
-	eventData: () => {
-		return 'Please Use Google writeSpreadSheet function to view Database';
-		// for(var idx = 0; idx < Object.keys(Events).length; idx++){
-		// 	Meteor.call('getEventData', Meteor.userId(), idx, (err, val) => {
-		// 		if(val === []) return;
-
-		// 		var table = document.createElement('table');
-		// 		var head = document.createElement('tr');
-		// 		table.style.display = 'block';
-		// 		// table.style['overflow-x'] = 'scroll';
-		// 		head.style.display = 'flex';
-
-		// 		for(var col in val[0]){
-		// 			if(col === '_id') continue;
-		// 			var th = document.createElement('th');
-		// 			th.innerHTML = col;
-		// 			th.style.width = '100%';
-		// 			head.appendChild(th);
-		// 		}
-		// 		table.appendChild(head);
-
-		// 		for(var reg in val) {
-		// 			var tr = document.createElement('tr');
-		// 			tr.style.display = 'flex';
-		// 			for(var entry in val[reg]){
-		// 				if(entry === '_id') continue;
-		// 				var td = document.createElement('td');
-		// 				td.innerHTML = String(val[reg][entry]);
-		// 				td.style.width = '100%';
-		// 				tr.appendChild(td);
-		// 			}
-		// 			table.appendChild(tr);
-		// 		}
-		// 		document.getElementById('lol').appendChild(table);
-		// 	});
-		// }	
-	}
+	// eventData: () => {
+	// } 
 });
 
 Template.user.events({
@@ -830,7 +802,7 @@ Template.user.events({
 		var list = document.getElementById('db_list');
 
 		if(!sheet) {
-			label.innerHTML = 'Enter the Sheet Pair Correctly';
+			label.innerHTML = 'Enter the Spreadsheet Name Correctly';
 			return;
 		}
 		var table = list.selectedIndex -1;
@@ -866,8 +838,51 @@ Template.user.events({
 		Meteor.call('notify', Meteor.userId(), table, title, content, (err, val) => {
 			label.innerHTML = val;
 		});
+	},
+	'click .dump_db':() => { 
+		var idx = document.getElementById('db_list');
+		idx = idx.selectedIndex;
 
-	}
+		Meteor.call('getEventData', Meteor.userId(), idx, (err, val) => {
+			if(val === []) {
+				document.getElementById('lol').innerHTML = 'Empty Table.';
+				return;
+			}
+
+			var table = document.createElement('table');
+			var head = document.createElement('tr');
+			table.style.display = 'block';
+			head.style.display = 'flex';
+
+			for(var col in val[0]){
+				if(col === '_id') continue;
+				var th = document.createElement('th');
+				th.innerHTML = col;
+				th.style.width = '100%';
+				head.appendChild(th);
+			}
+			table.appendChild(head);
+
+			for(var reg in val) {
+				var tr = document.createElement('tr');
+				tr.style.display = 'flex';
+				for(var entry in val[reg]){
+					if(entry === '_id') continue;
+					var td = document.createElement('td');
+					td.innerHTML = String(val[reg][entry]);
+					td.style.width = '100%';
+					tr.appendChild(td);
+				}
+				table.appendChild(tr);
+			}
+			var div = document.getElementById('lol');
+			if(div.childNodes[0]){
+				div.replaceChild(table, div.childNodes[0]);
+			} else {
+				div.appendChild(table);
+			}
+		});
+	},
 });
 
 Template.notRegistered.events({

@@ -11,7 +11,7 @@ var w = window.innerWidth,
 canvas.width = w;
 canvas.height = h;
 
-ctx = canvas.getContext('2d');
+ctx = canvas.getContext('2d', { alpha: false });
 
 function create() {
   for(var i = 0; i < arc; i++) {
@@ -24,16 +24,22 @@ function create() {
       size: Math.random() * size
     }
   }
+  parts.sort((a, b) => {if(a.c > b.c) return 1; else return -1; })
 }
 
 function particles() {
   ctx.clearRect(0,0,w,h);
+  var lastColor = parts[0].c;
 
   for(var li of parts) {
 
     ctx.beginPath();
-    ctx.fillStyle = li.c;
+    if(li.c !== lastColor){
+      ctx.fillStyle = li.c;
+      lastColor = li.c;
+    }
     ctx.arc(li.x,li.y,li.size,0,Math.PI*2,false);
+    // ctx.fillRect(li.x, li.y, li.size, li.size);
     ctx.fill();
     ctx.closePath();
 

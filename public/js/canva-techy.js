@@ -2,7 +2,7 @@
 var w = window.innerWidth,
   h = window.innerHeight,
   canvas = document.getElementById('test'),
-  ctx = canvas.getContext('2d'),
+  ctx = canvas.getContext('2d', { alpha: false }),
   arc = 100,
   numImages = 14,
   imgDir = '/img/canva-techy/',
