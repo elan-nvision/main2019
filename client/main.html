@@ -80,32 +80,34 @@
 					</div>
 				</div>
 				{{ #if currentUser.profile.isAdmin }}
-					<h2> Admin Section </h2>
-					<h3 style="margin-top: 3vh"> Choose Table to operate on:  <hr> </h3>
-						<select id='db_list' style="color: black;" value="0">{{ getDBList }}</select>
-						<input type="button" class="dump_db" value='View DB'>
-					
-					<h3 style="margin-top: 3vh"> Google Sheets API  <hr> </h3>
-						<ul>
-							<li>Create your Google sheet and share it with: 
-								<p id='servAccName'>{{ getServiceAccount }}</p></li>
-							<li>Make sure you give write Access.</li>
-							<li>Fill in the name of the spreadsheet EXACTLY </li>
-							<li>Press the button </li>
-						</ul>
-						<input type="text" id="admin_sheet" value='Spreadsheet Name'>
-						<input type="button" value="Export" class="export">
+					<div style="font-size: 2em;">
+						<h2> Admin Section </h2>
+						<h3 style="margin-top: 3vh"> Choose Table to operate on:  <hr> </h3>
+							<select id='db_list' style="color: black;" value="0">{{ getDBList }}</select>
+							<input type="button" class="dump_db" value='View DB'>
+						
+						<h3 style="margin-top: 3vh"> Google Sheets API  <hr> </h3>
+							<ul>
+								<li>Create your Google sheet and share it with: 
+									<p id='servAccName'>{{ getServiceAccount }}</p></li>
+								<li>Make sure you give write Access.</li>
+								<li>Fill in the name of the spreadsheet EXACTLY </li>
+								<li>Press the button </li>
+							</ul>
+							<input type="text" id="admin_sheet" value='Spreadsheet Name'>
+							<input type="button" value="Export" class="export">
 
-					<h3 style="margin-top: 3vh"> Google Sheets API  <hr> </h3>
-						<h3> Send Notification to selected Table: </h3>
-						<input type="text" id="admin_notif_title" value='Title'>
-						<input type="text" id="admin_notif_text" value='Content'>
-						<input type="button" value="Notify" class="notify"><br>
-					
-					<label id='admin_output'> </label>
-					
-					<!-- <div id="lol"> {{ eventData }} </div> -->
-					<div id="lol">  </div>
+						<h3 style="margin-top: 3vh"> Google Sheets API  <hr> </h3>
+							<h3> Send Notification to selected Table: </h3>
+							<input type="text" id="admin_notif_title" value='Title'>
+							<input type="text" id="admin_notif_text" value='Content'>
+							<input type="button" value="Notify" class="notify"><br>
+						
+						<label id='admin_output'> </label>
+						
+						<!-- <div id="lol"> {{ eventData }} </div> -->
+						<div id="lol">  </div>
+					</div>
 				{{ /if }}
 			{{ else }}
 				{{ > registerNumber }}

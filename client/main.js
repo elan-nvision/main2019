@@ -763,7 +763,7 @@ Template.top.helpers({
 
 Template.user.helpers({
   	getServiceAccount(){
-  		if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.event_ca.isAdmin){	
+  		if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.isAdmin){	
 	  		Meteor.call('getServiceAccount', Meteor.user().profile.event_ca._id, (err, val) => {
 	  			document.getElementById('servAccName').innerHTML = val;
 	  		});
@@ -841,7 +841,7 @@ Template.user.events({
 	},
 	'click .dump_db':() => { 
 		var idx = document.getElementById('db_list');
-		idx = idx.selectedIndex;
+		idx = idx.selectedIndex - 1;
 
 		Meteor.call('getEventData', Meteor.userId(), idx, (err, val) => {
 			if(val === []) {
