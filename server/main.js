@@ -977,6 +977,48 @@ Meteor.methods({
 		Meteor.users.update({ _id: master_id }, {$set: t})
 		return 'Success';
 	},
+	registerForEventTeam: (elanIDs, eventName) => {
+		//This registers users for a particular team event
+		//@param 'elanIDs': Array of elanIds of the users in the Master User Table
+		//@param 'eventName': Event name as described by Events Global
+		//@return String: Result of the Operation
+		
+		if(!isValidEventName(eventName)) return 'Invalid Event name';
+		if(!elanIDs || !elanIDs || (elanIDs.length < 1)) return 'Invalid Registration Length';
+		var teamID = 'T' + elanIDs[0];
+		var idx = Events.indexOf(eventName), table = Tables[idx];
+		if(!table) return 'Internal DB Error';
+
+		var count = 0, countInv = 0, countAlr = 0;
+
+		for(var i of elanIDs){
+			var user = Meteor.users.findOne({ elanID: i });
+			if(!user) {
+				countInv ++;
+				continue; //Ignore invalid elanID.
+			}
+
+			var eventUser = Constructors[idx](user, table.find().count());
+			eventUser.parent = user._id;
+			eventUser.teamID = teamID;
+
+			var preUser = table.findOne({ parent: user._id });
+			if(preUser){
+				countAlr++;
+				continue; //Ignore if User has already registered.
+			}
+
+			var eventID = table.insert(eventUser);
+			var t = {};
+			t[eventName] = { id: eventID };
+			Meteor.users.update({ _id: user._id }, {$set: t});
+			count++;
+		}
+
+		return 'Success Registered ' + count + ' team members, ' + countInv + ' invalid elanIDs found, '+
+			countAlr + ' people had already registered for this event. Please ask your team members to check ' + 
+			' their teamIDs at the <a href="elan.org.in/me> Me </a>" page.';
+	},
 
 	registerNumber: (id, phoneNumber, collegeName, city) => {
 		var user = Meteor.users.findOne({_id: id});

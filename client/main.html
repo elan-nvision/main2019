@@ -160,6 +160,65 @@
 	</div>
 </template>
 
+<template name="topTeam">
+	{{# if currentUser }}
+		{{# if currentUser.profile.phoneNumber }}
+			{{ # if isRegisteredForEvent eventName }}
+				{{ > Template.dynamic template=actual }}
+			{{ else }}
+				{{ > notRegisteredTeam }}
+			{{ /if }}
+		{{ else }}
+			{{ > registerNumber }}
+		{{ /if }}
+	{{ else }}
+		{{ > Template.dynamic template=loggedOut }}
+	{{ /if }}
+</template>
+
+<template name="notRegisteredTeam">
+	<!-- Data Required
+		googleFormURL: NULL or an https URL to the Google Form
+		name: Name of the Event to be displayed
+		minPerTeam: Min Number of People that need to be registered for the Team
+		maxPerTeam: Max Number of People that need to be registered for the Team
+	-->
+    <canvas id="test"></canvas>
+	<script type="text/javascript" src="/js/canva.js"></script>
+	{{ >elanNav }}
+	<link rel="stylesheet" type="text/css" href="/global.css">
+	<div style="text-align: center; margin-top: 10%;">
+		<p style="font-size: 5vh"> Registration for <b> {{ name }} </b></p>
+		{{ #if googleFormURL }}
+			<h1> You have not registered for {{name}}. You are required to submit the Google Form. </h1>
+			<h1> Then Press the Register button below to go to College Fever and complete your registration. </h1>
+
+			<iframe src="{{googleFormURL}}" style="width: 80vw; height: 100vh; margin-top: 30px;"></iframe> <br>
+		{{ else }}
+			<h1> You have not registered for {{name}}. Press the Register button to complete your registration. </h1>
+		{{ /if }}
+
+		<div class="container" style="margin-top: 100px; margin-bottom: 100px;">
+			<h3>Please Enter the Elan IDs of your team mates. They will be automatically registered for {{name}}.</h3>
+			<h3>Minimum Number of allowed Team members for this event are: {{minPerTeam}}</h3>
+			<h3>Maximum Number of allowed Team members for this event are: {{maxPerTeam}}</h3>
+			<h3 id="team-reg-alert"> If you team has less than max allowed members, you can leave some of the fields blank. </h3>
+			<div class="row">
+				{{ #each count maxPerTeam }}
+					<div class="col-lg-4 col-md-6" style="margin-top: 20px; ">
+						<h5> Elan ID of Member {{ plusOne @index }}</h5>
+						<input type="text" name="Somehing" id="team-mem-{{@index}}">
+					</div> <br>
+				{{ /each }}
+			</div>
+			<div class="col-lg-12" style="margin-top: 10px;">
+			<input style="color: #fff; background: #36f; border: none; border-radius: 20px; font-size: 3vh; margin: 5px; padding: 10px 20px 10px 20px" type="button" value="Register" id="Register">
+			<!-- <input style="color: #fff; background: #36f; border: none; border-radius: 20px; font-size: 3vh; margin: 5px; padding: 10px 20px 10px 20px" type="button" value="Take me Home!" onclick="window.location.href='/';">	 -->
+			</div>
+		</div>
+	</div>
+</template>
+
 <template name="registerNumber">
     <canvas id="test"></canvas>
 	<script type="text/javascript" src="/js/canva.js"></script>

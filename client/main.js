@@ -416,6 +416,18 @@ Events = {
 	}
 }
 
+// Events['event_manthan'] = {
+// 	eventName: 'event_manthan',
+// 	title: 'Example',
+// 	name: 'Example',
+// 	cfLink: null,
+// 	googleFormURL: null,
+// 	minPerTeam: 1,
+// 	maxPerTeam: 10,
+// 	actual: 'user',
+// 	loggedOut: 'user'
+// }
+
 FlowRouter.route('/register_rj_hunt', {
 	action: () => {	
 		document.title = 'RJ Hunt';
@@ -657,14 +669,10 @@ FlowRouter.route('/me', {
 		BlazeLayout.render('user');
 	}
 });
+
 FlowRouter.route('/somethingunique/:workshop', {
 	action: (params, queryParams) => {
-		// document.title = 'My Profile';
-		// console.log(params.workshop);
-		// console.log(Meteor.userID());
 		BlazeLayout.render('workshopsPlaceholder', {workshop: params.workshop});
-		// window.location.href = 
-		// 	'https://www.thecollegefever.com/college-events/city/iit%20hyderabad/elan-nvision-2019';
 	}
 });
 
@@ -750,6 +758,18 @@ FlowRouter.route('/feedback', {
 		'https://docs.google.com/forms/d/1V1REvuihZwJgy_iFF6Qr0q0qMJc-CfUCEJ_bf3RTxpI'; }
 });
 
+
+FlowRouter.route('/reg_team/:event', {
+	action: (params, queryParams) => {
+		var eventName = params.event;
+		var event = Events[eventName];
+		if(!event) FlowRouter.go('/rytouiy'); //Event Doesn't exist
+		if(!event.minPerTeam) FlowRouter.go('/rytouiy'); //Event is not a Team Event
+		document.title = event.name;
+		BlazeLayout.render('topTeam', event);
+	}
+});
+
 Accounts.onLogin((loginDetails) => {
 	window.name = 'Sign In';
 	if(Meteor.userId()){
@@ -772,6 +792,15 @@ Template.top.helpers({
   	},
 });
 
+Template.topTeam.helpers({
+  	isRegisteredForEvent(eventName) {
+  		if(Meteor.user()){
+  			return Meteor.user().profile[eventName];
+  		}
+  	},
+});
+
+
 Template.user.helpers({
   	getServiceAccount(){
   		if(Meteor.user() && Meteor.user().profile && Meteor.user().profile.isAdmin){	
@@ -786,7 +815,10 @@ Template.user.helpers({
 		try{
 			var arr = Object.keys(user.profile).filter((s) => s.startsWith('event_'));
 			if(arr.length === 0) return ['None.'];
-			else return arr.map((s) => Events[s].name);
+			else return arr.map((s) => {
+				if(user.profile[s].teamID) return Events[s].name + ' - TeamID: ' + user.profile[s].teamID;
+				else return Events[s].name;
+			});
 		} catch(err) { console.log(err); }
 	},
 	getDBList(){
@@ -804,6 +836,42 @@ Template.user.helpers({
 
 	// eventData: () => {
 	// } 
+});
+
+Template.notRegisteredTeam.helpers({
+	count: (n) => { return new Array(n).fill(0); },
+	plusOne: (n) => { return n + 1; }
+});
+Template.notRegisteredTeam.events({
+	'click #Register': (e, template) => {
+
+		var minPerTeam = Template.instance().data.minPerTeam();
+		var maxPerTeam = Template.instance().data.maxPerTeam();
+
+		var elanIDs = [];
+
+		for(var i = 0; i < maxPerTeam; i++){
+			var elanID = document.getElementById('team-mem-' + i).value;
+			if(!elanID || elanID === '') continue;
+			if(!elanID.startsWith('EL')){
+				document.getElementById('team-reg-alert').innerHTML = 'ElanID number ' + (i+1) + ' is invalid.';
+			}
+			elanIDs.push(elanID);
+		}
+
+		if(elanIDs.length < minPerTeam) {
+			document.getElementById('team-reg-alert').innerHTML = 'Too Few Team Members Listed.';
+			return;
+		}
+
+		Meteor.call('registerForEventTeam', elanIDs, 
+			Template.instance().data.eventName(), (err, val) => {
+				document.getElementById('team-reg-alert').innerHTML = val;
+				// if(!template.data.googleFormURL())
+				// 	window.Reload._reload();
+				// else window.location.href = template.data.cfLink();
+			});
+	}
 });
 
 Template.workshopsPlaceholder.onCreated(() => {
