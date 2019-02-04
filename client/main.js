@@ -52,107 +52,141 @@ Events = {
 		googleFormURL: null,
 		route: '/register_paper_presentation',
 		actual: 'user',
-		loggedOut: 'user'
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 3,
 	},
 	'event_battleBots': {
 		eventName: 'event_battleBots',
 		title: 'Battle Bots',
 		name: 'Battle Bots',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/1AEm0e1XpXCuURimGFSD2SSxC_cgXcRhXvzcfikj9quo',
+		googleFormURL: null,
+		// googleFormURL: 'https://docs.google.com/forms/d/1AEm0e1XpXCuURimGFSD2SSxC_cgXcRhXvzcfikj9quo',
 		route: '/register_battle_bots',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 4,
 	},
 	'event_roboScoccer': {
 		eventName: 'event_roboScoccer',
 		title: 'Robo Soccer',
 		name: 'Robo Soccer',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/1MElpazvCa-q9K8WqWm-IYBS-KVyDWZua-3T1Hj0LVXU',
+		googleFormURL: null,
+		// googleFormURL: 'https://docs.google.com/forms/d/1MElpazvCa-q9K8WqWm-IYBS-KVyDWZua-3T1Hj0LVXU',
 		route: '/register_robo_soccer',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 4,
 	},
 	'event_lineFollowBot': {
 		eventName: 'event_lineFollowBot',
 		title: 'Line Follower Bot',
 		name: 'Line Follower Bot',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/18xojeWYoamKhlWJUg8uDExbdtmHmPRn03jPt-QjDjFk',
+		// googleFormURL: 'https://docs.google.com/forms/d/18xojeWYoamKhlWJUg8uDExbdtmHmPRn03jPt-QjDjFk',
+		googleFormURL: null,
 		route: '/register_line_bot',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 3,
 	},
 	'event_quadCopter': {
 		eventName: 'event_quadCopter',
 		title: 'Quad Copter Challenge',
 		name: 'Quad Copter Challenge',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/18w5Pr2MKS9_65OgXq6qx0otU1A6Fk3KI6tFkHUFkaXE',
+		// googleFormURL: 'https://docs.google.com/forms/d/18w5Pr2MKS9_65OgXq6qx0otU1A6Fk3KI6tFkHUFkaXE',
+		googleFormURL: null,
 		route: '/register_quad_copter',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 4,
 	},
 	'event_driftKing': {
 		eventName: 'event_driftKing',
 		title: 'Drift King',
 		name: 'Drift King',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/1EP_qEy8btyo2vjUjrpAn-DnijUmMsV9P_Bs3pxpo_Ic',
+		// googleFormURL: 'https://docs.google.com/forms/d/1EP_qEy8btyo2vjUjrpAn-DnijUmMsV9P_Bs3pxpo_Ic',
+		googleFormURL: null,
 		route: '/register_drift_king',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 4,
 	},
 	'event_cadPro': {
 		eventName: 'event_cadPro',
 		title: 'CAD Pro',
 		name: 'CAD Pro',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/1NREral7hpECgxROkPqmUppTndq-acEqA3QahTEC1pFQ',
+		// googleFormURL: 'https://docs.google.com/forms/d/1NREral7hpECgxROkPqmUppTndq-acEqA3QahTEC1pFQ',
+		googleFormURL: null,
 		route: '/register_cad_pro',
 		actual: 'notRegistered',
-		loggedOut: 'user'
+		loggedOut: 'user',
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 2,
 	},
 	'event_aquanaut': {
 		eventName: 'event_aquanaut',
 		title: 'Aquanaut',
 		name: 'Aquanaut',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/1HxY4z82XejL85RuIFk5Sq9lCE--onsaCQSGO82ab08U',
+		// googleFormURL: 'https://docs.google.com/forms/d/1HxY4z82XejL85RuIFk5Sq9lCE--onsaCQSGO82ab08U',
+		googleFormURL: null,
 		route: '/register_aquanaut',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 4,
 	},
 	'event_galProj': {
 		eventName: 'event_galProj',
 		title: 'Galileo Project',
 		name: 'Galileo Project',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/1yfP2LwniTpkphZXbNEAuHzKcwk8UN9BiBaWMh56G6mw',
+		// googleFormURL: 'https://docs.google.com/forms/d/1yfP2LwniTpkphZXbNEAuHzKcwk8UN9BiBaWMh56G6mw',
+		googleFormURL: null,
 		route: '/register_galileo',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 3,
 	},
 	'event_bridgeBuilders': {
 		eventName: 'event_bridgeBuilders',
 		title: 'Bridge Builders',
 		name: 'Bridge Builders',
 		cfLink: '/me',
+		// googleFormURL: 'https://docs.google.com/forms/d/1IJkyFkc-uEDFuB0gMhaYUWYsdnegbF6SNZ8GjOCylro',
 		googleFormURL: 'https://docs.google.com/forms/d/1IJkyFkc-uEDFuB0gMhaYUWYsdnegbF6SNZ8GjOCylro',
 		route: '/register_bridge_builders',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 3,
 	},
 	'event_getItWright': {
 		eventName: 'event_getItWright',
 		title: 'Get It Wright!',
 		name: 'Get It Wright!',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/1U7zJ_HF13HWY66z5OIHk5xbb--nIeo9_Pf03wmN6DHg',
+		// googleFormURL: 'https://docs.google.com/forms/d/1U7zJ_HF13HWY66z5OIHk5xbb--nIeo9_Pf03wmN6DHg',
+		googleFormURL: null,
 		route: '/register_get_it_wright',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 3,
 	},
 	'event_campusPrincess': {
 		eventName: 'event_campusPrincess',
@@ -169,40 +203,52 @@ Events = {
 		title: 'DTMF Race',
 		name: 'DTMF Race',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSezXs9Z2KS8ejucQFiAUGyPDH05YOAjUYmh0Nicw-xEisEbuA/viewform',
+		// googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSezXs9Z2KS8ejucQFiAUGyPDH05YOAjUYmh0Nicw-xEisEbuA/viewform',
+		googleFormURL: null,
 		route: '/register_dtmf_race',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 3,
 	},
 	'event_electabuzz': {
 		eventName: 'event_electabuzz',
 		title: 'ElektaBuzz',
 		name: 'ElektaBuzz',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSfJbXe0sWBfWwzbfaaSNJbDGNPBHhLBys6n3BME103BlJo4vQ/viewform?usp=sf_link',
+		// googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSfJbXe0sWBfWwzbfaaSNJbDGNPBHhLBys6n3BME103BlJo4vQ/viewform?usp=sf_link',
+		googleFormURL: null,
 		route: '/register_elektabuzz',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 3,
 	},
 	'event_machina_doctrina': {
 		eventName: 'event_machina_doctrina',
 		title: 'Machine Doctrina',
 		name: 'Machine Doctrina',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdkNBknycfrJhRRD0r5S2g-cGiA1Yv0_WpEURvSBo782nh8qw/viewform?usp=sf_link',
+		// googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdkNBknycfrJhRRD0r5S2g-cGiA1Yv0_WpEURvSBo782nh8qw/viewform?usp=sf_link',
+		googleFormURL: null,
 		route: '/register_machina_doctrina',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 3,
 	},
 	'event_iot': {
 		eventName: 'event_iot',
 		title: 'IoT Challenge',
 		name: 'IoT Challenge',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdGQBM9vyw44g2vrJuu8wkm5578Xv4NtmWETeqfUXNlgcTZiw/viewform?usp=sf_link',
+		// googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdGQBM9vyw44g2vrJuu8wkm5578Xv4NtmWETeqfUXNlgcTZiw/viewform?usp=sf_link',
+		googleFormURL: null,
 		route: '/register_iot_challenge',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 2,
 	},
 	'event_proQuest': {
 		eventName: 'event_proQuest',
@@ -232,7 +278,9 @@ Events = {
 		googleFormURL: null,
 		route: '/register_enigma',
 		actual: 'user',
-		loggedOut: 'user'
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 3,
 	},
 	'event_breakfree': {
 		eventName: 'event_breakfree',
@@ -309,9 +357,9 @@ Events = {
 		title: 'Mime',
 		name: 'Mime',
 		cfLink: null,
-		googleFormURL: null,
+		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdQR5SDEeoQf3_bAVNmemOGpPUXYh-_KQaPpIY5zAVit73o_w/viewform?usp=sf_link',
 		route: '/register_mime',
-		actual: 'user',
+		actual: 'notRegistered',
 		loggedOut: 'user'
 	},
 	'event_standup': {
@@ -413,6 +461,18 @@ Events = {
 		route: '/register_rj_hunt',
 		actual: 'user',
 		loggedOut: 'user'
+	},
+	'event_ctf': {
+		eventName: 'event_ctf',
+		title: 'Capture The Flag',
+		name: 'Capture The Flag',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_capture_the_flag',
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 3,
 	}
 }
 
@@ -428,6 +488,12 @@ Events = {
 // 	loggedOut: 'user'
 // }
 
+FlowRouter.route('/register_capture_the_flag', {
+	action: () => {	
+		document.title = 'Capture The Flag';
+		BlazeLayout.render('top', Events['event_ctf']);
+	}
+});
 FlowRouter.route('/register_rj_hunt', {
 	action: () => {	
 		document.title = 'RJ Hunt';
@@ -874,15 +940,26 @@ Template.notRegisteredTeam.events({
 	}
 });
 
-Template.workshopsPlaceholder.onCreated(() => {
+Template.workshopsPlaceholder.onRendered(() => {
 	if(!Meteor.userId()) {
 		window.location.href = '/me';
 		return;
 	}
-	Meteor.call('visitedWorkshop', Meteor.userId(), 
-		Template.instance().data.workshop(), (err, val) => {
-			window.location.href = 
-			'https://www.thecollegefever.com/college-events/city/iit%20hyderabad/elan-nvision-2019';
+	temp = Template.instance();
+	Tracker.autorun(() => {
+		if (Accounts.loginServicesConfigured()) {
+			if(!Meteor.user().profile.phoneNumber) {
+				BlazeLayout.render('registerNumber');
+			}
+			else {
+				console.log('redirect');
+				Meteor.call('visitedWorkshop', Meteor.userId(), 
+					temp.data.workshop(), (err, val) => {
+						window.location.href = 
+						'https://www.thecollegefever.com/college-events/city/iit%20hyderabad/elan-nvision-2019';
+				});
+			}
+		}
 	});
 });
 
