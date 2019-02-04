@@ -572,6 +572,12 @@ FlowRouter.route('/register_dj_wars', {
 		BlazeLayout.render('top', Events['event_djWars']);
 	}
 });
+FlowRouter.route('/register_octaves', {
+	action: () => {	
+		document.title = 'Octaves';
+		BlazeLayout.render('top', Events['event_octaves']);
+	}
+});
 FlowRouter.route('/register_vibrazone', {
 	action: () => {	
 		document.title = 'Vibrazone';
