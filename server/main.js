@@ -208,7 +208,7 @@ Events = ['event_ca', 'event_cryptex', 'event_elanEJung', 'event_manthan', 'even
 	'event_algomania', 'event_enigma', 'event_breakfree', 'event_stepUp', 'event_nrityanjali',
 	'event_vibrazone', 'event_octaves', 'event_djWars', 'event_natak', 'event_mime', 'event_standup',
 	'event_filmFiesta', 'event_screenwriting', 'event_artExhib', 'event_nailArt', 'event_sprayArt',
-	'event_clayModel', 'event_mehendi', 'event_picelectric', 'event_rjHunt'];
+	'event_clayModel', 'event_mehendi', 'event_picelectric', 'event_rjHunt', 'event_ctf'];
 Tables = [
 	new Mongo.Collection('ca'), 
 	new Mongo.Collection('cryptex'),
@@ -251,8 +251,10 @@ Tables = [
 	new Mongo.Collection('mehendi'),
 	new Mongo.Collection('picelectric'),
 	new Mongo.Collection('rj'),
+	new Mongo.Collection('ctf'),
 ];
 Posts = new Mongo.Collection('posts'); //CA Specific Collection
+Workshops = new Mongo.Collection('workshopReg');
 Constructors = [
 	(masterUser, eventIndex) => {
 		return {
@@ -628,6 +630,15 @@ Constructors = [
 			city: masterUser.city,
 		}
 	},//RJ Hunt
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Capture The Flag
 ];
 
 // Questions = [
@@ -851,6 +862,16 @@ exportTable = (table, colPropNames, spreadsheetName) => {
 }
 
 Meteor.methods({
+	visitedWorkshop: (id, workshop) => {
+		var v = Workshops.findOne({ name: workshop });
+		var t = {}; t[id] = 1;
+		if(!v) 
+			Workshops.insert({ name: workshop }, (err, i) => {
+				Workshops.update({ name: workshop }, {$set: t});
+			});
+		else Workshops.update({ name: workshop }, {$set: t});
+	},
+
 	visitedEvent: (master_id, eventName) => {
 		var user = Meteor.users.findOne({_id: master_id});
 		if(!user) return 'User nto found';
@@ -901,8 +922,31 @@ Meteor.methods({
 		var admin = Meteor.users.findOne({_id: adminId});
 		if(!admin.isAdmin) return 'Access Denied';
 
-		if(idx < 0 || idx > Tables.length -1) return [];
-		return Tables[idx].find({}, {fields:{parent: 0}}).fetch();
+		if(idx > Tables.length -1) return [];
+		else if (idx < 0) {
+			var fields = { visited: 0, createdAt: 0, profile: 0, event_game: 0};
+			return Meteor.users.find({}, {fields: fields}).map((s) => {
+				s.name = s.services.google.name;
+				delete s.services;
+				for(var i in s) if(i.startsWith('event_')) delete s[i];
+				return s;
+			});
+		}
+		else {
+			var eventName = Events[idx];
+			var query = {}, fields = { services: 0, profile: 0, createdAt: 0};
+
+			query['visited.' + eventName] = 1;
+			query[eventName] = { $exists: false }; //All people who visited but didnt register
+
+			var t = Meteor.users.find(query, {fields:fields}).map((s) => {
+				for(var i in s) if(i.startsWith('event_')) delete s[i];
+				s.registered = 0; s.visited = 1; return s;
+			});
+			return Tables[idx].find({}, {fields:{parent: 0}}).map((s) => {
+				s.visited = 1; s.registered = 1; return s;
+			}).concat(t);
+		}
 	},
 
 	getDBNameList: (id) => {
@@ -942,6 +986,48 @@ Meteor.methods({
 		t[eventName] = { id: eventID };
 		Meteor.users.update({ _id: master_id }, {$set: t})
 		return 'Success';
+	},
+	registerForEventTeam: (elanIDs, eventName) => {
+		//This registers users for a particular team event
+		//@param 'elanIDs': Array of elanIds of the users in the Master User Table
+		//@param 'eventName': Event name as described by Events Global
+		//@return String: Result of the Operation
+		
+		if(!isValidEventName(eventName)) return 'Invalid Event name';
+		if(!elanIDs || !elanIDs || (elanIDs.length < 1)) return 'Invalid Registration Length';
+		var teamID = 'T' + elanIDs[0];
+		var idx = Events.indexOf(eventName), table = Tables[idx];
+		if(!table) return 'Internal DB Error';
+
+		var count = 0, countInv = 0, countAlr = 0;
+
+		for(var i of elanIDs){
+			var user = Meteor.users.findOne({ elanID: i });
+			if(!user) {
+				countInv ++;
+				continue; //Ignore invalid elanID.
+			}
+
+			var eventUser = Constructors[idx](user, table.find().count());
+			eventUser.parent = user._id;
+			eventUser.teamID = teamID;
+
+			var preUser = table.findOne({ parent: user._id });
+			if(preUser){
+				countAlr++;
+				continue; //Ignore if User has already registered.
+			}
+
+			var eventID = table.insert(eventUser);
+			var t = {};
+			t[eventName] = { id: eventID };
+			Meteor.users.update({ _id: user._id }, {$set: t});
+			count++;
+		}
+
+		return 'Success Registered ' + count + ' team members, ' + countInv + ' invalid elanIDs found, '+
+			countAlr + ' people had already registered for this event. Please ask your team members to check ' + 
+			' their teamIDs at the <a href="elan.org.in/me> Me </a>" page.';
 	},
 
 	registerNumber: (id, phoneNumber, collegeName, city) => {
@@ -1092,7 +1178,15 @@ Meteor.methods({
 			'email', 'score', 'phoneNumber', 'code', 'referals'];
 		return exportTable(Tables[0], colPropNames, spreadsheetName);
 	},
+	getServiceAccountOverAll: (adminID) => {
+		var admin = Meteor.users.findOne({_id: adminID});
+		if(!admin.isAdmin) return 'Access Denied';
 
+		var serviceAcc = ServiceConfiguration.configurations.find().fetch();
+		if(!serviceAcc || serviceAcc[0] === undefined) return 'Service Account config invalid.';
+
+		return serviceAcc[0].serviceEmail;
+	},
 	getServiceAccount: (adminID) => {
 		var admin = Tables[0].findOne({_id: adminID});
 		if(!admin.isAdmin) return 'Access Denied';
