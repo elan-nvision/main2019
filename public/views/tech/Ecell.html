@@ -10,7 +10,7 @@
 
     gtag('config', 'UA-105307113-2');
   </script>
-  <title>Torque</title>
+  <title> Cepheid </title>
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
@@ -33,14 +33,15 @@
     <link rel="stylesheet" href="/styles/canva.css">
     <link rel="stylesheet" href="/styles/all.css">
     <link rel="stylesheet" href="/styles/techy.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
     <script type="text/javascript">
-      window.history.replaceState("", "", '/torque');
+        window.history.replaceState("", "", '/cepheid');
     </script>
-</head>
+  </head>
 <body>
-  <canvas id="test" style="top: 0;z-index: -100;position: fixed; width: 100%;height: 100%;overflow-x: hidden;" ></canvas>
+<canvas id="test" style="top: 0;z-index: -100;position: fixed; width: 100%;height: 100%;overflow-x: hidden;" ></canvas>
   <link rel="stylesheet" type="text/css" href="/styles/nav.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   <div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.3em;">
     <a href="/me"><button id="signInBtn" type="button" class="btn register" >Sign In</button></a>
     <a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
@@ -77,6 +78,20 @@
     function closerNav() {
       document.getElementById("myNavr").style.width = "0%";
     }
+     function openNav() {
+          document.getElementById("myNav").style.height = "100%";
+     }
+
+     function closeNav() {
+          document.getElementById("myNav").style.height = "0%";
+     }
+      function openNav1() {
+          document.getElementById("myNav1").style.height = "100%";
+     }
+
+     function closeNav1() {
+          document.getElementById("myNav1").style.height = "0%";
+     }
     function openNav() {
       document.getElementById("myNav").style.height = "100%";
     }
@@ -102,9 +117,10 @@
       document.getElementById("myNav3").style.height = "0%";
     }
   </script>
-       <div class="container" style="margin-top: 10%">
-          <div class="scrollmenu">
-            <a href="/views/tech/techy.html">&nbsp;ELEKTRONIKA</a>
+
+  <div class="container" style="margin-top: 10%">
+    <div class="scrollmenu">
+      <a href="/views/tech/techy.html">&nbsp;ELEKTRONIKA</a>
       <!--<a href="/equilibria">&nbsp;EQUILIBRIA</a>-->
       <a href="/views/tech/Ecell.html">&nbsp;E-CELL</a>
       <a href="/views/tech/aero.html">&nbsp;AERO</a>
@@ -118,41 +134,37 @@
       <!-- <a href="/online">&nbsp;ONLINE</a>
       <a href="/quadcopter">&nbsp;QUADCOPTER</a>-->
       <a href="/views/tech/paper_pres.html">&nbsp;PAPER PRESENTATION</a>
-          </div>
-        <h2 style="margin-top:20px; text-align: center;">Torque</h2>
-        <div style="" class="row justify-content-center no-gutters" data-aos="zoom-in-up">
+    </div>
+    <h2 style="margin-top:20px; text-align: center;">E-CELL</h2>
+
+  <div style="" class="row justify-content-center no-gutters" data-aos="zoom-in-up">
 
     <div class="col-sm-6 text-center">
       <div class="img-wrapper techy">
         <div onclick="openNav1()" class="flip-card"> 
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="/img/events/driftking.jpg"  alt="Avatar" >
+              <img src="/img/events/crowd.jpg"  alt="Avatar" >
             </div>
             <div class="flip-card-back">
-              <h3 style="margin-top:50px;">Drift King</h3>
-              <button type="button" class="btn" style="margin-top:10px;" onclick="window.location.href='register_drift_king'" >Register</button>&nbsp;&nbsp;&nbsp;
+              <h3 style="margin-top:50px;">Shark Tank</h3>
+              <button type="button" class="btn" style="margin-top:10px;" onclick="window.location.href='/register_galileo'">Register</button>&nbsp;&nbsp;&nbsp;
                 <button type="button" class="btn" onclick="" style="margin-top:10px;">Details</button>
-
-
             </div>
           </div>
         </div>
       </div>
-
-
-
     </div>
     <div class="col-sm-6 text-center">
       <div class="img-wrapper techy">
         <div onclick="openNav()" class="flip-card"> 
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="/img/events/cadpro.jpg"  alt="Avatar" >
+              <img src="/img/events/salesman.jpg"  alt="Avatar" >
             </div>
             <div class="flip-card-back">
-              <h3 style="margin-top:50px;">CAD Pro</h3>
-              <button type="button" class="btn" style="margin-top:10px;" onclick="window.location.href='register_cad_pro'">Register</button>&nbsp;&nbsp;&nbsp;
+              <h3 style="margin-top:50px;">Salesman of the fest</h3>
+              <button type="button" class="btn" style="margin-top:10px;" onclick="window.location.href='register_aquanaut'">Register</button>&nbsp;&nbsp;&nbsp;
                 <button type="button" class="btn" onclick="" style="margin-top:10px;">Details</button>
 
 
@@ -162,15 +174,18 @@
       </div>
 </div>
     </div>
-        
+
+     
+       
+
      
 
 
-     <div id="myNav1" class="overlay" style="background: linear-gradient(90deg, rgba(12, 12, 12, 0.4) 0%, rgba(12, 12, 12, 0.9) 100%), url('/img/torque_bg.jpg'); background-size: cover;">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()">&times;</a>
+     <div id="myNav1" class="overlay" style="background:black;">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav1()" style="z-index: 10000;">&times;</a>
   <div style="text-align:left;" class="overlay-content">
   <div class="container" style="padding-top: 40px;">
-    <h2 style='text-align:center'>Drift King</h2>
+    <h2 style='text-align:center'>Shark Tank</h2>
 <!-- Nav tabs -->
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -187,7 +202,7 @@
     <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d2" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
   </li>
   <li class="nav-item ml-auto" >
-    <a style="font-size: 25px;" class="nav-link" onclick="window.location.href='register_drift_king'" >&nbsp;Register</a>
+    <a style="font-size: 25px;" class="nav-link" onclick="window.location.href='/register_galileo'" >&nbsp;Register</a>
   </li>
 </ul>
 
@@ -195,36 +210,52 @@
         
        <div class='tab-content'>
         <div class='tab-pane active' id='a2' role="tabpanel">
-        <h4>Introduction:</h4>
-        <p>Want to try making an IC engine? Drift king gives you a chance to design a machine with given constraints. In this event, the contestants are expected to make to an IC engine powered machine, that can be controlled remotely using a wireless remote controller, which can race against machines of similar construct on an all-terrain track packed with a number of obstacles.</p>
+        <h4>Introduction</h4>
+        <p>Your chance of getting your start-up idea validated and getting aninformal funding for your idea. Present your Idea in front of a panel, show them yourbusiness idea and a canvas. Who knows, you might be the next Steve Jobs in making.Product based ideas and service based ideas are both welcome. </p>
         </div>
-        <div class='tab-pane' id='b2'>
-        <h4>Problem statement:</h4>
-        <p>In this event ,the contestants are expected to make to an IC engine powered machine ,that can be controlled remotely using a wireless remote controller, which can race against machines of similar construct on an all-terrain track packed with a number of obstacles.
-        <br><br><a  href='/docs/drift king.pdf'><button class='btn2'>Problem statement PDF</button></a>
+        <!--<div class='tab-pane' id='b2'>
+        <h4>Problem statement:</h4><p>
+        The event will be consisting of three rounds.<br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Round 1:<br>
+         A quiz will be conducted to screen the participants. This quiz is based mostly on optics and physics of light. <br><br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Round 2:<br>
+        Another quiz will be conducted to screen the participants. This quiz is based on Skymap and a few stellar objects. <br><br>
+        <i class='fa fa-circle' style='font-size:8px;'></i> Round 3:<br>
+        The top ten teams from the quizzes will qualify to the third round. The teams have to make a terrestrial telescope with the components and infrastructure provided by the organizers. <br>
+    <a  href='/docs/Galileo Project.pdf'><button class='btn2'>Problem statement PDF</button></a>
+        </p>
         </div>
         <div class='tab-pane' id='c2'>
-        <h4>Rules and Regulations:</h4><p>
-        1.Team can have a max of 4 people.<br>
-        2.No person can be a part of more than one team.<br>
-        3.All students must carry a valid identity card<br>
-        4.All members of team need to register for the event<br>
-        5.Students from different educational institutes can form a team.</p>
+        <h4>Judgement Criteria:</h4><p>
+        1. Magnification<br>
+        2. Clarity of the image<br>
+        3. Overall Design<br></p>
         <h4>Certification Policy:</h4><p>
-        1. Certificate of Merit and Prizes will be given for the top two teams.<br>
-        2. Participation Certificate will be given for those who registered online and participated in the event.<br>
-        3. Participation Certificate is not guaranteed for those who registered onspot for the event<br>
-        </p></div>
+        1)Certificate of Merit and Prizes will be given for the top two teams.<br>
+        2)Participation Certificate will be given for those who registered online and participated in the event.<br>
+        3)Participation Certificate is not guarenteed for those who registered onspot for the event.<br>
+        </p><h4>Rules and Regulations:</h4><p>
+        1. Each team is allowed to have a maximum of three members.<br>
+        2. Members of a team can be from different colleges.<br>
+        3. If a member is found using any other components, other than the ones provided by the organizers, the team shall be disqualified<br>
+        4. The Organizers reserve all rights to change any of the mentioned rules as they deem fit.<br>
+        5. Changes in the rules, if any, will be highlighted on the website.<br>
+        6. In case of any discrepancy, the decision of the organizers shall be final.<br>
+        7. Bring your college/student I-Card at the time of competition. 
+
+        </p>
+        </div>-->
         <div class='tab-pane' id='d2'>
-        <h4>Prize</h4>
-        <p>Prizes Worth INR 45,000*/- </p> <p>Prizes will be given after April 2nd 2019</p> <h4>Organisers</h4>
-        <p>Anshul:8007710912<br>
-            Mann:9403909136<br>
-             Aditya kumar:8299251173<br>
-           Manish rao:8571914464<br>
-           Swarat:9953599150<br>
-<h4>Contact:</h4>
+        <!--<h4>Prize</h4><p>
+        Prizes Worth INR 5,000*/-</p>
+        <p>Prizes will be given after April 2nd 2019</p>-->
+        <h4>Organisers</h4>
+        <p>Sivani-9381445655<br>
+
+</p>
+        <h4>Contact:</h4>
         <p><a href='mailto:techy@elan.org.in' style="font-size: 15px;">techy@elan.org.in</a></p>
+        </div>
         </div>
         </div>
   </div>
@@ -232,11 +263,11 @@
 </div>
 
 
-     <div id="myNav" class="overlay" style="background: linear-gradient(90deg, rgba(12, 12, 12, 0.4) 0%, rgba(12, 12, 12, 0.9) 100%), url('/img/torque_bg.jpg'); background-size: cover;">
+     <div id="myNav" class="overlay" style="background:black;">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <div style="text-align:left;" class="overlay-content">
   <div class="container" style="padding-top: 40px;">
-    <h2 style='text-align:center'>CAD Pro</h2>
+    <h2 style='text-align:center'>Salesman of the fest</h2>
 <!-- Nav tabs -->
 
 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -253,7 +284,7 @@
     <a style="font-size: 15px;" class="nav-link"  data-toggle="tab" href="#d1" role="tab"  aria-selected="false">&nbsp;Organizers & Prizes</a>
   </li>
   <li class="nav-item ml-auto" >
-    <a style="font-size: 25px;" class="nav-link" onclick="window.location.href='register_cad_pro'" >&nbsp;Register</a>
+    <a style="font-size: 25px;" class="nav-link" onclick="window.location.href='register_aquanaut'" >&nbsp;Register</a>
   </li>
 </ul>
 
@@ -262,43 +293,49 @@
        <div class='tab-content'>
         <div class='tab-pane active' id='a1' role="tabpanel">
         <h4>Introduction:</h4>
-        <p> Race against time and prove your expertise in 3D. Be a pro!</p>
+        <p>A great product which does not sell is as useless as any other product. AGreat product needs a great salesman.            Showcase your selling skills and become the “Salesman of the fest”.
+        </p>
         </div>
-        <div class='tab-pane' id='b1'>
-        <h4>Problem statement</h4>
-        <p><i class='fa fa-circle' style='font-size:8px;'></i> It will be an on-spot designing round. Participants will be given a problem statement at the time of event and they have to submit their design in the specified time limit.<br><i class='fa fa-circle' style='font-size:8px;'></i>  Each Question will carry some points according to the type of question and its level of difficulty.<br>
-        <i class='fa fa-circle' style='font-size:8px;'></i> Models can be prepared in any CAD software (CATIA/Pro E/AutoCad/Solidworks/Solidedge) and the final file must be prepared in IGES or STEP format. Bring your own laptops with necessary softwares installed.<br>
-        <a  href='/docs/cadPro.pdf'><button class='btn2'>Problem statement PDF</button></a>
+        <!--<div class='tab-pane' id='b1'>
+        <h4>Problem statement</h4><p>
+        The participants are required to design and build a water rocket (single stage/multi stage) that is completely powered by the thrust provided by compressed air in the bottle and using water as the fuel . 
+
+        
+        <br><a  href='/docs/aqua.pdf'><button class='btn2'>Problem statement PDF</button></a>
         </div>
         <div class='tab-pane' id='c1'>
-        <h4>Event rules:</h4><p>
-        1.Each team can have a maximum of two participants.<br>
-        2.There will be a prelim round in case the participation exceeds<br> 3.Decision of the organizers will be final and binding. No claim will be entertained against the announced results.<br>
-        4.Bring your college/student I-Card at the time of competition. <br>
- 
+        <h4>Rules and Regulations:</h4><p>
+        1.  A maximum of four members are allowed in a team.<br>
+        2.  There can be students from different institutions in a team.<br>
+        3.  Only PET bottles are to be used as the rocket body.<br>
+        4.  The rocket must be built completely from scratch and not using any readymade rocketry parts. <br>
+        5.  The water rocket must only use compressed ambient atmospheric air as source of energy.<br>
+        6.  Launchers will not be provided by the organizers. Each team must have their own launchers. <br>
+        7.  The rocket must be launched from a stationary position using a fixed launcher.<br>
+        8.  Extra time shall not be given for remaking of damaged rockets. <br>
+        9.  Changes in rules, if any, will be highlighted on the website. In case of any discrepancy, the decision of the judges shall be treated as final and binding. <br>
+        10. Bring your college/student I-Card at the time of competition. <br>
 
-        <h4>Judging criteria:</h4>
-        1.Any sign of plagiarism from internet or from other participant will lead to direct disqualification.<br>
-        2.Participant can only submit once. In case of multiple submissions only the first entry will be considered for evaluation.<br>
-        3.The design will be evaluated on the following aspects:<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A. Originality of the Design<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B. Clear and easily comprehensible design<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C. Time Taken<br><br>
-        4.Certificate of Merit and Prizes will be given for the top two teams.<br>
-        5.Participation Certificate will be given for those who registered online and participated in the event.<br>
-        6.Participation Certificate is not guaranteed for those who registered onspot for the event.<br>
-        7.Disqualified teams will not be considered for any certificates. </p>
-        </div>
-        <div class='tab-pane' id='d1'>
-        <h4>Prize</h4>
-        <p>Prizes Worth INR 10,000*/-</p>
-        <p>Prizes will be given after April 2nd 2019</p>
-        <h4>Organisers:</h4>
-        <p>Rishi:8008689745<br>
-     Priyanshu:9924034764<br>
-<h4>Contact:</h4>
-        <p><a href='mailto:techy@elan.org.in' style="font-size: 15px;">techy@elan.org.in</a></p>
+        <br><br>
+        A team can get disqualified if:<br>
+        1.  Any rocket is found to be dangerous to launch by the organizers and judges.<br>
+        2.  A rocket blasts before the launch.<br>
+        3.  A rocket launches before indicated by the organizers.<br>
+        4.  Any part of the rocket breaks off from the rocket during the flight.<br>
+        5.  Any ready-made models are used.<br>
+        6.  Any design rule is not abided by the participant.<br>
+        The organizers reserve all rights to change any of the above rules as they deem fit.<br>
+        Changes in rules, if any, will be highlighted on the website. In case of any discrepancy, the decision of the judges shall be treated as final and binding.
         </p>
+        </div>-->
+        <div class='tab-pane' id='d1'>
+        <!--<h4>Prize</h4><p>
+        Prizes Worth INR 10,000*/-</p>
+        <p>Prizes will be given after April 2nd 2019</p>-->
+        <h4>Organisers</h4>
+        <p>Sai Varsha-9100313530</p>
+        <h4>Contact:</h4>
+        <p><a href='mailto:techy@elan.org.in' style="font-size: 18px;">techy@elan.org.in</a></p>
         </div>
         </div>
         </div>
@@ -306,13 +343,15 @@
 </div>
 </div>
 </div>
+</div>
+
 <script type="text/javascript" src="/js/canva-techy.js"></script>
+
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
      AOS.init();
 </script>
 
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
 <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js'></script>
 </body>
 </html>
