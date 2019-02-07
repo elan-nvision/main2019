@@ -284,13 +284,16 @@ Events = {
 	},
 	'event_breakfree': {
 		eventName: 'event_breakfree',
-		title: 'Breafree',
-		name: 'Breafree',
+		title: 'Breakfree',
+		name: 'Breakfree',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdA-KqyNNm2LgUNhCt4_evJ-3BsYb5my2lhJUl5WjrhZTOU6Q/viewform?usp=sf_link',
+		// googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdA-KqyNNm2LgUNhCt4_evJ-3BsYb5my2lhJUl5WjrhZTOU6Q/viewform?usp=sf_link',
+		googleFormURL: null,
 		route: '/register_breakfree',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 6,
+		maxPerTeam: 30,
 	},
 	'event_stepUp': {
 		eventName: 'event_stepUp',
@@ -300,7 +303,9 @@ Events = {
 		googleFormURL: null,
 		route: '/register_step_up',
 		actual: 'user',
-		loggedOut: 'user'
+		loggedOut: 'user',
+		minPerTeam: 2,
+		maxPerTeam: 8,
 	},
 	'event_nrityanjali': {
 		eventName: 'event_nrityanjali',
@@ -316,7 +321,7 @@ Events = {
 		eventName: 'event_vibrazone',
 		title: 'Vibrazone',
 		name: 'Vibrazone',
-		cfLink: null,
+		cfLink: 'https://songdew.com/opportunities/campus-idol-vibrazione/503',
 		googleFormURL: null,
 		route: '/register_vibrazone',
 		actual: 'user',
@@ -326,7 +331,7 @@ Events = {
 		eventName: 'event_octaves',
 		title: 'Octaves',
 		name: 'Octaves',
-		cfLink: null,
+		cfLink: 'https://www.songdew.com/contests/Octaves_iit_hyderabad/504',
 		googleFormURL: null,
 		route: '/register_octaves',
 		actual: 'user',
@@ -347,20 +352,26 @@ Events = {
 		title: 'Nukkad Natak',
 		name: 'Nukkad Natak',
 		cfLink: '/me',
-		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSfzjOy4IjXmnNvlJQm79ihonlG5Nq5Td6ijyRSjKoSptRAFiw/viewform?usp=sf_link',
+		googleFormURL: null,
+		// googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSfzjOy4IjXmnNvlJQm79ihonlG5Nq5Td6ijyRSjKoSptRAFiw/viewform?usp=sf_link',
 		route: '/register_natak',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 8,
+		maxPerTeam: 20,
 	},
 	'event_mime': {
 		eventName: 'event_mime',
 		title: 'Mime',
 		name: 'Mime',
 		cfLink: null,
-		googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdQR5SDEeoQf3_bAVNmemOGpPUXYh-_KQaPpIY5zAVit73o_w/viewform?usp=sf_link',
+		googleFormURL: null,
+		// googleFormURL: 'https://docs.google.com/forms/d/e/1FAIpQLSdQR5SDEeoQf3_bAVNmemOGpPUXYh-_KQaPpIY5zAVit73o_w/viewform?usp=sf_link',
 		route: '/register_mime',
-		actual: 'notRegistered',
-		loggedOut: 'user'
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 8,
 	},
 	'event_standup': {
 		eventName: 'event_standup',
@@ -375,12 +386,14 @@ Events = {
 	'event_filmFiesta': {
 		eventName: 'event_filmFiesta',
 		title: 'Filmfare Fiesta',
-		name: 'Filmfare Fiesta',
+		name: 'Filmfare Fiesta<br>The Core Crew for this event Must be limited to 15, you can have as many extras as you wish',
 		cfLink: null,
 		googleFormURL: null,
 		route: '/register_filmfare',
 		actual: 'user',
-		loggedOut: 'user'
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 15,
 	},
 	'event_screenwriting': {
 		eventName: 'event_screenwriting',
@@ -598,7 +611,7 @@ FlowRouter.route('/register_step_up', {
 });
 FlowRouter.route('/register_breakfree', {
 	action: () => {	
-		document.title = 'Breafree';
+		document.title = 'Breakfree';
 		BlazeLayout.render('top', Events['event_breakfree']);
 	}
 });
@@ -1071,7 +1084,7 @@ Template.notRegistered.events({
 		Meteor.call('registerForEvent', Meteor.user()._id, 
 			Template.instance().data.eventName(), (err, val) => {
 				console.log(val);
-				if(!template.data.googleFormURL())
+				if(!template.data.cfLink())
 					window.Reload._reload();
 				else window.location.href = template.data.cfLink();
 			});

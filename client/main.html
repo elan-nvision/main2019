@@ -188,18 +188,18 @@
 	{{ >elanNav }}
 	<link rel="stylesheet" type="text/css" href="/global.css">
 	<div style="text-align: center; margin-top: 10%;">
-		<p style="font-size: 5vh"> Registration for <b> {{ name }} </b></p>
+		<p style="font-size: 5vh"> Registration for <b> {{ title }} </b></p>
 		{{ #if googleFormURL }}
-			<h1> You have not registered for {{name}}. You are required to submit the Google Form. </h1>
+			<h1> You have not registered for {{{name}}}. You are required to submit the Google Form. </h1>
 			<h1> Then Press the Register button below to go to College Fever and complete your registration. </h1>
 
 			<iframe src="{{googleFormURL}}" style="width: 80vw; height: 100vh; margin-top: 30px;"></iframe> <br>
 		{{ else }}
-			<h1> You have not registered for {{name}}. Press the Register button to complete your registration. </h1>
+			<h1> You have not registered for {{{name}}}. Press the Register button to complete your registration. </h1>
 		{{ /if }}
 
 		<div class="container" style="margin-top: 100px; margin-bottom: 100px;">
-			<h3>Please Enter the Elan IDs of your team mates. They will be automatically registered for {{name}}.</h3>
+			<h3>Please Enter the Elan IDs of your team mates. They will be automatically registered for {{title}}.</h3>
 			<h3>Minimum Number of allowed Team members for this event are: {{minPerTeam}}</h3>
 			<h3>Maximum Number of allowed Team members for this event are: {{maxPerTeam}}</h3>
 			<h3 id="team-reg-alert"> If you team has less than max allowed members, you can leave some of the fields blank. </h3>
