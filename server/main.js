@@ -208,7 +208,7 @@ Events = ['event_ca', 'event_cryptex', 'event_elanEJung', 'event_manthan', 'even
 	'event_algomania', 'event_enigma', 'event_breakfree', 'event_stepUp', 'event_nrityanjali',
 	'event_vibrazone', 'event_octaves', 'event_djWars', 'event_natak', 'event_mime', 'event_standup',
 	'event_filmFiesta', 'event_screenwriting', 'event_artExhib', 'event_nailArt', 'event_sprayArt',
-	'event_clayModel', 'event_mehendi', 'event_picelectric', 'event_rjHunt', 'event_ctf'];
+	'event_clayModel', 'event_mehendi', 'event_picelectric', 'event_rjHunt', 'event_ctf', 'event_emblazon'];
 Tables = [
 	new Mongo.Collection('ca'), 
 	new Mongo.Collection('cryptex'),
@@ -252,6 +252,7 @@ Tables = [
 	new Mongo.Collection('picelectric'),
 	new Mongo.Collection('rj'),
 	new Mongo.Collection('ctf'),
+	new Mongo.Collection('emblazon'),
 ];
 Posts = new Mongo.Collection('posts'); //CA Specific Collection
 Workshops = new Mongo.Collection('workshopReg');
@@ -639,6 +640,15 @@ Constructors = [
 			city: masterUser.city,
 		}
 	},//Capture The Flag
+	(masterUser, eventIndex) => {
+		return {
+			name: masterUser.services.google.name,
+			email: masterUser.services.google.email,
+			phoneNumber: masterUser.phoneNumber,
+			collegeName: masterUser.collegeName,
+			city: masterUser.city,
+		}
+	},//Emblazon
 ];
 
 // Questions = [

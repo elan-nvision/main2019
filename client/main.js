@@ -486,6 +486,16 @@ Events = {
 		loggedOut: 'user',
 		minPerTeam: 1,
 		maxPerTeam: 3,
+	},
+	'event_emblazon': {
+		eventName: 'event_emblazon',
+		title: 'Emblazon',
+		name: 'Emblazon',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_emblazon',
+		actual: 'user',
+		loggedOut: 'user',
 	}
 }
 
@@ -501,6 +511,12 @@ Events = {
 // 	loggedOut: 'user'
 // }
 
+FlowRouter.route('/register_emblazon', {
+	action: () => {	
+		document.title = 'Emblazon';
+		BlazeLayout.render('top', Events['event_emblazon']);
+	}
+});
 FlowRouter.route('/register_capture_the_flag', {
 	action: () => {	
 		document.title = 'Capture The Flag';
@@ -761,6 +777,9 @@ FlowRouter.route('/somethingunique/:workshop', {
 	}
 });
 
+FlowRouter.route('/online', {
+	action: () => {	window.location.href='/views/online.html'; }
+});
 FlowRouter.route('/culti', {
 	action: () => {	window.location.href='/views/culti/dance.html'; }
 });
