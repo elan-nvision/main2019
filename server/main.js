@@ -132,6 +132,7 @@ Meteor.startup(() => {
 		t.city = masterUser.city;
 		t.collegeName = masterUser.collegeName;
 		t.name = masterUser.services.google.name;
+		t.email = masterUser.services.google.email;
 		t.isAdmin = masterUser.isAdmin;
 		t.elanID = masterUser.elanID;
 
@@ -951,10 +952,11 @@ Meteor.methods({
 
 			var t = Meteor.users.find(query, {fields:fields}).map((s) => {
 				for(var i in s) if(i.startsWith('event_')) delete s[i];
-				s.registered = 0; s.visited = 1; return s;
+				s.registered = 0; s.visited = 1;
 				s.name = s.profile.name;
-				s.phoneNumber = s.profile.phoneNumber;
+				s.email = s.profile.email;
 				delete s.profile;
+				return s;
 			});
 			return Tables[idx].find({}, {fields:{parent: 0}}).map((s) => {
 				s.visited = 1; s.registered = 1; return s;
