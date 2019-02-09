@@ -944,7 +944,7 @@ Meteor.methods({
 		}
 		else {
 			var eventName = Events[idx];
-			var query = {}, fields = { services: 0, profile: 0, createdAt: 0};
+			var query = {}, fields = { services: 0, createdAt: 0};
 
 			query['visited.' + eventName] = 1;
 			query[eventName] = { $exists: false }; //All people who visited but didnt register
@@ -952,6 +952,9 @@ Meteor.methods({
 			var t = Meteor.users.find(query, {fields:fields}).map((s) => {
 				for(var i in s) if(i.startsWith('event_')) delete s[i];
 				s.registered = 0; s.visited = 1; return s;
+				s.name = s.profile.name;
+				s.phoneNumber = s.profile.phoneNumber;
+				delete s.profile;
 			});
 			return Tables[idx].find({}, {fields:{parent: 0}}).map((s) => {
 				s.visited = 1; s.registered = 1; return s;
