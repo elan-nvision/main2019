@@ -143,13 +143,21 @@
       document.getElementById('scrollmsg').style.display = 'block';
       document.getElementById("myNav7").style.height = "0%";
     }
-     function openNav8() {
+    function openNav8() {
       document.getElementById('scrollmsg').style.display = 'none';
       document.getElementById("myNav8").style.height = "100%";
     }
     function closeNav8() {
       document.getElementById('scrollmsg').style.display = 'block';
       document.getElementById("myNav8").style.height = "0%";
+    }
+    function openNav9() {
+      document.getElementById('scrollmsg').style.display = 'none';
+      document.getElementById("myNav9").style.height = "100%";
+    }
+    function closeNav9() {
+      document.getElementById('scrollmsg').style.display = 'block';
+      document.getElementById("myNav9").style.height = "0%";
     }
   </script>
   <div class="container" style="margin-top: 10%">
@@ -161,7 +169,11 @@
       <a href="/views/workshops/mobile.html">&nbsp;Mobile Web Development</a>  
       <a href="/views/workshops/robot.html">&nbsp;Robotics Process Automation</a>
     </div> -->
-    <h2 style="margin-top:15vh; text-align: center;">Workshops At Elan & Nvision 2019 &nbsp;&nbsp;&nbsp;<button type="button" class="btn btn-success" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSd3J4E4XeMPchYL9Qff1R-AyOBf8NXNzKQYHdNXyMlrSVcx1Q/viewform'" style="background-color: rgb(92, 184, 92);"><b>Register Here</b></button></h2>
+    <h2 style="margin-top:15vh; text-align: center;">
+      Workshops At Elan & Nvision 2019 &nbsp;&nbsp;&nbsp;
+      <button type="button" class="btn btn-success" onclick="window.location.href='https://docs.google.com/forms/d/e/1FAIpQLSd3J4E4XeMPchYL9Qff1R-AyOBf8NXNzKQYHdNXyMlrSVcx1Q/viewform'" style="background-color: rgb(92, 184, 92);"><b>Register Here</b></button>
+      <button type="button" class="btn btn-success" onclick="openNav9();" style="background-color: #f06;"><b>Rules</b></button>
+    </h2>
     <hr>
 
     <div class="row justify-content-center">
@@ -578,24 +590,17 @@
                   
                    <h3 >Benefits:</h3>
 
-                  <h5><ul style="margin: 25px;">
-                  
-                 <li>Participation certificate from ELAN & nvision, IIT HYDERABAD</li>
-                  <li>Free passes for 3-day festival & pro-shows</li>
-                  <li>A chance to meet celebrities
-</li>
-
-                   
-                              
-                  </ul></h5>
-
-                   <h3 >Contact:</h3>
-
+                  <h5>
+                    <ul style="margin: 25px;">
+                    <li>Participation certificate from ELAN & nvision, IIT HYDERABAD</li>
+                    <li>Free passes for 3-day festival & pro-shows</li>
+                    <li>A chance to meet celebrities</li>                              
+                    </ul>
+                  </h5>
+                  <h3>Contact:</h3>
                   <h5>Bharadwaj : 7995270890<br>Gopal: 9398290924<br>
-
-
-
-                   Email : events@elan.org.in</h5>
+                   Email : events@elan.org.in
+                  </h5>
                 </div>
               </div>
             </div>
@@ -724,6 +729,51 @@
         </div>
       </div>
 
+      <div id="myNav9" class="overlay" style="background: linear-gradient(90deg, rgba(12, 12, 12, 0.4) 0%, rgba(12, 12, 12, 0.9) 100%), url('/img/back2.jpg'); background-size: cover;">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav9()">&times;</a>
+        <div style="text-align:left;" class="overlay-content">
+          <div class="container" style="padding-top: 40px;">
+            <h2 style='text-align:center'>General Rules</h2>
+             <div class='tab-content'>
+              <div class='tab-pane active' id='a1' role="tabpanel">
+                <div class="col-lg-6" style="font-size: 35px;">
+                  <h3>Rules</h3>
+                  <h5>Below are rules that are to be followed that will help us ensure your festive experience. </h5>
+
+                  <h3>RULES OF ACCOMODATION:</h3>
+
+                  <h5><ul>
+                    <li>Rooms will be alloted from 6:00 PM to 8:00 PM on all 4 days 21st, 22nd, 23rd and 24th of February</li>
+                    <li>Rooms should be vacated before 9 AM, the next day</li>
+                    <li>No provisions for the bedsheets will be made, please bring your own bedsheets</li>
+                    <li>The rooms are provided strictly on a sharing basis</li>
+                    <li>The rooms provided are in the temporary campus</li>
+                    <li>All payments are final, and no refunds will be provided</li>
+                    <li>Transportation will be provided to and from the temporary campus at specified times</li>
+                    <li>Bring your own lock and key for safety</li>
+                    <li>Cloakroom will be provided for luggage storage during workshop and fest</li>
+                    <!-- <li>Projects -  Home Automation & Google Assistance based IO Control</li>                               -->
+                  </ul></h5>
+
+                  <h3>RULES TO BE FOLLOWED IN THE CAMPUS:</h3>
+                  <h5><ul>
+                    <li>Kindly carry your college ID cards and registration cards (provided during on-spot registration) in the campus</li>
+                    <li>Rules of the hostel should be followed. Girls should be in their allotted accommodation by 12 am</li>
+                    <li>Any kind of misbehavior will not be tolerated and will be dealt with strictly</li>
+                    <li>Security personnel are not responsible for any of your personal belongings</li>
+                    <li>Security personnel reserve the right to refuse your entry at any point of time if they deem it unsafe</li>
+                    <li>Kindly cooperate with the Hospitality Team</li>
+                    <li>Students are advised not to keep large amounts of cash or valuables in the provided accommodation. The student is responsible for the safety of his/her belongings. Cloak rooms will be provided where you can keep your luggage</li>
+                    <li>Any damage/breakage to hostel property will be charged to the occupants of the block with a fine. Disciplinary action will also be initiated</li>
+                    <li>Substance abuse, consumption of alcohol and smoking or chewing of tobacco and related products are strictly banned in the campus</li>
+                    <li>Water should be used carefully and should not be wasted. Keep the campus clean</li>
+                  </ul></h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
