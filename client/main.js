@@ -496,6 +496,52 @@ Events = {
 		route: '/register_emblazon',
 		actual: 'user',
 		loggedOut: 'user',
+	},
+	'event_autoQuiz': {
+		eventName: 'event_autoQuiz',
+		title: 'Automobile Quiz',
+		name: 'Automobile Quiz',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_autoQuiz',
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 2,
+		maxPerTeam: 2,
+	},
+	'event_scitechQuiz': {
+		eventName: 'event_scitechQuiz',
+		title: 'SciTech Quiz',
+		name: 'SciTech Quiz',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_sciQuiz',
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 2,
+		maxPerTeam: 2,
+	},
+	'event_salesman': {
+		eventName: 'event_salesman',
+		title: 'Salesman of the Year',
+		name: 'Salesman of the Year',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_salesman_of_the_year',
+		actual: 'user',
+		loggedOut: 'user'
+	},
+	'event_sharkTank': {
+		eventName: 'event_sharkTank',
+		title: 'Shark Tank',
+		name: 'Shark Tank',
+		cfLink: null,
+		googleFormURL: null,
+		route: '/register_shark_tank',
+		actual: 'user',
+		loggedOut: 'user',
+		minPerTeam: 1,
+		maxPerTeam: 3,
 	}
 }
 
@@ -511,6 +557,12 @@ Events = {
 // 	loggedOut: 'user'
 // }
 
+FlowRouter.route('/register_salesman_of_the_year', {
+	action: () => {	
+		document.title = 'Salesman of the Year';
+		BlazeLayout.render('top', Events['event_salesman']);
+	}
+});
 FlowRouter.route('/register_emblazon', {
 	action: () => {	
 		document.title = 'Emblazon';
@@ -837,6 +889,12 @@ FlowRouter.route('/dance', {
 FlowRouter.route('/drama', {
 	action: () => {	window.location.href='/views/culti/drama.html'; }
 });
+FlowRouter.route('/ecell', {
+	action: () => {	window.location.href='/views/tech/Ecell.html'; }
+});
+FlowRouter.route('/quizzes', {
+	action: () => {	window.location.href='/views/tech/quiz.html'; }
+});
 FlowRouter.route('/moviemaking', {
 	action: () => {	window.location.href='/views/culti/moviemaking.html'; }
 });
@@ -848,6 +906,9 @@ FlowRouter.route('/photography', {
 });
 FlowRouter.route('/workshops', {
 	action: () => {	window.location.href='/views/workshops/workshops.html'; }
+});
+FlowRouter.route('/paperpresentation', {
+	action: () => {	window.location.href='/views/techy/paper_pres.html'; }
 });
 FlowRouter.route('/', {
 	action: () => { window.location.href='/index.html'; }
