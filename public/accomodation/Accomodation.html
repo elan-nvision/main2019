@@ -26,11 +26,18 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
+ <link rel="stylesheet" href="/styles/all.css">
   
       <link rel="stylesheet" href="css/style.css">
       
-      
+    <script type="text/javascript">
+      function openrNav() {
+      document.getElementById("myNavr").style.width = "100%";
+    }
+    function closerNav() {
+      document.getElementById("myNavr").style.width = "0%";
+    }
+    </script>  
 
   <style>
     
@@ -68,6 +75,35 @@
 
 <body>
 
+  <div id="myNavr" class="overlaynav" style="z-index=10; font-size: 1.3em;">
+    <a href="/me"><button id="signInBtn" type="button" class="btn register" >Sign In</button></a>
+    <a href="javascript:void(0)" class="closebtnnav" onclick="closerNav()">&times;</a>
+    <div class="overlaynav-content" >
+      <div class="row justify-content-center no-gutters">
+        <div  style="margin-top:9%;" class="col-sm-6 text-center">
+          <a href="/index.html">Home</a>
+          <a href="/views/sponsors.html">Sponsors</a>
+          <a href="/views/team.html">Contact Us</a>
+        </div>
+        <div style="margin-top:2%;" class="col-sm-6 text-center">
+          <!-- <a href="#" style="text-decoration: underline;">Events</a> -->
+          <a href="/views/culti/dance.html">Culti</a>
+          <a href="/views/tech/techy.html">Techy</a>
+          <a href="/views/litr.html">Litr</a>
+          <a href="/views/biggies.html">Biggies</a>
+          <a href="/views/infi.html">Infi</a>
+          <a href="/views/workshops/workshops.html">Workshops</a>
+          <a href="/ca">Campus Ambassador</a>
+          <a href="/online">Online Events</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="navbar" class="sticky">
+    <a href="/index.html"><img src="img/symbolOnly.png" height="42" width="47.5641025641" alt=""></a>
+    <span onclick="openrNav()" class="fas fa-bars" style="float: right; color: #EDEDED; font-size: 2em; padding: 2vh;">
+    </span>
+  </div>
   <div class="background">
   <div style="padding:16px;"><a href="..\nav/index.html"><span style="font-size:60px;cursor:pointer ;color:black;" onclick="openNav()">&#9776; </span></a></div>
 </div>
@@ -80,21 +116,28 @@
     
   </header>
   <section>
-    <p>Accommodation during ELAN & nvision will be provided from 9th to 11th Feb. Accommodation will start from 9th Feb 6:00 pm.</p>
-
+  <h3 style="color: black; font-size: 25px;margin: 10px;"><b>RULES</b></h3>
+Below are rules that are to be followed that will help us ensure your festive experience.
+<h3 style="color: black; font-size: 25px;margin: 10px;"><b>RULES OF ACCOMODATION:</b></h3>
+<ul style="list-style-type:square;">
+    <li>Rooms will be alloted from 6:00 PM to 8:00 PM on all 4 days 21st, 22nd, 23rd and 24th of February</li>
+    <li>Rooms should be vacated before 9 AM, the next day</li>
+    <li>No provisions for the bedsheets will be made, please bring your own bedsheets</li>
+    <li>The rooms are provided strictly on a sharing basis</li>
+    <li>The rooms provided are in the temporary campus</li>
+    <li>All payments are final, and no refunds will be provided</li>
+    <li>Transportation will be provided to and from the temporary campus at specified times</li>
+    <li>Bring your own lock and key for safety</li>
+    <li>Cloakroom will be provided for luggage storage during workshop and fest</li>
+</ul>
     
-    <h3 style="color: black; font-size: 25px;"><b>Rules Of Accomodation:</b></h3>
+    <h3 style="color: black; font-size: 25px;margin: 10px;"><b>RULES TO BE FOLLOWED IN THE CAMPUS:</b></h3>
     <ul style="list-style-type:square;">
     <li>Kindly carry your college ID cards and registration cards (provided during
 on-spot registration) in the campus</li>
 <li>Rules of the hostel should be followed. Girls should be in their allotted
 accommodation by 12 am.</li>
 <li> Any kind of misbehavior will not be tolerated and will be dealt with strictly.</li>
-<li>Security personnel are not responsible for any of your personal belongings.</li>
-<li>Security personnel reserve the right to refuse your entry at any point of time if
-they deem it unsafe.</li>
-<li>Kindly cooperate with the Hospitality Team; Coordinators’ decision will be
-final.</li>
 
     </ul>
     
@@ -106,7 +149,13 @@ final.</li>
     
   </header>
   <section>
+ 
     <ul style="list-style-type: square;">
+    <li>Security personnel are not responsible for any of your personal belongings.</li>
+<li>Security personnel reserve the right to refuse your entry at any point of time if
+they deem it unsafe.</li>
+<li>Kindly cooperate with the Hospitality Team.</li>
+
     <li>Students are advised not to keep large amounts of cash or valuables
 in the provided accommodation. The student is responsible for the safety of
 his/her belongings. Cloak rooms will be provided in the main campus where you
@@ -117,11 +166,11 @@ the block with a fine. Disciplinary action will also be initiated.</li>
 and related products are strictly banned in the campus.</li>
 <li>Water should be used carefully and should not be wasted. Keep the campus
 clean.</li>
-<li>INR 200, is taken as caution deposit with the ticket. It will be refunded one
+<!--<li>INR 200, is taken as caution deposit with the ticket. It will be refunded one
 week after the fest.</li>
 <li> Room once allotted will not be changed.</li>
 <li> No locks will be provided. So, kindly cooperate with your roommates.</li>
-<li>Only mattress, pillow and bed-sheet will be provided. Moving any of these</li>
+<li>Only mattress, pillow and bed-sheet will be provided. Moving any of these</li>-->
     </ul>
   </section>
 </article>
@@ -132,7 +181,7 @@ week after the fest.</li>
   </header>
   <section>
 
-    <p>Transport service is in the <a href="https://docs.google.com/spreadsheets/d/1mLrLAf6Z0Z4G2AsAzrK7TXJ_DZAPXb_3n6V_jKTx1wc/edit?usp=sharing">docs, </a></p><button type="button" class="btn btn-primary">Pay For Accomodation</button> <button type="button" class="btn btn-primary">Transport Details</button>
+    <p>Transport service is in the <!--<a href="https://docs.google.com/spreadsheets/d/1mLrLAf6Z0Z4G2AsAzrK7TXJ_DZAPXb_3n6V_jKTx1wc/edit?usp=sharing">--><a>docs </a></p><a href="https://www.thecollegefever.com/events/elan-nvision-2019"><button type="button" class="btn btn-primary">Accomodation Registration</button> </a><button type="button" class="btn btn-primary">Transport Details</button>
     <p>From Lingampally, Sangareddy ,Maingate of IITH-Campus,college buses are available as per sheet.</p>
     <p style="text-align: center;"> <h3 style="color: black; font-size: 25px;">VENUE:</h3>Indian Institute of Technology Hyderabad</br>
 
