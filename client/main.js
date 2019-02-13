@@ -266,7 +266,7 @@ Events = {
 		name: 'Algomania',
 		cfLink: null,
 		googleFormURL: null,
-		route: '/register_algomania',
+		route: '/register_algorithma',
 		actual: 'user',
 		loggedOut: 'user'
 	},
@@ -689,7 +689,7 @@ FlowRouter.route('/register_enigma', {
 		BlazeLayout.render('top', Events['event_enigma']);
 	}
 });
-FlowRouter.route('/register_algomania', {
+FlowRouter.route('/register_algorithma', {
 	action: () => {	
 		document.title = 'Algomania';
 		BlazeLayout.render('top', Events['event_algomania']);
@@ -908,7 +908,7 @@ FlowRouter.route('/workshops', {
 	action: () => {	window.location.href='/views/workshops/workshops.html'; }
 });
 FlowRouter.route('/paperpresentation', {
-	action: () => {	window.location.href='/views/techy/paper_pres.html'; }
+	action: () => {	window.location.href='/views/tech/paper_pres.html'; }
 });
 FlowRouter.route('/', {
 	action: () => { window.location.href='/index.html'; }
@@ -1121,7 +1121,9 @@ Template.user.events({
 			table.style.display = 'block';
 			head.style.display = 'flex';
 
-			for(var col in val[0]){
+			var last = val[val.length - 1];
+
+			for(var col in last){
 				if(col === '_id') continue;
 				var th = document.createElement('th');
 				th.innerHTML = col;
