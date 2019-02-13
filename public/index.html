@@ -113,6 +113,36 @@
         $('.flex-container').addClass('loadOut');
       })
     </script>
+    <script>
+// Set the date we're counting down to
+var countDownDate = new Date("Feb 22, 2019 8:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo10").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo10").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
 </head>
 
 <body>
@@ -123,6 +153,7 @@
     <div class="overlaynav-content" >
       <div class="row justify-content-center no-gutters">
         <div  style="margin-top:9%;" class="col-sm-6 text-center">
+
           <a href="/index.html">Home</a>
           <a href="/views/sponsors.html">Sponsors</a>
           <a href="/views/team.html">Contact Us</a>
@@ -313,13 +344,14 @@
                             </div>
                             <div class="container heroText">
                               <div class="hero">
-                                22 - 24th Feb
+                                22 - 24th Feb<br>
+
                               </div>
                               IIT Hyderabad 
                             </div>
                             <div class="heroAnnouncement"><a href='/workshops' style="text-decoration: underline;"> Learn new things, join us for <br> Workshops! </a>&nbsp;&nbsp;<a href='/workshops' style="text-decoration: underline;">Accomodation </a></div>
 
-                            <div class="socialIcons">
+                            <div class="socialIcons">Begins in<p id="demo10" style="font-size: 25px;"> </p> 
                               <a class="fbIcon" href="https://www.facebook.com/elan.iithyderabad/" style="font-size: 0.9em;"><i class="fab fa-facebook-f"></i></a>
                               <a class="twIcon" href="https://twitter.com/elan_nvision" style="font-size: 0.9em; margin-left: calc(5px + 1vw)"><i class="fab fa-twitter"></i></a>
                               <a class="ytIcon" href="https://www.youtube.com/user/ElanIITHyderabad" style="margin-left: calc(5px + 1vw)"><i class="fab fa-youtube"></i></a>
@@ -478,6 +510,7 @@
             </div>
         </div>
     </div>
+    
     <!-- <script src="js/pagescroll.js"></script> -->
     <script src="js/waveBg.js"></script>
     <script type="text/javascript">
