@@ -957,7 +957,10 @@ Meteor.methods({
 
 		var t = parseInt(table);console.log(t);
 		var colPropNames = [];
-		if(isNaN(t) || t < 0 || t >= Tables.length){
+		if(isNaN(t) || t >= Tables.length) return 'Invalid Table Index';
+		if(t === -2) return 'Workshops Table Export not supported yet';
+		
+		if(t === -1){
 			t = Meteor.users;
 			colPropNames = [ 'phoneNumber', 'city', 'collegeName', 'services.google.name', 'isAdmin']
 				.concat(Events);
