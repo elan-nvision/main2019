@@ -975,7 +975,35 @@ Meteor.methods({
 		if(!admin.isAdmin) return 'Access Denied';
 
 		if(idx > Tables.length -1) return [];
-		else if (idx < 0) {
+		if(idx < -2) return [];
+		else if (idx === -2) { //Workshops DB is requested
+			var list = Workshops.find().fetch();
+			var name = 'undefined';
+			var ids = [], names = [];
+
+			for(var work of list){
+				var name = work.name;
+				delete work.name;
+				delete work._id;
+				var newIds = Object.keys(work);
+				ids = ids.concat(newIds);
+				names = names.concat(Array(newIds.length).fill(name));
+			}
+
+			var fields = { visited: 0, profile: 0, createdAt: 0, event_game: 0};
+			return Meteor.users.find({_id:{$in:ids}}, {fields: fields}).map((s, idx) => {
+				s.name = s.services.google.name;
+				s.workshop = names[idx];
+				delete s.services;
+				for(var i in s) if(i.startsWith('event_'))
+					delete s[i];
+				return s;
+			});
+
+
+
+		}
+		else if (idx === -1) { //Users DB is requested
 			var fields = { visited: 0, createdAt: 0, profile: 0, event_game: 0};
 			return Meteor.users.find({}, {fields: fields}).map((s) => {
 				s.name = s.services.google.name;
@@ -1008,7 +1036,7 @@ Meteor.methods({
 	getDBNameList: (id) => {
 		var user = Meteor.users.findOne({_id: id});
 		if(user && user.isAdmin)
-			return ['Users'].concat(Events.map((s) => s.toUpperCase()));
+			return ['Workshops', 'Users'].concat(Events.map((s) => s.toUpperCase()));
 		else return null;
 	},
 

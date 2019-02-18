@@ -1108,7 +1108,7 @@ Template.user.events({
 	},
 	'click .dump_db':() => { 
 		var idx = document.getElementById('db_list');
-		idx = idx.selectedIndex - 1;
+		idx = idx.selectedIndex - 2;
 
 		Meteor.call('getEventData', Meteor.userId(), idx, (err, val) => {
 			if(val === []) {
@@ -1121,9 +1121,9 @@ Template.user.events({
 			table.style.display = 'block';
 			head.style.display = 'flex';
 
-			var last = val[val.length - 1];
+			// var last = val[val.length - 1];
 
-			for(var col in last){
+			for(var col in val[0]){
 				if(col === '_id') continue;
 				var th = document.createElement('th');
 				th.innerHTML = col;
