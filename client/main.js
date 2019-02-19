@@ -892,6 +892,9 @@ FlowRouter.route('/paperpresentation', {
 FlowRouter.route('/civil', {
 	action: () => {	window.location.href='/views/tech/civil.html'; }
 });
+FlowRouter.route('/hackathon', {
+	action: () => {	window.location.href='/views/tech/hackathon.html'; }
+});
 FlowRouter.route('/art', {
 	action: () => {	window.location.href='/views/culti/art.html'; }
 });
