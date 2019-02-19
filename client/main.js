@@ -910,6 +910,9 @@ FlowRouter.route('/workshops', {
 FlowRouter.route('/paperpresentation', {
 	action: () => {	window.location.href='/views/tech/paper_pres.html'; }
 });
+FlowRouter.route('/accomodation', {
+	action: () => {	window.location.href='/views/accomodation.html'; }
+});
 FlowRouter.route('/', {
 	action: () => { window.location.href='/index.html'; }
 });
