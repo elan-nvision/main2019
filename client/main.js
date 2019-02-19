@@ -910,6 +910,9 @@ FlowRouter.route('/workshops', {
 FlowRouter.route('/paperpresentation', {
 	action: () => {	window.location.href='/views/tech/paper_pres.html'; }
 });
+FlowRouter.route('/accomodation', {
+	action: () => {	window.location.href='/views/accomodation.html'; }
+});
 FlowRouter.route('/', {
 	action: () => { window.location.href='/index.html'; }
 });
@@ -1072,7 +1075,7 @@ Template.user.events({
 			label.innerHTML = 'Enter the Spreadsheet Name Correctly';
 			return;
 		}
-		var table = list.selectedIndex -1;
+		var table = list.selectedIndex - 2;
 
 		Meteor.call('exportTableToSheet', Meteor.userId(), sheet, table, (err, val) => {
 				label.innerHTML = val;
