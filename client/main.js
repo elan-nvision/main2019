@@ -1072,7 +1072,7 @@ Template.user.events({
 			label.innerHTML = 'Enter the Spreadsheet Name Correctly';
 			return;
 		}
-		var table = list.selectedIndex -1;
+		var table = list.selectedIndex - 2;
 
 		Meteor.call('exportTableToSheet', Meteor.userId(), sheet, table, (err, val) => {
 				label.innerHTML = val;
