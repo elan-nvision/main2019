@@ -224,8 +224,8 @@ Events = {
 		minPerTeam: 1,
 		maxPerTeam: 3,
 	},
-	'event_machina_doctrina': {
-		eventName: 'event_machina_doctrina',
+	'event_machinaDoctrina': {
+		eventName: 'event_machinaDoctrina',
 		title: 'Machine Doctrina',
 		name: 'Machine Doctrina',
 		cfLink: '/me',
@@ -710,7 +710,7 @@ FlowRouter.route('/register_iot_challenge', {
 FlowRouter.route('/register_machina_doctrina', {
 	action: () => {	
 		document.title = 'Machine Doctrina';
-		BlazeLayout.render('top', Events['event_machina_doctrina']);
+		BlazeLayout.render('top', Events['event_machinaDoctrina']);
 	}
 });
 FlowRouter.route('/register_elektabuzz', {
@@ -880,6 +880,18 @@ FlowRouter.route('/kludge', {
 FlowRouter.route('/infero', {
 	action: () => {	window.location.href='/views/tech/infero.html'; }
 });
+FlowRouter.route('/ecell', {
+	action: () => {	window.location.href='/views/tech/Ecell.html'; }
+});
+FlowRouter.route('/quizzes', {
+	action: () => {	window.location.href='/views/tech/quiz.html'; }
+});
+FlowRouter.route('/paperpresentation', {
+	action: () => {	window.location.href='/views/tech/paper_pres.html'; }
+});
+FlowRouter.route('/civil', {
+	action: () => {	window.location.href='/views/tech/civil.html'; }
+});
 FlowRouter.route('/art', {
 	action: () => {	window.location.href='/views/culti/art.html'; }
 });
@@ -888,12 +900,6 @@ FlowRouter.route('/dance', {
 });
 FlowRouter.route('/drama', {
 	action: () => {	window.location.href='/views/culti/drama.html'; }
-});
-FlowRouter.route('/ecell', {
-	action: () => {	window.location.href='/views/tech/Ecell.html'; }
-});
-FlowRouter.route('/quizzes', {
-	action: () => {	window.location.href='/views/tech/quiz.html'; }
 });
 FlowRouter.route('/moviemaking', {
 	action: () => {	window.location.href='/views/culti/moviemaking.html'; }
@@ -907,11 +913,8 @@ FlowRouter.route('/photography', {
 FlowRouter.route('/workshops', {
 	action: () => {	window.location.href='/views/workshops/workshops.html'; }
 });
-FlowRouter.route('/paperpresentation', {
-	action: () => {	window.location.href='/views/tech/paper_pres.html'; }
-});
-FlowRouter.route('/accomodation', {
-	action: () => {	window.location.href='/views/accomodation.html'; }
+FlowRouter.route('/accommodation', {
+	action: () => {	window.location.href='/views/accommodation.html'; }
 });
 FlowRouter.route('/', {
 	action: () => { window.location.href='/index.html'; }

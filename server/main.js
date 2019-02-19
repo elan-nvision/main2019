@@ -320,6 +320,7 @@ Constructors = [
 			phoneNumber: masterUser.phoneNumber,
 			collegeName: masterUser.collegeName,
 			city: masterUser.city,
+			teamID: ' '
 		}
 	},//Battle Bots
 	(masterUser, eventIndex) => {
