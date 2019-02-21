@@ -889,6 +889,9 @@ FlowRouter.route('/quizzes', {
 FlowRouter.route('/paperpresentation', {
 	action: () => {	window.location.href='/views/tech/paper_pres.html'; }
 });
+FlowRouter.route('/pronites', {
+	action: () => {	window.location.href='/views/pronites.html'; }
+});
 FlowRouter.route('/civil', {
 	action: () => {	window.location.href='/views/tech/civil.html'; }
 });
