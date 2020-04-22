@@ -895,9 +895,9 @@ FlowRouter.route('/pronites', {
 FlowRouter.route('/civil', {
 	action: () => {	window.location.href='/views/tech/civil.html'; }
 });
-FlowRouter.route('/hackathon', {
-	action: () => {	window.location.href='/views/tech/hackathon.html'; }
-});
+// FlowRouter.route('/hackathon', {
+// 	action: () => {	window.location.href='/views/tech/hackathon.html'; }
+// });
 FlowRouter.route('/art', {
 	action: () => {	window.location.href='/views/culti/art.html'; }
 });
@@ -1087,6 +1087,19 @@ Template.user.events({
 		var table = list.selectedIndex - 2;
 
 		Meteor.call('exportTableToSheet', Meteor.userId(), sheet, table, (err, val) => {
+				label.innerHTML = val;
+		});
+	},
+	'click .exportEvent':() => {
+		var sheet = document.getElementById('admin_sheet').value;
+		var label = document.getElementById('admin_output');
+
+		if(!sheet) {
+			label.innerHTML = 'Enter the Spreadsheet Name Correctly';
+			return;
+		}
+
+		Meteor.call('exportAllEventsToSheet', Meteor.userId(), sheet, (err, val) => {
 				label.innerHTML = val;
 		});
 	},

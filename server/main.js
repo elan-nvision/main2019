@@ -939,6 +939,28 @@ exportTable = (table, colPropNames, spreadsheetName) => {
 }
 
 Meteor.methods({
+	registerManual: (email, phone, city, college, name) => {
+		var find = Meteor.users.findOne({'services.google.email': email});
+		if(find) return 'Email already exists';
+
+		var numElanIDs = IDS.findOne().num;
+		var str = numElanIDs.toString(36);
+		while(str.length < 4) str = '0' + str;
+		str = 'EL' + str + Math.random().toString(36).substring(2, 4);
+		IDS.update({}, {$set: {num: (numElanIDs + 1)}});
+
+
+		var v = {
+			phoneNumber: phone,
+			city: city,
+			collegeName: college,
+			'services.google.name': name,
+			'services.google.email': email,
+			elanID: str
+		};
+
+		Meteor.users.insert(t);
+	},
 	visitedWorkshop: (id, workshop) => {
 		var v = Workshops.findOne({ name: workshop });
 		var t = {}; t[id] = 1;
@@ -996,6 +1018,78 @@ Meteor.methods({
 		}
 
 		return exportTable(t, colPropNames, spreadsheetName);
+	},
+	exportAllEventsToSheet:(adminID, spreadsheetName) => {
+		var admin = Meteor.users.findOne({_id: adminID});
+		if(!admin.isAdmin) return 'Access Denied';
+
+		var serviceAcc = ServiceConfiguration.configurations.find().fetch();
+		if(!serviceAcc || serviceAcc[0] === undefined) return 'Service Account config invalid.';
+		if(!spreadsheetName) return 'Spreadsheet Name invalid';
+
+		console.log('Admin ' + admin.name + ' (id:' + admin._id + ') has started All Event export...');
+		var colPropNames = ['name', 'email', 'phoneNumber', 'city', 'collegeName']
+			.concat(Events);
+
+		var people = Meteor.users.find({}, {fields: {profile: 0, createdAt: 0, isAdmin: 0}}).map((s) => {
+			s.name = s.services.google.name;
+			s.email = s.services.google.email;
+			delete s.services;
+			return s;
+		});
+
+		console.log('Exporting Event Data to Spreadsheet: \'' + spreadsheetName + '\'');
+
+		var obj = { 1: {} };
+
+		for (var i = 1; i <= colPropNames.length; i++) {
+			obj[1][i] = colPropNames[i-1];
+		}
+
+		var row = 2;
+		people.forEach((user) => {
+			obj[row] = {};
+			var col = 1;
+			colPropNames.forEach((propName) => {
+				if(propName.startsWith('event_')){
+					if(user[propName]) obj[row][col] = 'Registered';
+					else if(user.visited && user.visited[propName]) obj[row][col] = 'Visited Only';
+					else obj[row][col] = '';
+				}
+				else if (user[propName]) obj[row][col] = user[propName].toString();
+				else obj[row][col] = '';
+				col++;
+			});
+			row++;
+		});
+
+		console.log('Data Compiling Complete, uploading...');
+
+		var len = Object.keys(obj).length;
+		var values = Object.values(obj);
+
+		console.log("Length of output =", len);
+
+		var sheet = 1;
+
+		for(var x = 1; x < len; x += 500){
+
+			var page = Object.assign({}, ['', ''].concat(values.slice(x, x + 500)));
+			delete page['0'];
+			page['1'] = obj['1'];
+
+			console.log(String(x/500 + 1));
+
+			Meteor.call("spreadsheet/update", spreadsheetName, sheet, page, 
+				{email: serviceAcc[0].serviceEmail}, 
+				(err, val) => {
+					if(val) console.log('Upload Successful.');
+					else console.log('Some Error occoured, please check server logs.');
+				}
+			);
+			sheet++;
+		}
+
 	},
 
 	getEventData: (adminId, idx) => {
